@@ -1,0 +1,48 @@
+---
+layout: default
+title: Archive
+permalink: /archive/
+---
+
+<div class="archive">
+  <h1 class="page-heading">Archive</h1>
+  
+  <div class="year-list">
+    {% assign postsByYear = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+    {% for year in postsByYear %}
+      <a href="#{{ year.name }}" class="year-item">{{ year.name }} <span class="year-count">({{ year.items.size }})</span></a>
+    {% endfor %}
+  </div>
+  
+  <div class="header-content-separator">
+    <div class="custom-hr"></div>
+  </div>
+  
+  {% for year in postsByYear %}
+    <div class="year-section">
+      <h2 id="{{ year.name }}">{{ year.name }}</h2>
+      <div class="post-list">
+        {% for post in year.items %}
+        <div class="post-line">
+          <span class="post-bullet"></span>
+          <a href="{{ post.url | relative_url }}" class="post-title">{{ post.title | escape }}</a>
+          <span class="post-meta">
+            - {{ post.date | date: site.date_format }}
+            {% if post.categories.size > 0 %}
+            in 
+            {% for category in post.categories %}
+            <a href="{{ '/categories/' | relative_url }}#{{ category | slugify }}">{{ category }}</a>{% unless forloop.last %}, {% endunless %}
+            {% endfor %}
+            {% endif %}
+          </span>
+        </div>
+        {% endfor %}
+      </div>
+      {% unless forloop.last %}
+      <div class="section-separator">
+        <a href="#" class="back-to-top">Back to top</a>
+      </div>
+      {% endunless %}
+    </div>
+  {% endfor %}
+</div> 

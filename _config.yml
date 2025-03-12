@@ -1,0 +1,56 @@
+title: Leonardo Pereira
+email: me@www.leonardopereira.com
+description: >-
+  Personal blog where I share my thoughts about programming, 
+  technology, and other interesting topics.
+baseurl: ""
+url: "https://dantetekanem.github.io"
+twitter_username: dantetekanem
+github_username:  dantetekanem
+
+# Build settings
+markdown: kramdown
+permalink: /:year/:month/:day/:title/
+show_excerpts: true
+paginate: 10
+paginate_path: "/page/:num/"
+
+# Additional settings
+timezone: America/Toronto
+future: false
+highlighter: rouge
+
+# Plugins
+plugins:
+  - jekyll-paginate
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Date format
+date_format: "%b %-d, %Y"
+
+# Defaults
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      comments: false
+  -
+    scope:
+      path: ""
+    values:
+      layout: "default"
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .git/
+  - .github/
+  - README.md 

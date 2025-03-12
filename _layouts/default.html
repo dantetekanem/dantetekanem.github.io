@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include head.html %}
+</head>
+<body>
+  <div class="container-fluid base">
+    <div class="top-40px">
+      <div class="header-row">
+        <div class="header-left">
+          <div class="dots-container">
+            <span class="dot bg-violet"></span>
+            <span class="dot bg-capri"></span>
+            <span class="dot bg-white"></span>
+          </div>
+          <h1 class="site-title"><a href="{{ '/' | relative_url }}" class="site-title-link">Leo's Blog</a></h1>
+        </div>
+        <div class="return-button">
+          {% if page.layout == 'home' or page.url == '/' %}
+            <a href="https://www.leonardopereira.com" class="btn btn-profile">Back to Homepage</a>
+          {% else %}
+            <a href="{{ '/' | relative_url }}" class="btn btn-profile">Back to Blog</a>
+          {% endif %}
+        </div>
+      </div>
+      
+      <div class="header-content-separator">
+        <div class="custom-hr"></div>
+      </div>
+      
+      <main class="page-content">
+        {{ content }}
+      </main>
+    </div>
+  </div>
+</body>
+</html> 

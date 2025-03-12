@@ -1,0 +1,52 @@
+---
+layout: default
+title: Categories
+permalink: /categories/
+---
+
+<div class="categories-page">
+  <h1 class="page-heading">Categories</h1>
+  
+  <div class="category-list">
+    {% assign categories_list = site.categories | sort %}
+    {% for category in categories_list %}
+      <a href="#{{ category[0] | slugify }}" class="category-item">
+        {{ category[0] }} <span class="category-count">({{ category[1].size }})</span>
+      </a>
+    {% endfor %}
+  </div>
+  
+  <div class="header-content-separator">
+    <div class="custom-hr"></div>
+  </div>
+  
+  <div class="category-contents">
+    {% for category in categories_list %}
+      <div class="category-section">
+        <h2 id="{{ category[0] | slugify }}">{{ category[0] }}</h2>
+        <div class="post-list">
+          {% for post in category[1] %}
+          <div class="post-line">
+            <span class="post-bullet"></span>
+            <a href="{{ post.url | relative_url }}" class="post-title">{{ post.title | escape }}</a>
+            <span class="post-meta">
+              - {{ post.date | date: site.date_format }}
+              {% if post.categories.size > 0 and post.categories.size > 1 %}
+              in 
+              {% for cat in post.categories %}
+                {% if cat != category[0] %}
+                <a href="{{ '/categories/' | relative_url }}#{{ cat | slugify }}">{{ cat }}</a>{% unless forloop.last and forloop.index > 1 %}, {% endunless %}
+                {% endif %}
+              {% endfor %}
+              {% endif %}
+            </span>
+          </div>
+          {% endfor %}
+        </div>
+        <div class="section-separator">
+          <a href="#" class="back-to-top">Back to top</a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div> 

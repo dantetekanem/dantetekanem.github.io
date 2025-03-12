@@ -1,0 +1,50 @@
+---
+layout: default
+title: Tags
+permalink: /tags/
+---
+
+<div class="tags-page">
+  <h1 class="page-heading">Tags</h1>
+  
+  <div class="tag-cloud">
+    {% assign tags_list = site.tags | sort %}
+    {% for tag in tags_list %}
+      <a href="#{{ tag[0] | slugify }}" class="tag-item">
+        {{ tag[0] }} <span class="tag-count">({{ tag[1].size }})</span>
+      </a>
+    {% endfor %}
+  </div>
+  
+  <div class="header-content-separator">
+    <div class="custom-hr"></div>
+  </div>
+  
+  <div class="tag-contents">
+    {% for tag in tags_list %}
+      <div class="tag-section">
+        <h2 id="{{ tag[0] | slugify }}">{{ tag[0] }}</h2>
+        <div class="post-list">
+          {% for post in tag[1] %}
+          <div class="post-line">
+            <span class="post-bullet"></span>
+            <a href="{{ post.url | relative_url }}" class="post-title">{{ post.title | escape }}</a>
+            <span class="post-meta">
+              - {{ post.date | date: site.date_format }}
+              {% if post.categories.size > 0 %}
+              in 
+              {% for category in post.categories %}
+              <a href="{{ '/categories/' | relative_url }}#{{ category | slugify }}">{{ category }}</a>{% unless forloop.last %}, {% endunless %}
+              {% endfor %}
+              {% endif %}
+            </span>
+          </div>
+          {% endfor %}
+        </div>
+        <div class="section-separator">
+          <a href="#" class="back-to-top">Back to top</a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div> 

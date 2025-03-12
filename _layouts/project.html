@@ -1,0 +1,47 @@
+---
+layout: default
+---
+
+<article class="project">
+  <header class="project-header">
+    <h1 class="project-title">{{ page.title | escape }}</h1>
+    <div class="project-meta">
+      {% if page.date %}
+      <time datetime="{{ page.date | date_to_xmlschema }}">
+        {{ page.date | date: site.date_format }}
+      </time>
+      {% endif %}
+      {% if page.technologies %}
+      <span class="project-technologies">
+        • Technologies: {{ page.technologies | join: ", " }}
+      </span>
+      {% endif %}
+    </div>
+  </header>
+
+  <div class="project-content">
+    {% if page.image %}
+    <div class="project-image">
+      <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+    </div>
+    {% endif %}
+    
+    {{ content }}
+  </div>
+
+  {% if page.demo_url or page.github_url %}
+  <div class="project-links">
+    {% if page.demo_url %}
+    <a href="{{ page.demo_url }}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+      View Demo
+    </a>
+    {% endif %}
+    
+    {% if page.github_url %}
+    <a href="{{ page.github_url }}" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+      View on GitHub
+    </a>
+    {% endif %}
+  </div>
+  {% endif %}
+</article> 
