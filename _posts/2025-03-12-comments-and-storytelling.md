@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Comments and Storyline
+title: Comments and Storytelling
 date: 2025-03-12 15:38 -0400
 categories: [programming, software design]
 tags: [clean code, a philosophy of software design, comments, programming]
