@@ -134,4 +134,4 @@ These examples show exactly what I'm talking about — comments that go beyond j
 Now, comments should give context and answer questions that code cannot do. Explain the whys. Otherwise, your code should always be self-explanatory. This includes using good class names and methods that follow good principles and have good design. So you won't over-engineer anything or add hundreds of bad comments.
 Frameworks (such as Rails) have [great examples](https://github.com/rails/rails/blob/main/activesupport/lib/active_support/concern.rb) of comments that add context, explanations and lead you to a correct solution.
 
-Happy coding!
+<span style="color: #F2C94C;">Happy coding!</span>
