@@ -62,4 +62,28 @@ layout: default
       {% endif %}
     </div>
   </div>
-</article> 
+</article>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Get all links within the post content only (not navigation or other areas)
+    const postContentLinks = document.querySelector('.post-content').getElementsByTagName('a');
+    
+    // For each link in the post content
+    for (let i = 0; i < postContentLinks.length; i++) {
+      const link = postContentLinks[i];
+      
+      // Skip links that are already set to open in a new window
+      if (!link.hasAttribute('target')) {
+        link.setAttribute('target', '_blank');
+        link.setAttribute('rel', 'noopener noreferrer');
+      }
+      
+      // Skip links to the same site (internal links)
+      if (link.hostname === window.location.hostname) {
+        link.removeAttribute('target');
+        link.removeAttribute('rel');
+      }
+    }
+  });
+</script> 

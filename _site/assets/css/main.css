@@ -242,6 +242,10 @@ a:hover {
   font-size: 24px;
 }
 
+.post .post-content em {
+  margin-right: 4px;
+}
+
 .post .post-content p,
 .post .post-content ul,
 .post .post-content ol {
