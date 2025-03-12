@@ -44,7 +44,7 @@ body {
 }
 
 a:hover {
-  color: #F7F7FE;
+  color: #37B9F1;
   text-decoration: none;
 }
 
@@ -135,11 +135,41 @@ a:hover {
   padding: 8px 15px;
   border-radius: 4px;
   transition: background-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .btn-profile:hover {
   background-color: #5a20b0;
   color: #F7F7FE;
+}
+
+/* Shine effect */
+.btn-profile::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    transparent 100%
+  );
+  transform: skewX(-25deg);
+  transition: none;
+}
+
+.btn-profile:hover::before {
+  animation: shine 0.75s;
+}
+
+@keyframes shine {
+  100% {
+    left: 150%;
+  }
 }
 
 .post-list {
@@ -175,10 +205,28 @@ a:hover {
   color: #F7F7FE;
   margin-right: 5px;
   font-weight: 500;
+  position: relative;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .post-line .post-title:hover {
   color: #37B9F1;
+}
+
+.post-line .post-title::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: #37B9F1;
+  transition: width 0.3s ease;
+}
+
+.post-line .post-title:hover::after {
+  width: 100%;
 }
 
 .post-line .post-meta {
@@ -189,10 +237,24 @@ a:hover {
 
 .post-line .post-meta a {
   color: #37B9F1;
+  position: relative;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-.post-line .post-meta a:hover {
-  color: #F7F7FE;
+.post-line .post-meta a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: #37B9F1;
+  transition: width 0.3s ease;
+}
+
+.post-line .post-meta a:hover::after {
+  width: 100%;
 }
 
 .post-list .post-card {
@@ -219,8 +281,56 @@ a:hover {
   color: rgba(247, 247, 254, 0.8);
 }
 
+.post .post-header .post-meta a {
+  position: relative;
+  text-decoration: none;
+  color: #37B9F1;
+  transition: color 0.3s ease;
+}
+
+.post .post-header .post-meta a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: #37B9F1;
+  transition: width 0.3s ease;
+}
+
+.post .post-header .post-meta a:hover::after {
+  width: 100%;
+}
+
 .post .post-content {
   margin-top: 10px;
+}
+
+.post .post-content a {
+  position: relative;
+  text-decoration: none;
+}
+
+.post .post-content a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #37B9F1;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease-out;
+}
+
+.post .post-content a:hover {
+  color: #37B9F1;
+}
+
+.post .post-content a:hover::after {
+  transform: scaleX(1);
 }
 
 .post .post-content h1,
@@ -300,10 +410,32 @@ a:hover {
   margin-right: 10px;
   margin-bottom: 10px;
   font-size: 14px;
+  position: relative;
+  text-decoration: none;
+  color: #37B9F1;
+  transition: all 0.3s ease;
 }
 
 .post .post-tags .post-tag:hover {
   background-color: rgba(55, 185, 241, 0.4);
+  color: #37B9F1;
+}
+
+.post .post-tags .post-tag::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: #37B9F1;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease-out;
+}
+
+.post .post-tags .post-tag:hover::after {
+  transform: scaleX(1);
 }
 
 .post .post-navigation {
@@ -368,10 +500,28 @@ a:hover {
 
 .archive .post-list-archive li .post-link {
   color: #F7F7FE;
+  position: relative;
 }
 
 .archive .post-list-archive li .post-link:hover {
   color: #37B9F1;
+}
+
+.archive .post-list-archive li .post-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: #37B9F1;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease-out;
+}
+
+.archive .post-list-archive li .post-link:hover::after {
+  transform: scaleX(1);
 }
 
 .archive h2 {
@@ -397,13 +547,45 @@ a:hover {
   background-color: rgba(55, 185, 241, 0.1);
   padding: 5px 12px;
   border-radius: 15px;
-  transition: background-color 0.3s;
+  transition: all 0.3s ease;
+  position: relative;
+  text-decoration: none;
 }
 
 .year-item:hover,
 .category-item:hover,
 .tag-item:hover {
   background-color: rgba(55, 185, 241, 0.3);
+  color: #37B9F1;
+}
+
+.year-item a,
+.category-item a,
+.tag-item a {
+  position: relative;
+  color: inherit;
+  text-decoration: none;
+}
+
+.year-item a::after,
+.category-item a::after,
+.tag-item a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: #37B9F1;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease-out;
+}
+
+.year-item:hover a::after,
+.category-item:hover a::after,
+.tag-item:hover a::after {
+  transform: scaleX(1);
 }
 
 .year-count,
