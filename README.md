@@ -46,6 +46,12 @@ tags: [tag1, tag2, tag3]
 Your post content here...
 ```
 
+Or use the post command:
+
+```
+jekyll post "Title Of The Post"
+```
+
 ## License
 
 This project is open source and available under the [MIT License](LICENSE). 
