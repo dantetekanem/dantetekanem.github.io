@@ -680,6 +680,37 @@ hr {
     padding: 6px 12px;
     font-size: 16px;
   }
+
+  /* Improve code block wrapping on mobile */
+  .post .post-content pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-x: auto;
+    max-width: 100%;
+  }
+
+  .post .post-content pre code {
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  /* Improve inline code display on mobile */
+  .post .post-content code {
+    word-break: break-word;
+    white-space: normal;
+  }
+
+  /* Improve image display on mobile */
+  .post .post-content img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Improve long inline text display */
+  .post .post-content p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
 }
 
 .site-footer {
