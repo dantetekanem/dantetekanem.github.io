@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Softmax Visualization</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen p-6">
+    <div class="max-w-6xl mx-auto">
+        <header class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-gray-800 mb-2">Softmax Algorithm Visualization</h1>
+            <p class="text-gray-600">Softmax converts any set of numbers into probabilities that sum to 1. Used in machine learning for classification, neural networks, and recommendation systems. Try adjusting the inputs to see how probabilities change!</p>
+        </header>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Input Controls</h2>
+                <div id="inputControls" class="space-y-4">
+                    <div class="flex items-center justify-between">
+                        <label class="text-sm font-medium text-gray-700">Number of inputs:</label>
+                        <input type="range" id="inputCount" min="2" max="8" value="3" class="w-32">
+                        <span id="inputCountValue" class="text-sm font-mono bg-gray-100 px-2 py-1 rounded">3</span>
+                    </div>
+                    <div id="inputSliders" class="space-y-3">
+                    </div>
+                </div>
+                
+                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+                    <h3 class="text-lg font-medium text-gray-800 mb-2">Raw Inputs</h3>
+                    <div id="rawInputs" class="text-sm font-mono text-gray-600"></div>
+                    <button id="randomizeSoftmax" class="mt-3 px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg">
+                        🎲 Randomize Values
+                    </button>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Softmax Results</h2>
+                <div id="softmaxResults" class="space-y-4">
+                </div>
+                
+                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+                    <h3 class="text-lg font-medium text-gray-800 mb-2">Probability Distribution</h3>
+                    <div id="probabilityChart" class="h-32 bg-white rounded border-2 border-gray-200 relative overflow-hidden">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-8 bg-white rounded-xl shadow-lg p-6">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Mathematical Details</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="p-4 bg-blue-50 rounded-lg">
+                    <h3 class="font-medium text-blue-800 mb-2">Formula</h3>
+                    <p class="text-sm text-blue-700">σ(xᵢ) = eˣⁱ / Σⱼeˣʲ</p>
+                </div>
+                <div class="p-4 bg-green-50 rounded-lg">
+                    <h3 class="font-medium text-green-800 mb-2">Sum of Probabilities</h3>
+                    <p id="sumProbabilities" class="text-sm font-mono text-green-700">1.000</p>
+                </div>
+                <div class="p-4 bg-purple-50 rounded-lg">
+                    <h3 class="font-medium text-purple-800 mb-2">Max Probability</h3>
+                    <p id="maxProbability" class="text-sm font-mono text-purple-700">0.000</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="softmax.js"></script>
+    <script src="controller.js"></script>
+</body>
+</html>

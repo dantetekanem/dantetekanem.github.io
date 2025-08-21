@@ -3,47 +3,73 @@ layout: default
 ---
 
 <div class="home">
-  <div class="post-list">
-    {% for post in paginator.posts %}
-    <div class="post-line">
-      <span class="post-bullet"></span>
-      <a href="{{ post.url | relative_url }}" class="post-title">{{ post.title | escape }}</a>
-      <span class="post-meta">
-        - {{ post.date | date: site.date_format }}
-        {% if post.categories.size > 0 %}
-        in 
-        {% for category in post.categories %}
-        <a href="{{ '/categories/' | relative_url }}#{{ category | slugify }}">{{ category }}</a>{% unless forloop.last %}, {% endunless %}
-        {% endfor %}
-        {% endif %}
-      </span>
+  <div class="posts-section">
+    <h2 class="section-title">Blog Posts</h2>
+    
+    <div class="post-list">
+      {% for post in paginator.posts %}
+      <div class="post-line">
+        <span class="post-bullet"></span>
+        <a href="{{ post.url | relative_url }}" class="post-title">{{ post.title | escape }}</a>
+        <span class="post-meta">
+          - {{ post.date | date: site.date_format }}
+          {% if post.categories.size > 0 %}
+          in 
+          {% for category in post.categories %}
+          <a href="{{ '/categories/' | relative_url }}#{{ category | slugify }}">{{ category }}</a>{% unless forloop.last %}, {% endunless %}
+          {% endfor %}
+          {% endif %}
+        </span>
+      </div>
+      {% endfor %}
     </div>
-    {% endfor %}
-  </div>
-  
-  {% if paginator.total_pages > 1 %}
-  <div class="pagination">
-    {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path | relative_url }}" class="previous">&laquo; Previous</a>
-    {% else %}
-    <span class="previous">&laquo; Previous</span>
-    {% endif %}
     
-    {% for page in (1..paginator.total_pages) %}
-      {% if page == paginator.page %}
-      <span class="page-number current">{{ page }}</span>
-      {% elsif page == 1 %}
-      <a href="{{ '/' | relative_url }}" class="page-number">{{ page }}</a>
+    {% if paginator.total_pages > 1 %}
+    <div class="pagination">
+      {% if paginator.previous_page %}
+      <a href="{{ paginator.previous_page_path | relative_url }}" class="previous">&laquo; Previous</a>
       {% else %}
-      <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}" class="page-number">{{ page }}</a>
+      <span class="previous">&laquo; Previous</span>
       {% endif %}
-    {% endfor %}
-    
-    {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path | relative_url }}" class="next">Next &raquo;</a>
-    {% else %}
-    <span class="next">Next &raquo;</span>
+      
+      {% for page in (1..paginator.total_pages) %}
+        {% if page == paginator.page %}
+        <span class="page-number current">{{ page }}</span>
+        {% elsif page == 1 %}
+        <a href="{{ '/' | relative_url }}" class="page-number">{{ page }}</a>
+        {% else %}
+        <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}" class="page-number">{{ page }}</a>
+        {% endif %}
+      {% endfor %}
+      
+      {% if paginator.next_page %}
+      <a href="{{ paginator.next_page_path | relative_url }}" class="next">Next &raquo;</a>
+      {% else %}
+      <span class="next">Next &raquo;</span>
+      {% endif %}
+    </div>
     {% endif %}
   </div>
-  {% endif %}
+
+  <div class="experiments-section">
+    <h2 class="section-title">Experiments</h2>
+    <p class="section-description">Interactive visualizations and algorithms to explore</p>
+    
+    <div class="experiments-grid">
+      <a href="{{ '/experiments/astar/' | relative_url }}" class="experiment-card" target="_blank">
+        <h3 class="experiment-title">A* Pathfinding Algorithm</h3>
+        <p class="experiment-description">Interactive pathfinding with multiple heuristics. A* finds the shortest path between two points while avoiding obstacles. Used in games, robotics, and navigation systems!</p>
+      </a>
+      
+      <a href="{{ '/experiments/levelup/' | relative_url }}" class="experiment-card" target="_blank">
+        <h3 class="experiment-title">Level Up Growth Visualization</h3>
+        <p class="experiment-description">Explore different growth algorithms: Flat, Quadratic, and Exponential. Visualize how experience requirements change as you level up!</p>
+      </a>
+      
+      <a href="{{ '/experiments/softmax/' | relative_url }}" class="experiment-card" target="_blank">
+        <h3 class="experiment-title">Softmax Visualization</h3>
+        <p class="experiment-description">Softmax converts any set of numbers into probabilities that sum to 1. Used in machine learning for classification, neural networks, and recommendation systems.</p>
+      </a>
+    </div>
+  </div>
 </div> 

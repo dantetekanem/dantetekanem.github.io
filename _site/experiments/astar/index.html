@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A* Pathfinding Algorithm Visualization</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gradient-to-br from-purple-50 to-pink-100 min-h-screen p-6">
+    <div class="max-w-7xl mx-auto">
+        <header class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-gray-800 mb-2">A* Pathfinding Algorithm Visualization</h1>
+            <p class="text-gray-600">Interactive pathfinding with multiple heuristics. A* finds the shortest path between two points while avoiding obstacles. Used in games, robotics, and navigation systems!</p>
+        </header>
+
+        <div class="grid grid-cols-1 xl:grid-cols-4 gap-8">
+            <div class="xl:col-span-1 space-y-6">
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-4">Algorithm Controls</h2>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Heuristic Function</label>
+                            <select id="heuristicSelect" class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                                <option value="manhattan">Manhattan Distance</option>
+                                <option value="euclidean">Euclidean Distance</option>
+                                <option value="octile">Octile Distance</option>
+                                <option value="chebyshev">Chebyshev Distance</option>
+                                <option value="diagonal">Diagonal Distance</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Heuristic Weight</label>
+                            <div class="flex items-center space-x-3">
+                                <input type="range" id="weightSlider" min="0.1" max="2.0" step="0.1" value="1.0" class="flex-1">
+                                <span id="weightValue" class="text-sm font-mono bg-gray-100 px-2 py-1 rounded w-16 text-center">1.0</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Animation Speed</label>
+                            <div class="flex items-center space-x-3">
+                                <input type="range" id="speedSlider" min="1" max="20" step="1" value="10" class="flex-1">
+                                <span id="speedValue" class="text-sm font-mono bg-gray-100 px-2 py-1 rounded w-16 text-center">10ms</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-4">Maze Controls</h2>
+                    
+                    <div class="space-y-3">
+                        
+                        <button id="pathfindingToggle" class="w-full px-4 py-3 bg-green-500 hover:bg-green-600 text-white font-medium rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg">
+                            🚀 Generate Path
+                        </button>
+                        
+                        <button id="generateMaze" class="w-full px-4 py-3 bg-purple-500 hover:bg-purple-600 text-white font-medium rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg">
+                            🎲 Generate Random Maze
+                        </button>
+                        
+                        <button id="clearPath" class="w-full px-4 py-3 bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg">
+                            🧹 Clear Path
+                        </button>
+                        
+                        <button id="clearAll" class="w-full px-4 py-3 bg-red-500 hover:bg-red-600 text-white font-medium rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg">
+                            🗑️ Clear All
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-4">Statistics</h2>
+                    
+                    <div class="space-y-3 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Path Length:</span>
+                            <span id="pathLength" class="font-mono font-bold text-gray-800">0</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Nodes Explored:</span>
+                            <span id="nodesExplored" class="font-mono font-bold text-gray-800">0</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Execution Time:</span>
+                            <div class="flex items-center space-x-2">
+                                <span id="executionTime" class="font-mono font-bold text-gray-800">0ms</span>
+                                <span id="timeStatus" class="text-xs text-gray-500 hidden">⏱️</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Heuristic:</span>
+                            <span id="currentHeuristic" class="font-mono font-bold text-gray-800">Manhattan</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="xl:col-span-3">
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-4">Pathfinding Grid</h2>
+                    
+                    <div class="flex justify-center">
+                        <div class="relative">
+                            <canvas id="pathfindingCanvas" width="800" height="640" class="border-2 border-gray-300 rounded-lg cursor-crosshair"></canvas>
+                            <div class="mt-4 text-center text-sm text-gray-600">
+                                <p>Click or drag to create walls • Drag Green (Start) or Red (Target) to move them</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6 bg-white rounded-xl shadow-lg p-6">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-4">Legend</h2>
+                    
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-4 h-4 bg-green-500 rounded"></div>
+                            <span>Start Point</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-4 h-4 bg-red-500 rounded"></div>
+                            <span>Target Point</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-4 h-4 bg-gray-800 rounded"></div>
+                            <span>Wall/Obstacle</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-4 h-4 bg-yellow-400 rounded"></div>
+                            <span>Explored Node</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-4 h-4 bg-blue-500 rounded"></div>
+                            <span>Final Path</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-4 h-4 bg-purple-400 rounded"></div>
+                            <span>Frontier Node</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="heuristics.js"></script>
+    <script src="astar.js"></script>
+    <script src="storage.js"></script>
+    <script src="controller.js"></script>
+</body>
+</html>

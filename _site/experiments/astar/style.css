@@ -1,0 +1,249 @@
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-track {
+    background: #e5e7eb;
+    height: 6px;
+    border-radius: 3px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    background: linear-gradient(135deg, #8b5cf6, #a855f7);
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 8px -1px rgba(0, 0, 0, 0.15);
+}
+
+input[type="range"]::-moz-range-track {
+    background: #e5e7eb;
+    height: 6px;
+    border-radius: 3px;
+    border: none;
+}
+
+input[type="range"]::-moz-range-thumb {
+    background: linear-gradient(135deg, #8b5cf6, #a855f7);
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 8px -1px rgba(0, 0, 0, 0.15);
+}
+
+select {
+    transition: all 0.2s ease;
+}
+
+select:focus {
+    outline: none;
+    border-color: #8b5cf6;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+.bg-gradient-to-br {
+    background: linear-gradient(135deg, #faf5ff 0%, #fdf2f8 100%);
+}
+
+.shadow-lg {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.transition-colors {
+    transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.duration-200 {
+    transition-duration: 200ms;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+.pulse-animation {
+    animation: pulse 2s infinite;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.slide-in-left {
+    animation: slideInLeft 0.4s ease-out;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.slide-in-right {
+    animation: slideInRight 0.4s ease-out;
+}
+
+@keyframes pathfinding {
+    0% {
+        opacity: 0.3;
+        transform: scale(0.8);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes timeUpdate {
+    0% {
+        transform: scale(1);
+        color: #374151;
+    }
+    50% {
+        transform: scale(1.1);
+        color: #8b5cf6;
+    }
+    100% {
+        transform: scale(1);
+        color: #374151;
+    }
+}
+
+.time-update-animation {
+    animation: timeUpdate 0.3s ease-out;
+}
+
+.pathfinding-animation {
+    animation: pathfinding 0.5s ease-out;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+button:disabled:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.hover\:shadow-lg:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.hover\:bg-purple-600:hover {
+    background-color: #9333ea;
+}
+
+.hover\:bg-green-600:hover {
+    background-color: #059669;
+}
+
+.hover\:bg-yellow-600:hover {
+    background-color: #d97706;
+}
+
+.hover\:bg-blue-600:hover {
+    background-color: #2563eb;
+}
+
+.hover\:bg-red-600:hover {
+    background-color: #dc2626;
+}
+
+.bg-purple-500 {
+    background-color: #8b5cf6;
+}
+
+.bg-green-500 {
+    background-color: #10b981;
+}
+
+.bg-yellow-500 {
+    background-color: #f59e0b;
+}
+
+.bg-blue-500 {
+    background-color: #3b82f6;
+}
+
+.bg-red-500 {
+    background-color: #ef4444;
+}
+
+.cursor-crosshair {
+    cursor: crosshair;
+}
+
+.dragging {
+    cursor: grabbing !important;
+}
+
+.draggable {
+    cursor: grab;
+}
+
+.draggable:hover {
+    cursor: grabbing;
+}
+
+canvas {
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+}
