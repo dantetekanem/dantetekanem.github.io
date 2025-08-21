@@ -27,6 +27,14 @@ To run this site locally:
 
 3. View the site at [http://localhost:4000](http://localhost:4000)
 
+4. To deploy:
+```
+jekyll build
+git add -A
+git commit -m 'Your Message'
+git push
+```
+
 ## Adding Content
 
 ### Blog Posts
