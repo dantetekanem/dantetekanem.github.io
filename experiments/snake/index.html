@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Snake Game - 2D/3D</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="gameCanvas"></div>
+
+    <div class="game-menu">
+      <h1>Snake Game</h1>
+      <div class="menu-group">
+        <span class="score">Score: <span id="score">0</span></span>
+        <span class="mode">Mode: <span id="mode">2D</span></span>
+        <button id="startBtn">Start Game</button>
+        <button id="stopBtn">Stop Game</button>
+      </div>
+      <div class="controls">
+        <p><strong>Controls:</strong></p>
+        <p>SPACE - Start / Pause / Resume</p>
+        <p>F - Toggle 2D/3D Mode</p>
+        <p>Arrow Keys - Move Snake</p>
+      </div>
+    </div>
+
+    <div id="gameOverScreen" class="game-over-screen hidden">
+      <div class="game-over-content">
+        <h2>Game Over</h2>
+        <p>Final Score: <span id="finalScore">0</span></p>
+        <div class="play-prompt">
+          <p><strong>Press SPACE to play again!</strong></p>
+        </div>
+        <button id="restartBtn">Play Again</button>
+      </div>
+    </div>
+
+    <div id="pausedScreen" class="paused-screen hidden">
+      <div class="paused-content">
+        <h2>PAUSED</h2>
+        <p>Press SPACE to resume</p>
+      </div>
+    </div>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.162.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.162.0/examples/jsm/"
+        }
+      }
+    </script>
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
