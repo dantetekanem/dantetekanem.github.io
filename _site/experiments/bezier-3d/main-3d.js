@@ -84,14 +84,16 @@ const armMat = new THREE.LineDashedMaterial({ color: 0x2a2a3e, dashSize: 0.3, ga
 const armLine = new THREE.LineSegments(armGeo, armMat);
 scene.add(armLine);
 
+// Recalculates the visible Bezier curve geometry each frame.
+// Same formula as bezierPoint(), applied per-vertex into a position buffer.
 function updateCurve() {
-  const a = spheres.A.position;
-  const c = spheres.C.position;
-  const b = spheres.B.position;
+  const a = spheres.A.position; // start
+  const c = spheres.C.position; // control
+  const b = spheres.B.position; // end
 
   for (let i = 0; i < CURVE_POINTS; i++) {
-    const t = i / (CURVE_POINTS - 1);
-    const mt = 1 - t;
+    const t = i / (CURVE_POINTS - 1); // progress (0..1)
+    const mt = 1 - t;                 // complement of t
     const idx = i * 3;
     curvePositions[idx]     = mt*mt*a.x + 2*mt*t*c.x + t*t*b.x;
     curvePositions[idx + 1] = mt*mt*a.y + 2*mt*t*c.y + t*t*b.y;
@@ -238,11 +240,18 @@ function easeFF12(t) {
 }
 
 // ── Bezier eval ────────────────────────────────────────────────────
+// Evaluates position on a quadratic Bezier curve at parameter t (0..1).
+//   t  = progress along the curve (0 = start, 1 = end)
+//   a  = start point (character / source)
+//   c  = control point (pulls the curve toward it)
+//   b  = end point (enemy / target)
+//   mt = "one minus t", the complement of t
+// Formula per axis: B(t) = (1−t)² · a  +  2(1−t)t · c  +  t² · b
 function bezierPoint(t) {
-  const a = spheres.A.position;
-  const c = spheres.C.position;
-  const b = spheres.B.position;
-  const mt = 1 - t;
+  const a = spheres.A.position; // start
+  const c = spheres.C.position; // control
+  const b = spheres.B.position; // end
+  const mt = 1 - t; // complement of t
   return new THREE.Vector3(
     mt*mt*a.x + 2*mt*t*c.x + t*t*b.x,
     mt*mt*a.y + 2*mt*t*c.y + t*t*b.y,
