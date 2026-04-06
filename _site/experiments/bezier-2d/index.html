@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quadratic Curve Targeting – 2D</title>
+  <link rel="stylesheet" href="style-2d.css">
+</head>
+<body>
+  <div id="ui">
+    <h1>Quadratic Curve Targeting – 2D</h1>
+    <p>Drag the dots to reshape the curve</p>
+    <p>A = source (character) &middot; B = target (enemy) &middot; C = control point</p>
+  </div>
+  <div id="controls">
+    <button id="btnFire">Fire</button>
+    <button id="btnLoop">Loop</button>
+    <label>Speed <input type="range" id="speed" min="0.2" max="3" step="0.1" value="1"></label>
+    <label>Trail <input type="range" id="trail" min="5" max="120" step="1" value="80"></label>
+  </div>
+  <canvas id="c"></canvas>
+  <script src="main-2d.js"></script>
+</body>
+</html>

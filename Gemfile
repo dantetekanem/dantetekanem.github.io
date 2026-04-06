@@ -2,6 +2,12 @@ source "https://rubygems.org"
 
 gem "jekyll", "~> 4.4.1"
 
+# Ruby 4.0 removed these from default gems
+gem "logger"
+gem "csv"
+gem "base64"
+gem "bigdecimal"
+
 # Jekyll plugins
 group :jekyll_plugins do
   gem "jekyll-paginate"

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quadratic Curve Targeting – 3D</title>
+  <link rel="stylesheet" href="style-3d.css">
+</head>
+<body>
+  <div id="ui">
+    <h1>Quadratic Curve Targeting – 3D</h1>
+    <p>Drag the spheres to reshape the curve</p>
+    <p>A = source (character) · B = target (enemy) · C = control point</p>
+    <p>Left-click drag to orbit · Scroll to zoom · Shift+click to drag spheres</p>
+  </div>
+  <div id="controls">
+    <button id="btnFire">Fire</button>
+    <button id="btnLoop" class="active">Loop</button>
+    <label>Speed <input type="range" id="speed" min="0.2" max="3" step="0.1" value="1"></label>
+  </div>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/",
+      "three/lines/Line2": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/lines/Line2.js",
+      "three/lines/LineGeometry": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/lines/LineGeometry.js",
+      "three/lines/LineMaterial": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/lines/LineMaterial.js"
+    }
+  }
+  </script>
+  <script type="module" src="main-3d.js"></script>
+</body>
+</html>
