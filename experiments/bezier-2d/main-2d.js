@@ -51,8 +51,15 @@ canvas.addEventListener('pointermove', e => {
 canvas.addEventListener('pointerup', () => { dragging = null; });
 
 // ── Quadratic Bezier helpers ───────────────────────────────────────
+// Evaluates position on a quadratic Bezier curve at parameter t (0..1).
+//   t  = progress along the curve (0 = start, 1 = end)
+//   a  = start point (character / source)
+//   c  = control point (pulls the curve toward it)
+//   b  = end point (enemy / target)
+//   mt = "one minus t", the complement of t
+// Formula: B(t) = (1−t)² · a  +  2(1−t)t · c  +  t² · b
 function bezierPoint(t, a, c, b) {
-  const mt = 1 - t;
+  const mt = 1 - t; // complement of t
   return {
     x: mt * mt * a.x + 2 * mt * t * c.x + t * t * b.x,
     y: mt * mt * a.y + 2 * mt * t * c.y + t * t * b.y,
