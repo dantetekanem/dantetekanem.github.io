@@ -216,6 +216,28 @@ Now the controller just builds, saves and redirects, and any other caller (a job
 
 I didn't just point out that this was wrong and that the author needed to fix it. I guided him through the solution. My comment was an addition, not a blocking action (although I can request changes and literally block the PR from merging). We are making and working on this together. And we must do this all the time.
 
+Sometimes, though, you don't have the solution — you have a suspicion. That's when a good question beats a bad answer. Let's imagine this PR adds a new `ProcessRefundJob`:
+
+```ruby
+class ProcessRefundJob < ApplicationJob
+  def perform(refund_id)
+    refund = Refund.find(refund_id)
+    Stripe::Refund.create(charge: refund.charge_id, amount: refund.amount)
+    refund.update!(status: "completed")
+  end
+end
+```
+
+And my comment:
+
+```
+Hey, quick one. If the Stripe call succeeds but the refund.update! raises, Sidekiq will retry the whole job, right? That would hit Stripe again and refund the customer twice.
+
+Am I missing something here, or do we need to either split the Stripe call from the DB update, or pass an idempotency key so Stripe deduplicates on its side? Curious how you were thinking about it.
+```
+
+I didn't accuse, I didn't block, I didn't demand a rewrite. I shared what I saw, offered two concrete paths forward, and handed the problem back to the author. Either they realize the bug, or they teach me why it's already safe. Both outcomes are wins.
+
 Aim your comments towards our goal: Approving the PR.
 
 ## Conclusion

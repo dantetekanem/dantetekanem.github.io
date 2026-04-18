@@ -309,6 +309,26 @@ Now the controller just builds, saves and redirects, and any other caller (a job
 
 <p>I didn’t just point out that this was wrong and that the author needed to fix it. I guided him through the solution. My comment was an addition, not a blocking action (although I can request changes and literally block the PR from merging). We are making and working on this together. And we must do this all the time.</p>
 
+<p>Sometimes, though, you don’t have the solution — you have a suspicion. That’s when a good question beats a bad answer. Let’s imagine this PR adds a new <code class="language-plaintext highlighter-rouge">ProcessRefundJob</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">ProcessRefundJob</span> <span class="o">&lt;</span> <span class="no">ApplicationJob</span>
+  <span class="k">def</span> <span class="nf">perform</span><span class="p">(</span><span class="n">refund_id</span><span class="p">)</span>
+    <span class="n">refund</span> <span class="o">=</span> <span class="no">Refund</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="n">refund_id</span><span class="p">)</span>
+    <span class="no">Stripe</span><span class="o">::</span><span class="no">Refund</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="ss">charge: </span><span class="n">refund</span><span class="p">.</span><span class="nf">charge_id</span><span class="p">,</span> <span class="ss">amount: </span><span class="n">refund</span><span class="p">.</span><span class="nf">amount</span><span class="p">)</span>
+    <span class="n">refund</span><span class="p">.</span><span class="nf">update!</span><span class="p">(</span><span class="ss">status: </span><span class="s2">"completed"</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>And my comment:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Hey, quick one. If the Stripe call succeeds but the refund.update! raises, Sidekiq will retry the whole job, right? That would hit Stripe again and refund the customer twice.
+
+Am I missing something here, or do we need to either split the Stripe call from the DB update, or pass an idempotency key so Stripe deduplicates on its side? Curious how you were thinking about it.
+</code></pre></div></div>
+
+<p>I didn’t accuse, I didn’t block, I didn’t demand a rewrite. I shared what I saw, offered two concrete paths forward, and handed the problem back to the author. Either they realize the bug, or they teach me why it’s already safe. Both outcomes are wins.</p>
+
 <p>Aim your comments towards our goal: Approving the PR.</p>
 
 <h2 id="conclusion">Conclusion</h2>
