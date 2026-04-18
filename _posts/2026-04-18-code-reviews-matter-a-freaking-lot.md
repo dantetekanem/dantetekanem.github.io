@@ -30,7 +30,7 @@ But a goal and a job are two different things, and knowing the next one changes 
 > What is your job when reviewing code?
 
 Your job is to push forward, not backwards, the impact of the change. You'll iterate, make comments, share knowledge, request changes, test and prove what's being presented. You will participate and become a co-owner of that piece of code. Everything you do in that small window of review will be in order to reach the goal.
-You will **not** block with useless opinionated comments like "This doesn't follow our guidelines.", "LGTM", or "You can't open a PR if you're not confident about it." You will block, but while providing all the necessary help and guidance towards the goal. Getting it approved, you'll win, the owner will win, the project will win and the company will win.
+You will **not** block with useless opinionated comments like "This doesn't follow our guidelines.", "You can't open a PR if you're not confident about it.". You **will** block, but while providing all the necessary help and guidance towards the goal. Getting it approved, you'll win, the code owner will win, the project will win and the company will win.
 
 These points might sound confusing now, so in order to simplify some of these ideas, let's start:
 
@@ -78,7 +78,7 @@ Another few points worth checking:
 
 ## Know the designs
 
-I cannot stress enough how *important* it is to know design principles and architecture concepts. I love the [SOLID](https://en.wikipedia.org/wiki/SOLID) principles. They help me write much better code. There are many others, but since our company is Ruby-focused, and our approach to objects just feels natural (and SOLID works well for any language, honestly), it's fair enough to anchor the discussion on this.
+I cannot stress enough how *important* it is to know design principles and architecture concepts. I love the [SOLID](https://en.wikipedia.org/wiki/SOLID) principles. They help me write much better code. There are many others, but since Shopify is Ruby-focused, and our approach to objects just feels natural (and SOLID works well for any language, honestly), it's fair enough to anchor the discussion on this.
 
 At this step, I personally like to use my imagination when looking at things. You can do whatever works for you. But keep the principles in mind. If one piece of code is violating one principle, that's a **powerful** clue of what you could improve and change there. The chances of the code being wrong *just* because the design was dismissed are huge. Look at the first principle of SOLID, the S — Single Responsibility Principle.
 
@@ -140,7 +140,7 @@ JavaScript and TypeScript:
 
 You'll build your own list over time. The point isn't to memorize smells — it's to train the reflex that says "hold on, that looks wrong" before you even finish reading the method.
 
-[All the Little Things](https://www.youtube.com/watch?v=8bZh5LMaSmE) by [Sandi Metz](https://sandimetz.com/) is amazing. It's not focused necessarily on the topic I'm talking about, though you can easily relate. This is a **must** watch.
+[All the Little Things](https://www.youtube.com/watch?v=8bZh5LMaSmE) by [Sandi Metz](https://sandimetz.com/) is amazing. It's not focused *necessarily* on the topic I'm talking about, though you can easily relate. This is a **must** watch.
 
 ## Ask yourself
 
@@ -194,6 +194,7 @@ We can move all this business logic out of the controller if we give Order owner
 
 class Order < ApplicationRecord
   REVIEW_THRESHOLD = 500
+  SALES_TAX = 0.13
 
   before_validation :calculate_totals
 
@@ -205,12 +206,12 @@ class Order < ApplicationRecord
 
   def calculate_totals
     self.total  = items.sum { |i| i.price * i.quantity }
-    self.tax    = total * 0.13
+    self.tax    = total * SALES_TAX
     self.status = requires_review? ? "review" : "pending"
   end
 end
 
-Now the controller just builds, saves and redirects, and any other caller (a job, a Rake task, an API endpoint) gets the same rules for free.
+Now the controller just builds, saves and redirects, and any other caller (a job, a Rake task, an API endpoint) gets the same rules for free. As a bonus, we have removed all the magic numbers.
 ```
 
 I didn't just point out that this was wrong and that the author needed to fix it. I guided him through the solution. My comment was an addition, not a blocking action (although I can request changes and literally block the PR from merging). We are making and working on this together. And we must do this all the time.
