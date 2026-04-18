@@ -80,7 +80,7 @@ Another few points worth checking:
 
 I cannot stress enough how *important* it is to know design principles and architecture concepts. I love the [SOLID](https://en.wikipedia.org/wiki/SOLID) principles. They help me write much better code. There are many others, but since Shopify is Ruby-focused, and our approach to objects just feels natural (and SOLID works well for any language, honestly), it's fair enough to anchor the discussion on this.
 
-At this step, I personally like to use my imagination when looking at things. You can do whatever works for you. But keep the principles in mind. If one piece of code is violating one principle, that's a **powerful** clue of what you could improve and change there. The chances of the code being wrong *just* because the design was dismissed are huge. Look at the first principle of SOLID, the S — Single Responsibility Principle.
+At this step, I personally like to use my imagination when looking at things. I see the files, the classes, the methods as people who know what they know, and I talk to them. You can do whatever works for you. But keep the principles in mind. If one piece of code is violating one principle, that's a **powerful** clue of what you could improve and change there. The chances of the code being wrong *just* because the design was dismissed are huge. Look at the first principle of SOLID, the S — Single Responsibility Principle.
 
 You have a piece of code that does this:
 
