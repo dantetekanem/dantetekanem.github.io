@@ -29,7 +29,7 @@ To run this site locally:
 
 4. To deploy:
 ```
-jekyll build
+bundle exec jekyll build
 git add -A
 git commit -m 'Your Message'
 git push

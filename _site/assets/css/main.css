@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700,700i&display=swap');
 
 body {
   font-family: 'Open Sans', sans-serif;
@@ -352,8 +352,23 @@ a:hover {
   font-size: 24px;
 }
 
-.post .post-content em {
-  margin-right: 4px;
+.post .post-content em,
+.post .post-content i {
+  font-style: italic;
+  color: #F5EFDC;
+}
+
+.post .post-content strong,
+.post .post-content b {
+  font-weight: 700;
+  color: #F5EFDC;
+}
+
+.post .post-content strong em,
+.post .post-content em strong,
+.post .post-content b i,
+.post .post-content i b {
+  color: #FFE8B0;
 }
 
 .post .post-content p,
@@ -392,10 +407,33 @@ a:hover {
 }
 
 .post .post-content blockquote {
-  border-left: 5px solid #37B9F1;
-  padding-left: 20px;
-  color: rgba(247, 247, 254, 0.8);
+  border-left: 4px solid #37B9F1;
+  background-color: rgba(55, 185, 241, 0.06);
+  padding: 18px 24px;
+  margin: 28px 0;
+  border-radius: 0 6px 6px 0;
+  color: #EDEDF5;
   font-style: italic;
+  font-size: 1.05em;
+  line-height: 1.6;
+}
+
+.post .post-content blockquote p {
+  margin-bottom: 0;
+}
+
+.post .post-content blockquote p + p {
+  margin-top: 12px;
+}
+
+.post .post-content blockquote cite {
+  display: block;
+  margin-top: 10px;
+  font-style: normal;
+  font-size: 0.85em;
+  letter-spacing: 0.02em;
+  color: rgba(247, 247, 254, 0.55);
+  text-align: right;
 }
 
 .post .post-tags {
