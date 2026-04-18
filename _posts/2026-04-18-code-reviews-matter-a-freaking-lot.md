@@ -24,7 +24,7 @@ Right, so before going into the topics in order of importance, and the details o
 
 > What is your goal when reviewing code?
 
-It's approving the PR. That's it. That's your goal. -- And believe me, this changes everything. In the world of OSS it's very common to have many enforced restrictions, with collaborators expecting perfect code, leading to the perfect setup to approve your code. This is not the reality in a company. Your goal is and will always be to approve a change, and this is a *massive* point. Deeply counter-intuitive too.
+It's approving the PR. That's it. That's your goal. -- And believe me, this changes everything. In the world of OSS (Open Source Software) it's very common to have many enforced restrictions, with collaborators expecting perfect code, leading to the perfect setup to approve your code. This is not the reality in a company. Your goal is and will always be to approve a change, and this is a *massive* point. Deeply counter-intuitive too.
 But a goal and a job are two different things, and knowing the next one changes everything.
 
 > What is your job when reviewing code?
