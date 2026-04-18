@@ -2,6 +2,8 @@
 layout: post
 title: Code Reviews Matter a Freaking Lot
 date: 2026-04-18 14:04 -0400
+categories: [programming, software design, engineering culture]
+tags: [code review, pull requests, clean code, SOLID, testing, mentorship, shopify, ruby, rails]
 ---
 
 Hi! My name is Leo and I'm a professional Code Reviewer. Yeah, I don't think this is a real profession, but I have numbers to prove that I know what I'm going to talk about for the next few minutes. I even have the nickname Mr. Comments, and my own Slack emoji `:mr-comments:`.
