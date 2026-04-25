@@ -968,7 +968,8 @@ hr {
 [data-theme="light"] .theme-icon.moon { display: none; }
 
 /* Light Theme */
-[data-theme="light"] {
+[data-theme="light"],
+[data-theme="light"] body {
   background-color: #F5F5F5;
   color: #1a1a2e;
 }
