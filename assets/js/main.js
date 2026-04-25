@@ -1,3 +1,21 @@
+// Theme toggle
+(function() {
+  const saved = localStorage.getItem('theme') || 'dark';
+  document.body.setAttribute('data-theme', saved);
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const btn = document.getElementById('theme-toggle');
+    if (btn) {
+      btn.addEventListener('click', function() {
+        const current = document.body.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        document.body.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+      });
+    }
+  });
+})();
+
 document.addEventListener('DOMContentLoaded', function() {
   // Clone the header for the sticky version
   const originalHeader = document.querySelector('.header-row');
@@ -8,6 +26,18 @@ document.addEventListener('DOMContentLoaded', function() {
   stickyHeader.className = 'sticky-header';
   stickyHeader.innerHTML = originalHeader.outerHTML;
   document.body.appendChild(stickyHeader);
+
+  // Wire up the cloned theme toggle in the sticky header
+  const stickyToggle = stickyHeader.querySelector('.theme-toggle');
+  if (stickyToggle) {
+    stickyToggle.removeAttribute('id');
+    stickyToggle.addEventListener('click', function() {
+      const current = document.body.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.body.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    });
+  }
 
   // Flag to track if we're on a post page
   const isPostPage = document.querySelector('.post') !== null;
