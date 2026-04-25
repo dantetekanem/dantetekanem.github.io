@@ -959,13 +959,13 @@ hr {
   color: #37B9F1;
 }
 
-/* Dark mode: show moon, hide sun */
-[data-theme="dark"] .theme-icon.sun { display: none; }
-[data-theme="dark"] .theme-icon.moon { display: block; }
+/* Dark mode: show sun (click to go light) */
+[data-theme="dark"] .theme-icon.sun { display: block; }
+[data-theme="dark"] .theme-icon.moon { display: none; }
 
-/* Light mode: show sun, hide moon */
-[data-theme="light"] .theme-icon.sun { display: block; }
-[data-theme="light"] .theme-icon.moon { display: none; }
+/* Light mode: show moon (click to go dark) */
+[data-theme="light"] .theme-icon.sun { display: none; }
+[data-theme="light"] .theme-icon.moon { display: block; }
 
 /* Light Theme */
 [data-theme="light"],
