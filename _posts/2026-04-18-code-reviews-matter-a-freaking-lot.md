@@ -3,7 +3,7 @@ layout: post
 title: Code Reviews Matter a Freaking Lot
 date: 2026-04-18 14:04 -0400
 categories: [programming, software design, engineering culture]
-tags: [code review, pull requests, clean code, SOLID, testing, mentorship, shopify, ruby, rails]
+tags: [code review, pull requests, clean code, SOLID, testing, mentorship, ruby, rails]
 ---
 
 ![Code Reviewer](/assets/images/codereview.png)
@@ -18,15 +18,15 @@ In this post I want to share with you some guidance, highly opinionated — with
 >
 > — Said no one. Ever.
 
-None of that really matters. It's your **responsibility** as a professional engineer to do great code reviews, and it's your job to understand the impact of them at Shopify. Responsibility, in fact, is the first topic of this post — and I'll go in order of importance, which might be a bit surprising: coding will be the last of the topics.
+None of that really matters. It's your **responsibility** as a professional engineer to do great code reviews, and it's your job to understand the impact of them in your company. Responsibility, in fact, is the first topic of this post — and I'll go in order of importance, which might be a bit surprising: coding will be the last of the topics.
 
-It's *essential* for you to grasp these ideas in order to do a great code review, and it might sound counter-intuitive — in fact, many things here will. This is not about experience or programming knowledge. Principal Engineers sit at one of the highest levels at Shopify, and it's surprisingly common to see PRs that caused incidents have been approved by them. I want you to know that, because you shouldn't think that just because you're a less experienced engineer, or because you're missing context, or not on the project, you can't do great reviews. Anyone can do amazing reviews, they just need to pay attention.
+It's *essential* for you to grasp these ideas in order to do a great code review, and it might sound counter-intuitive — in fact, many things here will. This is not about experience or programming knowledge. Principal Engineers sit at one of the highest levels of a company, and it's surprisingly common to see PRs that caused incidents have been approved by them. I want you to know that, because you shouldn't think that just because you're a less experienced engineer, or because you're missing context, or not on the project, you can't do great reviews. Anyone can do amazing reviews, they just need to pay attention.
 
 Right, so before going into the topics in order of importance, and the details of each one, let's define something:
 
 > What is your goal when reviewing code?
 
-It's approving the PR. That's it. That's your goal. — And believe me, this changes everything. In the world of OSS (Open Source Software) it's very common to have many enforced restrictions, with collaborators expecting perfect code — meaning approval has a high bar before it lands. This is not the reality at Shopify. Your goal is and will always be to approve a change, and this is a *massive* point. But a goal and a job are two different things, which is my next point.
+It's approving the PR. That's it. That's your goal. — And believe me, this changes everything. In the world of OSS (Open Source Software) it's very common to have many enforced restrictions, with collaborators expecting perfect code — meaning approval has a high bar before it lands. This is not the reality in your company. Your goal is and will always be to approve a change, and this is a *massive* point. But a goal and a job are two different things, which is my next point.
 
 > What is your job when reviewing code?
 
@@ -34,7 +34,7 @@ Your job is to push forward, not backwards, the impact of the change. You'll ite
 
 You will **not** block with useless opinionated comments like "This doesn't follow our guidelines.", "I wouldn't have done it this way.". 
 
-You **will** block, but while providing all the necessary help and guidance towards the goal. Getting it approved, you'll win, the author will win, the project will win and Shopify will win.
+You **will** block, but while providing all the necessary help and guidance towards the goal. Getting it approved, you'll win, the author will win, the project will win and the company will win.
 
 These points might sound confusing now, so in order to simplify some of these ideas, let's start:
 
@@ -42,7 +42,7 @@ These points might sound confusing now, so in order to simplify some of these id
 
 When you start a code review, you are **equally** responsible for whatever outcomes this deployed code produces. That's right, you might not get the congratulations and joys of a big win, but if it causes an incident, it's on you too. So take this *extremely* seriously.
 If you are busy with other things, you will not do a code review. When you start, nothing else matters more than the piece of code you're looking into right now.
-This is the most important thing you must know. Knowing this will allow you to approach the next PR with the necessary care and attention. The author trusted you, and Shopify is trusting both of you.
+This is the most important thing you must know. Knowing this will allow you to approach the next PR with the necessary care and attention. The author trusted you, and the company is trusting both of you.
 
 So first things first: reserve time. A code review can take anywhere from 5 minutes all the way up to a whole day (with sprawling changes). If any piece of code is going to take more than 1 hour of your time, it's probably too big to be reviewed in one go. Ask the author to split it into smaller pieces — everyone will win at this step.
 
@@ -161,8 +161,6 @@ Know your shit. Sorry about my language. This is kind of optional, really. If yo
 All this is knowledge you know you need to apply in a code review. This is one of the things most reviews focus on — what they know. Code quality and knowing the details are wonderful to add, they enrich a lot, yet it's just a small, rare slice of what we do.
 
 This part is also one of the easiest ones to be replaced by AI. AI is great at these things if you point it to the right place. Have you seen what [Autoresearch](https://shopify.engineering/autoresearch) can do?
-
-You might have also noticed that I haven't left one section about bugs. Yeah, use AI for finding bugs, Shopify has several tools covering this. A few are quite remarkable at it. Your own set of skills can help evaluate bugs, security and much more. Leaning on tooling helps tremendously. My guidance here is on the human side.
 
 ## Be reasonable
 

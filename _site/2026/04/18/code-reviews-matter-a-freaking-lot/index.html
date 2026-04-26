@@ -13,7 +13,7 @@
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet">
 
 <!-- Feed and SEO tag -->
-<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Leo&apos;s Blog - leonardopereira.com" />
+<link type="application/atom+xml" rel="alternate" href="https://blog.leonardopereira.com/feed.xml" title="Leo&apos;s Blog - leonardopereira.com" />
 <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Code Reviews Matter a Freaking Lot | Leo’s Blog - leonardopereira.com</title>
 <meta name="generator" content="Jekyll v4.4.1" />
@@ -21,15 +21,15 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Personal blog where I share my thoughts about programming, technology, and other interesting topics." />
 <meta property="og:description" content="Personal blog where I share my thoughts about programming, technology, and other interesting topics." />
-<link rel="canonical" href="http://localhost:4000/2026/04/18/code-reviews-matter-a-freaking-lot/" />
-<meta property="og:url" content="http://localhost:4000/2026/04/18/code-reviews-matter-a-freaking-lot/" />
+<link rel="canonical" href="https://blog.leonardopereira.com/2026/04/18/code-reviews-matter-a-freaking-lot/" />
+<meta property="og:url" content="https://blog.leonardopereira.com/2026/04/18/code-reviews-matter-a-freaking-lot/" />
 <meta property="og:site_name" content="Leo’s Blog - leonardopereira.com" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2026-04-18T14:04:00-04:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Code Reviews Matter a Freaking Lot" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-04-18T14:04:00-04:00","datePublished":"2026-04-18T14:04:00-04:00","description":"Personal blog where I share my thoughts about programming, technology, and other interesting topics.","headline":"Code Reviews Matter a Freaking Lot","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2026/04/18/code-reviews-matter-a-freaking-lot/"},"url":"http://localhost:4000/2026/04/18/code-reviews-matter-a-freaking-lot/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-04-18T14:04:00-04:00","datePublished":"2026-04-18T14:04:00-04:00","description":"Personal blog where I share my thoughts about programming, technology, and other interesting topics.","headline":"Code Reviews Matter a Freaking Lot","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.leonardopereira.com/2026/04/18/code-reviews-matter-a-freaking-lot/"},"url":"https://blog.leonardopereira.com/2026/04/18/code-reviews-matter-a-freaking-lot/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -107,9 +107,9 @@
   <p>— Said no one. Ever.</p>
 </blockquote>
 
-<p>None of that really matters. It’s your <strong>responsibility</strong> as a professional engineer to do great code reviews, and it’s your job to understand the impact of them at Shopify. Responsibility, in fact, is the first topic of this post — and I’ll go in order of importance, which might be a bit surprising: coding will be the last of the topics.</p>
+<p>None of that really matters. It’s your <strong>responsibility</strong> as a professional engineer to do great code reviews, and it’s your job to understand the impact of them in your company. Responsibility, in fact, is the first topic of this post — and I’ll go in order of importance, which might be a bit surprising: coding will be the last of the topics.</p>
 
-<p>It’s <em>essential</em> for you to grasp these ideas in order to do a great code review, and it might sound counter-intuitive — in fact, many things here will. This is not about experience or programming knowledge. Principal Engineers sit at one of the highest levels at Shopify, and it’s surprisingly common to see PRs that caused incidents have been approved by them. I want you to know that, because you shouldn’t think that just because you’re a less experienced engineer, or because you’re missing context, or not on the project, you can’t do great reviews. Anyone can do amazing reviews, they just need to pay attention.</p>
+<p>It’s <em>essential</em> for you to grasp these ideas in order to do a great code review, and it might sound counter-intuitive — in fact, many things here will. This is not about experience or programming knowledge. Principal Engineers sit at one of the highest levels of a company, and it’s surprisingly common to see PRs that caused incidents have been approved by them. I want you to know that, because you shouldn’t think that just because you’re a less experienced engineer, or because you’re missing context, or not on the project, you can’t do great reviews. Anyone can do amazing reviews, they just need to pay attention.</p>
 
 <p>Right, so before going into the topics in order of importance, and the details of each one, let’s define something:</p>
 
@@ -117,7 +117,7 @@
   <p>What is your goal when reviewing code?</p>
 </blockquote>
 
-<p>It’s approving the PR. That’s it. That’s your goal. — And believe me, this changes everything. In the world of OSS (Open Source Software) it’s very common to have many enforced restrictions, with collaborators expecting perfect code — meaning approval has a high bar before it lands. This is not the reality at Shopify. Your goal is and will always be to approve a change, and this is a <em>massive</em> point. But a goal and a job are two different things, which is my next point.</p>
+<p>It’s approving the PR. That’s it. That’s your goal. — And believe me, this changes everything. In the world of OSS (Open Source Software) it’s very common to have many enforced restrictions, with collaborators expecting perfect code — meaning approval has a high bar before it lands. This is not the reality in your company. Your goal is and will always be to approve a change, and this is a <em>massive</em> point. But a goal and a job are two different things, which is my next point.</p>
 
 <blockquote>
   <p>What is your job when reviewing code?</p>
@@ -127,7 +127,7 @@
 
 <p>You will <strong>not</strong> block with useless opinionated comments like “This doesn’t follow our guidelines.”, “I wouldn’t have done it this way.”.</p>
 
-<p>You <strong>will</strong> block, but while providing all the necessary help and guidance towards the goal. Getting it approved, you’ll win, the author will win, the project will win and Shopify will win.</p>
+<p>You <strong>will</strong> block, but while providing all the necessary help and guidance towards the goal. Getting it approved, you’ll win, the author will win, the project will win and the company will win.</p>
 
 <p>These points might sound confusing now, so in order to simplify some of these ideas, let’s start:</p>
 
@@ -135,7 +135,7 @@
 
 <p>When you start a code review, you are <strong>equally</strong> responsible for whatever outcomes this deployed code produces. That’s right, you might not get the congratulations and joys of a big win, but if it causes an incident, it’s on you too. So take this <em>extremely</em> seriously.
 If you are busy with other things, you will not do a code review. When you start, nothing else matters more than the piece of code you’re looking into right now.
-This is the most important thing you must know. Knowing this will allow you to approach the next PR with the necessary care and attention. The author trusted you, and Shopify is trusting both of you.</p>
+This is the most important thing you must know. Knowing this will allow you to approach the next PR with the necessary care and attention. The author trusted you, and the company is trusting both of you.</p>
 
 <p>So first things first: reserve time. A code review can take anywhere from 5 minutes all the way up to a whole day (with sprawling changes). If any piece of code is going to take more than 1 hour of your time, it’s probably too big to be reviewed in one go. Ask the author to split it into smaller pieces — everyone will win at this step.</p>
 
@@ -264,8 +264,6 @@ This is your first point of contact with the solution. It’s TDD in a review, a
 
 <p>This part is also one of the easiest ones to be replaced by AI. AI is great at these things if you point it to the right place. Have you seen what <a href="https://shopify.engineering/autoresearch">Autoresearch</a> can do?</p>
 
-<p>You might have also noticed that I haven’t left one section about bugs. Yeah, use AI for finding bugs, Shopify has several tools covering this. A few are quite remarkable at it. Your own set of skills can help evaluate bugs, security and much more. Leaning on tooling helps tremendously. My guidance here is on the human side.</p>
-
 <h2 id="be-reasonable">Be reasonable</h2>
 
 <p>Sometimes a PR needs to land in a matter of hours or minutes and shouldn’t be blocked by your findings. For those cases we have a few tools. One of them is the “fast-follow ticket” — the author takes responsibility for addressing the findings as soon as possible after the merge. Other times, you just let it go.</p>
@@ -375,8 +373,6 @@ Now, with AI writing 95% of our code or more, slop everywhere, brute-forcing sol
     <a href="/tags/#testing" class="post-tag">testing</a>
     
     <a href="/tags/#mentorship" class="post-tag">mentorship</a>
-    
-    <a href="/tags/#shopify" class="post-tag">shopify</a>
     
     <a href="/tags/#ruby" class="post-tag">ruby</a>
     
