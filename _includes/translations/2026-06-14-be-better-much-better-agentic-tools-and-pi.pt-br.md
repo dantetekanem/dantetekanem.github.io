@@ -226,6 +226,7 @@ Alguns que eu mesmo construí e rodo todos os dias:
 - [**pi-code-diff**](https://github.com/leop-shopify/pi-code-diff) — diffs mais limpos para revisar exatamente o que o agente mudou.
 - [**pi-persona**](https://github.com/leop-shopify/pi-persona) — dá ao agente uma persona customizada.
 - [**ada**](https://github.com/leop-shopify/ada) — um agente orientado por artefatos.
+- [**pi-thinking-messaging**](https://github.com/dantetekanem/pi-thinking-messaging) — adiciona tempo decorrido e contagem de tokens ao loader de working/thinking do Pi.
 
 E extensões de terceiros que mantenho ligadas:
 

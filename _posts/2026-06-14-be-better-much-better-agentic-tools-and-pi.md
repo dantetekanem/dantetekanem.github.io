@@ -257,6 +257,7 @@ A few I built myself and run daily:
 - [**pi-code-diff**](https://github.com/leop-shopify/pi-code-diff) — cleaner diffs for reviewing exactly what the agent changed.
 - [**pi-persona**](https://github.com/leop-shopify/pi-persona) — give the agent a custom persona.
 - [**ada**](https://github.com/leop-shopify/ada) — an artifact-driven agent.
+- [**pi-thinking-messaging**](https://github.com/dantetekanem/pi-thinking-messaging) — adds elapsed time and token count to Pi's working/thinking loader.
 
 And third-party ones I keep switched on:
 
