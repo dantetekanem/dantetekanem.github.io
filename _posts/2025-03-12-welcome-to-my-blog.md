@@ -4,6 +4,21 @@ title: "Welcome to My Blog!"
 date: 2025-03-12 15:18:17 -0400
 categories: [general, introduction]
 tags: [welcome, jekyll, blog]
+i18n:
+  pt_br:
+    title: "Bem-vindo ao Meu Blog!"
+    date: 12 de março de 2025
+    content_include: translations/2025-03-12-welcome-to-my-blog.pt-br.md
+    labels:
+      categories: "Categorias:"
+      tags: "Tags:"
+    categories:
+      - geral
+      - introdução
+    tags:
+      - boas-vindas
+      - jekyll
+      - blog
 ---
 
 ## Hello World!

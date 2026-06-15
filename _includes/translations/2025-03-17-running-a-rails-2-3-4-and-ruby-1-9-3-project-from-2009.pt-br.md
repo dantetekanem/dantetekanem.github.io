@@ -1,34 +1,15 @@
----
-layout: post
-title: Running a Rails 2.3.4 and Ruby 1.9.3 Project from 2009!
-date: 2025-03-17 23:07 -0400
-categories: [programming, ai, back to the past]
-i18n:
-  pt_br:
-    title: Rodando um Projeto Rails 2.3.4 e Ruby 1.9.3 de 2009!
-    date: 17 de março de 2025
-    content_include: translations/2025-03-17-running-a-rails-2-3-4-and-ruby-1-9-3-project-from-2009.pt-br.md
-    labels:
-      categories: "Categorias:"
-      tags: "Tags:"
-    categories:
-      - programação
-      - AI
-      - volta ao passado
----
+Ontem recebi um e-mail da Squarespace informando que minha conta do Google Domains (agora na Squarespace) teria aumento de preço, já que Gemini e AI estão custando mais e aparecem em todos os produtos deles. O que é horrível; não acho que eles adicionem valor algum e é impossível optar por não usar.
+Então comecei a fuçar e ver como poderia deixar as coisas mais baratas para que, pelo menos da minha parte, o Google não pegasse todos os verdinhos que queria. Bem, uma das ferramentas que decidi usar foi procurar arquivos pesados no meu Gmail, Google Photos e Google Drive.
 
-Yesterday I got an e-mail from Squarespace, informing me that my Google Domains account (now on Squarespace) would increase the price since Gemini and AI are costing more and in every product of theirs. Which is horrible, I don't think they add any value and it's impossible to opt-out.
-So, I started digging and seeing how I could make things cheaper so at least from my side, Google would not get all the greenies it wants. Well, one of the tools I decided to use was to find heavy files in my Gmail, Google Photos and Google Drive.
-
-Out of curiosity, I found a Git bundle of a project I was part of in 2009. It was my first real Ruby project, getting my hands dirty. The project was Sportlog, a community driven by exercises and milestones, very similar to what Strava is nowadays. Unfortunately, it didn't work out, and the project was closed in 2010.
-Curious as I am, I had to see what was there, right now.
-So, I ran:
+Por curiosidade, encontrei um Git bundle de um projeto do qual participei em 2009. Foi meu primeiro projeto Ruby de verdade, colocando a mão na massa. O projeto era o Sportlog, uma comunidade movida por exercícios e marcos, muito parecida com o que o Strava é hoje. Infelizmente, não deu certo, e o projeto foi encerrado em 2010.
+Curioso como sou, tive que ver o que havia ali, agora.
+Então rodei:
 
 ```bash
 git clone ~/Downloads/Sportlog.git.bundle
 ```
 
-And to my wonder all the files were there! Like looking into the past:
+E, para minha surpresa, todos os arquivos estavam lá! Como olhar para o passado:
 ```
 Mar 17 15:15 Capfile
 Mar 17 15:15 README
@@ -50,12 +31,12 @@ Mar 17 15:15 utils
 Mar 17 15:15 vendor
 ```
 
-Finally! So now, how can I run a project from 15 years ago? It will take a long time to upgrade everything, and I will need to do it in steps. From Rails 2, to 3, and then 4 and etc. And in version 3, [Ruby on Rails and Merb merged](https://yehudakatz.com/2008/12/23/rails-and-merb-merge/), so it was a **lot** of changes to handle. Impossible.
+Finalmente! Então, agora, como eu rodo um projeto de 15 anos atrás? Levaria muito tempo para atualizar tudo, e eu teria que fazer isso em etapas. Do Rails 2 para o 3, depois para o 4 e assim por diante. E na versão 3, [Ruby on Rails e Merb se fundiram](https://yehudakatz.com/2008/12/23/rails-and-merb-merge/), então havia **muita** mudança para lidar. Impossível.
 
-But nowadays we have a series of tools that can actually make us move to the past and accomplish this: **Docker** and **AI**.
+Mas hoje em dia temos uma série de ferramentas que realmente conseguem nos levar para o passado e realizar isso: **Docker** e **AI**.
 
-With that in mind, I opened Cursor with my project, gave the first instructions and started a battle of instructions that lasted for almost 2 hours. But something was also missing: the database. The migrations were there, but I did not have similar data to work with. Lucky me, in my e-mail was also a copy of the database we used during development (almost 15 years ago we handled everything through e-mails), Dropbox and others were brand new. 
-With all that in place, here is my current git status:
+Com isso em mente, abri o Cursor com meu projeto, dei as primeiras instruções e comecei uma batalha de instruções que durou quase 2 horas. Mas também faltava algo: o banco de dados. As migrations estavam lá, mas eu não tinha dados parecidos para trabalhar. Sorte minha: no meu e-mail também havia uma cópia do banco de dados que usávamos durante o desenvolvimento (quase 15 anos atrás, lidávamos com tudo por e-mail; Dropbox e outros ainda eram muito novos).
+Com tudo isso no lugar, aqui está meu git status atual:
 
 ```
 ➜  Sportlog.git git:(master) ✗ git st
@@ -120,34 +101,34 @@ Untracked files:
         vendor/plugins/white_list/
 ```
 
-The main changes:
-- Several monkey patches to support outdated code in libraries dead for a long time. AI shined here.
-- Update of locales. Most of this project was written in Brazilian Portuguese, and the encoding at the time was extremely painful. I did several changes to just remove the magic words, for example "Administração" contains 2 encoded characters not common to English language, and I just modified it to be "Administracao", no special characters, no weird encoding errors.
-- For some reason, several helpers were missing. I think Cursor modified something to always expect a non-existing helper, so I had to add several for the pages I navigated.
-- Restoring old plugins (think like Engines), had to go through all the versions in an archived project (community_engine) and get the correct Rails version.
-- Removing keys and e-mails so I don't message anyone from my old team `¯\_(ツ)_/¯` after all, I don't own this code.
-- Fixes and fixes! Several, from a wrong column in the database to weird ASCII characters.
+As principais mudanças:
+- Vários monkey patches para dar suporte a código ultrapassado em bibliotecas mortas há muito tempo. A AI brilhou aqui.
+- Atualização de locales. A maior parte desse projeto foi escrita em português brasileiro, e a codificação naquela época era extremamente dolorosa. Fiz várias mudanças só para remover as palavras mágicas; por exemplo, "Administração" contém 2 caracteres codificados que não são comuns na língua inglesa, e eu simplesmente modifiquei para "Administracao", sem caracteres especiais, sem erros estranhos de encoding.
+- Por algum motivo, vários helpers estavam faltando. Acho que o Cursor modificou algo para sempre esperar um helper inexistente, então tive que adicionar vários para as páginas em que naveguei.
+- Restaurar plugins antigos (pense como Engines) exigiu passar por todas as versões em um projeto arquivado (`community_engine`) e pegar a versão correta do Rails.
+- Remover chaves e e-mails para eu não mandar mensagem para ninguém do meu time antigo `¯\_(ツ)_/¯`; afinal, eu não sou dono desse código.
+- Correções e mais correções! Várias, desde uma coluna errada no banco até caracteres ASCII estranhos.
 
 
-Btw! This is how we used to run `rails console` in the past:
+Ah! Era assim que rodávamos `rails console` no passado:
 ```bash
 docker-compose exec web script/console
 ```
 
-which executes:
+que executa:
 ```ruby
 #!/usr/bin/env ruby
 require File.expand_path('../../config/boot',  __FILE__)
 require 'commands/console'
 ```
 
-And after some time, it was running:
-![Sportlog Home Page](/assets/images/sportlog1.png)
-![Sportlog Training Panel](/assets/images/sportlog2.png)
+E depois de algum tempo, estava rodando:
+![Página Inicial do Sportlog](/assets/images/sportlog1.png)
+![Painel de Treinos do Sportlog](/assets/images/sportlog2.png)
 
-This is so exciting! So many memories. And so many interesting things! Now, let's look at the code.
+Isso é empolgante demais! Tantas memórias. E tantas coisas interessantes! Agora, vamos olhar para o código.
 
-Today we have `refute` and `assert` on Minitest, in 2009, not quite:
+Hoje temos `refute` e `assert` no Minitest; em 2009, nem tanto:
 
 ```ruby
 require 'test_helper'
@@ -164,7 +145,7 @@ class ExerciseMachineBrandTest < ActiveSupport::TestCase
 end
 ```
 
-So, it was `assert ! object.valid?` to verify if it was false? A bit interesting. And I was quite happy to see a lot of functional tests. Which btw, this is the whole tests structure:
+Então era `assert ! object.valid?` para verificar se era falso? Um pouco interessante. E fiquei bem feliz em ver muitos testes funcionais. Que, aliás, tinham esta estrutura completa:
 
 ```
 fixtures
@@ -177,9 +158,9 @@ test_helper.rb
 unit
 ```
 
-A bit different from what we have today.
+Um pouco diferente do que temos hoje.
 
-Functional tests were not so different from what we have today too:
+Os testes funcionais também não eram tão diferentes do que temos hoje:
 
 ```ruby
 require 'test_helper'
@@ -234,9 +215,9 @@ class SportlogCommentsControllerTest < ActionController::TestCase
 end
 ```
 
-I can see many differences and many things I would write differently too, but nonetheless, I can easily understand this. And this is the magic Ruby on Rails introduced a long time ago. Ruby is Poetry.
+Consigo ver muitas diferenças e muitas coisas que eu escreveria de outro jeito também, mas ainda assim consigo entender isso facilmente. E essa é a mágica que Ruby on Rails introduziu muito tempo atrás. Ruby é poesia.
 
-Now, investigating a few different files. Here is the models/post.rb:
+Agora, investigando alguns arquivos diferentes. Aqui está o `models/post.rb`:
 
 ```ruby
 class Post<ActiveRecord::Base
@@ -265,7 +246,7 @@ class Post<ActiveRecord::Base
   def owner
   	return recipient.blank? ? user : recipient
   end
-  
+
   def can_be_deleted_by?(person)
      person && (person.admin? || person.id.eql?(user_id) || person.id.eql?(recipient_id))
   end
@@ -276,19 +257,19 @@ class Post<ActiveRecord::Base
 end
 ```
 
-Several things to notice here:
-- The lack of space on `class Post<ActiveRecord::Base` kills me 😂. First refactor: `class Post < ActiveRecord::Base`.
-- Ruby hash rocket all over the place.
-- A lot of inexperienced code too "return", but in Ruby, every method returns something. That one was my fault!
-- A lot of `and` and `or`. Very weird, and I don't think that was on purpose.
+Várias coisas para notar aqui:
+- A falta de espaço em `class Post<ActiveRecord::Base` me mata 😂. Primeira refatoração: `class Post < ActiveRecord::Base`.
+- Hash rocket de Ruby para todo lado.
+- Muito código inexperiente também com "return", mas em Ruby todo método retorna algo. Essa foi culpa minha!
+- Muitos `and` e `or`. Muito estranho, e não acho que tenha sido de propósito.
 
-And another list of strange things:
+E mais uma lista de coisas estranhas:
 
-- This line: `flash[:notice] = :youve_been_logged_out_hope_you_come_back_soon.l` Why not I18n.l()?
-- A lot of `format.xml`, looks like it was still a thing. Not sure why supported in this project, though.
-- A lot of `define_method` for no good reason.
-- The font size was very small.
-- A lot of `form_remote_for` and `jQuery`, I mean, look at this beauty:
+- Esta linha: `flash[:notice] = :youve_been_logged_out_hope_you_come_back_soon.l` Por que não `I18n.l()`?
+- Muito `format.xml`; parece que ainda era uma coisa. Não sei bem por que esse projeto dava suporte a isso.
+- Muito `define_method` sem um bom motivo.
+- O tamanho da fonte era muito pequeno.
+- Muito `form_remote_for` e `jQuery`; quero dizer, olha esta beleza:
 
 ```html
 <% form_remote_for(:comment, 
@@ -308,12 +289,12 @@ And another list of strange things:
 <%end%> 
 ```
 
-A lot of design ideas missing from this implementation, which makes sense, most of the developers came from Web Agencies and had no knowledge of Design Principles.
+Muitas ideias de design faltando nessa implementação, o que faz sentido; a maioria dos desenvolvedores vinha de Web Agencies e não tinha conhecimento de Princípios de Design.
 
 <hr>
 
-Well, this was a very interesting problem. Going to the past and seeing how things worked, deployment techniques, Rack sending e-mails to notify of bugs in production and much more. Glad to see how far we have come!
+Bem, esse foi um problema muito interessante. Ir ao passado e ver como as coisas funcionavam, técnicas de deploy, Rack enviando e-mails para avisar sobre bugs em produção e muito mais. Fico feliz em ver o quanto evoluímos!
 
-Hope you liked going to the past with me.
+Espero que você tenha gostado de voltar ao passado comigo.
 
 <span style="color: #F2C94C;">Happy coding!</span>

@@ -1,4 +1,338 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://blog.leonardopereira.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.leonardopereira.com/" rel="alternate" type="text/html" /><updated>2026-04-26T14:54:43-04:00</updated><id>https://blog.leonardopereira.com/feed.xml</id><title type="html">Leo’s Blog - leonardopereira.com</title><subtitle>Personal blog where I share my thoughts about programming,  technology, and other interesting topics.</subtitle><entry><title type="html">Code Reviews Matter a Freaking Lot</title><link href="https://blog.leonardopereira.com/2026/04/18/code-reviews-matter-a-freaking-lot/" rel="alternate" type="text/html" title="Code Reviews Matter a Freaking Lot" /><published>2026-04-18T14:04:00-04:00</published><updated>2026-04-18T14:04:00-04:00</updated><id>https://blog.leonardopereira.com/2026/04/18/code-reviews-matter-a-freaking-lot</id><content type="html" xml:base="https://blog.leonardopereira.com/2026/04/18/code-reviews-matter-a-freaking-lot/"><![CDATA[<p><img src="/assets/images/codereview.png" alt="Code Reviewer" /></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-06-14T22:04:28-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Leo’s Blog - leonardopereira.com</title><subtitle>Personal blog where I share my thoughts about programming,  technology, and other interesting topics.</subtitle><entry><title type="html">Be better (much better): Agentic Tools and Pi</title><link href="http://localhost:4000/2026/06/14/be-better-much-better-agentic-tools-and-pi/" rel="alternate" type="text/html" title="Be better (much better): Agentic Tools and Pi" /><published>2026-06-14T13:04:00-04:00</published><updated>2026-06-14T13:04:00-04:00</updated><id>http://localhost:4000/2026/06/14/be-better-much-better-agentic-tools-and-pi</id><content type="html" xml:base="http://localhost:4000/2026/06/14/be-better-much-better-agentic-tools-and-pi/"><![CDATA[<p><img src="/assets/images/leo-pi.png" alt="Leo Pi" /></p>
+
+<p>I have not written a single line of code this year. Not one. And I have shipped more than in any other year of my career — hundreds of thousands of lines changed. If that sounds reckless, good. Stay with me, because it is the opposite.</p>
+
+<p>Technology has these moments where the floor moves under you. It happens in many areas, but in tech it is brutal because the old world disappears almost overnight.</p>
+
+<p>The iPhone is the obvious example. Before it, phones were “good enough.” Then they became something else entirely. It changed everything. Now people can barely remember pressing the same number three times just to type a letter in an SMS.</p>
+
+<p>AI is doing the same thing to us developers. Some of us know this. Not everyone sees it yet. I am very lucky to be at Shopify, where Tobi decided AI was a baseline expectation for all of us. They gave us the tools, and our culture shifted. We all wanted to go deeper into this ocean — and we did.</p>
+
+<p>I still remember the first time AI autocomplete in VS Code felt real. It was magical watching it guess the next lines and accept them with Tab. Typing time dropped by at least half. That alone felt huge.</p>
+
+<p>Years later, around 2020, GPT-3 came to life. Everyone was using it — not in code, not yet. But it did not take long. In the beginning of 2023, Cursor came into the game. Another change, a huge change. Now we were not just autocompleting anymore — we were planning, asking for full changes, and accepting diffs in files we had not even opened. The indexing engine, adding local semantic search for the agents, was game-changing. It reached into places we did not know about. Shopify was thriving there at that moment, with thousands of engineers testing the tooling before everyone else.</p>
+
+<p>And then 2025 came, and with it Claude Code. In my personal opinion, it was one of the most important pieces of technology a software engineer could touch. It came with several annoying bumps, like asking permission for everything. But the base was there: agents that did not show you every change, removing the engineer from the code and moving them back to creativity. A new IDE was built — one that did not require you to type code, but to think about the loop, the agent, the problem, and what you wanted to get done.</p>
+
+<p>YOLO (dangerously skip permissions) mode removed the last constraint we had: babysitting the agent through every file read and command. Agents are powerful. More often than not, we are the thing standing in their way. We started becoming prompt engineers.</p>
+
+<p>It took several months for Claude Code to mature, and for all of us to discover what it was truly capable of. The tool was growing while, in parallel, the models were getting massively better.</p>
+
+<p>And in November 2025, a new coding agent arrived: Pi (<a href="https://pi.dev">pi.dev</a>). It fixed the things Claude Code kept tripping over, and it won me over for three reasons:</p>
+
+<ul>
+  <li><strong>Open source and minimal by design.</strong> Nothing hidden, nothing bloated. You see exactly what the agent is doing.</li>
+  <li><strong>Any model you want.</strong> Run it on whatever you can reach through an API, and switch mid-session when another one is sharper for the job.</li>
+  <li><strong>It extends itself.</strong> No more begging for a feature or bolting on a custom MCP. If Pi cannot do something, you build an extension — usually with Pi itself — and so does everyone else.</li>
+</ul>
+
+<p>Here’s the honest version: if I could shape Claude Code into exactly what I wanted, I would happily stay. I can’t. Pi let me. For me, it began as a small spark at Shopify, and the whole team fell for it — shared problems getting shared fixes, out in the open, every day.</p>
+
+<p>One of the most amazing tools Claude Code has is <a href="https://code.claude.com/docs/en/agent-teams">agent teams</a>. It’s experimental, so only a few people know about it. Pi does not ship with this by default either, but that is exactly the kind of thing Pi is good at: install an extension, open another tmux pane, run another agent, and wire the agents together around tasks and messages.</p>
+
+<p>That is when we started splitting work across dedicated agents, and we moved to the next wave: the <strong>loop engineers</strong>. That is the whole shift — you stop typing code and start running a loop. You frame the problem, the agents propose, you judge, you approve, you correct, you go again. A single prompt was never enough. The typing part of coding? Solved. The real job climbed up a level, into framing, reviewing, and steering that loop.</p>
+
+<p>And that is what I do every single day. I learn and build with models, getting shit done, relearning everything I already know from a completely new angle. Squeezing out every bit of leverage I can.</p>
+
+<p>A few things I have done at Shopify in the last 6 months:</p>
+
+<ul>
+  <li>Cleared an outdated board with 37 tasks — reviewed them all, wrote 9 PRs, and closed what was stale. Took me 2 hours.</li>
+  <li>Got root cause analysis on issues across massive, billion-row telemetry and log data, in minutes.</li>
+  <li>Used autoresearch to improve one of our platforms, moving background processing time from 22 hours down to 40 minutes — it traced the bottleneck to how we were batching the work, not to the hardware. (No compute power added 😉)</li>
+  <li>Removed 5 stale gems from our MASSIVE Gemfile.</li>
+</ul>
+
+<p>That is my view from my own work. But this also changed how I work with teammates. I have given presentations and run multiple 1:1s helping colleagues learn and use Pi as well. My whole goal was to unblock them, and let them be better.</p>
+
+<p>So back to what I said at the top: not one line of code typed by me this year. That is not a flex. It is simply the new shape of the work.</p>
+
+<p>Now I want to share what you can learn and do too. Pi is not only for Shopify. There is so much being built by so many people that the best part is probably still ahead of us.</p>
+
+<h2 id="learn-what-ai-is-first">Learn what AI is first</h2>
+
+<p>It will help you take the leap to agentic tools if you understand what AI can do. There are plenty of resources online — try to keep pace and keep yourself up to date with everything going on.</p>
+
+<p>And time-block around 2 hours and 15 minutes to watch this:</p>
+
+<div style="position:relative;width:100%;padding-bottom:56.25%;height:0;overflow:hidden;">
+  <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;" src="https://www.youtube.com/embed/xmkSf5IS-zw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
+</div>
+
+<p><br />
+<br /></p>
+
+<p>This is the best video I have seen for handing you all the context you need on everything happening right now. Understand context, the challenges, bandwidth, the science, the training. It’s fantastic!</p>
+
+<h2 id="dont-get-attached-to-a-model">Don’t get attached to a model</h2>
+
+<p>Models are launched basically every quarter. Do not get overly attached to any of them. Try new ones — they are good at solving different problems. Opus 4.6 was amazing at coding, before being nerfed (I strongly believe this) for the launch of Opus 4.7 (which was terrible). GPT 5.5 is generally great at many tasks; coding is not as good as Opus 4.6, but it is good. Fable 5 was amazing for creative work. Gemini is generally bad (sorry, it’s true). And I do not know anyone using Grok 🤣. Either way, do not get influenced by my comments — do your research, try your tools.</p>
+
+<p>And yes, pay for the models, sign up for the subscriptions. It is always worth it.</p>
+
+<p>Full disclosure before we go hands-on: from here on I will only talk about what I run on my personal computer. When I say GPT 5.5, I mean <a href="https://chatgpt.com/pricing/">Codex</a> — I drive it from my personal ChatGPT subscription, in high/xhigh thinking mode, depending on the task. I also pay for Claude Pro to run Claude Code. Use whatever model suits you. Just remember: Anthropic subscriptions only work inside Claude Code — with Pi you fall back to their API tiers, which cost a lot more.</p>
+
+<h2 id="lets-install-pi-and-get-some-beauty-around-it">Let’s install Pi and get some beauty around it</h2>
+
+<p>Here is a list of things I use in my environment:</p>
+
+<ul>
+  <li><a href="https://brew.sh/">Homebrew</a></li>
+  <li><a href="https://ghostty.org/">Ghostty</a></li>
+  <li><a href="https://pi.dev">Pi</a></li>
+  <li><a href="https://github.com/tmux/tmux">Tmux</a></li>
+</ul>
+
+<p>If you’re on macOS, install Homebrew first, then the rest is just copy/paste:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Homebrew (if you don't have it yet)</span>
+/bin/bash <span class="nt">-c</span> <span class="s2">"</span><span class="si">$(</span>curl <span class="nt">-fsSL</span> https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="si">)</span><span class="s2">"</span>
+
+<span class="c"># Ghostty and tmux</span>
+brew <span class="nb">install</span> <span class="nt">--cask</span> ghostty
+brew <span class="nb">install </span>tmux
+
+<span class="c"># Pi</span>
+curl <span class="nt">-fsSL</span> https://pi.dev/install.sh | sh
+</code></pre></div></div>
+
+<p>You can copy and install some of my settings. Just paste these locally:</p>
+
+<p>tmux:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-fsSL</span> https://raw.githubusercontent.com/dantetekanem/leo-personal-pi/main/configs/tmux.conf <span class="nt">-o</span> ~/.tmux.conf
+tmux source-file ~/.tmux.conf 2&gt;/dev/null <span class="o">||</span> <span class="nb">true</span>
+</code></pre></div></div>
+
+<p>ghostty:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir</span> <span class="nt">-p</span> ~/.config/ghostty
+<span class="k">for </span>f <span class="k">in </span>config.ghostty local.ghostty new-tmux-session<span class="p">;</span> <span class="k">do
+  </span>curl <span class="nt">-fsSL</span> <span class="s2">"https://raw.githubusercontent.com/dantetekanem/leo-personal-pi/main/configs/ghostty/</span><span class="nv">$f</span><span class="s2">"</span> <span class="se">\</span>
+    <span class="nt">-o</span> <span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/.config/ghostty/</span><span class="nv">$f</span><span class="s2">"</span>
+<span class="k">done</span>
+<span class="c"># point Ghostty at my config (back up any existing one first)</span>
+<span class="o">[</span> <span class="nt">-f</span> ~/.config/ghostty/config <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nb">mv</span> ~/.config/ghostty/config ~/.config/ghostty/config.bak
+<span class="nb">ln</span> <span class="nt">-sf</span> ~/.config/ghostty/config.ghostty ~/.config/ghostty/config
+</code></pre></div></div>
+
+<p>And this is how my interface looks like:</p>
+
+<p><img src="/assets/images/pi-ghostty-env.png" alt="Pi running in Ghostty" /></p>
+
+<h2 id="your-first-five-minutes-inside-pi">Your first five minutes inside Pi</h2>
+
+<p>Pi drops you into a real tool, not a tutorial. This is one place where <a href="https://pi.dev">pi.dev</a> still needs more docs, so here is the path I give people the first time they open it.</p>
+
+<p>Open a folder you can safely experiment in and run <code class="language-plaintext highlighter-rouge">pi</code>. Before you ask it to touch real work, do the boring setup:</p>
+
+<ol>
+  <li>Run <code class="language-plaintext highlighter-rouge">/login</code>. Authenticate first, otherwise every serious prompt is going to turn into an auth detour.</li>
+  <li>Run <code class="language-plaintext highlighter-rouge">/settings</code>. Not because you need to understand everything yet, but because you should see the shape of the tool: providers, permissions, extensions, commands, the knobs you can actually turn.</li>
+  <li>Run <code class="language-plaintext highlighter-rouge">/model</code> and pick the model you want to start with. Do not treat this as permanent. Treat it like choosing a lens for the next job.</li>
+  <li>Set the thinking level. Use <code class="language-plaintext highlighter-rouge">high</code> or <code class="language-plaintext highlighter-rouge">xhigh</code> when the task needs judgment, design, research, or a scary diff. Use lighter thinking when you are doing something mechanical.</li>
+  <li>Learn the shortcut: <code class="language-plaintext highlighter-rouge">Shift+Tab</code> cycles thinking while you are composing. It sounds tiny. It is not. You will change thinking levels all the time once you get used to matching the model’s effort to the work.</li>
+  <li>Run one harmless prompt before you point it at production code:</li>
+</ol>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Read this folder and tell me what kind of project this is.
+Do not edit files. Give me a short map of the important files and the first risks you see.
+</code></pre></div></div>
+
+<p>That little prompt teaches you the loop. Ask, inspect, correct, ask again. The first win with Pi should not be a giant diff. It should be trust. You want to learn how it reads, how it asks for permission, how it reports uncertainty, how it uses your tools. Once that feels boring, you are ready to give it real work.</p>
+
+<h2 id="take-bigger-challenges-and-do-the-hardest-work-possible">Take bigger challenges and do the hardest work possible</h2>
+
+<p>Do not use your agents only for simple things like “make ticket xyz done” or “write a function to persist idempotent requests in logs.” No. Ask for the bigger outcome: “rewrite the outputs and logs in this project so every request shares the same idempotency key and is tracked correctly in our third-party tools, Grafana, and Prometheus.”</p>
+
+<p>Push the agent to reach higher. It will fail today, and that failure is where you start hardening your setup and growing the harness around it. Hardening and harness — those two words are everywhere right now, and for good reason.</p>
+
+<p>You need to learn how to make plans. I love agents that keep TODO lists — they follow a plan and keep it consistent. Organize skills so they know how to do specialized work, like a Rails Engineer, React Engineer, Test Engineer, Security Specialist, and much more.</p>
+
+<p>Give power and tools to your agents so they can reach further. Web access, data knowledge, how to read logs, how to build dashboards — all of that. Have MCPs or local extensions to find data as they need it. Read-only access to a database for small projects, BigQuery access for big ones. Slack access for history across different channels. Let it know it all.</p>
+
+<p>Install a memory system so the agent can learn as it goes and carry that knowledge into the next session. If something is missing, use Pi itself to build an extension to solve it.</p>
+
+<h2 id="multiply-your-agents-and-learn-to-orchestrate">Multiply your agents, and learn to orchestrate</h2>
+
+<p>Like I said, Claude Code had agent teams in experimental for a while. It’s a very expensive feature — it lets you spawn new agents running in parallel. So instead of 1 expensive agent, you have 5 or 10. Pi does not have this by default either, but you can easily install a package to do it. I personally use <a href="https://www.npmjs.com/package/pi-teams">pi-teams</a> for this. You will also need <a href="https://github.com/tmux/tmux">tmux</a> for it.</p>
+
+<p>When I say <strong>spawn agents</strong>, I mean creating separate agent sessions, usually in separate tmux panes, each with its own context window and one narrow job. One agent reads docs. One traces the code. One writes tests. One reviews the final diff. They report back to a lead agent, or directly to you.</p>
+
+<p>This is not “let ten bots freestyle on my repo.” Please don’t do that. That is how you get expensive chaos.</p>
+
+<p>Spawning agents only works when you give each one a lane:</p>
+
+<ol>
+  <li>What exactly should this agent do?</li>
+  <li>What files, docs, logs, or tools should it inspect?</li>
+  <li>Can it edit, or is it read-only?</li>
+  <li>What does done look like?</li>
+  <li>Where should it report the result?</li>
+</ol>
+
+<p>Also, build a skill that puts a leader agent in charge of the work. Its only concern is orchestrating and delegating. For a genuinely hard task, the leader can send narrow research, testing, security, and review work to different agents, then make the final call with all the evidence collected.</p>
+
+<p>The thinking behind this loop is all about the context window. If you watched the video I shared (and you should), you now know more about how important context is for the agent and its thinking process. If a hard task can accumulate almost 1 million tokens in one session, it will be impossible to get it done cleanly. By spawning agents to research online, collect data, prove things out, and analyze the best places in the code, your main agent stays below 100k and you still have everything you need.</p>
+
+<p>Agents are extremely powerful by nature, and you should let that nature run in narrow lanes, not jam everything into one giant conversation. This divide-and-conquer move lets you multiply yourself and crack the hardest challenges with more control, not less.</p>
+
+<p>Let’s get concrete. Say you want to build a new SaaS that helps people find jobs. What will you need? Many things. But for this simple exercise, here’s what I would do with many agents:</p>
+
+<ol>
+  <li>An initial prompt explaining my project in detail, centered on the goal of what I want done.</li>
+  <li>Research the framework and project design, thinking at the database level from the start.</li>
+  <li>Find website references, strong design trends, and the best way to present information for my use case — mobile-friendly and easy for the average user.</li>
+  <li>Dig up the best sources to crawl job positions and surface new opportunities.</li>
+  <li>Write the prompts the product itself will use to reuse models for its in-app intelligence.</li>
+  <li>Compare hosting options that stay cheap and still support the stack I need.</li>
+  <li>Lean on TDD so the agents produce solid code, not a “vibe-coded” mess.</li>
+  <li>Study marketing and costs to land on the right pricing.</li>
+  <li>On pricing, research the best integrations to charge customers, and how permissions should work.</li>
+</ol>
+
+<p>This is the first wave of agents. It can get the SaaS into a good alpha version shockingly fast. The second wave comes when you learn the gaps, and what else you need:</p>
+
+<ul>
+  <li>Authentication</li>
+  <li>Security</li>
+  <li>UX/UI</li>
+  <li>Functionalities</li>
+  <li>Limitations</li>
+</ul>
+
+<p>This is a loop you’ll be in. You will not touch the code anymore — but you will review every line of it. I built tooling for exactly this, and I’ll show it to you in the last section.</p>
+
+<h2 id="design-skills-to-get-more-done">Design skills to get more done</h2>
+
+<p>Skills are where the agent stops being a generalist and becomes <em>your</em> specialist. Be creative — picture the exact engineer you wish you could clone, then write them down. Here are the ones I lean on every day, but the real payoff is building your own:</p>
+
+<ul>
+  <li><a href="https://github.com/dantetekanem/leo-personal-pi/tree/main/skills/rails-engineer"><strong>rails-engineer</strong></a> — focused Rails work, the way I’d want it written.</li>
+  <li><a href="https://github.com/dantetekanem/leo-personal-pi/tree/main/skills/rails-testing-engineer"><strong>rails-testing-engineer</strong></a> — Minitest specialist that writes real specs, not coverage theater.</li>
+  <li><a href="https://github.com/dantetekanem/leo-personal-pi/tree/main/skills/javascript-engineer"><strong>javascript-engineer</strong></a> — idiomatic, clean JavaScript work.</li>
+  <li><a href="https://github.com/dantetekanem/leo-personal-pi/tree/main/skills/react-engineer"><strong>react-engineer</strong></a> — React components and frontend structure.</li>
+  <li><a href="https://github.com/dantetekanem/leo-personal-pi/tree/main/skills/frontend-animator"><strong>frontend-animator</strong></a> — the fun one, for motion and polish on the UI.</li>
+  <li><a href="https://github.com/dantetekanem/leo-personal-pi/tree/main/skills/test-expert"><strong>test-expert</strong></a> — TDD discipline across the board.</li>
+  <li><a href="https://github.com/dantetekanem/leo-personal-pi/tree/main/skills/quality-expert"><strong>quality-expert</strong></a> — keeps the code clean and the smells out.</li>
+  <li><a href="https://github.com/dantetekanem/leo-personal-pi/tree/main/skills/refactor-expert"><strong>refactor-expert</strong></a> — restructures without changing behavior.</li>
+  <li><a href="https://github.com/dantetekanem/leo-personal-pi/tree/main/skills/security-expert"><strong>security-expert</strong></a> — reviews and hardens with a security lens.</li>
+  <li><a href="https://github.com/dantetekanem/leo-personal-pi/tree/main/skills/code-expert"><strong>code-expert</strong></a> — deep code analysis when I need the details.</li>
+  <li><a href="https://github.com/dantetekanem/leo-personal-pi/tree/main/skills/pre-launch-expert"><strong>pre-launch-expert</strong></a> — the last check before anything ships.</li>
+  <li><a href="https://github.com/dantetekanem/leo-personal-pi/tree/main/skills/team-leader"><strong>team-leader</strong></a> — the orchestrator, controls and delegates to the other agents.</li>
+  <li><a href="https://github.com/dantetekanem/leo-personal-pi/tree/main/skills/task-manager"><strong>task-manager</strong></a> — keeps the Plan and the TODO lists consistent.</li>
+  <li><a href="https://github.com/dantetekanem/leo-personal-pi/tree/main/skills/autoresearch-candidates"><strong>autoresearch-candidates</strong></a> — finds the best places in the code to dig into.</li>
+  <li><a href="https://github.com/dantetekanem/leo-personal-pi/tree/main/skills/brainstorming"><strong>brainstorming</strong></a> — when I want to think out loud and explore options.</li>
+</ul>
+
+<h2 id="use-extensions">Use extensions</h2>
+
+<p>Build your own extensions to mold the agent around your work. Think of it like modeling clay — we’re not hardcoding anymore, we’re shaping what an agent can do and pressing it into the exact form your work needs. You should do the same.</p>
+
+<p>First, head to <a href="https://pi.dev/packages">pi.dev/packages</a> and start looking at what you like. There are over 3,900 packages there, and you can start using most of them right away.</p>
+
+<p>A few I built myself and run daily:</p>
+
+<ul>
+  <li><a href="https://github.com/dantetekanem/pi-agentic-search"><strong>pi-agentic-search</strong></a> — make the agent search with intent, not just wander around.</li>
+  <li><a href="https://github.com/dantetekanem/pi-render-images-tmux"><strong>pi-render-images-tmux</strong></a> — render images right inside tmux (yes, that avatar up there).</li>
+  <li><a href="https://github.com/dantetekanem/pi-feedback"><strong>pi-feedback</strong></a> — a tighter feedback loop with the agent.</li>
+  <li><a href="https://github.com/dantetekanem/friday"><strong>friday</strong></a> — a communications companion that sharpens how the agent talks back.</li>
+  <li><a href="https://github.com/leop-shopify/pi-code-diff"><strong>pi-code-diff</strong></a> — cleaner diffs for reviewing exactly what the agent changed.</li>
+  <li><a href="https://github.com/leop-shopify/pi-persona"><strong>pi-persona</strong></a> — give the agent a custom persona.</li>
+  <li><a href="https://github.com/leop-shopify/ada"><strong>ada</strong></a> — an artifact-driven agent.</li>
+</ul>
+
+<p>And third-party ones I keep switched on:</p>
+
+<ul>
+  <li><a href="https://github.com/davebcn87/pi-autoresearch"><strong>pi-autoresearch</strong></a> — the autoresearch I keep bringing up. This one is gold.</li>
+  <li><a href="https://www.npmjs.com/package/pi-hermes-memory"><strong>pi-hermes-memory</strong></a> — token-aware persistent memory. This is the memory system I mentioned earlier.</li>
+  <li><a href="https://www.npmjs.com/package/pi-ghostty"><strong>pi-ghostty</strong></a> — Ghostty integration for the setup above.</li>
+  <li><a href="https://www.npmjs.com/package/pi-ask-user"><strong>pi-ask-user</strong></a> — interactive selection prompts when the agent needs a call from me.</li>
+  <li><a href="https://www.npmjs.com/package/pi-code-previews"><strong>pi-code-previews</strong></a> — inline previews of the code being touched.</li>
+  <li><a href="https://www.npmjs.com/package/@ifi/oh-pi-themes"><strong>@ifi/oh-pi-themes</strong></a> — themes, because the beauty matters.</li>
+  <li><a href="https://www.npmjs.com/package/napkin-ai"><strong>napkin-ai</strong></a> — quick visuals and diagrams from a prompt.</li>
+  <li><a href="https://www.npmjs.com/package/pi-emote"><strong>pi-emote</strong></a> — a bit of personality in the loop.</li>
+</ul>
+
+<p>If an existing extension does not do everything you want, you can and should clone it and modify it to fit your work. Pi is extremely good at this.</p>
+
+<h2 id="lets-actually-run-one-hands-on-with-pi">Let’s actually run one. Hands-on with Pi.</h2>
+
+<p>Enough theory. Open a small project you understand. Not the scariest monolith yet. The goal is to feel the loop, not to prove you are brave.</p>
+
+<p>Start read-only:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>You are helping me understand this project.
+Do not edit files.
+Read the README, package files, and source layout.
+Give me:
+1. what this app does
+2. the most important files
+3. the first risks you see
+4. one small improvement candidate
+</code></pre></div></div>
+
+<p>That prompt is boring on purpose. You are teaching yourself how the agent reads, how it reports uncertainty, and whether it can separate evidence from guessing.</p>
+
+<p>Now make it plan:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>I want one small improvement that can be done safely in under 30 minutes.
+Find 3 candidates.
+For each one, explain the user impact, files likely involved, risks, and how you would verify it.
+Do not edit yet.
+</code></pre></div></div>
+
+<p>Pick one, then force the agent to work like an engineer:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Implement option 2.
+Before editing, write a short plan with the files you expect to touch.
+Keep the diff small.
+Add or update tests if this project has a test suite.
+Stop and ask if you need a product decision.
+</code></pre></div></div>
+
+<p>After it says it is done, do not celebrate yet. Review it:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Show me the diff as a reviewer.
+Explain why each file changed.
+List the highest-risk assumption in this implementation.
+Tell me exactly what test or command proves this works.
+</code></pre></div></div>
+
+<p>Then run the verification. If it fails, great. That is not embarrassment; that is the loop working. Make the agent debug the failure with evidence, not vibes.</p>
+
+<p>This is the shape:</p>
+
+<ol>
+  <li>Ask it to understand.</li>
+  <li>Ask it to plan.</li>
+  <li>Let it make the smallest useful change.</li>
+  <li>Review the diff.</li>
+  <li>Verify the behavior.</li>
+  <li>Feed the result back into the next loop.</li>
+</ol>
+
+<p>Once this feels boring, scale it. Add skills. Add extensions. Add memory. Add teams. Give the agents better tools. But keep the judgment with you.</p>
+
+<h2 id="do-not-accept-everything-review-it-all">Do not accept everything. Review it all</h2>
+
+<p>Read my blog post on <a href="https://blog.leonardopereira.com/2026/04/18/code-reviews-matter-a-freaking-lot/">Code Reviews Matter a Freaking Lot</a>. I mean it. If you take one thing from this post, take that: AI makes code review more important, not less.</p>
+
+<p>This is the part I do not want to blur: you are still responsible.</p>
+
+<p>Even if you typed zero lines, you approved the shape of the change. If it breaks later, the useful question is not “which model wrote it?” It is “what did we miss in review?” That mindset matters.</p>
+
+<p>Before AI, a review protected you from another person’s blind spot. Now it also protects you from output that can look complete before it is truly understood. The dangerous code is not always ugly. Sometimes it has green tests, clean names, and one missing idempotency key nobody noticed.</p>
+
+<p>That is why I care so much about the review loop. <a href="https://github.com/leop-shopify/pi-code-diff">pi-code-diff</a> shows me exactly what the agent touched. <a href="https://github.com/dantetekanem/pi-feedback">pi-feedback</a> lets me hand correction back without turning the whole session into noise. <a href="https://github.com/dantetekanem/friday">friday</a> keeps the conversation tight. I do not need more narration from the agent. I need a clear diff, a precise correction path, and a loop that lets me step in when judgment matters.</p>
+
+<p>For me, Pi is not permission to care less. It is a way to move the care to a better place. Less hunting for files. More asking whether this belongs in the system. Less “please write this method.” More “prove this is the right design, with data, docs, tests, and the smallest safe diff.”</p>
+
+<p>And yes, some days are messy. Agents get stuck. They invent things with confidence. Context drifts. Tools break. API costs can surprise you. When that happens, slow down. Read the code. Think. The loop is supposed to serve your judgment, not replace it.</p>
+
+<p>That is the whole point of this post, really. Be faster, yes. Ship more, yes. But stay close to the decisions that matter. Build the harness. Run the loop. Demand evidence. Review the result. Own it.</p>
+
+<p>That is how I work now. If any of this resonates, or if you think I am dead wrong, find me at <a href="mailto:me@leonardopereira.com">me@leonardopereira.com</a>. Now go be better — much better.</p>]]></content><author><name></name></author><category term="ai" /><category term="agentic development" /><category term="engineering culture" /><category term="pi" /><category term="claude code" /><category term="codex" /><category term="ai agents" /><category term="agentic coding" /><category term="llm" /><category term="developer productivity" /><category term="prompt engineering" /><category term="extensions" /><category term="shopify" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Code Reviews Matter a Freaking Lot</title><link href="http://localhost:4000/2026/04/18/code-reviews-matter-a-freaking-lot/" rel="alternate" type="text/html" title="Code Reviews Matter a Freaking Lot" /><published>2026-04-18T14:04:00-04:00</published><updated>2026-04-18T14:04:00-04:00</updated><id>http://localhost:4000/2026/04/18/code-reviews-matter-a-freaking-lot</id><content type="html" xml:base="http://localhost:4000/2026/04/18/code-reviews-matter-a-freaking-lot/"><![CDATA[<p><img src="/assets/images/codereview.png" alt="Code Reviewer" /></p>
 
 <p>Hi! My name is Leo and I’m a professional Code Reviewer. Yeah, I don’t think this is a real profession, but I have numbers to prove I know what I’m talking about for the next few minutes. I even have the nickname Mr. Comments, and my own Slack emoji <code class="language-plaintext highlighter-rouge">:mr-comments:</code>.</p>
 
@@ -259,7 +593,7 @@ Now, with AI writing 95% of our code or more, slop everywhere, brute-forcing sol
 
 <p>I’d argue code reviews will be the most important thing we have in the future. At Shopify we are emphasizing this more and more.</p>
 
-<p>Have questions or ideas on this? You can find me at <a href="mailto:me@leonardopereira.com">me@leonardopereira.com</a>. I hope you enjoyed it.</p>]]></content><author><name></name></author><category term="programming" /><category term="software design" /><category term="engineering culture" /><category term="code review" /><category term="pull requests" /><category term="clean code" /><category term="SOLID" /><category term="testing" /><category term="mentorship" /><category term="ruby" /><category term="rails" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Running a Rails 2.3.4 and Ruby 1.9.3 Project from 2009!</title><link href="https://blog.leonardopereira.com/2025/03/17/running-a-rails-2-3-4-and-ruby-1-9-3-project-from-2009/" rel="alternate" type="text/html" title="Running a Rails 2.3.4 and Ruby 1.9.3 Project from 2009!" /><published>2025-03-17T23:07:00-04:00</published><updated>2025-03-17T23:07:00-04:00</updated><id>https://blog.leonardopereira.com/2025/03/17/running-a-rails-2-3-4-and-ruby-1-9-3-project-from-2009</id><content type="html" xml:base="https://blog.leonardopereira.com/2025/03/17/running-a-rails-2-3-4-and-ruby-1-9-3-project-from-2009/"><![CDATA[<p>Yesterday I got an e-mail from Squarespace, informing me that my Google Domains account (now on Squarespace) would increase the price since Gemini and AI are costing more and in every product of theirs. Which is horrible, I don’t think they add any value and it’s impossible to opt-out.
+<p>Have questions or ideas on this? You can find me at <a href="mailto:me@leonardopereira.com">me@leonardopereira.com</a>. I hope you enjoyed it.</p>]]></content><author><name></name></author><category term="programming" /><category term="software design" /><category term="engineering culture" /><category term="code review" /><category term="pull requests" /><category term="clean code" /><category term="SOLID" /><category term="testing" /><category term="mentorship" /><category term="ruby" /><category term="rails" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Running a Rails 2.3.4 and Ruby 1.9.3 Project from 2009!</title><link href="http://localhost:4000/2025/03/17/running-a-rails-2-3-4-and-ruby-1-9-3-project-from-2009/" rel="alternate" type="text/html" title="Running a Rails 2.3.4 and Ruby 1.9.3 Project from 2009!" /><published>2025-03-17T23:07:00-04:00</published><updated>2025-03-17T23:07:00-04:00</updated><id>http://localhost:4000/2025/03/17/running-a-rails-2-3-4-and-ruby-1-9-3-project-from-2009</id><content type="html" xml:base="http://localhost:4000/2025/03/17/running-a-rails-2-3-4-and-ruby-1-9-3-project-from-2009/"><![CDATA[<p>Yesterday I got an e-mail from Squarespace, informing me that my Google Domains account (now on Squarespace) would increase the price since Gemini and AI are costing more and in every product of theirs. Which is horrible, I don’t think they add any value and it’s impossible to opt-out.
 So, I started digging and seeing how I could make things cheaper so at least from my side, Google would not get all the greenies it wants. Well, one of the tools I decided to use was to find heavy files in my Gmail, Google Photos and Google Drive.</p>
 
 <p>Out of curiosity, I found a Git bundle of a project I was part of in 2009. It was my first real Ruby project, getting my hands dirty. The project was Sportlog, a community driven by exercises and milestones, very similar to what Strava is nowadays. Unfortunately, it didn’t work out, and the project was closed in 2010.
@@ -553,7 +887,7 @@ unit
 
 <p>Hope you liked going to the past with me.</p>
 
-<p><span style="color: #F2C94C;">Happy coding!</span></p>]]></content><author><name></name></author><category term="programming" /><category term="ai" /><category term="back to the past" /><summary type="html"><![CDATA[Yesterday I got an e-mail from Squarespace, informing me that my Google Domains account (now on Squarespace) would increase the price since Gemini and AI are costing more and in every product of theirs. Which is horrible, I don’t think they add any value and it’s impossible to opt-out. So, I started digging and seeing how I could make things cheaper so at least from my side, Google would not get all the greenies it wants. Well, one of the tools I decided to use was to find heavy files in my Gmail, Google Photos and Google Drive.]]></summary></entry><entry><title type="html">AI, Cursor and speeding up development</title><link href="https://blog.leonardopereira.com/2025/03/12/ai-cursor-and-speeding-up-development/" rel="alternate" type="text/html" title="AI, Cursor and speeding up development" /><published>2025-03-12T17:38:00-04:00</published><updated>2025-03-12T17:38:00-04:00</updated><id>https://blog.leonardopereira.com/2025/03/12/ai-cursor-and-speeding-up-development</id><content type="html" xml:base="https://blog.leonardopereira.com/2025/03/12/ai-cursor-and-speeding-up-development/"><![CDATA[<p>I was able to make this blog from zero to production in 1 hour. Including:</p>
+<p><span style="color: #F2C94C;">Happy coding!</span></p>]]></content><author><name></name></author><category term="programming" /><category term="ai" /><category term="back to the past" /><summary type="html"><![CDATA[Yesterday I got an e-mail from Squarespace, informing me that my Google Domains account (now on Squarespace) would increase the price since Gemini and AI are costing more and in every product of theirs. Which is horrible, I don’t think they add any value and it’s impossible to opt-out. So, I started digging and seeing how I could make things cheaper so at least from my side, Google would not get all the greenies it wants. Well, one of the tools I decided to use was to find heavy files in my Gmail, Google Photos and Google Drive.]]></summary></entry><entry><title type="html">AI, Cursor and speeding up development</title><link href="http://localhost:4000/2025/03/12/ai-cursor-and-speeding-up-development/" rel="alternate" type="text/html" title="AI, Cursor and speeding up development" /><published>2025-03-12T17:38:00-04:00</published><updated>2025-03-12T17:38:00-04:00</updated><id>http://localhost:4000/2025/03/12/ai-cursor-and-speeding-up-development</id><content type="html" xml:base="http://localhost:4000/2025/03/12/ai-cursor-and-speeding-up-development/"><![CDATA[<p>I was able to make this blog from zero to production in 1 hour. Including:</p>
 <ul>
   <li>Blog engine with Jekyll (Markdown ❤️)</li>
   <li>Hosting on Github for availability</li>
@@ -591,7 +925,7 @@ AI is not a panacea; it hallucinates constantly. You need to feed it good direct
 
 <p>Another extremely valuable thing to do in order to get the best from AI is: Isolating your scope. I am using ChatGPT heavily for this. I open a new session and give all the context of what I want to accomplish - fix a bug, create a new feature, etc. Later, I provide the files and start iterating with this information. This isolation diminishes the level of hallucinations greatly, helping a lot with fixing issues and <strong>getting shit done</strong>. And again, I review everything. If I don’t know something, I ask the model what it means. It is helping me build something, but I still hold responsibility for everything.</p>
 
-<p>Use AI, improve your game. Take responsibility. <span style="color: #F2C94C;">Happy coding!</span></p>]]></content><author><name></name></author><category term="programming" /><category term="ai" /><category term="software development" /><category term="ai" /><category term="cursor" /><category term="10x engineer" /><summary type="html"><![CDATA[I was able to make this blog from zero to production in 1 hour. Including: Blog engine with Jekyll (Markdown ❤️) Hosting on Github for availability CSS inspired by my personal website Support to code highlight Mapping and SEO revision 3 Posts (including this one) DNS forwarding from blog.leonardopereira.com to dantetekanem.github.io]]></summary></entry><entry><title type="html">Comments and Storytelling</title><link href="https://blog.leonardopereira.com/2025/03/12/comments-and-storytelling/" rel="alternate" type="text/html" title="Comments and Storytelling" /><published>2025-03-12T15:38:00-04:00</published><updated>2025-03-12T15:38:00-04:00</updated><id>https://blog.leonardopereira.com/2025/03/12/comments-and-storytelling</id><content type="html" xml:base="https://blog.leonardopereira.com/2025/03/12/comments-and-storytelling/"><![CDATA[<p>Recently I have stumbled upon this <a href="https://github.com/johnousterhout/aposd-vs-clean-code/blob/main/README.md">discussion</a> between <strong>Uncle Bob</strong> and <strong>John Ousterhout</strong>. It’s a bit aggressive and harsh, but nonetheless it’s worth reading! They go through 3 main topics:</p>
+<p>Use AI, improve your game. Take responsibility. <span style="color: #F2C94C;">Happy coding!</span></p>]]></content><author><name></name></author><category term="programming" /><category term="ai" /><category term="software development" /><category term="ai" /><category term="cursor" /><category term="10x engineer" /><summary type="html"><![CDATA[I was able to make this blog from zero to production in 1 hour. Including: Blog engine with Jekyll (Markdown ❤️) Hosting on Github for availability CSS inspired by my personal website Support to code highlight Mapping and SEO revision 3 Posts (including this one) DNS forwarding from blog.leonardopereira.com to dantetekanem.github.io]]></summary></entry><entry><title type="html">Comments and Storytelling</title><link href="http://localhost:4000/2025/03/12/comments-and-storytelling/" rel="alternate" type="text/html" title="Comments and Storytelling" /><published>2025-03-12T15:38:00-04:00</published><updated>2025-03-12T15:38:00-04:00</updated><id>http://localhost:4000/2025/03/12/comments-and-storytelling</id><content type="html" xml:base="http://localhost:4000/2025/03/12/comments-and-storytelling/"><![CDATA[<p>Recently I have stumbled upon this <a href="https://github.com/johnousterhout/aposd-vs-clean-code/blob/main/README.md">discussion</a> between <strong>Uncle Bob</strong> and <strong>John Ousterhout</strong>. It’s a bit aggressive and harsh, but nonetheless it’s worth reading! They go through 3 main topics:</p>
 
 <ul>
   <li>Refactoring and small methods vs longer methods.</li>
@@ -718,7 +1052,7 @@ AI is not a panacea; it hallucinates constantly. You need to feed it good direct
 <p>Now, comments should give context and answer questions that code cannot do. Explain the whys. Otherwise, your code should always be self-explanatory. This includes using good class names and methods that follow good principles and have good design. So you won’t over-engineer anything or add hundreds of bad comments.
 Frameworks (such as Rails) have <a href="https://github.com/rails/rails/blob/main/activesupport/lib/active_support/concern.rb">great examples</a> of comments that add context, explanations and lead you to a correct solution.</p>
 
-<p><span style="color: #F2C94C;">Happy coding!</span></p>]]></content><author><name></name></author><category term="programming" /><category term="software design" /><category term="clean code" /><category term="a philosophy of software design" /><category term="comments" /><category term="programming" /><summary type="html"><![CDATA[Recently I have stumbled upon this discussion between Uncle Bob and John Ousterhout. It’s a bit aggressive and harsh, but nonetheless it’s worth reading! They go through 3 main topics:]]></summary></entry><entry><title type="html">Welcome to My Blog!</title><link href="https://blog.leonardopereira.com/2025/03/12/welcome-to-my-blog/" rel="alternate" type="text/html" title="Welcome to My Blog!" /><published>2025-03-12T15:18:17-04:00</published><updated>2025-03-12T15:18:17-04:00</updated><id>https://blog.leonardopereira.com/2025/03/12/welcome-to-my-blog</id><content type="html" xml:base="https://blog.leonardopereira.com/2025/03/12/welcome-to-my-blog/"><![CDATA[<h2 id="hello-world">Hello World!</h2>
+<p><span style="color: #F2C94C;">Happy coding!</span></p>]]></content><author><name></name></author><category term="programming" /><category term="software design" /><category term="clean code" /><category term="a philosophy of software design" /><category term="comments" /><category term="programming" /><summary type="html"><![CDATA[Recently I have stumbled upon this discussion between Uncle Bob and John Ousterhout. It’s a bit aggressive and harsh, but nonetheless it’s worth reading! They go through 3 main topics:]]></summary></entry><entry><title type="html">Welcome to My Blog!</title><link href="http://localhost:4000/2025/03/12/welcome-to-my-blog/" rel="alternate" type="text/html" title="Welcome to My Blog!" /><published>2025-03-12T15:18:17-04:00</published><updated>2025-03-12T15:18:17-04:00</updated><id>http://localhost:4000/2025/03/12/welcome-to-my-blog</id><content type="html" xml:base="http://localhost:4000/2025/03/12/welcome-to-my-blog/"><![CDATA[<h2 id="hello-world">Hello World!</h2>
 
 <p>Hello! Welcome to my blog. I’ve been wanting to restart my blog for quite a while now. Most of the time I won’t be discussing lengthy subjects or writing comprehensive, in-depth tutorials. Instead, I’ll be sharing interesting things I’ve discovered on the web, my opinions on various topics, and occasionally insights and findings from my work.</p>
 

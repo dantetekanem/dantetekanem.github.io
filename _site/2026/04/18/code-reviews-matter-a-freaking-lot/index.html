@@ -9,11 +9,12 @@
 
 <!-- Stylesheets -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+<link rel="stylesheet" href="/assets/vendor/slot-text/style.css">
 <link rel="stylesheet" href="/assets/css/main.css">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet">
 
 <!-- Feed and SEO tag -->
-<link type="application/atom+xml" rel="alternate" href="https://blog.leonardopereira.com/feed.xml" title="Leo&apos;s Blog - leonardopereira.com" />
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Leo&apos;s Blog - leonardopereira.com" />
 <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Code Reviews Matter a Freaking Lot | Leo’s Blog - leonardopereira.com</title>
 <meta name="generator" content="Jekyll v4.4.1" />
@@ -21,15 +22,15 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Personal blog where I share my thoughts about programming, technology, and other interesting topics." />
 <meta property="og:description" content="Personal blog where I share my thoughts about programming, technology, and other interesting topics." />
-<link rel="canonical" href="https://blog.leonardopereira.com/2026/04/18/code-reviews-matter-a-freaking-lot/" />
-<meta property="og:url" content="https://blog.leonardopereira.com/2026/04/18/code-reviews-matter-a-freaking-lot/" />
+<link rel="canonical" href="http://localhost:4000/2026/04/18/code-reviews-matter-a-freaking-lot/" />
+<meta property="og:url" content="http://localhost:4000/2026/04/18/code-reviews-matter-a-freaking-lot/" />
 <meta property="og:site_name" content="Leo’s Blog - leonardopereira.com" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2026-04-18T14:04:00-04:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Code Reviews Matter a Freaking Lot" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-04-18T14:04:00-04:00","datePublished":"2026-04-18T14:04:00-04:00","description":"Personal blog where I share my thoughts about programming, technology, and other interesting topics.","headline":"Code Reviews Matter a Freaking Lot","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.leonardopereira.com/2026/04/18/code-reviews-matter-a-freaking-lot/"},"url":"https://blog.leonardopereira.com/2026/04/18/code-reviews-matter-a-freaking-lot/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-04-18T14:04:00-04:00","datePublished":"2026-04-18T14:04:00-04:00","description":"Personal blog where I share my thoughts about programming, technology, and other interesting topics.","headline":"Code Reviews Matter a Freaking Lot","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2026/04/18/code-reviews-matter-a-freaking-lot/"},"url":"http://localhost:4000/2026/04/18/code-reviews-matter-a-freaking-lot/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -48,6 +49,11 @@
           <h1 class="site-title"><a href="/" class="site-title-link">Leo's Blog</a></h1>
         </div>
         <div class="header-right">
+          
+          <button class="language-toggle" type="button" data-i18n-toggle aria-label="Switch language to Portuguese (Brazil)" aria-pressed="false">
+            <span class="language-toggle-label" data-i18n-toggle-label>PT-BR</span>
+          </button>
+          
           <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
             <svg class="theme-icon sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
             <svg class="theme-icon moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
@@ -65,23 +71,39 @@
       </div>
       
       <main class="page-content">
-        <article class="post">
+        
+
+
+<article class="post" data-i18n-post data-i18n-default-lang="en" data-i18n-active-lang="en">
   <header class="post-header">
-    <h1 class="post-title">Code Reviews Matter a Freaking Lot</h1>
+    <h1 class="post-title">
+      
+      <span data-i18n-text data-i18n-en="Code Reviews Matter a Freaking Lot" data-i18n-pt-br="Code Reviews Importam Pra Caramba">Code Reviews Matter a Freaking Lot</span>
+      
+    </h1>
     <div class="post-meta">
+      
       <time datetime="2026-04-18T14:04:00-04:00">
-        Apr 18, 2026
+        
+        <span data-i18n-text data-i18n-en="Apr 18, 2026" data-i18n-pt-br="18 de abril de 2026">Apr 18, 2026</span>
+        
       </time>
       
       
       <span class="post-categories">
-        • Categories: 
+        • <span data-i18n-text data-i18n-en="Categories:" data-i18n-pt-br="Categorias:">Categories:</span>
         
-        <a href="/categories/#programming">programming</a>, 
         
-        <a href="/categories/#software-design">software design</a>, 
         
-        <a href="/categories/#engineering-culture">engineering culture</a>
+        <a href="/categories/#programming" data-i18n-text data-i18n-en="programming" data-i18n-pt-br="programação">programming</a>, 
+        
+        
+        
+        <a href="/categories/#software-design" data-i18n-text data-i18n-en="software design" data-i18n-pt-br="design de software">software design</a>, 
+        
+        
+        
+        <a href="/categories/#engineering-culture" data-i18n-text data-i18n-en="engineering culture" data-i18n-pt-br="cultura de engenharia">engineering culture</a>
         
       </span>
       
@@ -92,8 +114,10 @@
     <div class="custom-hr"></div>
   </div>
 
-  <div class="post-content">
-    <p><img src="/assets/images/codereview.png" alt="Code Reviewer" /></p>
+  <div class="post-content" data-i18n-content-root>
+    
+    <section class="post-content-language" data-i18n-content="en" lang="en">
+      <p><img src="/assets/images/codereview.png" alt="Code Reviewer" /></p>
 
 <p>Hi! My name is Leo and I’m a professional Code Reviewer. Yeah, I don’t think this is a real profession, but I have numbers to prove I know what I’m talking about for the next few minutes. I even have the nickname Mr. Comments, and my own Slack emoji <code class="language-plaintext highlighter-rouge">:mr-comments:</code>.</p>
 
@@ -356,27 +380,310 @@ Now, with AI writing 95% of our code or more, slop everywhere, brute-forcing sol
 
 <p>Have questions or ideas on this? You can find me at <a href="mailto:me@leonardopereira.com">me@leonardopereira.com</a>. I hope you enjoyed it.</p>
 
+    </section>
+    <section class="post-content-language" data-i18n-content="pt-br" lang="pt-BR" hidden>
+      <p><img src="/assets/images/codereview.png" alt="Code Reviewer" /></p>
+
+<p>Oi! Meu nome é Leo e eu sou um Code Reviewer profissional. Sim, eu não acho que isso seja uma profissão de verdade, mas eu tenho números para provar que sei do que estou falando pelos próximos minutos. Eu até tenho o apelido de Mr. Comments e meu próprio emoji no Slack, <code class="language-plaintext highlighter-rouge">:mr-comments:</code>.</p>
+
+<p>Nos últimos 6 meses, fiz mais de 1100 comentários em mais de 320 Pull Requests e revisei mais de 1 milhão de linhas de código, em mais de 35 projetos diferentes. Eu faço, em média, 7 vezes mais Code Reviews do que a nossa taxa normal na Shopify (sim, eu contei). É importante saber que meu título não é real — eu tenho meus próprios projetos para entregar, eu tenho meu próprio trabalho — então isso acontece por meio de um processo e de algumas horas focadas todos os dias.</p>
+
+<p>Neste post, quero compartilhar com você algumas orientações, altamente opinativas — com opiniões apimentadas — sobre como fazer ótimas Code Reviews. Também é importante que você saiba duas coisas enquanto lê isto: primeiro, esta é uma <strong>habilidade humana</strong> que você precisa desenvolver, não uma AI skill. Não crie uma skill a partir disto — treine a si mesmo. Segundo, isto não é uma arte reconhecida. Você frequentemente verá pessoas pedindo mais Code Reviews, com mais qualidade. Mesmo assim, ninguém vai reconhecer você ou dar crédito pelo seu impacto em um projeto. Acredite, eu <em>sei</em>.</p>
+
+<blockquote>
+  <p>Obrigado John, Mary, Steve e Jane pelas Code Reviews. Sem vocês, este projeto nunca teria sido entregue.</p>
+
+  <p>— Disse ninguém. Nunca.</p>
+</blockquote>
+
+<p>Nada disso realmente importa. É sua <strong>responsabilidade</strong> como engenheiro profissional fazer ótimas Code Reviews, e é seu trabalho entender o impacto delas na sua empresa. Responsabilidade, na verdade, é o primeiro tópico deste post — e vou seguir em ordem de importância, o que pode ser um pouco surpreendente: programar será o último dos tópicos.</p>
+
+<p>É <em>essencial</em> que você compreenda estas ideias para fazer uma ótima Code Review, e isso pode soar contraintuitivo — na verdade, muitas coisas aqui vão soar assim. Isto não tem a ver com experiência ou conhecimento de programação. Principal Engineers estão em um dos níveis mais altos de uma empresa, e é surpreendentemente comum ver PRs que causaram incidentes terem sido aprovados por eles. Quero que você saiba disso porque não deve pensar que, só por ser um engenheiro menos experiente, ou por não ter contexto, ou por não estar no projeto, você não consegue fazer ótimas Code Reviews. Qualquer pessoa pode fazer Code Reviews incríveis; ela só precisa prestar atenção.</p>
+
+<p>Certo, então antes de entrar nos tópicos em ordem de importância e nos detalhes de cada um, vamos definir uma coisa:</p>
+
+<blockquote>
+  <p>Qual é o seu objetivo ao fazer Code Review?</p>
+</blockquote>
+
+<p>É aprovar o PR. É isso. Esse é o seu objetivo. — E acredite, isso muda tudo. No mundo do OSS (Software de Código Aberto), é muito comum haver muitas restrições obrigatórias, com colaboradores esperando código perfeito — o que significa que a aprovação tem uma barra alta antes de entrar. Essa não é a realidade na sua empresa. Seu objetivo é, e sempre será, aprovar uma mudança, e este é um ponto <em>enorme</em>. Mas objetivo e trabalho são duas coisas diferentes, que é meu próximo ponto.</p>
+
+<blockquote>
+  <p>Qual é o seu trabalho ao fazer Code Review?</p>
+</blockquote>
+
+<p>Seu trabalho é empurrar para frente, não para trás, o impacto da mudança. Você vai iterar, fazer comentários, compartilhar conhecimento, solicitar mudanças, testar e provar o que está sendo apresentado. Você vai participar e se tornar co-dono daquele pedaço de código. Tudo o que você fizer naquela pequena janela de Code Review será para alcançar o objetivo.</p>
+
+<p>Você <strong>não</strong> vai bloquear com comentários opinativos inúteis como “Isto não segue nossas diretrizes.”, “Eu não teria feito desta forma.”.</p>
+
+<p>Você <strong>vai</strong> bloquear, mas fornecendo toda a ajuda e orientação necessárias rumo ao objetivo. Com a aprovação, você vence, o autor vence, o projeto vence e a empresa vence.</p>
+
+<p>Esses pontos podem parecer confusos agora, então, para simplificar algumas destas ideias, vamos começar:</p>
+
+<h2 id="responsabilidade">Responsabilidade</h2>
+
+<p>Quando você começa uma Code Review, você é <strong>igualmente</strong> responsável por quaisquer resultados que esse código implantado produza. Isso mesmo: talvez você não receba os parabéns e as alegrias de uma grande vitória, mas, se isso causar um incidente, também é com você. Então leve isso <em>extremamente</em> a sério.
+Se você estiver ocupado com outras coisas, não fará uma Code Review. Quando você começa, nada importa mais do que o pedaço de código que está olhando agora.
+Isto é a coisa mais importante que você precisa saber. Saber disso permitirá que você aborde o próximo PR com o cuidado e a atenção necessários. O autor confiou em você, e a empresa está confiando em vocês dois.</p>
+
+<p>Então, primeiro: reserve tempo. Uma Code Review pode levar de 5 minutos até um dia inteiro (com mudanças espalhadas). Se qualquer pedaço de código vai tomar mais de 1 hora do seu tempo, provavelmente é grande demais para ser revisado de uma vez. Peça ao autor para dividi-lo em partes menores — todo mundo ganha nesse passo.</p>
+
+<p>Dito isso, uma boa Code Review realisticamente pode levar de 10 a 60 minutos. Como habilidade, isso pode ser treinado, e quanto mais Code Reviews você fizer, mais rápido ficará.</p>
+
+<h2 id="entendendo-o-problema">Entendendo o problema</h2>
+
+<p>Leia a descrição do PR <strong>somente</strong> e <strong>apenas</strong> pelo problema. Não se importe com a solução, ou com como ela foi testada manualmente, ou qualquer coisa do tipo. Se houver um ticket ou issue vinculado ao Pull Request, melhor ainda. Evite ser enviesado pela solução que o autor criou.
+Provavelmente ele está certo sobre o motivo. Mas se houver 1% de chance de essa ser a abordagem errada — e em uma escala como a da Shopify, onde bilhões de requisições fazem parte do dia a dia — 1% não é um caso de borda, é uma <em>garantia</em>. Então não seja enviesado. Isso permitirá que você permaneça focado no problema enquanto a solução oferecida (código e testes) é analisada.</p>
+
+<p>Às vezes, um PR com apenas o título entrega mais valor do que qualquer explicação excruciantemente detalhada de 50 linhas sobre o que o autor acha que está certo. Ninguém jamais vai lembrar dessas explicações de solução. Do problema, vão.</p>
+
+<p>Se o problema for curto, será fácil mantê-lo em mente durante a Code Review. Se for longo, deixe-o aberto ao lado ou em um aplicativo de notas, para que você possa voltar a ele enquanto faz a Code Review.</p>
+
+<h2 id="olhe-para-os-testes">Olhe para os testes</h2>
+
+<blockquote>
+  <p>Se a disciplina de especificação de requisitos nos ensinou alguma coisa, é que requisitos bem especificados são tão formais quanto código e podem atuar como testes executáveis desse código!</p>
+
+  <p>— Robert C. Martin (Uncle Bob)</p>
+</blockquote>
+
+<p>Testes são as especificações escritas de todos os requisitos na mudança de código. Olhe para os testes: eles resolvem o problema? Eles cobrem o outro lado do problema? Eles fingem testar o que deveriam estar testando? Stubs e mocks, estou olhando para vocês.
+Este é seu primeiro ponto de contato com a solução. É TDD em uma Code Review, e há um bom motivo para o Test Driven Development funcionar tão bem — mesmo que possa ser um exercício chato. Você recebe uma especificação (testes) do que um contrato (código) fará.</p>
+
+<p>Compare os testes com as notas que você fez sobre o problema. Eles batem? Se o problema diz “Melhorar a performance ao buscar nosso feed diminuindo o uso de queries”, existe um teste contando menos queries acontecendo agora? Há confirmação de que os testes executam exatamente o que foi proposto? Alguma das mudanças adaptou testes existentes para se encaixar? — este é um padrão <em>muito</em> perigoso. Às vezes um teste é modificado para satisfazer uma mudança, ou a AI o adapta para satisfazer você. Você precisa garantir que essa foi a decisão correta.</p>
+
+<p>Alguns outros pontos que vale checar:</p>
+<ul>
+  <li>Os novos testes são realmente novos, ou estão reafirmando algo já coberto em outro lugar?</li>
+  <li>Os nomes dos testes descrevem o comportamento sendo verificado, não o método sendo chamado?</li>
+  <li>A estrutura arrange-act-assert está clara, ou a preparação está vazando para a asserção?</li>
+  <li>Os casos de borda estão cobertos? Entradas vazias, nil, zero, negativo, valores de limite, tipos inesperados.</li>
+  <li>Os caminhos de falha são testados com o mesmo cuidado que o caminho feliz?</li>
+  <li>Testes assíncronos ou dependentes de tempo usam sleeps reais, ou usam fakes e freezers adequados?</li>
+  <li>Fixtures e factories estão adicionando ruído? Um teste que precisa de 40 linhas de setup geralmente está testando a coisa errada.</li>
+  <li>Um único teste afirma um comportamento, ou tenta cobrir três de uma vez?</li>
+  <li>Se um teste falhar, a mensagem de erro dirá <em>por quê</em> imediatamente, ou você precisará investigar?</li>
+  <li>Existe cobertura para a regressão que motivou o PR em primeiro lugar?</li>
+</ul>
+
+<h2 id="conheça-os-designs">Conheça os designs</h2>
+
+<p>Não consigo enfatizar o suficiente o quanto é <em>importante</em> conhecer princípios de design e conceitos de arquitetura. Eu amo os princípios <a href="https://pt.wikipedia.org/wiki/SOLID">SOLID</a>. Eles me ajudam a escrever código muito melhor. Existem muitos outros, mas como a Shopify é focada em Ruby, e sua abordagem a objetos simplesmente parece natural (e SOLID funciona bem para qualquer linguagem, honestamente), é justo ancorar a discussão nisso.</p>
+
+<p>Neste passo, eu pessoalmente gosto de usar minha imaginação ao olhar para as coisas. Vejo os arquivos, as classes e os métodos como pessoas que sabem o que sabem, e converso com elas. Você pode fazer o que funcionar para você. Mas mantenha os princípios em mente. Se um pedaço de código está violando um princípio, isso é uma pista <strong>poderosa</strong> do que você poderia melhorar e mudar ali. As chances de o código estar errado <em>só</em> porque o design foi ignorado são enormes. Olhe para o primeiro princípio do SOLID, o S — Princípio da Responsabilidade Única.</p>
+
+<p>Você tem um pedaço de código que faz isto:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Post</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="c1"># ...</span>
+  <span class="n">belongs_to</span> <span class="ss">:user</span>
+  <span class="n">after_create</span> <span class="ss">:update_stats_and_notify</span>
+
+  <span class="c1"># ...</span>
+
+  <span class="kp">private</span>
+
+  <span class="k">def</span> <span class="nf">update_stats_and_notify</span>
+    <span class="n">user</span><span class="p">.</span><span class="nf">increment!</span><span class="p">(</span><span class="ss">:posts_created</span><span class="p">)</span> <span class="c1"># I know we can do this other ways...</span>
+    <span class="no">ThirdPartyApi</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="nb">self</span><span class="p">).</span><span class="nf">send_notification_email</span> <span class="c1"># OMG</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Olhe para o nome do método: <code class="language-plaintext highlighter-rouge">update_stats_and_notify</code>. A palavra <strong>and</strong> já está gritando para você. Sempre que você precisa de um <em>and</em> para descrever o que um método faz, está admitindo em voz alta que ele faz duas coisas. Só isso já é o smell — você nem precisa ler o corpo para saber que o SRP está sendo violado.</p>
+
+<p>E então você lê o corpo, e é pior do que imaginava. Por que você colocaria uma chamada a terceiros — provavelmente uma requisição HTTP — dentro da sua própria transação de banco de dados? Nem mesmo é <code class="language-plaintext highlighter-rouge">after_create_commit</code>. Incrementar <code class="language-plaintext highlighter-rouge">posts_created</code> deveria fazer parte da transação, então, se um falha, o outro também falha. Mas o email? Ele não tem nada que fazer ali. Post está fazendo <em>muito</em> mais do que deveria — enviar notificações não é responsabilidade dele.</p>
+
+<p>Não vou entrar nos detalhes dos princípios aqui, esse não é o objetivo deste post. Você deve conhecê-los, no entanto. Estude-os. Viva por eles.</p>
+
+<h2 id="smells-e-vizinhança">Smells e vizinhança</h2>
+
+<p>Um smell é um pedaço de código reconhecidamente errado em uma base de código. Eles são comuns e aparecem em todas as linguagens. Em uma suíte Minitest, se você vê um <code class="language-plaintext highlighter-rouge">.any_instance</code>, isso é um smell claro. Em TypeScript, um <code class="language-plaintext highlighter-rouge">any</code> perdido — smell. Em Ruby, um <code class="language-plaintext highlighter-rouge">rescue</code> sem classe — smell.</p>
+
+<p>Smells dão um mapa. Eles apontam direto para os lugares com maior chance de recompensar sua atenção, e o código bem ao lado deles — a <em>vizinhança</em> — geralmente conta o resto da história. Se o que está ao redor do smell parece apressado, inconsistente ou superengenheirado, a mudança que você está revisando provavelmente está nadando na mesma água. Pergunte a si mesmo se ela se encaixa, ou se está apenas empilhando em cima de algo que já estava quebrado.</p>
+
+<p>Vizinhança não é só para smells, porém. Se um PR toca 2 linhas em um arquivo de 1000 linhas, o que as 50 linhas acima e abaixo estão fazendo? Elas combinam com a mudança? A mudança está dentro de um método de 200 linhas que provavelmente já violava os princípios de design? Se sim, você está no lugar certo — e pode se perguntar (nosso próximo tópico): onde este código deveria estar, de fato?</p>
+
+<p>Aqui está uma lista curta e não exaustiva de smells nos quais fico de olho, agrupados por linguagem:</p>
+
+<p>Ruby e Rails:</p>
+<ul>
+  <li>Métodos longos e listas longas de parâmetros</li>
+  <li>Feature envy: um método que fica alcançando dados de outro objeto</li>
+  <li>Models gordos com uma pilha de callbacks fazendo trabalhos não relacionados</li>
+  <li>Resgatar exceções sem especificar a classe da exceção</li>
+  <li>Argumentos booleanos que mudam o comportamento de um método</li>
+</ul>
+
+<p>Minitest:</p>
+<ul>
+  <li>Stubs com <code class="language-plaintext highlighter-rouge">.any_instance</code></li>
+  <li>Testes nomeados por métodos em vez de comportamentos</li>
+  <li>Um teste afirmando três coisas não relacionadas</li>
+  <li>Mockar código que é nosso — se você está fazendo stub da sua própria classe, o design provavelmente está errado. Mockar um wrapper ao redor de um terceiro é a jogada certa.</li>
+  <li>Chamadas a <code class="language-plaintext highlighter-rouge">sleep</code> em vez de helpers de tempo ou esperas adequadas</li>
+</ul>
+
+<p>JavaScript e TypeScript:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">any</code>, e a escapatória <code class="language-plaintext highlighter-rouge">as unknown as</code></li>
+  <li><code class="language-plaintext highlighter-rouge">// @ts-ignore</code> sem comentário explicando o motivo</li>
+  <li>A asserção não nula <code class="language-plaintext highlighter-rouge">!</code> usada como “confia em mim”</li>
+  <li>Ternários profundamente aninhados</li>
+  <li><code class="language-plaintext highlighter-rouge">console.log</code> deixado no diff</li>
+</ul>
+
+<p>Você vai criar sua própria lista com o tempo. O ponto não é memorizar smells — é treinar o reflexo que diz “calma, isso parece errado” antes mesmo de terminar de ler o método.</p>
+
+<p><a href="https://www.youtube.com/watch?v=8bZh5LMaSmE">All the Little Things</a>, da <a href="https://sandimetz.com/">Sandi Metz</a>, é incrível. Não é focado <em>necessariamente</em> no tópico de que estou falando, embora você consiga relacionar facilmente. É <strong>obrigatório</strong> assistir.</p>
+
+<h2 id="pergunte-a-si-mesmo">Pergunte a si mesmo</h2>
+
+<p>Este é curto. Continue se perguntando se o que você está vendo faz sentido com o problema. Se você não consegue responder, deixe um comentário fazendo a pergunta. Perguntas em uma Code Review podem ter mais peso do que qualquer comentário que você deixe. Elas fazem o autor pensar de novo, e fazem de você um co-pensador em vez de um guardião. “Este é mesmo o lugar certo para isto?” “O que acontece se o job tentar de novo?” “Isto ainda funcionaria numa sexta à noite com 10 vezes mais tráfego?” Perguntas como estas já mudaram a direção de PRs que estavam a uma aprovação de serem mergeados.</p>
+
+<p>Como isto não é uma ciência, não há certo ou errado direto; o que temos é uma base de código espalhada, com muitas mentes trabalhando juntas para tirar o melhor dela. Uma pergunta bem colocada costuma ser a coisa individual mais valiosa em um PR. Multiplique isso por centenas de PRs por trimestre, e você está moldando como uma equipe inteira pensa sobre código.</p>
+
+<p>Então, continue se perguntando se isto faz sentido.</p>
+
+<h2 id="inspecione-o-código">Inspecione o código</h2>
+
+<p>Conheça bem o seu ofício. Desculpe pela linguagem. Isto é meio opcional, de verdade. Se você é um ótimo engenheiro Ruby, ou um ótimo engenheiro Javascript, ou, ok, você entendeu. Então, você sabe que um único <code class="language-plaintext highlighter-rouge">huge_array.map!</code> terá uma performance muito melhor do que algum mapeamento maluco de array com um <code class="language-plaintext highlighter-rouge">each</code> ali. Você também conhecerá os trade-offs. Você deve saber que em Ruby um <code class="language-plaintext highlighter-rouge">!</code> significa que aquilo vai se modificar inline, ou levantar uma exceção. E também sabe que um predicado <code class="language-plaintext highlighter-rouge">?</code> sempre retorna um booleano.</p>
+
+<p>Todo esse conhecimento é algo que você sabe que precisa aplicar em uma Code Review. Esta é uma das coisas nas quais a maioria das Code Reviews foca — aquilo que as pessoas sabem. Qualidade de código e conhecer os detalhes são contribuições maravilhosas; enriquecem muito, mas são apenas uma fatia pequena e rara do que fazemos.</p>
+
+<p>Esta parte também é uma das mais fáceis de ser substituída por AI. AI é ótima nessas coisas se você apontá-la para o lugar certo. Você já viu o que o <a href="https://shopify.engineering/autoresearch">Autoresearch</a> consegue fazer?</p>
+
+<h2 id="seja-razoável">Seja razoável</h2>
+
+<p>Às vezes um PR precisa entrar em questão de horas ou minutos e não deveria ser bloqueado pelas suas descobertas. Para esses casos, temos algumas ferramentas. Uma delas é o “ticket de fast-follow” — o autor assume a responsabilidade de resolver os achados assim que possível depois do merge. Outras vezes, você simplesmente deixa passar.</p>
+
+<p>Mas não seja razoável demais. Há muitos casos em que a urgência vai gritar com todo mundo, mas você ainda precisa defender o que é melhor para os merchants. Às vezes seu pushback é só uma conversa extra de 10 minutos. Eu já estive lá, e isso mudou tudo para melhor. Se você aplicou tudo acima, consegue fazer pushback e concessões ao mesmo tempo — elas não são opostas quando você tem clareza sobre o problema. Entender o problema é uma das primeiras coisas que você precisa fazer.</p>
+
+<h2 id="escreva-bons-comentários-caramba">Escreva bons comentários, caramba</h2>
+
+<p>Uma pequena confissão antes de mergulharmos. Eu disse antes que os tópicos estariam em ordem de importância, e estavam — até este. Escrever bons comentários é, na verdade, a segunda habilidade mais importante, logo depois de Responsabilidade. Coloquei isso no final de propósito, porque todos os tópicos anteriores são aquilo de que um bom comentário depende: o problema, os testes, o design, os smells, as perguntas. Sem esse contexto, um comentário é só uma opinião. Com ele, um comentário vira um guia. E esse é o ponto inteiro desta seção.</p>
+
+<p>Agora. Como você escreve bons comentários, caramba? Mantenha o foco no seu objetivo. Seu comentário deve dar direção, fazer as perguntas certas, levantar a conversa certa. Às vezes, quando reviso um pedaço de código que acho errado, provo isso para mim mesmo primeiro. Eu literalmente abro o <code class="language-plaintext highlighter-rouge">irb</code> ou o <code class="language-plaintext highlighter-rouge">node</code>, faço uma amostra do código e executo. Eu estava certo ou errado? Se estava errado, aprendi, o que é bom para mim e bom para a próxima Code Review. E se eu estiver certo?
+Então faço um comentário, e passo as instruções junto com ele.</p>
+
+<p>Vamos imaginar que temos esta mudança:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">OrdersController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="k">def</span> <span class="nf">create</span>
+    <span class="n">order</span> <span class="o">=</span> <span class="no">Order</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">order_params</span><span class="p">)</span>
+    <span class="n">order</span><span class="p">.</span><span class="nf">total</span> <span class="o">=</span> <span class="n">order</span><span class="p">.</span><span class="nf">items</span><span class="p">.</span><span class="nf">sum</span> <span class="p">{</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span> <span class="n">i</span><span class="p">.</span><span class="nf">price</span> <span class="o">*</span> <span class="n">i</span><span class="p">.</span><span class="nf">quantity</span> <span class="p">}</span>
+    <span class="n">order</span><span class="p">.</span><span class="nf">tax</span> <span class="o">=</span> <span class="n">order</span><span class="p">.</span><span class="nf">total</span> <span class="o">*</span> <span class="mf">0.13</span>
+    <span class="n">order</span><span class="p">.</span><span class="nf">status</span> <span class="o">=</span> <span class="n">order</span><span class="p">.</span><span class="nf">total</span> <span class="o">&gt;</span> <span class="mi">500</span> <span class="p">?</span> <span class="s2">"review"</span> <span class="p">:</span> <span class="s2">"pending"</span>
+
+    <span class="k">if</span> <span class="n">order</span><span class="p">.</span><span class="nf">save</span>
+      <span class="no">OrderMailer</span><span class="p">.</span><span class="nf">confirmation</span><span class="p">(</span><span class="n">order</span><span class="p">).</span><span class="nf">deliver_later</span>
+      <span class="n">redirect_to</span> <span class="n">order</span>
+    <span class="k">else</span>
+      <span class="n">render</span> <span class="ss">:new</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>E meu comentário:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Podemos mover toda essa lógica de negócio para fora do controller se dermos ao Order a responsabilidade pelas próprias regras.
+Por exemplo, vamos usar um before_validation calculando os totais, e um predicado para o limite de Code Review, assim:
+
+class Order &lt; ApplicationRecord
+  REVIEW_THRESHOLD = 500
+  SALES_TAX = 0.13
+
+  before_validation :calculate_totals
+
+  def requires_review?
+    total &gt; REVIEW_THRESHOLD
+  end
+
+  private
+
+  def calculate_totals
+    self.total  = items.sum { |i| i.price * i.quantity }
+    self.tax    = total * SALES_TAX
+    self.status = requires_review? ? "review" : "pending"
+  end
+end
+
+Agora o controller apenas constrói, salva e redireciona, e qualquer outro chamador (um job, uma Rake task, um endpoint de API) recebe as mesmas regras de graça. Como bônus, removemos todos os números mágicos.
+</code></pre></div></div>
+
+<p>Eu não apenas apontei que isso estava errado e que o autor precisava corrigir. Eu o guiei pela solução. Meu comentário foi uma adição, não uma ação de bloqueio (embora eu possa solicitar mudanças e literalmente bloquear o merge do PR). Estamos fazendo e trabalhando nisso juntos. E precisamos fazer isso o tempo todo.</p>
+
+<p>Às vezes, porém, você não tem a solução — você tem uma suspeita. É aí que uma boa pergunta vence uma resposta ruim. Vamos imaginar que este PR adiciona um novo <code class="language-plaintext highlighter-rouge">ProcessRefundJob</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">ProcessRefundJob</span> <span class="o">&lt;</span> <span class="no">ApplicationJob</span>
+  <span class="k">def</span> <span class="nf">perform</span><span class="p">(</span><span class="n">refund_id</span><span class="p">)</span>
+    <span class="n">refund</span> <span class="o">=</span> <span class="no">Refund</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="n">refund_id</span><span class="p">)</span>
+    <span class="no">Stripe</span><span class="o">::</span><span class="no">Refund</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="ss">charge: </span><span class="n">refund</span><span class="p">.</span><span class="nf">charge_id</span><span class="p">,</span> <span class="ss">amount: </span><span class="n">refund</span><span class="p">.</span><span class="nf">amount</span><span class="p">)</span>
+    <span class="n">refund</span><span class="p">.</span><span class="nf">update!</span><span class="p">(</span><span class="ss">status: </span><span class="s2">"completed"</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>E meu comentário:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Ei, uma coisa rápida. Se a chamada ao Stripe tiver sucesso, mas o refund.update! levantar erro, o Sidekiq vai tentar executar o job inteiro de novo, certo? Isso chamaria o Stripe de novo e reembolsaria o cliente duas vezes.
+
+Estou deixando passar algo aqui, ou precisamos separar a chamada ao Stripe da atualização no banco, ou passar uma chave de idempotência para que o Stripe deduplique do lado dele? Fiquei curioso sobre como você estava pensando nisso.
+</code></pre></div></div>
+
+<p>Eu não acusei, não bloqueei, não exigi uma reescrita. Compartilhei o que vi, ofereci dois caminhos concretos e devolvi o problema ao autor. Ou ele percebe o bug, ou me ensina por que já é seguro. Ambos os resultados são vitórias.</p>
+
+<p>Direcione seus comentários para o nosso objetivo: aprovar o PR.</p>
+
+<h2 id="conclusão">Conclusão</h2>
+
+<p>Espero que você tenha aprendido algumas coisas com isto. É assim que eu trabalho, e venho moldando minhas Code Reviews desta forma deliberadamente há bem mais de uma década. Eu amo Code Reviews porque aprendo muito, e também consigo ensinar muito. Eu realmente gosto deste exercício, e o transformei em uma habilidade. Acredito firmemente que você também pode transformá-lo em uma das suas.
+Agora, com AI escrevendo 95% do nosso código ou mais, slop por toda parte, soluções no brute force que vão nos satisfazer — buscando plausibilidade, não correção — saber fazer ótimas Code Reviews é ainda mais importante.</p>
+
+<p>Eu diria que Code Reviews serão a coisa mais importante que teremos no futuro. Na Shopify estamos enfatizando isto cada vez mais.</p>
+
+<p>Tem perguntas ou ideias sobre isto? Você pode me encontrar em <a href="mailto:me@leonardopereira.com">me@leonardopereira.com</a>. Espero que tenha gostado.</p>
+
+    </section>
+    
   </div>
 
   
   <div class="post-tags">
-    <strong>Tags:</strong>
+    <strong><span data-i18n-text data-i18n-en="Tags:" data-i18n-pt-br="Tags:">Tags:</span></strong>
     
-    <a href="/tags/#code-review" class="post-tag">code review</a>
     
-    <a href="/tags/#pull-requests" class="post-tag">pull requests</a>
     
-    <a href="/tags/#clean-code" class="post-tag">clean code</a>
+    <a href="/tags/#code-review" class="post-tag" data-i18n-text data-i18n-en="code review" data-i18n-pt-br="Code Review">code review</a>
     
-    <a href="/tags/#solid" class="post-tag">SOLID</a>
     
-    <a href="/tags/#testing" class="post-tag">testing</a>
     
-    <a href="/tags/#mentorship" class="post-tag">mentorship</a>
+    <a href="/tags/#pull-requests" class="post-tag" data-i18n-text data-i18n-en="pull requests" data-i18n-pt-br="Pull Requests">pull requests</a>
     
-    <a href="/tags/#ruby" class="post-tag">ruby</a>
     
-    <a href="/tags/#rails" class="post-tag">rails</a>
+    
+    <a href="/tags/#clean-code" class="post-tag" data-i18n-text data-i18n-en="clean code" data-i18n-pt-br="clean code">clean code</a>
+    
+    
+    
+    <a href="/tags/#solid" class="post-tag" data-i18n-text data-i18n-en="SOLID" data-i18n-pt-br="SOLID">SOLID</a>
+    
+    
+    
+    <a href="/tags/#testing" class="post-tag" data-i18n-text data-i18n-en="testing" data-i18n-pt-br="testes">testing</a>
+    
+    
+    
+    <a href="/tags/#mentorship" class="post-tag" data-i18n-text data-i18n-en="mentorship" data-i18n-pt-br="mentoria">mentorship</a>
+    
+    
+    
+    <a href="/tags/#ruby" class="post-tag" data-i18n-text data-i18n-en="ruby" data-i18n-pt-br="ruby">ruby</a>
+    
+    
+    
+    <a href="/tags/#rails" class="post-tag" data-i18n-text data-i18n-en="rails" data-i18n-pt-br="rails">rails</a>
     
   </div>
   
@@ -395,14 +702,21 @@ Now, with AI writing 95% of our code or more, slop everywhere, brute-forcing sol
     </div>
     <div class="post-navigation-next">
       
+      <a href="/2026/06/14/be-better-much-better-agentic-tools-and-pi/" title="Be better (much better): Agentic Tools and Pi">
+        Be better (much better): Ag... &raquo;
+      </a>
+      
     </div>
   </div>
 </article>
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
+    const postContent = document.querySelector('.post-content');
+    if (!postContent) return;
+
     // Get all links within the post content only (not navigation or other areas)
-    const postContentLinks = document.querySelector('.post-content').getElementsByTagName('a');
+    const postContentLinks = postContent.getElementsByTagName('a');
     
     // For each link in the post content
     for (let i = 0; i < postContentLinks.length; i++) {
@@ -438,5 +752,6 @@ Now, with AI writing 95% of our code or more, slop everywhere, brute-forcing sol
   
   <!-- Custom scripts -->
   <script src="/assets/js/main.js"></script>
+  <script type="module" src="/assets/js/language-toggle.js"></script>
 </body>
 </html> 

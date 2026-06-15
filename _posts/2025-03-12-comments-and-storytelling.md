@@ -4,6 +4,22 @@ title: Comments and Storytelling
 date: 2025-03-12 15:38 -0400
 categories: [programming, software design]
 tags: [clean code, a philosophy of software design, comments, programming]
+i18n:
+  pt_br:
+    title: Comentários e Storytelling
+    date: 12 de março de 2025
+    content_include: translations/2025-03-12-comments-and-storytelling.pt-br.md
+    labels:
+      categories: "Categorias:"
+      tags: "Tags:"
+    categories:
+      - programação
+      - design de software
+    tags:
+      - clean code
+      - A Philosophy of Software Design
+      - comentários
+      - programação
 ---
 
 Recently I have stumbled upon this [discussion](https://github.com/johnousterhout/aposd-vs-clean-code/blob/main/README.md) between **Uncle Bob** and **John Ousterhout**. It's a bit aggressive and harsh, but nonetheless it's worth reading! They go through 3 main topics:

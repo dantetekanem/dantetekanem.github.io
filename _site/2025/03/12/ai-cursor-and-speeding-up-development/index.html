@@ -9,11 +9,12 @@
 
 <!-- Stylesheets -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+<link rel="stylesheet" href="/assets/vendor/slot-text/style.css">
 <link rel="stylesheet" href="/assets/css/main.css">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet">
 
 <!-- Feed and SEO tag -->
-<link type="application/atom+xml" rel="alternate" href="https://blog.leonardopereira.com/feed.xml" title="Leo&apos;s Blog - leonardopereira.com" />
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Leo&apos;s Blog - leonardopereira.com" />
 <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>AI, Cursor and speeding up development | Leo’s Blog - leonardopereira.com</title>
 <meta name="generator" content="Jekyll v4.4.1" />
@@ -21,15 +22,15 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="I was able to make this blog from zero to production in 1 hour. Including: Blog engine with Jekyll (Markdown ❤️) Hosting on Github for availability CSS inspired by my personal website Support to code highlight Mapping and SEO revision 3 Posts (including this one) DNS forwarding from blog.leonardopereira.com to dantetekanem.github.io" />
 <meta property="og:description" content="I was able to make this blog from zero to production in 1 hour. Including: Blog engine with Jekyll (Markdown ❤️) Hosting on Github for availability CSS inspired by my personal website Support to code highlight Mapping and SEO revision 3 Posts (including this one) DNS forwarding from blog.leonardopereira.com to dantetekanem.github.io" />
-<link rel="canonical" href="https://blog.leonardopereira.com/2025/03/12/ai-cursor-and-speeding-up-development/" />
-<meta property="og:url" content="https://blog.leonardopereira.com/2025/03/12/ai-cursor-and-speeding-up-development/" />
+<link rel="canonical" href="http://localhost:4000/2025/03/12/ai-cursor-and-speeding-up-development/" />
+<meta property="og:url" content="http://localhost:4000/2025/03/12/ai-cursor-and-speeding-up-development/" />
 <meta property="og:site_name" content="Leo’s Blog - leonardopereira.com" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2025-03-12T17:38:00-04:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="AI, Cursor and speeding up development" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-03-12T17:38:00-04:00","datePublished":"2025-03-12T17:38:00-04:00","description":"I was able to make this blog from zero to production in 1 hour. Including: Blog engine with Jekyll (Markdown ❤️) Hosting on Github for availability CSS inspired by my personal website Support to code highlight Mapping and SEO revision 3 Posts (including this one) DNS forwarding from blog.leonardopereira.com to dantetekanem.github.io","headline":"AI, Cursor and speeding up development","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.leonardopereira.com/2025/03/12/ai-cursor-and-speeding-up-development/"},"url":"https://blog.leonardopereira.com/2025/03/12/ai-cursor-and-speeding-up-development/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-03-12T17:38:00-04:00","datePublished":"2025-03-12T17:38:00-04:00","description":"I was able to make this blog from zero to production in 1 hour. Including: Blog engine with Jekyll (Markdown ❤️) Hosting on Github for availability CSS inspired by my personal website Support to code highlight Mapping and SEO revision 3 Posts (including this one) DNS forwarding from blog.leonardopereira.com to dantetekanem.github.io","headline":"AI, Cursor and speeding up development","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2025/03/12/ai-cursor-and-speeding-up-development/"},"url":"http://localhost:4000/2025/03/12/ai-cursor-and-speeding-up-development/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -48,6 +49,11 @@
           <h1 class="site-title"><a href="/" class="site-title-link">Leo's Blog</a></h1>
         </div>
         <div class="header-right">
+          
+          <button class="language-toggle" type="button" data-i18n-toggle aria-label="Switch language to Portuguese (Brazil)" aria-pressed="false">
+            <span class="language-toggle-label" data-i18n-toggle-label>PT-BR</span>
+          </button>
+          
           <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
             <svg class="theme-icon sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
             <svg class="theme-icon moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
@@ -65,23 +71,39 @@
       </div>
       
       <main class="page-content">
-        <article class="post">
+        
+
+
+<article class="post" data-i18n-post data-i18n-default-lang="en" data-i18n-active-lang="en">
   <header class="post-header">
-    <h1 class="post-title">AI, Cursor and speeding up development</h1>
+    <h1 class="post-title">
+      
+      <span data-i18n-text data-i18n-en="AI, Cursor and speeding up development" data-i18n-pt-br="AI, Cursor e acelerando o desenvolvimento">AI, Cursor and speeding up development</span>
+      
+    </h1>
     <div class="post-meta">
+      
       <time datetime="2025-03-12T17:38:00-04:00">
-        Mar 12, 2025
+        
+        <span data-i18n-text data-i18n-en="Mar 12, 2025" data-i18n-pt-br="12 de março de 2025">Mar 12, 2025</span>
+        
       </time>
       
       
       <span class="post-categories">
-        • Categories: 
+        • <span data-i18n-text data-i18n-en="Categories:" data-i18n-pt-br="Categorias:">Categories:</span>
         
-        <a href="/categories/#programming">programming</a>, 
         
-        <a href="/categories/#ai">ai</a>, 
         
-        <a href="/categories/#software-development">software development</a>
+        <a href="/categories/#programming" data-i18n-text data-i18n-en="programming" data-i18n-pt-br="programação">programming</a>, 
+        
+        
+        
+        <a href="/categories/#ai" data-i18n-text data-i18n-en="ai" data-i18n-pt-br="AI">ai</a>, 
+        
+        
+        
+        <a href="/categories/#software-development" data-i18n-text data-i18n-en="software development" data-i18n-pt-br="desenvolvimento de software">software development</a>
         
       </span>
       
@@ -92,8 +114,10 @@
     <div class="custom-hr"></div>
   </div>
 
-  <div class="post-content">
-    <p>I was able to make this blog from zero to production in 1 hour. Including:</p>
+  <div class="post-content" data-i18n-content-root>
+    
+    <section class="post-content-language" data-i18n-content="en" lang="en">
+      <p>I was able to make this blog from zero to production in 1 hour. Including:</p>
 <ul>
   <li>Blog engine with Jekyll (Markdown ❤️)</li>
   <li>Hosting on Github for availability</li>
@@ -133,17 +157,67 @@ AI is not a panacea; it hallucinates constantly. You need to feed it good direct
 
 <p>Use AI, improve your game. Take responsibility. <span style="color: #F2C94C;">Happy coding!</span></p>
 
+    </section>
+    <section class="post-content-language" data-i18n-content="pt-br" lang="pt-BR" hidden>
+      <p>Consegui levar este blog do zero à produção em 1 hora. Incluindo:</p>
+<ul>
+  <li>Motor do blog com Jekyll (Markdown ❤️)</li>
+  <li>Hospedagem no Github para disponibilidade</li>
+  <li>CSS inspirado no meu site pessoal</li>
+  <li>Suporte a highlight de código</li>
+  <li>Mapeamento e revisão de SEO</li>
+  <li>3 posts (incluindo este)</li>
+  <li>Encaminhamento de DNS de blog.leonardopereira.com para dantetekanem.github.io</li>
+</ul>
+
+<p>Como? <code class="language-plaintext highlighter-rouge">Ruby</code> e <code class="language-plaintext highlighter-rouge">Cursor</code> são a resposta. O primeiro dispensa apresentações: <a href="https://jekyllrb.com/">Jekyll</a> é uma gem incrível que existe há muito tempo, e o <a href="https://pages.github.com/">Github Pages</a> também oferece várias formas fáceis de começar um novo site. Você só precisa ter um repositório <code class="language-plaintext highlighter-rouge">username/username.github.io</code>.
+Mas, sem o <a href="https://www.cursor.com/">Cursor</a>, isso teria levado o dia inteiro, ou talvez até alguns dias. Em vez disso, usando o poder do Composer, <code class="language-plaintext highlighter-rouge">claude-3.7-sonnet-thinking</code> e algumas boas instruções, ele criou tudo do zero, autocorrigiu os problemas e entregou um primeiro rascunho perfeito.</p>
+
+<p>Não houve mágica nos meus comandos. Eu não tenho o conjunto exato de instruções, mas foi algo mais ou menos assim:</p>
+<ul>
+  <li>Vamos criar um novo blog usando Jekyll; quero que ele pareça com meu site pessoal: leonardopereira.com</li>
+  <li>~ O Claude começou a trabalhar, pegou todas as gems, rodou os comandos e mais um pouco.</li>
+  <li>Parei parte do progresso e pedi para não usar comentários por enquanto, porque eu queria avaliá-los melhor.</li>
+  <li>~ Na primeira sessão de debug, o CSS não estava funcionando. Reclamei, e ele fez o próprio debugging e identificou que o SASS não estava funcionando. Depois de algumas tentativas, decidiu usar CSS puro (uma ótima escolha, na verdade).</li>
+  <li>Adicionei umas 10 instruções para deixar o CSS exatamente do jeito que eu queria, depois de navegar e corrigir.</li>
+  <li>Para os posts, reescrevi tudo com a minha própria voz e pedi para corrigir qualquer problema de gramática ou comunicação ruim, para que eu pudesse melhorar a qualidade deste blog.</li>
+</ul>
+
+<p>E sim, é isso. Metade do outro tempo foi gasto apontando o DNS correto no Squarespace e no Github.</p>
+
+<h2 id="alguns-aprendizados">Alguns aprendizados</h2>
+
+<p>Agora este é um post interessante da minha parte. Eu tive alguns problemas com o Cursor no passado. A maioria deles eu resolvi com <a href="https://docs.cursor.com/context/rules-for-ai">Rules</a> e aprendendo formas melhores de usar a plataforma. Mas a tecnologia é, sem dúvida, uma das melhores coisas que temos. Muitos dos meus problemas caíam em uma coisa: engenheiros ruins.
+Eu já vi muitas pessoas escrevendo código <em>horrível</em> usando AI, fazendo deploy em produção, chamando de pronto, e depois o PagerDuty me chamando de volta explicando que tudo caiu.
+AI não é uma panaceia; ela alucina o tempo todo. Você precisa alimentá-la com boas direções, mas mais do que isso. Você precisa ler o que está acontecendo, precisa questionar se o código produzido faz sentido e se ele realmente está resolvendo o problema da forma correta. Pedir algo, subir o servidor e ver os resultados é incrível. Mas isso não é código pronto para produção. Um bom engenheiro precisa escrever bom código, entender design e usar AI pelo que ela é: uma ferramenta fantástica para ajudar a melhorar seu trabalho.</p>
+
+<p>Eu tive preconceito contra o Cursor por um tempo, baseado em experiências ruins. Felizmente, esse não é mais o caso. Estou criando um novo app com funcionalidades que, de outra forma, levariam anos, e devo ter um protótipo nos próximos meses, trabalhando nele apenas no meu tempo livre.</p>
+
+<h2 id="sobre-escopo">Sobre escopo</h2>
+
+<p>Outra coisa extremamente valiosa para tirar o melhor da AI é: isolar seu escopo. Tenho usado bastante o ChatGPT para isso. Abro uma nova sessão e dou todo o contexto do que quero realizar — corrigir um bug, criar uma nova funcionalidade etc. Depois, forneço os arquivos e começo a iterar com essa informação. Esse isolamento diminui muito o nível de alucinações, ajudando bastante a corrigir problemas e <strong>fazer a coisa acontecer</strong>. E, de novo, eu reviso tudo. Se não sei alguma coisa, pergunto ao modelo o que significa. Ele está me ajudando a construir algo, mas eu ainda mantenho a responsabilidade por tudo.</p>
+
+<p>Use AI, eleve o seu jogo. Assuma responsabilidade. <span style="color: #F2C94C;">Happy coding!</span></p>
+
+    </section>
+    
   </div>
 
   
   <div class="post-tags">
-    <strong>Tags:</strong>
+    <strong><span data-i18n-text data-i18n-en="Tags:" data-i18n-pt-br="Tags:">Tags:</span></strong>
     
-    <a href="/tags/#ai" class="post-tag">ai</a>
     
-    <a href="/tags/#cursor" class="post-tag">cursor</a>
     
-    <a href="/tags/#10x-engineer" class="post-tag">10x engineer</a>
+    <a href="/tags/#ai" class="post-tag" data-i18n-text data-i18n-en="ai" data-i18n-pt-br="AI">ai</a>
+    
+    
+    
+    <a href="/tags/#cursor" class="post-tag" data-i18n-text data-i18n-en="cursor" data-i18n-pt-br="Cursor">cursor</a>
+    
+    
+    
+    <a href="/tags/#10x-engineer" class="post-tag" data-i18n-text data-i18n-en="10x engineer" data-i18n-pt-br="10x engineer">10x engineer</a>
     
   </div>
   
@@ -172,8 +246,11 @@ AI is not a panacea; it hallucinates constantly. You need to feed it good direct
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
+    const postContent = document.querySelector('.post-content');
+    if (!postContent) return;
+
     // Get all links within the post content only (not navigation or other areas)
-    const postContentLinks = document.querySelector('.post-content').getElementsByTagName('a');
+    const postContentLinks = postContent.getElementsByTagName('a');
     
     // For each link in the post content
     for (let i = 0; i < postContentLinks.length; i++) {
@@ -209,5 +286,6 @@ AI is not a panacea; it hallucinates constantly. You need to feed it good direct
   
   <!-- Custom scripts -->
   <script src="/assets/js/main.js"></script>
+  <script type="module" src="/assets/js/language-toggle.js"></script>
 </body>
 </html> 

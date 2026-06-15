@@ -4,6 +4,27 @@ title: Code Reviews Matter a Freaking Lot
 date: 2026-04-18 14:04 -0400
 categories: [programming, software design, engineering culture]
 tags: [code review, pull requests, clean code, SOLID, testing, mentorship, ruby, rails]
+i18n:
+  pt_br:
+    title: Code Reviews Importam Pra Caramba
+    date: 18 de abril de 2026
+    content_include: translations/2026-04-18-code-reviews-matter-a-freaking-lot.pt-br.md
+    labels:
+      categories: "Categorias:"
+      tags: "Tags:"
+    categories:
+      - programação
+      - design de software
+      - cultura de engenharia
+    tags:
+      - Code Review
+      - Pull Requests
+      - clean code
+      - SOLID
+      - testes
+      - mentoria
+      - ruby
+      - rails
 ---
 
 ![Code Reviewer](/assets/images/codereview.png)

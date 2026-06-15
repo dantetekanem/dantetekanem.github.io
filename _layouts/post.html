@@ -2,12 +2,29 @@
 layout: default
 ---
 
-<article class="post">
+{% assign has_pt_br_translation = false %}
+{% if page.i18n.pt_br and page.i18n.pt_br.content_include %}
+  {% assign has_pt_br_translation = true %}
+  {% capture post_content_pt_br %}{% include {{ page.i18n.pt_br.content_include }} %}{% endcapture %}
+{% endif %}
+
+<article class="post"{% if has_pt_br_translation %} data-i18n-post data-i18n-default-lang="en" data-i18n-active-lang="en"{% endif %}>
   <header class="post-header">
-    <h1 class="post-title">{{ page.title | escape }}</h1>
+    <h1 class="post-title">
+      {% if has_pt_br_translation %}
+      <span data-i18n-text data-i18n-en="{{ page.title | escape }}" data-i18n-pt-br="{{ page.i18n.pt_br.title | escape }}">{{ page.title | escape }}</span>
+      {% else %}
+      {{ page.title | escape }}
+      {% endif %}
+    </h1>
     <div class="post-meta">
+      {% assign post_date_en = page.date | date: site.date_format %}
       <time datetime="{{ page.date | date_to_xmlschema }}">
-        {{ page.date | date: site.date_format }}
+        {% if has_pt_br_translation %}
+        <span data-i18n-text data-i18n-en="{{ post_date_en | escape }}" data-i18n-pt-br="{{ page.i18n.pt_br.date | escape }}">{{ post_date_en }}</span>
+        {% else %}
+        {{ post_date_en }}
+        {% endif %}
       </time>
       {% if page.last_modified_at %}
       <span class="post-updated">
@@ -16,9 +33,13 @@ layout: default
       {% endif %}
       {% if page.categories.size > 0 %}
       <span class="post-categories">
-        • Categories: 
+        • {% if has_pt_br_translation %}<span data-i18n-text data-i18n-en="Categories:" data-i18n-pt-br="{{ page.i18n.pt_br.labels.categories | default: 'Categorias:' | escape }}">Categories:</span>{% else %}Categories:{% endif %}
         {% for category in page.categories %}
-        <a href="{{ '/categories/' | relative_url }}#{{ category | slugify }}">{{ category }}</a>{% unless forloop.last %}, {% endunless %}
+        {% assign translated_category = category %}
+        {% if has_pt_br_translation and page.i18n.pt_br.categories %}
+          {% assign translated_category = page.i18n.pt_br.categories[forloop.index0] | default: category %}
+        {% endif %}
+        <a href="{{ '/categories/' | relative_url }}#{{ category | slugify }}"{% if has_pt_br_translation %} data-i18n-text data-i18n-en="{{ category | escape }}" data-i18n-pt-br="{{ translated_category | escape }}"{% endif %}>{{ category }}</a>{% unless forloop.last %}, {% endunless %}
         {% endfor %}
       </span>
       {% endif %}
@@ -29,15 +50,28 @@ layout: default
     <div class="custom-hr"></div>
   </div>
 
-  <div class="post-content">
+  <div class="post-content"{% if has_pt_br_translation %} data-i18n-content-root{% endif %}>
+    {% if has_pt_br_translation %}
+    <section class="post-content-language" data-i18n-content="en" lang="en">
+      {{ content }}
+    </section>
+    <section class="post-content-language" data-i18n-content="pt-br" lang="pt-BR" hidden>
+      {{ post_content_pt_br | markdownify }}
+    </section>
+    {% else %}
     {{ content }}
+    {% endif %}
   </div>
 
   {% if page.tags.size > 0 %}
   <div class="post-tags">
-    <strong>Tags:</strong>
+    <strong>{% if has_pt_br_translation %}<span data-i18n-text data-i18n-en="Tags:" data-i18n-pt-br="{{ page.i18n.pt_br.labels.tags | default: 'Tags:' | escape }}">Tags:</span>{% else %}Tags:{% endif %}</strong>
     {% for tag in page.tags %}
-    <a href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}" class="post-tag">{{ tag }}</a>
+    {% assign translated_tag = tag %}
+    {% if has_pt_br_translation and page.i18n.pt_br.tags %}
+      {% assign translated_tag = page.i18n.pt_br.tags[forloop.index0] | default: tag %}
+    {% endif %}
+    <a href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}" class="post-tag"{% if has_pt_br_translation %} data-i18n-text data-i18n-en="{{ tag | escape }}" data-i18n-pt-br="{{ translated_tag | escape }}"{% endif %}>{{ tag }}</a>
     {% endfor %}
   </div>
   {% endif %}
@@ -66,8 +100,11 @@ layout: default
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
+    const postContent = document.querySelector('.post-content');
+    if (!postContent) return;
+
     // Get all links within the post content only (not navigation or other areas)
-    const postContentLinks = document.querySelector('.post-content').getElementsByTagName('a');
+    const postContentLinks = postContent.getElementsByTagName('a');
     
     // For each link in the post content
     for (let i = 0; i < postContentLinks.length; i++) {

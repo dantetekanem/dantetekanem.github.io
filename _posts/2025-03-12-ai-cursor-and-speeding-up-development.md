@@ -4,6 +4,22 @@ title: AI, Cursor and speeding up development
 date: 2025-03-12 17:38 -0400
 categories: [programming, ai, software development]
 tags: [ai, cursor, 10x engineer]
+i18n:
+  pt_br:
+    title: AI, Cursor e acelerando o desenvolvimento
+    date: 12 de março de 2025
+    content_include: translations/2025-03-12-ai-cursor-and-speeding-up-development.pt-br.md
+    labels:
+      categories: "Categorias:"
+      tags: "Tags:"
+    categories:
+      - programação
+      - AI
+      - desenvolvimento de software
+    tags:
+      - AI
+      - Cursor
+      - 10x engineer
 ---
 
 I was able to make this blog from zero to production in 1 hour. Including:

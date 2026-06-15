@@ -9,11 +9,12 @@
 
 <!-- Stylesheets -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+<link rel="stylesheet" href="/assets/vendor/slot-text/style.css">
 <link rel="stylesheet" href="/assets/css/main.css">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet">
 
 <!-- Feed and SEO tag -->
-<link type="application/atom+xml" rel="alternate" href="https://blog.leonardopereira.com/feed.xml" title="Leo&apos;s Blog - leonardopereira.com" />
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Leo&apos;s Blog - leonardopereira.com" />
 <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Comments and Storytelling | Leo’s Blog - leonardopereira.com</title>
 <meta name="generator" content="Jekyll v4.4.1" />
@@ -21,15 +22,15 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Recently I have stumbled upon this discussion between Uncle Bob and John Ousterhout. It’s a bit aggressive and harsh, but nonetheless it’s worth reading! They go through 3 main topics:" />
 <meta property="og:description" content="Recently I have stumbled upon this discussion between Uncle Bob and John Ousterhout. It’s a bit aggressive and harsh, but nonetheless it’s worth reading! They go through 3 main topics:" />
-<link rel="canonical" href="https://blog.leonardopereira.com/2025/03/12/comments-and-storytelling/" />
-<meta property="og:url" content="https://blog.leonardopereira.com/2025/03/12/comments-and-storytelling/" />
+<link rel="canonical" href="http://localhost:4000/2025/03/12/comments-and-storytelling/" />
+<meta property="og:url" content="http://localhost:4000/2025/03/12/comments-and-storytelling/" />
 <meta property="og:site_name" content="Leo’s Blog - leonardopereira.com" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2025-03-12T15:38:00-04:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Comments and Storytelling" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-03-12T15:38:00-04:00","datePublished":"2025-03-12T15:38:00-04:00","description":"Recently I have stumbled upon this discussion between Uncle Bob and John Ousterhout. It’s a bit aggressive and harsh, but nonetheless it’s worth reading! They go through 3 main topics:","headline":"Comments and Storytelling","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.leonardopereira.com/2025/03/12/comments-and-storytelling/"},"url":"https://blog.leonardopereira.com/2025/03/12/comments-and-storytelling/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-03-12T15:38:00-04:00","datePublished":"2025-03-12T15:38:00-04:00","description":"Recently I have stumbled upon this discussion between Uncle Bob and John Ousterhout. It’s a bit aggressive and harsh, but nonetheless it’s worth reading! They go through 3 main topics:","headline":"Comments and Storytelling","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2025/03/12/comments-and-storytelling/"},"url":"http://localhost:4000/2025/03/12/comments-and-storytelling/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -48,6 +49,11 @@
           <h1 class="site-title"><a href="/" class="site-title-link">Leo's Blog</a></h1>
         </div>
         <div class="header-right">
+          
+          <button class="language-toggle" type="button" data-i18n-toggle aria-label="Switch language to Portuguese (Brazil)" aria-pressed="false">
+            <span class="language-toggle-label" data-i18n-toggle-label>PT-BR</span>
+          </button>
+          
           <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
             <svg class="theme-icon sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
             <svg class="theme-icon moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
@@ -65,21 +71,35 @@
       </div>
       
       <main class="page-content">
-        <article class="post">
+        
+
+
+<article class="post" data-i18n-post data-i18n-default-lang="en" data-i18n-active-lang="en">
   <header class="post-header">
-    <h1 class="post-title">Comments and Storytelling</h1>
+    <h1 class="post-title">
+      
+      <span data-i18n-text data-i18n-en="Comments and Storytelling" data-i18n-pt-br="Comentários e Storytelling">Comments and Storytelling</span>
+      
+    </h1>
     <div class="post-meta">
+      
       <time datetime="2025-03-12T15:38:00-04:00">
-        Mar 12, 2025
+        
+        <span data-i18n-text data-i18n-en="Mar 12, 2025" data-i18n-pt-br="12 de março de 2025">Mar 12, 2025</span>
+        
       </time>
       
       
       <span class="post-categories">
-        • Categories: 
+        • <span data-i18n-text data-i18n-en="Categories:" data-i18n-pt-br="Categorias:">Categories:</span>
         
-        <a href="/categories/#programming">programming</a>, 
         
-        <a href="/categories/#software-design">software design</a>
+        
+        <a href="/categories/#programming" data-i18n-text data-i18n-en="programming" data-i18n-pt-br="programação">programming</a>, 
+        
+        
+        
+        <a href="/categories/#software-design" data-i18n-text data-i18n-en="software design" data-i18n-pt-br="design de software">software design</a>
         
       </span>
       
@@ -90,8 +110,10 @@
     <div class="custom-hr"></div>
   </div>
 
-  <div class="post-content">
-    <p>Recently I have stumbled upon this <a href="https://github.com/johnousterhout/aposd-vs-clean-code/blob/main/README.md">discussion</a> between <strong>Uncle Bob</strong> and <strong>John Ousterhout</strong>. It’s a bit aggressive and harsh, but nonetheless it’s worth reading! They go through 3 main topics:</p>
+  <div class="post-content" data-i18n-content-root>
+    
+    <section class="post-content-language" data-i18n-content="en" lang="en">
+      <p>Recently I have stumbled upon this <a href="https://github.com/johnousterhout/aposd-vs-clean-code/blob/main/README.md">discussion</a> between <strong>Uncle Bob</strong> and <strong>John Ousterhout</strong>. It’s a bit aggressive and harsh, but nonetheless it’s worth reading! They go through 3 main topics:</p>
 
 <ul>
   <li>Refactoring and small methods vs longer methods.</li>
@@ -220,19 +242,160 @@ Frameworks (such as Rails) have <a href="https://github.com/rails/rails/blob/mai
 
 <p><span style="color: #F2C94C;">Happy coding!</span></p>
 
+    </section>
+    <section class="post-content-language" data-i18n-content="pt-br" lang="pt-BR" hidden>
+      <p>Recentemente encontrei esta <a href="https://github.com/johnousterhout/aposd-vs-clean-code/blob/main/README.md">discussão</a> entre <strong>Uncle Bob</strong> e <strong>John Ousterhout</strong>. Ela é um pouco agressiva e dura, mas ainda assim vale a leitura! Eles passam por 3 tópicos principais:</p>
+
+<ul>
+  <li>Refatoração e métodos pequenos vs métodos mais longos.</li>
+  <li>Comentários: úteis ou não?</li>
+  <li>TDD.</li>
+</ul>
+
+<p>Quero discutir o segundo e o terceiro tópicos, mas neste post vou focar no segundo: <em>Comentários!</em></p>
+
+<p>Minha opinião é que comentários devem dar um pedaço de história ou narrativa sobre por que uma decisão foi tomada. Não acho que uma quantidade mínima de comentários e código autodocumentado seja sempre suficiente, embora na maior parte do tempo seja! Mas às vezes existe uma peça faltando sobre por que a decisão foi tomada e, mesmo que o código seja bastante autoexplicativo, o “porquê” não pode ser adivinhado.</p>
+
+<p>Por exemplo, vamos olhar para este método falso de autenticação:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="k">def</span> <span class="nf">authenticate</span><span class="p">(</span><span class="n">password</span><span class="p">)</span>
+    <span class="c1"># We don't use has_secure_password here because we needed to maintain</span>
+    <span class="c1"># compatibility with our legacy system that used a custom hashing algorithm.</span>
+    <span class="c1"># This implementation ensures that both old and new passwords work during</span>
+    <span class="c1"># the transition period. See migration plan in JIRA ticket AUTH-4592.</span>
+    <span class="k">return</span> <span class="kp">false</span> <span class="k">if</span> <span class="n">password_digest</span><span class="p">.</span><span class="nf">blank?</span>
+    
+    <span class="k">if</span> <span class="n">password_digest</span><span class="p">.</span><span class="nf">start_with?</span><span class="p">(</span><span class="s1">'legacy:'</span><span class="p">)</span>
+      <span class="c1"># Legacy algorithm with different salt approach</span>
+      <span class="n">legacy_digest</span> <span class="o">=</span> <span class="n">password_digest</span><span class="p">.</span><span class="nf">sub</span><span class="p">(</span><span class="s1">'legacy:'</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span>
+      <span class="no">LegacyPasswordService</span><span class="p">.</span><span class="nf">check</span><span class="p">(</span><span class="n">password</span><span class="p">,</span> <span class="n">legacy_digest</span><span class="p">).</span><span class="nf">tap</span> <span class="k">do</span> <span class="o">|</span><span class="n">result</span><span class="o">|</span>
+        <span class="c1"># Upgrade to bcrypt if login successful with legacy password</span>
+        <span class="n">update</span><span class="p">(</span><span class="ss">password: </span><span class="n">password</span><span class="p">)</span> <span class="k">if</span> <span class="n">result</span>
+      <span class="k">end</span>
+    <span class="k">else</span>
+      <span class="no">BCrypt</span><span class="o">::</span><span class="no">Password</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">password_digest</span><span class="p">).</span><span class="nf">is_password?</span><span class="p">(</span><span class="n">password</span><span class="p">)</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>O comentário aqui nos diz exatamente <em>por que</em> não estamos usando o <code class="language-plaintext highlighter-rouge">has_secure_password</code> embutido do Rails. Sem esse comentário, alguém poderia pensar “vamos refatorar isso para usar a abordagem padrão” e quebrar a compatibilidade com o sistema legado. O comentário nos dá um insight crucial que nunca obteríamos apenas pelo código!</p>
+
+<p>Aqui vai outro exemplo de um possível sistema de pagamentos:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">PaymentProcessor</span>
+  <span class="k">def</span> <span class="nf">process_international_payment</span><span class="p">(</span><span class="n">amount</span><span class="p">,</span> <span class="n">currency</span><span class="p">,</span> <span class="n">recipient</span><span class="p">)</span>
+    <span class="c1"># Japanese yen amounts must be handled as whole numbers without decimal places</span>
+    <span class="c1"># due to requirements from their banking API. One JPY in our system is sent as 1,</span>
+    <span class="c1"># unlike other currencies where we send the amount in smallest unit (cents)</span>
+    <span class="k">if</span> <span class="n">currency</span><span class="p">.</span><span class="nf">upcase</span> <span class="o">==</span> <span class="s1">'JPY'</span>
+      <span class="n">formatted_amount</span> <span class="o">=</span> <span class="n">amount</span><span class="p">.</span><span class="nf">to_i</span>
+    <span class="k">else</span>
+      <span class="c1"># Convert from dollars to cents for other currencies</span>
+      <span class="n">formatted_amount</span> <span class="o">=</span> <span class="p">(</span><span class="n">amount</span> <span class="o">*</span> <span class="mi">100</span><span class="p">).</span><span class="nf">to_i</span>
+    <span class="k">end</span>
+    
+    <span class="c1"># Stripe has a 25-second timeout for payments to Turkey (see outage report 2023-05-12)</span>
+    <span class="c1"># so we increase our timeout and add retries only for this specific country</span>
+    <span class="n">timeout</span> <span class="o">=</span> <span class="n">recipient</span><span class="p">.</span><span class="nf">country_code</span> <span class="o">==</span> <span class="s1">'TR'</span> <span class="p">?</span> <span class="mi">45</span> <span class="p">:</span> <span class="mi">30</span>
+    
+    <span class="n">api_client</span><span class="p">.</span><span class="nf">create_payment</span><span class="p">(</span>
+      <span class="ss">amount: </span><span class="n">formatted_amount</span><span class="p">,</span>
+      <span class="ss">currency: </span><span class="n">currency</span><span class="p">,</span>
+      <span class="ss">recipient: </span><span class="n">recipient</span><span class="p">,</span>
+      <span class="ss">request_timeout: </span><span class="n">timeout</span>
+    <span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Os comentários explicam regras de negócio que não são nada óbvias pelo código. Sem eles, alguém poderia tentar “limpar” o código padronizando a formatação dos valores ou os timeouts, e pronto! Você ganhou bugs sutis em produção que são super difíceis de rastrear.</p>
+
+<p>E se um novo desenvolvedor decidir refatorar o código, o que ele deveria considerar, talvez pense: “por que não usar uma gem <a href="https://github.com/RubyMoney/money">Money</a> para lidar com os detalhes?” Com esses comentários, ele terá informação extra para realmente fazer as melhores mudanças, e não apenas esperar um teste quebrar ou um incêndio precisar ser apagado.</p>
+
+<p>Agora olhe este exemplo, explicando exatamente o que um código deve fazer, em passos nos quais o próprio código já consegue expressar essas ações:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Order</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="c1"># This method calculates the total price of the order</span>
+  <span class="k">def</span> <span class="nf">calculate_total</span>
+    <span class="c1"># Initialize the total variable to zero</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+    
+    <span class="c1"># Loop through each item in the order</span>
+    <span class="n">order_items</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span>
+      <span class="c1"># Get the price of each item</span>
+      <span class="n">item_price</span> <span class="o">=</span> <span class="n">item</span><span class="p">.</span><span class="nf">price</span>
+      
+      <span class="c1"># Get the quantity of each item</span>
+      <span class="n">quantity</span> <span class="o">=</span> <span class="n">item</span><span class="p">.</span><span class="nf">quantity</span>
+      
+      <span class="c1"># Multiply price by quantity to get item subtotal</span>
+      <span class="n">item_subtotal</span> <span class="o">=</span> <span class="n">item_price</span> <span class="o">*</span> <span class="n">quantity</span>
+      
+      <span class="c1"># Add the item subtotal to the total</span>
+      <span class="n">total</span> <span class="o">+=</span> <span class="n">item_subtotal</span>
+    <span class="k">end</span>
+    
+    <span class="c1"># If there is a discount, subtract it from the total</span>
+    <span class="k">if</span> <span class="n">discount</span><span class="p">.</span><span class="nf">present?</span>
+      <span class="c1"># Get the discount amount</span>
+      <span class="n">discount_amount</span> <span class="o">=</span> <span class="n">discount</span><span class="p">.</span><span class="nf">amount</span>
+      
+      <span class="c1"># Subtract the discount from the total</span>
+      <span class="n">total</span> <span class="o">-=</span> <span class="n">discount_amount</span>
+    <span class="k">end</span>
+    
+    <span class="c1"># Return the final total</span>
+    <span class="k">return</span> <span class="n">total</span>
+  <span class="k">end</span>
+  
+  <span class="c1"># This method checks if an order can be shipped</span>
+  <span class="k">def</span> <span class="nf">ready_to_ship?</span>
+    <span class="c1"># Check if payment has been processed</span>
+    <span class="n">payment_processed</span> <span class="o">=</span> <span class="n">payment</span><span class="p">.</span><span class="nf">completed?</span>
+    
+    <span class="c1"># Check if all items are in stock</span>
+    <span class="n">items_available</span> <span class="o">=</span> <span class="n">order_items</span><span class="p">.</span><span class="nf">all?</span> <span class="p">{</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span> <span class="n">item</span><span class="p">.</span><span class="nf">in_stock?</span> <span class="p">}</span>
+    
+    <span class="c1"># Return true only if payment is processed and items are available</span>
+    <span class="k">return</span> <span class="n">payment_processed</span> <span class="o">&amp;&amp;</span> <span class="n">items_available</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Esses comentários no último exemplo não ajudam em nada. Isso é especialmente verdadeiro com Ruby, uma linguagem eloquente. Por que explicar se algo está em estoque quando o próprio Ruby consegue expressar isso claramente com <code class="language-plaintext highlighter-rouge">item.in_stock?</code>?</p>
+
+<p>Esses exemplos mostram exatamente do que estou falando — comentários que vão além de apenas descrever o código. Eles nos dão a história por trás, o <em>porquê</em> das decisões que jamais conseguiríamos adivinhar apenas pelo código. Eles referenciam coisas como restrições históricas, peculiaridades de APIs e regras de negócio que não estão aparentes no código em si. Esse é o valor real de bons comentários!</p>
+
+<p>Agora, comentários devem dar contexto e responder perguntas que o código não consegue responder. Explique os porquês. Caso contrário, seu código deve sempre ser autoexplicativo. Isso inclui usar bons nomes de classes e métodos que sigam bons princípios e tenham bom design. Assim você não vai superengenheirar nada nem adicionar centenas de comentários ruins.
+Frameworks (como Rails) têm <a href="https://github.com/rails/rails/blob/main/activesupport/lib/active_support/concern.rb">ótimos exemplos</a> de comentários que adicionam contexto, explicações e levam você a uma solução correta.</p>
+
+<p><span style="color: #F2C94C;">Happy coding!</span></p>
+
+    </section>
+    
   </div>
 
   
   <div class="post-tags">
-    <strong>Tags:</strong>
+    <strong><span data-i18n-text data-i18n-en="Tags:" data-i18n-pt-br="Tags:">Tags:</span></strong>
     
-    <a href="/tags/#clean-code" class="post-tag">clean code</a>
     
-    <a href="/tags/#a-philosophy-of-software-design" class="post-tag">a philosophy of software design</a>
     
-    <a href="/tags/#comments" class="post-tag">comments</a>
+    <a href="/tags/#clean-code" class="post-tag" data-i18n-text data-i18n-en="clean code" data-i18n-pt-br="clean code">clean code</a>
     
-    <a href="/tags/#programming" class="post-tag">programming</a>
+    
+    
+    <a href="/tags/#a-philosophy-of-software-design" class="post-tag" data-i18n-text data-i18n-en="a philosophy of software design" data-i18n-pt-br="A Philosophy of Software Design">a philosophy of software design</a>
+    
+    
+    
+    <a href="/tags/#comments" class="post-tag" data-i18n-text data-i18n-en="comments" data-i18n-pt-br="comentários">comments</a>
+    
+    
+    
+    <a href="/tags/#programming" class="post-tag" data-i18n-text data-i18n-en="programming" data-i18n-pt-br="programação">programming</a>
     
   </div>
   
@@ -261,8 +424,11 @@ Frameworks (such as Rails) have <a href="https://github.com/rails/rails/blob/mai
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
+    const postContent = document.querySelector('.post-content');
+    if (!postContent) return;
+
     // Get all links within the post content only (not navigation or other areas)
-    const postContentLinks = document.querySelector('.post-content').getElementsByTagName('a');
+    const postContentLinks = postContent.getElementsByTagName('a');
     
     // For each link in the post content
     for (let i = 0; i < postContentLinks.length; i++) {
@@ -298,5 +464,6 @@ Frameworks (such as Rails) have <a href="https://github.com/rails/rails/blob/mai
   
   <!-- Custom scripts -->
   <script src="/assets/js/main.js"></script>
+  <script type="module" src="/assets/js/language-toggle.js"></script>
 </body>
 </html> 

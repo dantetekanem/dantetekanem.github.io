@@ -9,11 +9,12 @@
 
 <!-- Stylesheets -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+<link rel="stylesheet" href="/assets/vendor/slot-text/style.css">
 <link rel="stylesheet" href="/assets/css/main.css">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet">
 
 <!-- Feed and SEO tag -->
-<link type="application/atom+xml" rel="alternate" href="https://blog.leonardopereira.com/feed.xml" title="Leo&apos;s Blog - leonardopereira.com" />
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Leo&apos;s Blog - leonardopereira.com" />
 <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Running a Rails 2.3.4 and Ruby 1.9.3 Project from 2009! | Leo’s Blog - leonardopereira.com</title>
 <meta name="generator" content="Jekyll v4.4.1" />
@@ -21,15 +22,15 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Yesterday I got an e-mail from Squarespace, informing me that my Google Domains account (now on Squarespace) would increase the price since Gemini and AI are costing more and in every product of theirs. Which is horrible, I don’t think they add any value and it’s impossible to opt-out. So, I started digging and seeing how I could make things cheaper so at least from my side, Google would not get all the greenies it wants. Well, one of the tools I decided to use was to find heavy files in my Gmail, Google Photos and Google Drive." />
 <meta property="og:description" content="Yesterday I got an e-mail from Squarespace, informing me that my Google Domains account (now on Squarespace) would increase the price since Gemini and AI are costing more and in every product of theirs. Which is horrible, I don’t think they add any value and it’s impossible to opt-out. So, I started digging and seeing how I could make things cheaper so at least from my side, Google would not get all the greenies it wants. Well, one of the tools I decided to use was to find heavy files in my Gmail, Google Photos and Google Drive." />
-<link rel="canonical" href="https://blog.leonardopereira.com/2025/03/17/running-a-rails-2-3-4-and-ruby-1-9-3-project-from-2009/" />
-<meta property="og:url" content="https://blog.leonardopereira.com/2025/03/17/running-a-rails-2-3-4-and-ruby-1-9-3-project-from-2009/" />
+<link rel="canonical" href="http://localhost:4000/2025/03/17/running-a-rails-2-3-4-and-ruby-1-9-3-project-from-2009/" />
+<meta property="og:url" content="http://localhost:4000/2025/03/17/running-a-rails-2-3-4-and-ruby-1-9-3-project-from-2009/" />
 <meta property="og:site_name" content="Leo’s Blog - leonardopereira.com" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2025-03-17T23:07:00-04:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Running a Rails 2.3.4 and Ruby 1.9.3 Project from 2009!" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-03-17T23:07:00-04:00","datePublished":"2025-03-17T23:07:00-04:00","description":"Yesterday I got an e-mail from Squarespace, informing me that my Google Domains account (now on Squarespace) would increase the price since Gemini and AI are costing more and in every product of theirs. Which is horrible, I don’t think they add any value and it’s impossible to opt-out. So, I started digging and seeing how I could make things cheaper so at least from my side, Google would not get all the greenies it wants. Well, one of the tools I decided to use was to find heavy files in my Gmail, Google Photos and Google Drive.","headline":"Running a Rails 2.3.4 and Ruby 1.9.3 Project from 2009!","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.leonardopereira.com/2025/03/17/running-a-rails-2-3-4-and-ruby-1-9-3-project-from-2009/"},"url":"https://blog.leonardopereira.com/2025/03/17/running-a-rails-2-3-4-and-ruby-1-9-3-project-from-2009/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-03-17T23:07:00-04:00","datePublished":"2025-03-17T23:07:00-04:00","description":"Yesterday I got an e-mail from Squarespace, informing me that my Google Domains account (now on Squarespace) would increase the price since Gemini and AI are costing more and in every product of theirs. Which is horrible, I don’t think they add any value and it’s impossible to opt-out. So, I started digging and seeing how I could make things cheaper so at least from my side, Google would not get all the greenies it wants. Well, one of the tools I decided to use was to find heavy files in my Gmail, Google Photos and Google Drive.","headline":"Running a Rails 2.3.4 and Ruby 1.9.3 Project from 2009!","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2025/03/17/running-a-rails-2-3-4-and-ruby-1-9-3-project-from-2009/"},"url":"http://localhost:4000/2025/03/17/running-a-rails-2-3-4-and-ruby-1-9-3-project-from-2009/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -48,6 +49,11 @@
           <h1 class="site-title"><a href="/" class="site-title-link">Leo's Blog</a></h1>
         </div>
         <div class="header-right">
+          
+          <button class="language-toggle" type="button" data-i18n-toggle aria-label="Switch language to Portuguese (Brazil)" aria-pressed="false">
+            <span class="language-toggle-label" data-i18n-toggle-label>PT-BR</span>
+          </button>
+          
           <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
             <svg class="theme-icon sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
             <svg class="theme-icon moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
@@ -65,23 +71,39 @@
       </div>
       
       <main class="page-content">
-        <article class="post">
+        
+
+
+<article class="post" data-i18n-post data-i18n-default-lang="en" data-i18n-active-lang="en">
   <header class="post-header">
-    <h1 class="post-title">Running a Rails 2.3.4 and Ruby 1.9.3 Project from 2009!</h1>
+    <h1 class="post-title">
+      
+      <span data-i18n-text data-i18n-en="Running a Rails 2.3.4 and Ruby 1.9.3 Project from 2009!" data-i18n-pt-br="Rodando um Projeto Rails 2.3.4 e Ruby 1.9.3 de 2009!">Running a Rails 2.3.4 and Ruby 1.9.3 Project from 2009!</span>
+      
+    </h1>
     <div class="post-meta">
+      
       <time datetime="2025-03-17T23:07:00-04:00">
-        Mar 17, 2025
+        
+        <span data-i18n-text data-i18n-en="Mar 17, 2025" data-i18n-pt-br="17 de março de 2025">Mar 17, 2025</span>
+        
       </time>
       
       
       <span class="post-categories">
-        • Categories: 
+        • <span data-i18n-text data-i18n-en="Categories:" data-i18n-pt-br="Categorias:">Categories:</span>
         
-        <a href="/categories/#programming">programming</a>, 
         
-        <a href="/categories/#ai">ai</a>, 
         
-        <a href="/categories/#back-to-the-past">back to the past</a>
+        <a href="/categories/#programming" data-i18n-text data-i18n-en="programming" data-i18n-pt-br="programação">programming</a>, 
+        
+        
+        
+        <a href="/categories/#ai" data-i18n-text data-i18n-en="ai" data-i18n-pt-br="AI">ai</a>, 
+        
+        
+        
+        <a href="/categories/#back-to-the-past" data-i18n-text data-i18n-en="back to the past" data-i18n-pt-br="volta ao passado">back to the past</a>
         
       </span>
       
@@ -92,8 +114,10 @@
     <div class="custom-hr"></div>
   </div>
 
-  <div class="post-content">
-    <p>Yesterday I got an e-mail from Squarespace, informing me that my Google Domains account (now on Squarespace) would increase the price since Gemini and AI are costing more and in every product of theirs. Which is horrible, I don’t think they add any value and it’s impossible to opt-out.
+  <div class="post-content" data-i18n-content-root>
+    
+    <section class="post-content-language" data-i18n-content="en" lang="en">
+      <p>Yesterday I got an e-mail from Squarespace, informing me that my Google Domains account (now on Squarespace) would increase the price since Gemini and AI are costing more and in every product of theirs. Which is horrible, I don’t think they add any value and it’s impossible to opt-out.
 So, I started digging and seeing how I could make things cheaper so at least from my side, Google would not get all the greenies it wants. Well, one of the tools I decided to use was to find heavy files in my Gmail, Google Photos and Google Drive.</p>
 
 <p>Out of curiosity, I found a Git bundle of a project I was part of in 2009. It was my first real Ruby project, getting my hands dirty. The project was Sportlog, a community driven by exercises and milestones, very similar to what Strava is nowadays. Unfortunately, it didn’t work out, and the project was closed in 2010.
@@ -389,6 +413,306 @@ unit
 
 <p><span style="color: #F2C94C;">Happy coding!</span></p>
 
+    </section>
+    <section class="post-content-language" data-i18n-content="pt-br" lang="pt-BR" hidden>
+      <p>Ontem recebi um e-mail da Squarespace informando que minha conta do Google Domains (agora na Squarespace) teria aumento de preço, já que Gemini e AI estão custando mais e aparecem em todos os produtos deles. O que é horrível; não acho que eles adicionem valor algum e é impossível optar por não usar.
+Então comecei a fuçar e ver como poderia deixar as coisas mais baratas para que, pelo menos da minha parte, o Google não pegasse todos os verdinhos que queria. Bem, uma das ferramentas que decidi usar foi procurar arquivos pesados no meu Gmail, Google Photos e Google Drive.</p>
+
+<p>Por curiosidade, encontrei um Git bundle de um projeto do qual participei em 2009. Foi meu primeiro projeto Ruby de verdade, colocando a mão na massa. O projeto era o Sportlog, uma comunidade movida por exercícios e marcos, muito parecida com o que o Strava é hoje. Infelizmente, não deu certo, e o projeto foi encerrado em 2010.
+Curioso como sou, tive que ver o que havia ali, agora.
+Então rodei:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone ~/Downloads/Sportlog.git.bundle
+</code></pre></div></div>
+
+<p>E, para minha surpresa, todos os arquivos estavam lá! Como olhar para o passado:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Mar 17 15:15 Capfile
+Mar 17 15:15 README
+Mar 17 22:21 Rakefile
+Mar 17 15:15 app
+Mar 17 21:49 config
+Mar 17 15:15 db
+Mar 17 15:15 doc
+Mar 17 15:15 lang
+Mar 17 15:15 lib
+Mar 17 21:28 log
+Mar 17 21:24 patches
+Mar 17 15:15 public
+Mar 17 15:15 script
+Mar 17 15:15 test
+Mar 17 15:15 themes
+Mar 17 21:57 tmp
+Mar 17 15:15 utils
+Mar 17 15:15 vendor
+</code></pre></div></div>
+
+<p>Finalmente! Então, agora, como eu rodo um projeto de 15 anos atrás? Levaria muito tempo para atualizar tudo, e eu teria que fazer isso em etapas. Do Rails 2 para o 3, depois para o 4 e assim por diante. E na versão 3, <a href="https://yehudakatz.com/2008/12/23/rails-and-merb-merge/">Ruby on Rails e Merb se fundiram</a>, então havia <strong>muita</strong> mudança para lidar. Impossível.</p>
+
+<p>Mas hoje em dia temos uma série de ferramentas que realmente conseguem nos levar para o passado e realizar isso: <strong>Docker</strong> e <strong>AI</strong>.</p>
+
+<p>Com isso em mente, abri o Cursor com meu projeto, dei as primeiras instruções e comecei uma batalha de instruções que durou quase 2 horas. Mas também faltava algo: o banco de dados. As migrations estavam lá, mas eu não tinha dados parecidos para trabalhar. Sorte minha: no meu e-mail também havia uma cópia do banco de dados que usávamos durante o desenvolvimento (quase 15 anos atrás, lidávamos com tudo por e-mail; Dropbox e outros ainda eram muito novos).
+Com tudo isso no lugar, aqui está meu git status atual:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>➜  Sportlog.git git:(master) ✗ git st
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add &lt;file&gt;..." to update what will be committed)
+  (use "git restore &lt;file&gt;..." to discard changes in working directory)
+  (commit or discard the untracked or modified content in submodules)
+        modified:   Rakefile
+        modified:   app/controllers/application_controller.rb
+        modified:   app/controllers/sportlog_sessions_controller.rb
+        modified:   app/helpers/application_helper.rb
+        modified:   app/helpers/base_helper.rb
+        modified:   config/deploy.rb
+        modified:   config/environment.rb
+        modified:   config/environments/production.rb
+        modified:   config/gmaps_api_key.yml
+        modified:   config/locales/pt.yml
+        modified:   lang/ui/en-US.yml
+        modified:   lang/ui/pt-BR.yml
+        modified:   themes/sportlog_v1/views/comments/_comment_form.html.erb
+        modified:   themes/sportlog_v1/views/comments/_comment_form_training.html.erb
+        modified:   themes/sportlog_v1/views/shared/_user_menu.html.erb
+        modified:   vendor/plugins/community_engine (new commits, modified content, untracked content)
+        modified:   vendor/plugins/ym4r_gm/lib/gm_plugin/key.rb
+        modified:   vendor/rails/activesupport/lib/active_support/locale/en.yml
+        modified:   vendor/rails/railties/lib/rails/gem_dependency.rb
+        modified:   vendor/rails/railties/lib/rails/plugin/loader.rb
+
+Untracked files:
+  (use "git add &lt;file&gt;..." to include in what will be committed)
+        .dockerignore
+        Dockerfile
+        README.md
+        app/helpers/info_helper.rb
+        app/helpers/sportlog_base_helper.rb
+        app/helpers/sportlog_helper.rb
+        app/helpers/sportlog_posts_helper.rb
+        app/helpers/sportlog_sessions_helper.rb
+        app/helpers/sportlog_users_helper.rb
+        app/helpers/trainings_helper.rb
+        config/initializers/desert_compatibility.rb
+        config/initializers/desert_object_patch.rb
+        config/initializers/encoding_fixes.rb
+        config/initializers/gem_compatibility.rb
+        config/initializers/i18n_config.rb
+        config/initializers/md5_compatibility.rb
+        config/initializers/missing_plugins_handler.rb
+        config/initializers/rails_2_3_4_compatibility.rb
+        config/initializers/ruby193_compatibility.rb
+        config/initializers/ruby19_encoding_fixes.rb
+        config/initializers/ruby20_compatibility.rb
+        config/initializers/skip_missing_plugins.rb
+        config/initializers/utf8_templates.rb
+        config/preinitializer.rb
+        docker-compose.yml
+        patches/
+        sportlog-2010-02-26.sql
+        "themes/sportlog_v1/images/events/foto Corporate Run S\303\243o Paulo.jpg"
+        vendor/plugins/white_list/
+</code></pre></div></div>
+
+<p>As principais mudanças:</p>
+<ul>
+  <li>Vários monkey patches para dar suporte a código ultrapassado em bibliotecas mortas há muito tempo. A AI brilhou aqui.</li>
+  <li>Atualização de locales. A maior parte desse projeto foi escrita em português brasileiro, e a codificação naquela época era extremamente dolorosa. Fiz várias mudanças só para remover as palavras mágicas; por exemplo, “Administração” contém 2 caracteres codificados que não são comuns na língua inglesa, e eu simplesmente modifiquei para “Administracao”, sem caracteres especiais, sem erros estranhos de encoding.</li>
+  <li>Por algum motivo, vários helpers estavam faltando. Acho que o Cursor modificou algo para sempre esperar um helper inexistente, então tive que adicionar vários para as páginas em que naveguei.</li>
+  <li>Restaurar plugins antigos (pense como Engines) exigiu passar por todas as versões em um projeto arquivado (<code class="language-plaintext highlighter-rouge">community_engine</code>) e pegar a versão correta do Rails.</li>
+  <li>Remover chaves e e-mails para eu não mandar mensagem para ninguém do meu time antigo <code class="language-plaintext highlighter-rouge">¯\_(ツ)_/¯</code>; afinal, eu não sou dono desse código.</li>
+  <li>Correções e mais correções! Várias, desde uma coluna errada no banco até caracteres ASCII estranhos.</li>
+</ul>
+
+<p>Ah! Era assim que rodávamos <code class="language-plaintext highlighter-rouge">rails console</code> no passado:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker-compose <span class="nb">exec </span>web script/console
+</code></pre></div></div>
+
+<p>que executa:</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/env ruby</span>
+<span class="nb">require</span> <span class="no">File</span><span class="p">.</span><span class="nf">expand_path</span><span class="p">(</span><span class="s1">'../../config/boot'</span><span class="p">,</span>  <span class="kp">__FILE__</span><span class="p">)</span>
+<span class="nb">require</span> <span class="s1">'commands/console'</span>
+</code></pre></div></div>
+
+<p>E depois de algum tempo, estava rodando:
+<img src="/assets/images/sportlog1.png" alt="Página Inicial do Sportlog" />
+<img src="/assets/images/sportlog2.png" alt="Painel de Treinos do Sportlog" /></p>
+
+<p>Isso é empolgante demais! Tantas memórias. E tantas coisas interessantes! Agora, vamos olhar para o código.</p>
+
+<p>Hoje temos <code class="language-plaintext highlighter-rouge">refute</code> e <code class="language-plaintext highlighter-rouge">assert</code> no Minitest; em 2009, nem tanto:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'test_helper'</span>
+
+<span class="k">class</span> <span class="nc">ExerciseMachineBrandTest</span> <span class="o">&lt;</span> <span class="no">ActiveSupport</span><span class="o">::</span><span class="no">TestCase</span>
+  <span class="nb">test</span> <span class="s2">"presence of name"</span> <span class="k">do</span>
+    <span class="n">brand</span> <span class="o">=</span> <span class="n">create_exercise_machine_brand</span><span class="p">(</span><span class="ss">:name</span> <span class="o">=&gt;</span> <span class="kp">nil</span><span class="p">)</span>
+    <span class="n">assert</span> <span class="o">!</span> <span class="n">brand</span><span class="p">.</span><span class="nf">valid?</span>
+    <span class="n">assert</span> <span class="n">brand</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">on</span><span class="p">(</span><span class="ss">:name</span><span class="p">)</span>
+    
+    <span class="n">brand</span><span class="p">.</span><span class="nf">name</span> <span class="o">=</span> <span class="s1">'brand'</span>
+    <span class="n">assert</span> <span class="n">brand</span><span class="p">.</span><span class="nf">valid?</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Então era <code class="language-plaintext highlighter-rouge">assert ! object.valid?</code> para verificar se era falso? Um pouco interessante. E fiquei bem feliz em ver muitos testes funcionais. Que, aliás, tinham esta estrutura completa:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fixtures
+functional
+integration
+javascript
+jmeter.jmx
+performance
+test_helper.rb
+unit
+</code></pre></div></div>
+
+<p>Um pouco diferente do que temos hoje.</p>
+
+<p>Os testes funcionais também não eram tão diferentes do que temos hoje:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'test_helper'</span>
+
+<span class="k">class</span> <span class="nc">SportlogCommentsControllerTest</span> <span class="o">&lt;</span> <span class="no">ActionController</span><span class="o">::</span><span class="no">TestCase</span>
+  <span class="kp">alias_method</span> <span class="ss">:assert_difference_original</span><span class="p">,</span> <span class="ss">:assert_difference</span>
+
+  <span class="kp">include</span> <span class="no">AuthenticatedTestHelper</span>
+  
+  <span class="k">def</span> <span class="nf">setup</span>
+    <span class="n">login_as</span><span class="p">(</span><span class="ss">:rodrigo</span><span class="p">)</span>    
+  <span class="k">end</span>
+  
+  <span class="nb">test</span> <span class="s2">"should create a post comment"</span> <span class="k">do</span>
+    <span class="n">assert_difference_original</span><span class="p">(</span><span class="s1">'Comment.count'</span><span class="p">)</span> <span class="k">do</span>
+      <span class="n">post</span> <span class="ss">:create</span><span class="p">,</span> <span class="ss">:post_id</span> <span class="o">=&gt;</span> <span class="n">posts</span><span class="p">(</span><span class="ss">:funny_post</span><span class="p">),</span> <span class="ss">:comment</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="ss">:comment</span> <span class="o">=&gt;</span> <span class="s2">"testing"</span> <span class="p">},</span> <span class="ss">:locale</span> <span class="o">=&gt;</span> <span class="s2">"pt"</span>
+    <span class="k">end</span>
+    
+    <span class="n">assert_redirected_to</span> <span class="n">dashboard_user_path</span><span class="p">(</span><span class="n">posts</span><span class="p">(</span><span class="ss">:funny_post</span><span class="p">).</span><span class="nf">user</span><span class="p">)</span>
+    
+    <span class="n">assert_no_difference</span><span class="p">(</span><span class="no">Comment</span><span class="p">,</span> <span class="s1">'count'</span><span class="p">)</span> <span class="k">do</span>
+      <span class="n">post</span> <span class="ss">:create</span><span class="p">,</span> <span class="ss">:post_id</span> <span class="o">=&gt;</span> <span class="n">posts</span><span class="p">(</span><span class="ss">:not_funny_post</span><span class="p">),</span> <span class="ss">:comment</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="ss">:comment</span> <span class="o">=&gt;</span> <span class="s2">"should not be possible"</span> <span class="p">},</span> <span class="ss">:locale</span> <span class="o">=&gt;</span> <span class="s2">"pt"</span>
+    <span class="k">end</span>
+    
+    <span class="n">assert_redirected_to</span> <span class="n">dashboard_user_path</span><span class="p">(</span><span class="n">users</span><span class="p">(</span><span class="ss">:edgard</span><span class="p">))</span>
+
+    <span class="vi">@request</span><span class="p">.</span><span class="nf">env</span><span class="p">[</span><span class="s1">'HTTP_ACCEPT'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'text/javascript'</span>
+    
+    <span class="n">assert_difference_original</span><span class="p">(</span><span class="s1">'Comment.count'</span><span class="p">)</span> <span class="k">do</span>
+      <span class="n">post</span> <span class="ss">:create</span><span class="p">,</span> <span class="ss">:post_id</span> <span class="o">=&gt;</span> <span class="n">posts</span><span class="p">(</span><span class="ss">:funny_post</span><span class="p">),</span> <span class="ss">:comment</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="ss">:comment</span> <span class="o">=&gt;</span> <span class="s2">"testing"</span> <span class="p">},</span> <span class="ss">:locale</span> <span class="o">=&gt;</span> <span class="s2">"pt"</span>
+    <span class="k">end</span>
+    
+    <span class="n">assert_response</span> <span class="ss">:success</span>
+    
+    <span class="n">assert_no_difference</span><span class="p">(</span><span class="no">Comment</span><span class="p">,</span> <span class="s1">'count'</span><span class="p">)</span> <span class="k">do</span>
+      <span class="n">post</span> <span class="ss">:create</span><span class="p">,</span> <span class="ss">:post_id</span> <span class="o">=&gt;</span> <span class="n">posts</span><span class="p">(</span><span class="ss">:not_funny_post</span><span class="p">),</span> <span class="ss">:comment</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="ss">:comment</span> <span class="o">=&gt;</span> <span class="s2">"should not be possible"</span> <span class="p">},</span> <span class="ss">:locale</span> <span class="o">=&gt;</span> <span class="s2">"pt"</span>
+    <span class="k">end</span>
+    
+    <span class="n">assert_response</span> <span class="ss">:unauthorized</span>
+
+    <span class="n">assert_no_difference</span><span class="p">(</span><span class="no">Comment</span><span class="p">,</span> <span class="s1">'count'</span><span class="p">)</span> <span class="k">do</span>
+      <span class="n">post</span> <span class="ss">:create</span><span class="p">,</span> <span class="ss">:training_id</span> <span class="o">=&gt;</span> <span class="n">trainings</span><span class="p">(</span><span class="ss">:one</span><span class="p">),</span> <span class="ss">:comment</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="ss">:comment</span> <span class="o">=&gt;</span> <span class="s2">"should not be possible"</span> <span class="p">},</span> <span class="ss">:locale</span> <span class="o">=&gt;</span> <span class="s2">"pt"</span>
+    <span class="k">end</span>
+
+    <span class="n">assert_response</span> <span class="ss">:unauthorized</span>
+  <span class="k">end</span>
+  
+  <span class="nb">test</span> <span class="s2">"should redirect properly"</span> <span class="k">do</span>
+    <span class="n">post</span> <span class="ss">:create</span><span class="p">,</span> <span class="p">{</span><span class="s2">"comment"</span><span class="o">=&gt;</span><span class="p">{</span><span class="s2">"comment"</span><span class="o">=&gt;</span><span class="s2">"asfsdf"</span><span class="p">},</span> <span class="s2">"commit"</span><span class="o">=&gt;</span><span class="s2">"comentar"</span><span class="p">,</span> <span class="s2">"training_id"</span><span class="o">=&gt;</span> <span class="n">trainings</span><span class="p">(</span><span class="ss">:one</span><span class="p">),</span> <span class="s2">"action"</span><span class="o">=&gt;</span><span class="s2">"create"</span><span class="p">,</span> <span class="s2">"locale"</span><span class="o">=&gt;</span><span class="s2">"pt"</span><span class="p">}</span>
+    <span class="n">assert_redirected_to</span> <span class="n">dashboard_user_path</span><span class="p">(</span><span class="n">trainings</span><span class="p">(</span><span class="ss">:one</span><span class="p">).</span><span class="nf">milestone</span><span class="p">.</span><span class="nf">user</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Consigo ver muitas diferenças e muitas coisas que eu escreveria de outro jeito também, mas ainda assim consigo entender isso facilmente. E essa é a mágica que Ruby on Rails introduziu muito tempo atrás. Ruby é poesia.</p>
+
+<p>Agora, investigando alguns arquivos diferentes. Aqui está o <code class="language-plaintext highlighter-rouge">models/post.rb</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Post</span><span class="o">&lt;</span><span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">belongs_to</span> <span class="ss">:recipient</span><span class="p">,</span> <span class="ss">:class_name</span> <span class="o">=&gt;</span> <span class="s2">"User"</span><span class="p">,</span> <span class="ss">:foreign_key</span> <span class="o">=&gt;</span> <span class="s2">"recipient_id"</span>
+  
+  <span class="n">tracks_unlinked_activities</span> <span class="p">[</span><span class="ss">:post_received</span><span class="p">,</span> <span class="ss">:post_to_myself</span><span class="p">]</span>
+  
+  <span class="k">def</span> <span class="nf">create_activity_from_self</span>
+    <span class="c1"># Just needed cause of duplication of post feed</span>
+  <span class="k">end</span>
+  
+  <span class="k">def</span> <span class="nf">send_notifications</span>
+    <span class="no">SportlogUserNotifier</span><span class="p">.</span><span class="nf">deliver_post</span><span class="p">(</span><span class="nb">self</span><span class="p">)</span> <span class="k">if</span> <span class="n">should_notify_recipient?</span>
+  <span class="k">end</span>
+  
+  <span class="k">def</span> <span class="nf">should_notify_recipient?</span>
+    <span class="k">return</span> <span class="k">unless</span> <span class="n">recipient</span>
+    <span class="k">return</span> <span class="kp">false</span> <span class="k">if</span> <span class="n">recipient</span><span class="p">.</span><span class="nf">eql?</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+    <span class="kp">true</span>    
+  <span class="k">end</span>
+  
+  <span class="k">def</span> <span class="nf">username</span>
+    <span class="n">user</span><span class="p">.</span><span class="nf">full_name</span> 
+  <span class="k">end</span>
+  
+  <span class="k">def</span> <span class="nf">owner</span>
+  	<span class="k">return</span> <span class="n">recipient</span><span class="p">.</span><span class="nf">blank?</span> <span class="p">?</span> <span class="n">user</span> <span class="p">:</span> <span class="n">recipient</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">can_be_deleted_by?</span><span class="p">(</span><span class="n">person</span><span class="p">)</span>
+     <span class="n">person</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">person</span><span class="p">.</span><span class="nf">admin?</span> <span class="o">||</span> <span class="n">person</span><span class="p">.</span><span class="nf">id</span><span class="p">.</span><span class="nf">eql?</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span> <span class="o">||</span> <span class="n">person</span><span class="p">.</span><span class="nf">id</span><span class="p">.</span><span class="nf">eql?</span><span class="p">(</span><span class="n">recipient_id</span><span class="p">))</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">commentable?</span><span class="p">(</span><span class="n">commenter</span><span class="p">)</span>
+    <span class="o">!</span> <span class="p">(</span><span class="n">commenter</span><span class="p">.</span><span class="nf">blank?</span> <span class="ow">or</span> <span class="p">(</span><span class="o">!</span><span class="n">user</span><span class="p">.</span><span class="nf">blank?</span> <span class="ow">and</span> <span class="n">user</span> <span class="o">!=</span> <span class="n">commenter</span> <span class="ow">and</span> <span class="o">!</span><span class="no">Friendship</span><span class="p">.</span><span class="nf">friends?</span><span class="p">(</span><span class="n">commenter</span><span class="p">,</span> <span class="n">user</span><span class="p">)))</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Várias coisas para notar aqui:</p>
+<ul>
+  <li>A falta de espaço em <code class="language-plaintext highlighter-rouge">class Post&lt;ActiveRecord::Base</code> me mata 😂. Primeira refatoração: <code class="language-plaintext highlighter-rouge">class Post &lt; ActiveRecord::Base</code>.</li>
+  <li>Hash rocket de Ruby para todo lado.</li>
+  <li>Muito código inexperiente também com “return”, mas em Ruby todo método retorna algo. Essa foi culpa minha!</li>
+  <li>Muitos <code class="language-plaintext highlighter-rouge">and</code> e <code class="language-plaintext highlighter-rouge">or</code>. Muito estranho, e não acho que tenha sido de propósito.</li>
+</ul>
+
+<p>E mais uma lista de coisas estranhas:</p>
+
+<ul>
+  <li>Esta linha: <code class="language-plaintext highlighter-rouge">flash[:notice] = :youve_been_logged_out_hope_you_come_back_soon.l</code> Por que não <code class="language-plaintext highlighter-rouge">I18n.l()</code>?</li>
+  <li>Muito <code class="language-plaintext highlighter-rouge">format.xml</code>; parece que ainda era uma coisa. Não sei bem por que esse projeto dava suporte a isso.</li>
+  <li>Muito <code class="language-plaintext highlighter-rouge">define_method</code> sem um bom motivo.</li>
+  <li>O tamanho da fonte era muito pequeno.</li>
+  <li>Muito <code class="language-plaintext highlighter-rouge">form_remote_for</code> e <code class="language-plaintext highlighter-rouge">jQuery</code>; quero dizer, olha esta beleza:</li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;</span><span class="err">%</span> <span class="na">form_remote_for</span><span class="err">(</span><span class="na">:comment</span><span class="err">,</span> 
+  <span class="na">:before =</span><span class="err">&gt; </span><span class="s">" if(jQuery('#comment_textarea_#{item_id}').val() == '') { alert('Seu comentario nao pode ser vazio.'); jQuery('#comment_textarea_#{item_id}').focus(); return false; } "</span><span class="err">,</span>
+  <span class="na">:loading =</span><span class="err">&gt; </span><span class="s">" jQuery('#form_loader_#{item_id}').show(); jQuery('#comment_sub_#{item_id}').hide(); $$('div#comments div.errors')[0].innerHTML = ''; $('comment_spinner').show(); "</span><span class="err">,</span> 
+  <span class="na">:url =</span><span class="err">&gt; </span><span class="s">comments_url(commentable.class.to_s.underscore,</span> <span class="na">commentable.id</span> <span class="err">),</span> 
+  <span class="na">:update =</span><span class="err">&gt; </span><span class="s">"comment_form_#{item_id}"</span><span class="err">,</span> 
+  <span class="na">:position =</span><span class="err">&gt; </span><span class="s">'before'</span><span class="err">,</span> 
+  <span class="na">:success =</span><span class="err">&gt; </span><span class="s">" jQuery('#form_loader_#{item_id}').hide(); jQuery('#comment_d_#{item_id}').fadeOut('slow'); jQuery('#comment_textarea_#{item_id}').val(''); jQuery('#comment_sub_#{item_id}').show(); cycleCommentList('comment_list_#{item_id}');"</span><span class="err">,</span>  
+  <span class="na">:failure =</span><span class="err">&gt; </span><span class="s">"alert('#{I18n.translate(:not_allowed)}');jQuery('#form_loader_#{item_id}').hide();"</span><span class="err">,</span>
+  <span class="na">:html =</span><span class="err">&gt; </span><span class="s">{:id</span> <span class="err">=</span><span class="nt">&gt;</span> 'new_comment_form', :class =&gt; "MainForm"}) do |f| %&gt;
+      <span class="nt">&lt;fieldset&gt;</span>
+        <span class="nt">&lt;textarea</span> <span class="na">id=</span><span class="s">"comment_textarea_&lt;%= item_id %&gt;"</span> <span class="na">class=</span><span class="s">"ta-a"</span> <span class="na">rows=</span><span class="s">"5"</span> <span class="na">name=</span><span class="s">"comment[comment]"</span> <span class="na">cols=</span><span class="s">"86"</span><span class="nt">&gt;&lt;/textarea&gt;</span>
+        <span class="nt">&lt;</span><span class="err">%=</span> <span class="na">f.submit</span> <span class="err">"</span><span class="na">comentar</span><span class="err">",</span> <span class="na">:class =</span><span class="err">&gt; </span><span class="s">"bt-style-c right"</span><span class="err">,</span> <span class="na">:id =</span><span class="err">&gt; </span><span class="s">"comment_sub_#{item_id}"</span> <span class="err">%</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"form_loader_&lt;%= item_id %&gt;"</span> <span class="na">class=</span><span class="s">"loader_comment right"</span> <span class="na">style=</span><span class="s">"display: none;"</span><span class="nt">&gt;&lt;</span><span class="err">%=</span> <span class="na">image_tag</span> <span class="err">"</span><span class="na">theme</span><span class="err">/</span><span class="na">ajax-loader.gif</span><span class="err">"</span> <span class="err">%</span><span class="nt">&gt;&lt;/div&gt;</span>	    
+      <span class="nt">&lt;/fieldset&gt;</span>
+<span class="nt">&lt;</span><span class="err">%</span><span class="na">end</span><span class="err">%</span><span class="nt">&gt;</span> 
+</code></pre></div></div>
+
+<p>Muitas ideias de design faltando nessa implementação, o que faz sentido; a maioria dos desenvolvedores vinha de Web Agencies e não tinha conhecimento de Princípios de Design.</p>
+
+<hr />
+
+<p>Bem, esse foi um problema muito interessante. Ir ao passado e ver como as coisas funcionavam, técnicas de deploy, Rack enviando e-mails para avisar sobre bugs em produção e muito mais. Fico feliz em ver o quanto evoluímos!</p>
+
+<p>Espero que você tenha gostado de voltar ao passado comigo.</p>
+
+<p><span style="color: #F2C94C;">Happy coding!</span></p>
+
+    </section>
+    
   </div>
 
   
@@ -417,8 +741,11 @@ unit
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
+    const postContent = document.querySelector('.post-content');
+    if (!postContent) return;
+
     // Get all links within the post content only (not navigation or other areas)
-    const postContentLinks = document.querySelector('.post-content').getElementsByTagName('a');
+    const postContentLinks = postContent.getElementsByTagName('a');
     
     // For each link in the post content
     for (let i = 0; i < postContentLinks.length; i++) {
@@ -454,5 +781,6 @@ unit
   
   <!-- Custom scripts -->
   <script src="/assets/js/main.js"></script>
+  <script type="module" src="/assets/js/language-toggle.js"></script>
 </body>
 </html> 
