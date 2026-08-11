@@ -41,8 +41,8 @@
           <p class="reference-label"><a class="reference-link" href="https://en.wikipedia.org/wiki/Equivalence_principle" target="_blank" rel="noopener noreferrer">Equivalence principle</a></p>
           <h2>In a small falling lift, you feel weightless.</h2>
           <div class="stage-equation chapter-equation" data-equation-for="elevator-canvas">
-            <p class="stage-equation-math" aria-label="delta y equals one half a times open parenthesis L over c close parenthesis squared"><abbr class="equation-symbol" tabindex="0" data-definition="How far the beam seems to drop inside the lift." aria-label="delta y: how far the beam seems to drop inside the lift">Δy</abbr> = ½<abbr class="equation-symbol" tabindex="0" data-definition="How quickly the lift speeds upward." aria-label="a: how quickly the lift speeds upward">a</abbr>(<abbr class="equation-symbol" tabindex="0" data-definition="The distance the light crosses inside the lift." aria-label="L: the distance the light crosses inside the lift">L</abbr>/<abbr class="equation-symbol" tabindex="0" data-definition="The speed of light." aria-label="c: the speed of light">c</abbr>)²</p>
-            <p class="stage-equation-copy">More acceleration moves the floor farther while the light crosses. We enlarge the bend so you can see it.</p>
+            <p class="stage-equation-math" aria-label="the magnitude of delta y is approximately one half a times open parenthesis L over c close parenthesis squared">|<abbr class="equation-symbol" tabindex="0" data-definition="The magnitude of the beam’s apparent downward displacement relative to the accelerating cabin." aria-label="magnitude of delta y: the beam’s apparent downward displacement relative to the accelerating cabin">Δy</abbr>| ≃ ½<abbr class="equation-symbol" tabindex="0" data-definition="The cabin’s constant upward acceleration." aria-label="a: the cabin’s constant upward acceleration">a</abbr>(<abbr class="equation-symbol" tabindex="0" data-definition="The horizontal distance the light crosses inside the cabin." aria-label="L: the horizontal distance the light crosses inside the cabin">L</abbr>/<abbr class="equation-symbol" tabindex="0" data-definition="The speed of light." aria-label="c: the speed of light">c</abbr>)²</p>
+            <p class="stage-equation-copy">For a uniformly upward-accelerating cabin, this is the leading-order drop magnitude when aL/c² ≪ 1. A small freely falling cabin is locally inertial; the drop belongs to the equivalent accelerated-cabin or uniform-gravity description. The animation enlarges it proportionally.</p>
           </div>
           <figure class="math-map" data-map-accent="matter">
             <div class="math-map-heading">
@@ -65,7 +65,7 @@
               <input id="elevator-map-acceleration" type="range" min="0" max="2" step="0.05" value="1">
               <div class="range-ends" aria-hidden="true"><span>Flat line · 0 g</span><span>Steeper curve · 2 g</span></div>
             </div>
-            <figcaption>The real shift is smaller than an atomic nucleus. The lift experiment below enlarges it so the geometry can be seen.</figcaption>
+            <figcaption>The real shift is smaller than an atomic nucleus. The lift experiment below is a proportional teaching enlargement, not a physical vertical scale.</figcaption>
           </figure>
           <p>
             <a class="reference-link" href="https://en.wikipedia.org/wiki/Albert_Einstein" target="_blank" rel="noopener noreferrer">Einstein</a> imagined a person falling from a roof. During the fall, that person would feel no weight. Gravity had disappeared from the person’s experience, even though the fall was caused by gravity. He later called it his happiest thought.
@@ -145,7 +145,7 @@
 
           <div class="control-row" id="equation-controls">
             <label for="field-density">
-              <span>How much energy is packed here</span>
+              <span>Normalized source strength</span>
               <output id="field-density-output" for="field-density">35%</output>
             </label>
             <input
@@ -155,10 +155,10 @@
               max="100"
               step="1"
               value="35"
-              aria-label="Energy density in the field equation visualization"
+              aria-label="Normalized source strength in the field equation visualization"
               aria-valuetext="35 percent, gentle curvature"
             >
-            <div class="range-ends" aria-hidden="true"><span>Almost empty</span><span>Densely packed</span></div>
+            <div class="range-ends" aria-hidden="true"><span>Almost empty</span><span>Strong source</span></div>
           </div>
         </div>
 
@@ -168,27 +168,27 @@
               <p class="math-map-kicker">Tensor equation → choose one component → solve it</p>
               <h3>Watch one slot of the equation balance.</h3>
             </div>
-            <output class="math-map-readout" id="field-map-readout">Source 35% · background 4% · curvature 31%</output>
+            <output class="math-map-readout" id="field-map-readout">Spatial stress 35% · background 4% · curvature 31%</output>
           </div>
 
           <div class="field-balance-equation">
-            <p class="field-balance-label">The same chosen μν component on both sides</p>
-            <div class="field-balance-symbolic" aria-label="G mu nu plus Lambda g mu nu equals kappa T mu nu; G mu nu equals kappa T mu nu minus Lambda g mu nu">
-              <span><abbr class="equation-symbol" tabindex="0" data-definition="The curvature in the one component selected for this teaching slice." aria-label="G mu nu: selected curvature component">G<sub>μν</sub></abbr> + <abbr class="equation-symbol" tabindex="0" data-definition="The background-curvature term in that same component." aria-label="Lambda g mu nu: selected background-curvature component">Λg<sub>μν</sub></abbr> = <abbr class="equation-symbol" tabindex="0" data-definition="The source term in that same component, after gravity’s coupling constant is applied." aria-label="kappa T mu nu: selected source component">κT<sub>μν</sub></abbr></span>
+            <p class="field-balance-label">The same chosen diagonal spatial 11 component on both sides</p>
+            <div class="field-balance-symbolic" aria-label="G one one plus Lambda g one one equals kappa T one one; G one one equals kappa T one one minus Lambda g one one">
+              <span><abbr class="equation-symbol" tabindex="0" data-definition="The curvature in the selected diagonal spatial component of this local orthonormal frame." aria-label="G one one: selected curvature component">G<sub>11</sub></abbr> + <abbr class="equation-symbol" tabindex="0" data-definition="The background-curvature term in that same diagonal spatial component." aria-label="Lambda g one one: selected background-curvature component">Λg<sub>11</sub></abbr> = <abbr class="equation-symbol" tabindex="0" data-definition="The selected diagonal spatial stress or pressure component after gravity’s coupling constant is applied." aria-label="kappa T one one: selected spatial stress component">κT<sub>11</sub></abbr></span>
               <i aria-hidden="true">→</i>
-              <span><abbr class="equation-symbol" tabindex="0" data-definition="The curvature left after subtracting the background term from the source term." aria-label="G mu nu: selected curvature component">G<sub>μν</sub></abbr> = <abbr class="equation-symbol" tabindex="0" data-definition="The source term in the selected component." aria-label="kappa T mu nu: selected source component">κT<sub>μν</sub></abbr> − <abbr class="equation-symbol" tabindex="0" data-definition="The background-curvature term moved to the right side for this algebra step." aria-label="Lambda g mu nu: selected background-curvature component">Λg<sub>μν</sub></abbr></span>
+              <span><abbr class="equation-symbol" tabindex="0" data-definition="The curvature left after subtracting the background term from the selected spatial stress component." aria-label="G one one: selected curvature component">G<sub>11</sub></abbr> = <abbr class="equation-symbol" tabindex="0" data-definition="The selected diagonal spatial stress or pressure component." aria-label="kappa T one one: selected spatial stress component">κT<sub>11</sub></abbr> − <abbr class="equation-symbol" tabindex="0" data-definition="The background-curvature term moved to the right side for this algebra step." aria-label="Lambda g one one: selected background-curvature component">Λg<sub>11</sub></abbr></span>
             </div>
             <div class="field-balance-numbers" aria-live="polite">
               <span><output id="field-balance-curvature">0.31</output> + <output id="field-balance-background">0.04</output> = <output id="field-balance-source">0.35</output></span>
               <b>balanced</b>
             </div>
-            <p class="field-balance-limit">For this readable slice only, κ is scaled to 1 and a spatial component with g = +1 is selected. These are teaching values, not measured curvature.</p>
+            <p class="field-balance-limit">This teaching slice uses the 11 diagonal spatial stress or pressure component in a local orthonormal frame with signature (−+++), so g<sub>11</sub> = +1, and scales κ to 1. The sliders are independent teaching values, not energy density, measured curvature, or a self-consistent tensor solution.</p>
           </div>
 
           <div class="math-map-body field-map-body">
-            <canvas class="math-map-canvas" id="field-math-map" aria-label="Teaching plot of a selected curvature component G against source component kappa T, with the cosmological background term shown as an offset"></canvas>
+            <canvas class="math-map-canvas" id="field-math-map" aria-label="Teaching plot of a selected diagonal spatial curvature component G against spatial stress component kappa T, with the cosmological background term shown as an offset"></canvas>
             <div class="math-map-reading field-map-reading">
-              <p><b>1 · choose</b><span>Select one μν slot. Every term must refer to that same slot.</span></p>
+              <p><b>1 · choose</b><span>Select the diagonal spatial 11 slot in the stated local frame. Every term must refer to that same slot.</span></p>
               <p><b>2 · scale</b><span>Use normalized values so the algebra fits on a readable graph.</span></p>
               <p><b>3 · solve</b><span>Subtract Λg from κT. The remainder is the selected curvature G.</span></p>
               <p><b>4 · check</b><span>Add G and Λg again. The left side must equal the source side.</span></p>
@@ -196,25 +196,25 @@
           </div>
 
           <div class="field-balance-ledger" aria-label="Current component balance">
-            <article><span>Source κT</span><strong id="field-ledger-source">0.35</strong><p>Energy, momentum, pressure, or stress in the selected slot.</p></article>
-            <article><span>Background Λg</span><strong id="field-ledger-background">0.04</strong><p>The empty-space term assigned to that same slot.</p></article>
-            <article><span>Curvature G</span><strong id="field-ledger-curvature">0.31</strong><p>The part left for local spacetime curvature in this slice.</p></article>
+            <article><span>Spatial stress κT</span><strong id="field-ledger-source">0.35</strong><p>The selected diagonal pressure or stress component in this teaching frame.</p></article>
+            <article><span>Background Λg<sub>11</sub></span><strong id="field-ledger-background">0.04</strong><p>The empty-space term assigned to that same slot.</p></article>
+            <article><span>Curvature G<sub>11</sub></span><strong id="field-ledger-curvature">0.31</strong><p>The part left for local spacetime curvature in this slice.</p></article>
             <article><span>Equation check</span><strong id="field-ledger-check">0.31 + 0.04 = 0.35</strong><p>Both sides balance at the highlighted point.</p></article>
           </div>
 
           <div class="math-map-controls-grid">
             <div class="math-map-controls">
-              <label for="field-map-density"><span>Change source κT<sub>μν</sub></span><output id="field-map-density-output" for="field-map-density">35%</output></label>
+              <label for="field-map-density"><span>Change spatial stress κT<sub>11</sub></span><output id="field-map-density-output" for="field-map-density">35%</output></label>
               <input id="field-map-density" type="range" min="0" max="100" step="1" value="35">
               <div class="range-ends" aria-hidden="true"><span>0 · no source</span><span>1 · full teaching scale</span></div>
             </div>
             <div class="math-map-controls">
-              <label for="field-map-background"><span>Change background Λg<sub>μν</sub></span><output id="field-map-background-output" for="field-map-background">4%</output></label>
+              <label for="field-map-background"><span>Change background Λg<sub>11</sub></span><output id="field-map-background-output" for="field-map-background">4%</output></label>
               <input id="field-map-background" type="range" min="0" max="20" step="1" value="4">
               <div class="range-ends" aria-hidden="true"><span>0 · no offset</span><span>0.20 · enlarged to study</span></div>
             </div>
           </div>
-          <figcaption>The dashed line shows the result with no background term. The solid line is shifted by Λg. The highlighted point is the current source and the curvature left after subtraction. The spacetime illustration below uses the source slider only.</figcaption>
+          <figcaption>The dashed line shows the selected spatial component with no background term. The solid line is shifted by Λg. The highlighted point uses independent dimensionless teaching values; the qualitative spacetime illustration below shares only their source-strength control.</figcaption>
         </figure>
 
         <div class="hero-copy hero-interpretation">
@@ -228,18 +228,18 @@
           <div class="stage-heading">
             <div>
               <p class="stage-label">The equation becomes geometry</p>
-              <h3>Energy changes the available paths</h3>
+              <h3>Source strength changes the available paths</h3>
             </div>
           </div>
           <canvas
             class="scene-canvas"
             id="field-canvas"
-            aria-label="Animated spacetime grid and light paths. Increasing energy density bends the grid and changes the paths."
+            aria-label="Qualitative spacetime grid and light paths. Increasing normalized source strength bends the grid and changes the paths."
             aria-describedby="field-animation-caption"
           ></canvas>
-          <figcaption id="field-animation-caption">The grid is a visual translation, not a numerical solution of the full field equations. Change any density slider and watch the same input change the graph and this geometry.</figcaption>
+          <figcaption id="field-animation-caption">The grid is a qualitative visual translation, not a numerical solution of the full field equations. The shared control is generic source strength; only the graph above assigns it to one selected spatial stress component.</figcaption>
           <div class="stage-controls">
-            <label for="field-stage-density"><span>Energy density in this illustration</span><output id="field-stage-density-output" for="field-stage-density">35%</output></label>
+            <label for="field-stage-density"><span>Normalized source strength</span><output id="field-stage-density-output" for="field-stage-density">35%</output></label>
             <input id="field-stage-density" type="range" min="0" max="100" step="1" value="35">
             <div class="range-ends" aria-hidden="true"><span>Almost flat</span><span>Strongly bent</span></div>
           </div>
@@ -256,8 +256,8 @@
           <p class="chapter-kicker"><span>1915</span> What the equation changed</p>
           <h2>In curved spacetime, free fall is the straightest route.</h2>
           <div class="stage-equation chapter-equation" data-equation-for="curvature-canvas">
-            <p class="stage-equation-math" aria-label="vector a equals negative G M vector r divided by the magnitude of r cubed"><abbr class="equation-symbol vector-symbol" tabindex="0" data-definition="How quickly the probe turns, and in which direction." aria-label="vector a: how quickly the probe turns and in which direction">a</abbr> = −<abbr class="equation-symbol" tabindex="0" data-definition="A fixed number that sets gravity’s strength." aria-label="G: a fixed number that sets gravity’s strength">G</abbr><abbr class="equation-symbol" tabindex="0" data-definition="The mass at the center of the animation." aria-label="M: the central mass">M</abbr> <abbr class="equation-symbol vector-symbol" tabindex="0" data-definition="The probe’s distance and direction from the center." aria-label="vector r: the probe’s distance and direction from the center">r</abbr> / |<abbr class="equation-symbol vector-symbol" tabindex="0" data-definition="The probe’s distance from the center." aria-label="r: the probe’s distance from the center">r</abbr>|³</p>
-            <p class="stage-equation-copy">This is the simpler rule used by the animation. A heavier center or a closer pass turns the probe more sharply.</p>
+            <p class="stage-equation-math" aria-label="vector a equals negative G M vector r divided by the magnitude of r cubed"><abbr class="equation-symbol vector-symbol" tabindex="0" data-definition="The probe’s inward acceleration and its direction." aria-label="vector a: the probe’s inward acceleration and direction">a</abbr> = −<abbr class="equation-symbol" tabindex="0" data-definition="A fixed number that sets gravity’s strength." aria-label="G: a fixed number that sets gravity’s strength">G</abbr><abbr class="equation-symbol" tabindex="0" data-definition="The mass at the center of the animation." aria-label="M: the central mass">M</abbr> <abbr class="equation-symbol vector-symbol" tabindex="0" data-definition="The probe’s distance and direction from the center." aria-label="vector r: the probe’s distance and direction from the center">r</abbr> / |<abbr class="equation-symbol vector-symbol" tabindex="0" data-definition="The probe’s distance from the center." aria-label="r: the probe’s distance from the center">r</abbr>|³</p>
+            <p class="stage-equation-copy">This is the simpler rule used by the animation. The graph and animation use reference units with G = 1; the chosen mass and length scales set the reference time unit. A heavier center or a closer pass produces greater inward acceleration.</p>
           </div>
           <figure class="math-map" data-map-accent="geometry">
             <div class="math-map-heading">
@@ -291,7 +291,7 @@
           <p>
             That explains ordinary paths. But the equation never promises that spacetime must stay gentle. What geometry appears when a great deal of mass is packed into a small region? To find out, someone had to solve it exactly.
           </p>
-          <p class="precision-note">This animation uses <a class="reference-link" href="https://en.wikipedia.org/wiki/Newton%27s_law_of_universal_gravitation" target="_blank" rel="noopener noreferrer">Newton’s law of universal gravitation</a>, a simpler weak-gravity rule. It is not a full relativity calculation.</p>
+          <p class="precision-note">This animation uses <a class="reference-link" href="https://en.wikipedia.org/wiki/Newton%27s_law_of_universal_gravitation" target="_blank" rel="noopener noreferrer">Newton’s law of universal gravitation</a>, a simpler weak-gravity rule. Its radius, mass, acceleration, and time are normalized reference units with G = 1; it is not a full relativity calculation.</p>
         </div>
 
         <figure class="lab-stage">
@@ -353,10 +353,10 @@
           <p class="chapter-kicker"><span>1916</span> <a class="reference-link" href="https://en.wikipedia.org/wiki/Karl_Schwarzschild" target="_blank" rel="noopener noreferrer">Schwarzschild</a> finds an exact solution</p>
           <p class="reference-label"><a class="reference-link" href="https://en.wikipedia.org/wiki/Schwarzschild_metric" target="_blank" rel="noopener noreferrer">Schwarzschild metric</a> · <a class="reference-link" href="https://en.wikipedia.org/wiki/Schwarzschild_radius" target="_blank" rel="noopener noreferrer">Schwarzschild radius</a></p>
           <h2>Solving Einstein’s equation exposed a one-way boundary.</h2>
-          <p class="display-equation" data-equation-id="schwarzschild-radius" aria-label="Schwarzschild radius equals two G M over c squared"><abbr class="equation-symbol" tabindex="0" data-definition="The radius of the event horizon in this simple, non-spinning model." aria-label="r s: the event-horizon radius in this simple model">r<sub>s</sub></abbr> = 2<abbr class="equation-symbol" tabindex="0" data-definition="A fixed number that sets gravity’s strength." aria-label="G: a fixed number that sets gravity’s strength">G</abbr><abbr class="equation-symbol" tabindex="0" data-definition="The mass of the object." aria-label="M: the object’s mass">M</abbr> / <abbr class="equation-symbol" tabindex="0" data-definition="The speed of light in a vacuum." aria-label="c: the speed of light in a vacuum">c</abbr><sup>2</sup></p>
+          <p class="display-equation" data-equation-id="schwarzschild-radius" aria-label="Schwarzschild radius equals two G M over c squared"><abbr class="equation-symbol" tabindex="0" data-definition="The areal radius of the event horizon for an uncharged, nonrotating Schwarzschild black hole." aria-label="r s: the event-horizon areal radius in the Schwarzschild model">r<sub>s</sub></abbr> = 2<abbr class="equation-symbol" tabindex="0" data-definition="A fixed number that sets gravity’s strength." aria-label="G: a fixed number that sets gravity’s strength">G</abbr><abbr class="equation-symbol" tabindex="0" data-definition="The black hole’s mass in an asymptotically flat vacuum spacetime." aria-label="M: the black hole’s mass">M</abbr> / <abbr class="equation-symbol" tabindex="0" data-definition="The speed of light in a vacuum." aria-label="c: the speed of light in a vacuum">c</abbr><sup>2</sup></p>
           <div class="stage-equation chapter-equation" data-equation-for="black-hole-canvas">
-            <p class="stage-equation-math" aria-label="d r over d t equals negative square root of two G M over r, plus or minus c"><abbr class="equation-symbol" tabindex="0" data-definition="How quickly the distance from the center changes in this picture." aria-label="d r over d t: how quickly the distance from the center changes in this picture">dr/dt</abbr> = −√(2<abbr class="equation-symbol" tabindex="0" data-definition="A fixed number that sets gravity’s strength." aria-label="G: a fixed number that sets gravity’s strength">G</abbr><abbr class="equation-symbol" tabindex="0" data-definition="The black hole’s mass." aria-label="M: the black hole’s mass">M</abbr>/<abbr class="equation-symbol" tabindex="0" data-definition="Distance from the center of the black hole." aria-label="r: distance from the black hole’s center">r</abbr>) ± <abbr class="equation-symbol" tabindex="0" data-definition="The local speed of light." aria-label="c: the local speed of light">c</abbr></p>
-            <p class="stage-equation-copy">The inward flow speeds up near the hole. At the horizon, even the outward beam can no longer gain ground in this picture.</p>
+            <p class="stage-equation-math" aria-label="d r over d t G P equals negative square root of two G M over r, plus or minus c"><abbr class="equation-symbol" tabindex="0" data-definition="The radial coordinate rate with respect to ingoing Gullstrand–Painlevé time." aria-label="d r over d t G P: radial coordinate rate in ingoing Gullstrand–Painlevé time">dr/dt<sub>GP</sub></abbr> = −√(2<abbr class="equation-symbol" tabindex="0" data-definition="A fixed number that sets gravity’s strength." aria-label="G: a fixed number that sets gravity’s strength">G</abbr><abbr class="equation-symbol" tabindex="0" data-definition="The black hole’s mass." aria-label="M: the black hole’s mass">M</abbr>/<abbr class="equation-symbol" tabindex="0" data-definition="The Schwarzschild areal radius, not proper radial distance." aria-label="r: the black hole’s areal radius">r</abbr>) ± <abbr class="equation-symbol" tabindex="0" data-definition="The local speed of light." aria-label="c: the local speed of light">c</abbr></p>
+            <p class="stage-equation-copy">In ingoing Gullstrand–Painlevé coordinates, the inward flow speeds up near the hole. At the horizon, even the outward beam can no longer gain radial-coordinate ground; every local inertial observer still measures light at c.</p>
           </div>
           <figure class="math-map" data-map-accent="horizon">
             <div class="math-map-heading">
@@ -371,7 +371,7 @@
               <div class="math-map-reading">
                 <p><b>x</b><span>Physical distance r in kilometres on a logarithmic scale. Changing mass moves the horizon and stretches both curves horizontally.</span></p>
                 <p><b>y</b><span>Whether the radial coordinate grows or shrinks, measured as a fraction of c in this coordinate picture.</span></p>
-                <p><b>Crossing</b><span>The outgoing curve reaches zero at r = r<sub>s</sub>. Inside, both plotted directions have negative dr/dt.</span></p>
+                <p><b>Crossing</b><span>The outgoing curve reaches zero at r = r<sub>s</sub>. Inside, both plotted directions have negative dr/dt<sub>GP</sub>.</span></p>
               </div>
             </div>
             <div class="math-map-controls-grid">
@@ -387,7 +387,7 @@
             <figcaption>Mass now changes the physical scale: a larger M moves rₛ and both curves rightward across the fixed kilometre axis. The graph does not say that nearby light slows down; every local observer still measures light at c.</figcaption>
           </figure>
           <p>
-            Only weeks after <a class="reference-link" href="https://en.wikipedia.org/wiki/Albert_Einstein" target="_blank" rel="noopener noreferrer">Einstein</a> finished the <a class="reference-link" href="https://en.wikipedia.org/wiki/Einstein_field_equations" target="_blank" rel="noopener noreferrer">field equations</a>, <a class="reference-link" href="https://en.wikipedia.org/wiki/Karl_Schwarzschild" target="_blank" rel="noopener noreferrer">Karl Schwarzschild</a> found their first exact solution for an ideal round, non-rotating mass. It showed how spacetime bends around that mass—and produced a radius where his coordinates stopped working.
+            Only weeks after <a class="reference-link" href="https://en.wikipedia.org/wiki/Albert_Einstein" target="_blank" rel="noopener noreferrer">Einstein</a> finished the <a class="reference-link" href="https://en.wikipedia.org/wiki/Einstein_field_equations" target="_blank" rel="noopener noreferrer">field equations</a>, <a class="reference-link" href="https://en.wikipedia.org/wiki/Karl_Schwarzschild" target="_blank" rel="noopener noreferrer">Karl Schwarzschild</a> found their first exact solution for an ideal spherical, uncharged, non-rotating mass with an asymptotically flat vacuum exterior. It showed how spacetime bends around that mass—and produced an areal radius, not a proper radial distance, where his coordinates stopped working.
           </p>
           <p>
             Was that radius only a flaw in the math, or a real boundary allowed by the equation? Later work by <a class="reference-link" href="https://en.wikipedia.org/wiki/Arthur_Eddington" target="_blank" rel="noopener noreferrer">Arthur Eddington</a>, <a class="reference-link" href="https://en.wikipedia.org/wiki/David_Finkelstein" target="_blank" rel="noopener noreferrer">David Finkelstein</a>, <a class="reference-link" href="https://en.wikipedia.org/wiki/Martin_Kruskal" target="_blank" rel="noopener noreferrer">Martin Kruskal</a>, and <a class="reference-link" href="https://en.wikipedia.org/wiki/George_Szekeres" target="_blank" rel="noopener noreferrer">George Szekeres</a> showed that the geometry continued through it. The radius was not a wall. It was a one-way event horizon.
@@ -464,39 +464,43 @@
             <p class="chapter-kicker"><span>1916/1917</span> A separate line of <a class="reference-link" href="https://en.wikipedia.org/wiki/Albert_Einstein" target="_blank" rel="noopener noreferrer">Einstein’s</a> work</p>
             <h2>A separate calculation opened a path toward lasers.</h2>
             <p class="reference-label"><a class="reference-link" href="https://en.wikipedia.org/wiki/Planck_relation" target="_blank" rel="noopener noreferrer">Planck relation</a></p>
-            <p class="display-equation" data-equation-id="photon-energy" aria-label="energy gap equals h times nu"><abbr class="equation-symbol" tabindex="0" data-definition="The energy gap between the atom’s higher and lower states." aria-label="delta E: the energy gap between the atom’s two states">ΔE</abbr> = <abbr class="equation-symbol" tabindex="0" data-definition="A fixed number that connects a photon’s energy to its frequency." aria-label="h: a fixed number connecting photon energy and frequency">h</abbr><abbr class="equation-symbol" tabindex="0" data-definition="How quickly the light wave repeats." aria-label="nu: how quickly the light wave repeats">ν</abbr></p>
+            <p class="display-equation" data-equation-id="photon-energy" aria-label="energy gap equals h times nu"><abbr class="equation-symbol" tabindex="0" data-definition="The transition’s energy gap, measured in joules or electron-volts." aria-label="delta E: the transition energy gap in joules or electron-volts">ΔE</abbr> = <abbr class="equation-symbol" tabindex="0" data-definition="Planck’s constant, measured in joule-seconds." aria-label="h: Planck’s constant in joule-seconds">h</abbr><abbr class="equation-symbol" tabindex="0" data-definition="The photon frequency, measured in hertz or inverse seconds." aria-label="nu: photon frequency in hertz">ν</abbr></p>
             <div class="stage-equation chapter-equation" data-equation-for="laser-canvas">
               <p class="stage-equation-math" aria-label="E two minus E one equals h nu; N two greater than N one gives net gain"><abbr class="equation-symbol" tabindex="0" data-definition="The atom’s higher energy level, where it is ready to release light." aria-label="E two: the atom’s higher energy level">E<sub>2</sub></abbr> − <abbr class="equation-symbol" tabindex="0" data-definition="The atom’s lower energy level." aria-label="E one: the atom’s lower energy level">E<sub>1</sub></abbr> = <abbr class="equation-symbol" tabindex="0" data-definition="A fixed number that connects a photon’s energy to its frequency." aria-label="h: a fixed number connecting photon energy and frequency">h</abbr><abbr class="equation-symbol" tabindex="0" data-definition="How quickly the light wave repeats." aria-label="nu: how quickly the light wave repeats">ν</abbr> <span aria-hidden="true">;</span> <abbr class="equation-symbol" tabindex="0" data-definition="How many atoms are excited and ready to release light." aria-label="N two: atoms excited and ready to release light">N<sub>2</sub></abbr> &gt; <abbr class="equation-symbol" tabindex="0" data-definition="How many atoms are settled in the lower state." aria-label="N one: atoms settled in the lower state">N<sub>1</sub></abbr></p>
-              <p class="stage-equation-copy">The photon must carry exactly the gap between the atom’s two energy levels. Light starts to grow when more atoms are excited than settled.</p>
+              <p class="stage-equation-copy">The animation assumes resonant input: its photon satisfies E<sub>2</sub> − E<sub>1</sub> = hν. Real transitions have finite linewidth, so matching means lying within the transition line. Resonance permits the interaction; population balance decides whether the material adds or absorbs more light overall.</p>
+            </div>
+            <div class="laser-model-equations">
+              <p class="math-map-formula" aria-label="f two equals N two over N one plus N two; G relative equals N two minus N one over N one plus N two equals two f two minus one"><span>f<sub>2</sub> ≡ N<sub>2</sub>/(N<sub>1</sub> + N<sub>2</sub>)</span><span>G<sub>rel</sub> ≡ (N<sub>2</sub> − N<sub>1</sub>)/(N<sub>1</sub> + N<sub>2</sub>) = 2f<sub>2</sub> − 1</span></p>
+              <p>This is a dimensionless, normalized, lossless two-level teaching model with equal degeneracy and equal transition cross-sections. More generally, material gain requires σ<sub>e</sub>(ν)N<sub>2</sub> &gt; σ<sub>a</sub>(ν)N<sub>1</sub>; with level degeneracies g<sub>1</sub> and g<sub>2</sub>, the corresponding Einstein-coefficient condition is N<sub>2</sub>/g<sub>2</sub> &gt; N<sub>1</sub>/g<sub>1</sub>.</p>
             </div>
             <figure class="math-map" data-map-accent="photon">
               <div class="math-map-heading">
                 <div>
                   <p class="math-map-kicker">Two equations → two Cartesian maps</p>
-                  <h3>First match the photon. Then cross the gain threshold.</h3>
+                  <h3>First match the transition. Then cross the model’s transparency point.</h3>
                 </div>
                 <output class="math-map-readout" id="laser-map-readout">60% excited · net gain +0.20</output>
               </div>
               <div class="math-map-body">
                 <canvas class="math-map-canvas math-map-canvas-double" id="laser-math-map" aria-label="Two Cartesian plots: photon energy against frequency, and simplified laser gain against the excited-atom fraction"></canvas>
                 <div class="math-map-reading">
-                  <p><b>Map A</b><span>ΔE = hν is a straight line. The photon frequency must match the atom’s energy gap.</span></p>
-                  <p><b>Map B</b><span>In this simplified two-level model, gain changes sign when the excited fraction passes 50%.</span></p>
-                  <p><b>Order</b><span>A matching photon can trigger emission; a population inversion lets repeated events amplify the beam.</span></p>
+                  <p><b>Map A</b><span>Compatible ratios ν/ν₀ and ΔE/(hν₀) make the resonant relation a unit-slope line. ΔE is energy, h has units J·s, and ν has units Hz.</span></p>
+                  <p><b>Map B</b><span>G<sub>rel</sub> &lt; 0 means net absorption, G<sub>rel</sub> = 0 is transparency at 50%, and G<sub>rel</sub> &gt; 0 is material amplification in this model.</span></p>
+                  <p><b>Order</b><span>Resonance enables transitions. Positive material gain is not yet laser oscillation: cavity round-trip gain must also exceed output and internal loss.</span></p>
                 </div>
               </div>
               <div class="math-map-controls">
                 <label for="laser-map-pump"><span>Change excited fraction</span><output id="laser-map-pump-output" for="laser-map-pump">60%</output></label>
-                <input id="laser-map-pump" type="range" min="0" max="100" step="1" value="60">
+                <input id="laser-map-pump" type="range" min="0" max="100" step="5" value="60">
                 <div class="range-ends" aria-hidden="true"><span>Absorption</span><span>Amplification</span></div>
               </div>
-              <figcaption>The first graph chooses the right photon energy. The second decides whether the material absorbs more light than it adds. The atom animation below combines both conditions.</figcaption>
+              <figcaption>The first graph normalizes the resonant energy relation; the second shows a simplified material population balance. The atom animation assumes a resonant photon and visualizes only a capped net cascade—not explicit absorption kinetics or a cavity threshold.</figcaption>
             </figure>
             <p>
-              The gravity journey comes from the field equations. This one does not. In separate work on how atoms and light stay in balance, <a class="reference-link" href="https://en.wikipedia.org/wiki/Albert_Einstein" target="_blank" rel="noopener noreferrer">Einstein</a> found that incoming light could prompt an excited atom to add light to the same beam. That process is <a class="reference-link" href="https://en.wikipedia.org/wiki/Stimulated_emission" target="_blank" rel="noopener noreferrer">stimulated emission</a>.
+              The gravity journey comes from the field equations. This one does not. In separate work on how atoms and light stay in balance, <a class="reference-link" href="https://en.wikipedia.org/wiki/Albert_Einstein" target="_blank" rel="noopener noreferrer">Einstein</a> found that incoming light could prompt an excited atom to add a photon to the same optical mode. That process is <a class="reference-link" href="https://en.wikipedia.org/wiki/Stimulated_emission" target="_blank" rel="noopener noreferrer">stimulated emission</a>.
             </p>
             <p>
-              Making a device took decades more. It needed more excited atoms than settled ones—a <a class="reference-link" href="https://en.wikipedia.org/wiki/Population_inversion" target="_blank" rel="noopener noreferrer">population inversion</a>—plus mirrors, pumping, and a way to handle energy losses.
+              Making a device took decades more. For equal-degeneracy levels, pumping past the 50% transparency point creates a <a class="reference-link" href="https://en.wikipedia.org/wiki/Population_inversion" target="_blank" rel="noopener noreferrer">population inversion</a>. A working laser also needs mirrors and pumping until cavity round-trip gain exceeds output coupling and every other loss.
             </p>
             <p>
               <a class="reference-link" href="https://en.wikipedia.org/wiki/Charles_H._Townes" target="_blank" rel="noopener noreferrer">Townes</a>, <a class="reference-link" href="https://en.wikipedia.org/wiki/James_P._Gordon" target="_blank" rel="noopener noreferrer">Gordon</a>, and <a class="reference-link" href="https://en.wikipedia.org/wiki/Herbert_Zeiger" target="_blank" rel="noopener noreferrer">Zeiger</a> built the first <a class="reference-link" href="https://en.wikipedia.org/wiki/Maser" target="_blank" rel="noopener noreferrer">maser</a> in 1954. <a class="reference-link" href="https://en.wikipedia.org/wiki/Nikolay_Basov" target="_blank" rel="noopener noreferrer">Basov</a> and <a class="reference-link" href="https://en.wikipedia.org/wiki/Alexander_Prokhorov" target="_blank" rel="noopener noreferrer">Prokhorov</a> developed related methods; <a class="reference-link" href="https://en.wikipedia.org/wiki/Arthur_Leonard_Schawlow" target="_blank" rel="noopener noreferrer">Schawlow</a> and <a class="reference-link" href="https://en.wikipedia.org/wiki/Charles_H._Townes" target="_blank" rel="noopener noreferrer">Townes</a> carried the idea toward visible light. <a class="reference-link" href="https://en.wikipedia.org/wiki/Theodore_Maiman" target="_blank" rel="noopener noreferrer">Theodore Maiman</a> operated the first working <a class="reference-link" href="https://en.wikipedia.org/wiki/Laser" target="_blank" rel="noopener noreferrer">laser</a> in 1960.
@@ -508,7 +512,7 @@
             <div class="stage-heading">
               <div>
                 <p class="stage-label">Atoms ready to release light</p>
-                <h3 id="laser-output">12 excited · ready</h3>
+                <h3 id="laser-output">12 excited · material gain ready</h3>
               </div>
               <button class="action-button action-button-violet" id="fire-photon" type="button">Fire one photon</button>
             </div>
@@ -518,7 +522,7 @@
               aria-label="A simplified laser model. Excite the atoms, then send one photon through to see stimulated emission add light to the beam."
               aria-describedby="laser-caption"
             ></canvas>
-            <figcaption id="laser-caption"><a class="reference-link" href="https://en.wikipedia.org/wiki/Stimulated_emission" target="_blank" rel="noopener noreferrer">Stimulated emission</a> adds light to the same beam. We cap the animation; real <a class="reference-link" href="https://en.wikipedia.org/wiki/Laser" target="_blank" rel="noopener noreferrer">lasers</a> lose energy and eventually level off.</figcaption>
+            <figcaption id="laser-caption"><a class="reference-link" href="https://en.wikipedia.org/wiki/Stimulated_emission" target="_blank" rel="noopener noreferrer">Stimulated emission</a> adds a photon to the same optical mode. This deterministic cascade is capped and omits explicit absorption events, Einstein-rate probabilities, line broadening, spontaneous emission, saturation, and cavity losses.</figcaption>
             <div class="stage-controls">
               <label for="laser-pump"><span>Excited atoms</span><output id="laser-pump-control-output" for="laser-pump">60%</output></label>
               <input
@@ -526,7 +530,7 @@
                 type="range"
                 min="0"
                 max="100"
-                step="1"
+                step="5"
                 value="60"
                 aria-label="Percentage of atoms excited and ready to release light"
                 aria-valuetext="60 percent excited, more atoms excited than settled"
@@ -542,14 +546,14 @@
           <div class="status-badge" data-status="theoretical-unobserved">Possible in the math · unobserved</div>
           <h2>The Schwarzschild geometry also contained a bridge.</h2>
           <div class="stage-equation chapter-equation" data-equation-for="wormhole-canvas">
-            <p class="stage-equation-math" aria-label="shortcut factor equals ordinary-space distance divided by throat distance"><abbr class="equation-symbol" tabindex="0" data-definition="How many times shorter the illustrated shortcut is." aria-label="S: how many times shorter the illustrated shortcut is">S</abbr> = <abbr class="equation-symbol" tabindex="0" data-definition="The long route around ordinary space in this drawing." aria-label="d space: the long route around ordinary space">d<sub>space</sub></abbr> / <abbr class="equation-symbol" tabindex="0" data-definition="The short route through the illustrated bridge." aria-label="d throat: the short route through the illustrated bridge">d<sub>throat</sub></abbr></p>
-            <p class="stage-equation-copy">The slider shortens the route through the drawing. It does not make a real wormhole stable or safe to cross.</p>
+            <p class="stage-equation-math" aria-label="prescribed illustration path ratio equals the assigned ordinary-space path length divided by the assigned throat path length"><abbr class="equation-symbol" tabindex="0" data-definition="The ratio of two prescribed path lengths in this illustration, not a physical wormhole observable." aria-label="S diagram: the prescribed illustration path ratio">S<sub>diagram</sub></abbr> = <abbr class="equation-symbol" tabindex="0" data-definition="The prescribed length assigned to the long drawn route." aria-label="d space: prescribed length of the long drawn route">d<sub>space</sub></abbr> / <abbr class="equation-symbol" tabindex="0" data-definition="The prescribed length assigned to the short drawn route." aria-label="d throat: prescribed length of the short drawn route">d<sub>throat</sub></abbr></p>
+            <p class="stage-equation-copy">These are prescribed illustration path lengths used to set two animation durations. They are not measured from the Bézier curves and are not proper or geodesic distances. The slider therefore does not make a physical wormhole stable or crossable.</p>
           </div>
           <figure class="math-map" data-map-accent="wormhole">
             <div class="math-map-heading">
               <div>
-                <p class="math-map-kicker"><a class="reference-link" href="https://en.wikipedia.org/wiki/Flamm%27s_paraboloid" target="_blank" rel="noopener noreferrer">Schwarzschild spatial embedding</a> → Cartesian map</p>
-                <h3>Plot two exterior slices meeting at one throat.</h3>
+                <p class="math-map-kicker"><a class="reference-link" href="https://en.wikipedia.org/wiki/Flamm%27s_paraboloid" target="_blank" rel="noopener noreferrer">Time-symmetric equatorial spatial embedding</a> → Cartesian map</p>
+                <h3>Plot two copies of the Schwarzschild exterior meeting at one throat.</h3>
               </div>
               <output class="math-map-readout" id="wormhole-map-readout">r = 2.00 rₛ · z = ±2.00 rₛ</output>
             </div>
@@ -557,9 +561,9 @@
             <div class="math-map-body">
               <canvas class="math-map-canvas" id="wormhole-math-map" aria-label="Cartesian plot of the upper and lower Schwarzschild spatial embedding sheets against areal radius"></canvas>
               <div class="math-map-reading">
-                <p><b>x</b><span>The areal radius r. Both exterior regions begin at the throat r = r<sub>s</sub>.</span></p>
-                <p><b>y</b><span>An embedding height z used to draw the intrinsic 2-D geometry as a surface in ordinary 3-D space.</span></p>
-                <p><b>Limit</b><span>This is one spatial slice. It does not show a stable passage through spacetime.</span></p>
+                <p><b>x</b><span>The areal radius r, restricted to r ≥ r<sub>s</sub>. Each exterior copy begins at the throat.</span></p>
+                <p><b>y</b><span>An embedding height z used to draw the intrinsic equatorial 2-D geometry as a surface in ordinary 3-D space.</span></p>
+                <p><b>Limit</b><span>This time-symmetric slice is not a traveller’s spacetime path. In the full geometry, the bridge is nontraversable.</span></p>
               </div>
             </div>
             <div class="math-map-controls">
@@ -567,13 +571,13 @@
               <input id="wormhole-map-radius" type="range" min="1" max="4" step="0.01" value="2">
               <div class="range-ends" aria-hidden="true"><span>Throat · 1 rₛ</span><span>Exterior · 4 rₛ</span></div>
             </div>
-            <figcaption>The plus and minus signs make two sheets. Joining them at r = rₛ gives the mathematical bridge. The separate slider on the illustration below asks the later, different question: could a traversable shortcut be held open?</figcaption>
+            <figcaption>On the time-symmetric equatorial spatial slice of the maximally extended Schwarzschild solution, the signs embed two Schwarzschild exterior copies for r ≥ rₛ. They meet at r = rₛ, but no future-directed causal curve can travel from one exterior to the other. The separate slider below asks a later, different traversable-wormhole question.</figcaption>
           </figure>
           <p>
-            The exact solution held more than a one-way horizon. In 1935, <a class="reference-link" href="https://en.wikipedia.org/wiki/Albert_Einstein" target="_blank" rel="noopener noreferrer">Albert Einstein</a> and <a class="reference-link" href="https://en.wikipedia.org/wiki/Nathan_Rosen" target="_blank" rel="noopener noreferrer">Nathan Rosen</a> rewrote the geometry while trying to model a particle without a singular point. It joined two regions with what is now called an <a class="reference-link" href="https://en.wikipedia.org/wiki/Wormhole#Einstein%E2%80%93Rosen_bridges" target="_blank" rel="noopener noreferrer">Einstein–Rosen bridge</a>, but the bridge closed too quickly for anything to cross.
+            The exact solution held more than a one-way horizon. In 1935, <a class="reference-link" href="https://en.wikipedia.org/wiki/Albert_Einstein" target="_blank" rel="noopener noreferrer">Albert Einstein</a> and <a class="reference-link" href="https://en.wikipedia.org/wiki/Nathan_Rosen" target="_blank" rel="noopener noreferrer">Nathan Rosen</a> rewrote the geometry while trying to model a particle without a singular point. It joined two regions with what is now called an <a class="reference-link" href="https://en.wikipedia.org/wiki/Wormhole#Einstein%E2%80%93Rosen_bridges" target="_blank" rel="noopener noreferrer">Einstein–Rosen bridge</a>. Its invariant limitation is causal: no future-directed causal curve crosses from one exterior to the other.
           </p>
           <p>
-            In 1988, <a class="reference-link" href="https://en.wikipedia.org/wiki/Mike_Morris_(physicist)" target="_blank" rel="noopener noreferrer">Michael Morris</a> and <a class="reference-link" href="https://en.wikipedia.org/wiki/Kip_Thorne" target="_blank" rel="noopener noreferrer">Kip Thorne</a> asked the later shortcut question: what would keep a traversable throat open? Their model required negative energy on a scale we do not know how to make or hold. No wormhole has been observed.
+            In 1988, <a class="reference-link" href="https://en.wikipedia.org/wiki/Mike_Morris_(physicist)" target="_blank" rel="noopener noreferrer">Michael Morris</a> and <a class="reference-link" href="https://en.wikipedia.org/wiki/Kip_Thorne" target="_blank" rel="noopener noreferrer">Kip Thorne</a> asked the later shortcut question: what would keep a traversable throat open? In classical general relativity, their throat requires stress-energy that violates the null energy condition: T<sub>μν</sub>k<sup>μ</sup>k<sup>ν</sup> &lt; 0 for at least one null direction k<sup>μ</sup>. No stable macroscopic arrangement of such matter—and no wormhole—has been observed.
           </p>
           <p class="precision-note">The folded sheet is only a drawing of a 2-D slice. Space is not literally folding through another room.</p>
         </div>
@@ -582,7 +586,7 @@
           <div class="stage-heading">
             <div>
               <p class="stage-label">The later shortcut question</p>
-              <h3 id="wormhole-output">Shortcut · 2.0×</h3>
+              <h3 id="wormhole-output">Illustration ratio · 2.0×</h3>
             </div>
             <button class="action-button action-button-violet" id="send-wormhole-signal" type="button">Send both beams</button>
           </div>
@@ -592,7 +596,7 @@
             aria-label="Two routes connect the same points: a long way around and a short way through an illustrated wormhole bridge."
             aria-describedby="wormhole-caption"
           ></canvas>
-          <figcaption id="wormhole-caption">This animation shows the later traversable-wormhole question, not the <a class="reference-link" href="https://en.wikipedia.org/wiki/Wormhole#Einstein%E2%80%93Rosen_bridges" target="_blank" rel="noopener noreferrer">1935 Einstein–Rosen bridge</a>.</figcaption>
+          <figcaption id="wormhole-caption">This animation compares two assigned drawing paths; it does not measure either curve. It shows the later traversable-wormhole question, not the nontraversable <a class="reference-link" href="https://en.wikipedia.org/wiki/Wormhole#Einstein%E2%80%93Rosen_bridges" target="_blank" rel="noopener noreferrer">1935 Einstein–Rosen bridge</a>.</figcaption>
           <div class="stage-controls">
             <label for="wormhole-fold"><span>Bring the two ends together</span><output id="wormhole-fold-control-output" for="wormhole-fold">50%</output></label>
             <input
@@ -617,7 +621,7 @@
           <h2>Extending the same solution revealed a time-reversed region.</h2>
           <div class="stage-equation chapter-equation" data-equation-for="white-hole-canvas">
             <p class="stage-equation-math" aria-label="open parenthesis T comma X close parenthesis maps to open parenthesis negative T comma X close parenthesis">(<abbr class="equation-symbol" tabindex="0" data-definition="The vertical time coordinate on this spacetime map." aria-label="T: the vertical time coordinate">T</abbr>, <abbr class="equation-symbol" tabindex="0" data-definition="The horizontal space coordinate on this spacetime map." aria-label="X: the horizontal space coordinate">X</abbr>) → (−<abbr class="equation-symbol" tabindex="0" data-definition="The same time coordinate with its direction reversed." aria-label="negative T: the time coordinate reversed">T</abbr>, <abbr class="equation-symbol" tabindex="0" data-definition="The space coordinate stays unchanged under time reversal." aria-label="X: the unchanged space coordinate">X</abbr>)</p>
-            <p class="stage-equation-copy">Flip the time coordinate T and keep X fixed. The future black-hole region becomes the past white-hole region, and every causal arrow reverses.</p>
+            <p class="stage-equation-copy">This is a time-reflection isometry of the maximally extended eternal Schwarzschild solution: T changes sign while X stays fixed. It maps the future black-hole region to the past white-hole region and reverses each displayed causal path’s orientation; it is not physical time evolution.</p>
           </div>
           <figure class="math-map" data-map-accent="white-hole">
             <div class="math-map-heading">
@@ -631,9 +635,10 @@
             <div class="math-map-body">
               <canvas class="math-map-canvas" id="kruskal-math-map" aria-label="Cartesian Kruskal coordinate map with diagonal horizons, constant-radius hyperbolas, black-hole and white-hole regions, and two exterior regions"></canvas>
               <div class="math-map-reading">
-                <p><b>X</b><span>The horizontal space coordinate. The right and left wedges are two exterior regions in the complete idealized solution.</span></p>
-                <p><b>T</b><span>The vertical time coordinate. Future is upward; reversing T reflects every point across the X-axis.</span></p>
-                <p><b>Lines</b><span>The diagonals T = ±X are horizons. Constant radius traces hyperbolas; r = 0 is the upper or lower singularity.</span></p>
+                <p><b>X</b><span>The horizontal Kruskal coordinate. The right and left wedges are two exteriors of the maximally extended eternal solution.</span></p>
+                <p><b>T</b><span>The vertical Kruskal coordinate. Future is upward; the time-reflection isometry reflects every point across the X-axis.</span></p>
+                <p><b>Scale</b><span>The equation uses one conventional overall normalization of dimensionless T and X. Other conventions rescale both without changing horizons or causal regions.</span></p>
+                <p><b>Lines</b><span>T = ±X are horizons; r = 0 obeys T² − X² = 1. The displayed path stays causal and ends on that singularity.</span></p>
               </div>
             </div>
             <div class="math-map-controls-grid">
@@ -646,12 +651,12 @@
                 <input id="kruskal-map-direction" type="range" min="-1" max="1" step="0.01" value="1">
               </div>
             </div>
-            <figcaption>This is the uncompactified coordinate map: infinity still lies off the page. The illustration below retains the same time slider, compresses infinity to a finite boundary, and shows the full causal regions.</figcaption>
+            <figcaption>This uncompactified map leaves infinity off the page. Its black-hole path ends at (X,T) = (0,1), and the white-hole path is its exact reflected, reversed partner. The illustration below uses a separate causal path ending on its own compact T = ±0.72 boundary.</figcaption>
           </figure>
           <p>
-            The horizon was not the end of what the field equations allowed. <a class="reference-link" href="https://en.wikipedia.org/wiki/Martin_Kruskal" target="_blank" rel="noopener noreferrer">Martin Kruskal</a> and <a class="reference-link" href="https://en.wikipedia.org/wiki/George_Szekeres" target="_blank" rel="noopener noreferrer">George Szekeres</a> independently found coordinates that carried the <a class="reference-link" href="https://en.wikipedia.org/wiki/Schwarzschild_metric" target="_blank" rel="noopener noreferrer">Schwarzschild solution</a> smoothly across it. The completed idealized geometry contained the familiar black-hole region and a time-reversed region where things can leave, but nothing can enter. It became known as a white hole.
+            The horizon was not the end of what the field equations allowed. <a class="reference-link" href="https://en.wikipedia.org/wiki/Martin_Kruskal" target="_blank" rel="noopener noreferrer">Martin Kruskal</a> and <a class="reference-link" href="https://en.wikipedia.org/wiki/George_Szekeres" target="_blank" rel="noopener noreferrer">George Szekeres</a> independently found coordinates that carried the <a class="reference-link" href="https://en.wikipedia.org/wiki/Schwarzschild_metric" target="_blank" rel="noopener noreferrer">Schwarzschild solution</a> smoothly across it. The maximally extended eternal vacuum solution contains two exterior regions, a future black-hole region, and a time-reflected past region from which causal paths can leave but cannot enter: a white hole.
           </p>
-          <p class="precision-note">A white hole is a consequence of extending the idealized solution, not something a collapsing star is expected to become. None has been observed.</p>
+          <p class="precision-note">A realistic collapse spacetime has no past white-hole region or second exterior: those belong to the maximally extended eternal solution. No white hole has been observed. The slider is a presentation control that compares the two time-reflected orientations; it is not physical evolution of one object into the other.</p>
           <p>The lesson was larger than the object: once the equation had a solution, extending the full geometry could reveal possibilities nobody put into it by hand.</p>
         </div>
 
@@ -669,9 +674,9 @@
             aria-label="A compactified spacetime map with two exterior regions, diagonal horizons, a future black-hole region, a past white-hole region, singularities, and incoming and outgoing infinity."
             aria-describedby="white-hole-caption"
           ></canvas>
-          <figcaption id="white-hole-caption">Vertical is a time coordinate; horizontal is a space coordinate. The map compresses infinity to its outer edges. Reverse T to swap the black-hole and white-hole causal paths. No white hole has been observed.</figcaption>
+          <figcaption id="white-hole-caption">Vertical is compact time and horizontal is compact space. Infinity lies on the outer boundary. Separate causal paths terminate at the drawn T = ±0.72 singularities and reverse exactly under T → −T. The slider changes the presentation, not the spacetime.</figcaption>
           <div class="stage-controls">
-            <label for="time-direction"><span>Run time</span><output id="time-direction-control-output" for="time-direction">Forward</output></label>
+            <label for="time-direction"><span>Compare time-reflected presentation</span><output id="time-direction-control-output" for="time-direction">Original T</output></label>
             <input
               id="time-direction"
               type="range"
@@ -679,10 +684,10 @@
               max="1"
               step="0.01"
               value="1"
-              aria-label="Reverse the vertical time coordinate between the white-hole past and black-hole future views"
-              aria-valuetext="Forward, black-hole view"
+              aria-label="Compare the original and time-reflected Kruskal presentations"
+              aria-valuetext="Original T presentation, black-hole orientation"
             >
-            <div class="range-ends" aria-hidden="true"><span>White-hole past</span><span>Black-hole future</span></div>
+            <div class="range-ends" aria-hidden="true"><span>Reflected T · white hole</span><span>Original T · black hole</span></div>
           </div>
         </figure>
       </section>
@@ -706,6 +711,107 @@
           <span><b>2015</b> LIGO merger signal</span>
           <span><b>2019</b> EHT horizon-scale image</span>
         </div>
+
+        <section class="formula-notes" id="formula-notes" aria-labelledby="formula-notes-title">
+          <header class="formula-notes-heading">
+            <p class="chapter-kicker"><span>Formula notes</span> Primary references and source code</p>
+            <h3 id="formula-notes-title">Where each relation comes from—and where this experiment implements it.</h3>
+            <p>Historical papers establish the physics; modern references clarify notation and limits. GitHub links point to the model plus the corresponding graph or animation in this direct-file experiment.</p>
+          </header>
+          <ol class="formula-notes-grid">
+            <li id="formula-note-equivalence">
+              <span class="formula-note-year">1907 · Equivalence</span>
+              <h4>Accelerated-cabin beam drop</h4>
+              <code>|Δy| ≃ ½a(L/c)²</code>
+              <p>A leading-order accelerated-frame result, used only over a small local cabin.</p>
+              <div class="formula-note-links">
+                <a data-citation-kind="authority" href="https://einsteinpapers.press.princeton.edu/vol3-trans/393" target="_blank" rel="noreferrer">Einstein Papers Project · 1907 equivalence principle</a>
+                <a data-citation-kind="authority" href="https://ocw.mit.edu/courses/8-962-general-relativity-spring-2020/resources/lecture-6-the-principle-of-equivalence/" target="_blank" rel="noreferrer">MIT OCW · equivalence principle</a>
+                <a data-citation-kind="implementation" href="https://github.com/dantetekanem/dantetekanem.github.io/blob/main/experiments/einstein-field-lab/js/physics.js#L198-L207" target="_blank" rel="noreferrer">Model · equivalenceDropMetres</a>
+                <a data-citation-kind="implementation" href="https://github.com/dantetekanem/dantetekanem.github.io/blob/main/experiments/einstein-field-lab/js/math-maps.js#L203-L270" target="_blank" rel="noreferrer">Graph · createLiftMap</a>
+                <a data-citation-kind="implementation" href="https://github.com/dantetekanem/dantetekanem.github.io/blob/main/experiments/einstein-field-lab/js/spacetime-demos.js#L162-L293" target="_blank" rel="noreferrer">Animation · createElevatorDemo</a>
+              </div>
+            </li>
+            <li id="formula-note-field">
+              <span class="formula-note-year">1915 · Field equation</span>
+              <h4>Geometry and stress-energy</h4>
+              <code>G<sub>μν</sub> + Λg<sub>μν</sub> = κT<sub>μν</sub></code>
+              <p>The graph isolates one normalized spatial component for teaching; it is not a tensor solution.</p>
+              <div class="formula-note-links">
+                <a data-citation-kind="authority" href="https://doi.org/10.1002/andp.19163540702" target="_blank" rel="noreferrer">Einstein · 1916 general-relativity review</a>
+                <a data-citation-kind="authority" href="https://arxiv.org/abs/gr-qc/9712019" target="_blank" rel="noreferrer">Carroll · Spacetime and Geometry notes</a>
+                <a data-citation-kind="implementation" href="https://github.com/dantetekanem/dantetekanem.github.io/blob/main/experiments/einstein-field-lab/js/physics.js#L209-L220" target="_blank" rel="noreferrer">Model · fieldEquationComponentBalance</a>
+                <a data-citation-kind="implementation" href="https://github.com/dantetekanem/dantetekanem.github.io/blob/main/experiments/einstein-field-lab/js/math-maps.js#L271-L374" target="_blank" rel="noreferrer">Graph · createFieldMap</a>
+                <a data-citation-kind="implementation" href="https://github.com/dantetekanem/dantetekanem.github.io/blob/main/experiments/einstein-field-lab/js/spacetime-demos.js#L65-L161" target="_blank" rel="noreferrer">Animation · createFieldDemo</a>
+              </div>
+            </li>
+            <li id="formula-note-orbit">
+              <span class="formula-note-year">1915 · Weak-field limit</span>
+              <h4>Inverse-square radial acceleration</h4>
+              <code>d²r/dt² = −GM/r²</code>
+              <p>The map uses reference units with G = 1; the orbit animation is Newtonian, not a relativistic geodesic solver.</p>
+              <div class="formula-note-links">
+                <a data-citation-kind="authority" href="https://arxiv.org/abs/gr-qc/9712019" target="_blank" rel="noreferrer">Carroll · Newtonian limit of general relativity</a>
+                <a data-citation-kind="implementation" href="https://github.com/dantetekanem/dantetekanem.github.io/blob/main/experiments/einstein-field-lab/js/physics.js#L221-L226" target="_blank" rel="noreferrer">Model · radialAccelerationRelative</a>
+                <a data-citation-kind="implementation" href="https://github.com/dantetekanem/dantetekanem.github.io/blob/main/experiments/einstein-field-lab/js/math-maps.js#L375-L441" target="_blank" rel="noreferrer">Graph · createCurvatureMap</a>
+                <a data-citation-kind="implementation" href="https://github.com/dantetekanem/dantetekanem.github.io/blob/main/experiments/einstein-field-lab/js/spacetime-demos.js#L294" target="_blank" rel="noreferrer">Animation · createCurvatureDemo</a>
+              </div>
+            </li>
+            <li id="formula-note-horizon">
+              <span class="formula-note-year">1916 · Schwarzschild horizon</span>
+              <h4>Radius and ingoing GP null rates</h4>
+              <code>r<sub>s</sub> = 2GM/c² ; (dr/dt<sub>GP</sub>)/c = −√(r<sub>s</sub>/r) ± 1</code>
+              <p>The rates are coordinate slopes in ingoing Gullstrand–Painlevé time; local observers still measure light at c.</p>
+              <div class="formula-note-links">
+                <a data-citation-kind="authority" href="https://ui.adsabs.harvard.edu/abs/1916AbhKP1916..189S/abstract" target="_blank" rel="noreferrer">Schwarzschild · 1916 exact solution</a>
+                <a data-citation-kind="authority" href="https://arxiv.org/abs/gr-qc/0411060" target="_blank" rel="noreferrer">Hamilton &amp; Lisle · river model</a>
+                <a data-citation-kind="implementation" href="https://github.com/dantetekanem/dantetekanem.github.io/blob/main/experiments/einstein-field-lab/js/physics.js#L42-L88" target="_blank" rel="noreferrer">Model · radius and radial-light rates</a>
+                <a data-citation-kind="implementation" href="https://github.com/dantetekanem/dantetekanem.github.io/blob/main/experiments/einstein-field-lab/js/math-maps.js#L442-L551" target="_blank" rel="noreferrer">Graph · createHorizonMap</a>
+                <a data-citation-kind="implementation" href="https://github.com/dantetekanem/dantetekanem.github.io/blob/main/experiments/einstein-field-lab/js/extreme-demos.js#L88-L263" target="_blank" rel="noreferrer">Animation · createBlackHoleDemo</a>
+              </div>
+            </li>
+            <li id="formula-note-laser">
+              <span class="formula-note-year">1917 · Radiation</span>
+              <h4>Resonance and normalized material gain</h4>
+              <code>ΔE = hν ; G<sub>rel</sub> = (N<sub>2</sub> − N<sub>1</sub>)/(N<sub>1</sub> + N<sub>2</sub>)</code>
+              <p>The second relation is this experiment’s dimensionless equal-cross-section teaching model, not a cavity threshold.</p>
+              <div class="formula-note-links">
+                <a data-citation-kind="authority" href="https://doi.org/10.1002/andp.200590013" target="_blank" rel="noreferrer">Einstein · emission and absorption of radiation</a>
+                <a data-citation-kind="authority" href="https://physics.nist.gov/cgi-bin/cuu/Value?h" target="_blank" rel="noreferrer">NIST · Planck constant</a>
+                <a data-citation-kind="authority" href="https://openstax.org/books/university-physics-volume-3/pages/8-6-lasers" target="_blank" rel="noreferrer">OpenStax · stimulated emission and lasers</a>
+                <a data-citation-kind="implementation" href="https://github.com/dantetekanem/dantetekanem.github.io/blob/main/experiments/einstein-field-lab/js/physics.js#L177-L252" target="_blank" rel="noreferrer">Model · photon energy and gain state</a>
+                <a data-citation-kind="implementation" href="https://github.com/dantetekanem/dantetekanem.github.io/blob/main/experiments/einstein-field-lab/js/math-maps.js#L552-L655" target="_blank" rel="noreferrer">Graphs · createLaserMap</a>
+                <a data-citation-kind="implementation" href="https://github.com/dantetekanem/dantetekanem.github.io/blob/main/experiments/einstein-field-lab/js/laser-demo.js#L52" target="_blank" rel="noreferrer">Animation · createLaserDemo</a>
+              </div>
+            </li>
+            <li id="formula-note-bridge">
+              <span class="formula-note-year">1935 · Bridge</span>
+              <h4>Spatial embedding and prescribed path ratio</h4>
+              <code>z(r) = ±2√[r<sub>s</sub>(r − r<sub>s</sub>)] ; S<sub>diagram</sub> = d<sub>space</sub>/d<sub>throat</sub></code>
+              <p>The first relation embeds a spatial slice. The second belongs only to the later diagram animation.</p>
+              <div class="formula-note-links">
+                <a data-citation-kind="authority" href="https://doi.org/10.1103/PhysRev.48.73" target="_blank" rel="noreferrer">Einstein &amp; Rosen · 1935 bridge</a>
+                <a data-citation-kind="authority" href="https://doi.org/10.1119/1.15620" target="_blank" rel="noreferrer">Morris &amp; Thorne · traversable-wormhole conditions</a>
+                <a data-citation-kind="implementation" href="https://github.com/dantetekanem/dantetekanem.github.io/blob/main/experiments/einstein-field-lab/js/physics.js#L171-L176" target="_blank" rel="noreferrer">Model · prescribed diagram paths</a>
+                <a data-citation-kind="implementation" href="https://github.com/dantetekanem/dantetekanem.github.io/blob/main/experiments/einstein-field-lab/js/math-maps.js#L656-L725" target="_blank" rel="noreferrer">Graph · createBridgeMap</a>
+                <a data-citation-kind="implementation" href="https://github.com/dantetekanem/dantetekanem.github.io/blob/main/experiments/einstein-field-lab/js/extreme-demos.js#L447" target="_blank" rel="noreferrer">Animation · createWormholeDemo</a>
+              </div>
+            </li>
+            <li id="formula-note-kruskal">
+              <span class="formula-note-year">1960 · Global extension</span>
+              <h4>Kruskal invariant and time reflection</h4>
+              <code>X² − T² = (r/r<sub>s</sub> − 1)e<sup>r/r<sub>s</sub></sup> ; (T,X) → (−T,X)</code>
+              <p>The implementation uses separate causal paths for uncompactified and compact diagrams.</p>
+              <div class="formula-note-links">
+                <a data-citation-kind="authority" href="https://doi.org/10.1103/PhysRev.119.1743" target="_blank" rel="noreferrer">Kruskal · 1960 maximal extension</a>
+                <a data-citation-kind="authority" href="https://arxiv.org/abs/gr-qc/9712019" target="_blank" rel="noreferrer">Carroll · Schwarzschild and Kruskal coordinates</a>
+                <a data-citation-kind="implementation" href="https://github.com/dantetekanem/dantetekanem.github.io/blob/main/experiments/einstein-field-lab/js/physics.js#L153-L170" target="_blank" rel="noreferrer">Model · causal paths</a>
+                <a data-citation-kind="implementation" href="https://github.com/dantetekanem/dantetekanem.github.io/blob/main/experiments/einstein-field-lab/js/math-maps.js#L726" target="_blank" rel="noreferrer">Graph · createKruskalMap</a>
+                <a data-citation-kind="implementation" href="https://github.com/dantetekanem/dantetekanem.github.io/blob/main/experiments/einstein-field-lab/js/extreme-demos.js#L264" target="_blank" rel="noreferrer">Animation · createWhiteHoleDemo</a>
+              </div>
+            </li>
+          </ol>
+        </section>
 
         <details class="sources" id="sources">
           <summary>Sources and model limits <span>12 links</span></summary>

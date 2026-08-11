@@ -18,19 +18,13 @@
   }
 
   function gainState(pump, atomCount) {
-    const total = Math.max(2, Math.floor(atomCount || 20));
-    const excited = Math.round(physics.clamp(pump, 0, 1) * total);
-    const ground = total - excited;
-    const inversion = Math.max(0, excited - ground);
-    const cascade = inversion > 0
-      ? physics.stimulatedCascade(1, inversion, 5)
+    const population = physics.laserPopulationState(pump, atomCount || 20);
+    const cascade = population.inversion > 0
+      ? physics.stimulatedCascade(1, population.inversion, 5)
       : Object.freeze({ photons: 1, excitedAtoms: 0, emitted: 0 });
     return Object.freeze({
-      total,
-      excited,
-      ground,
-      inversion,
-      hasInversion: excited > ground,
+      ...population,
+      hasInversion: population.regime === "amplifies",
       photons: Math.min(24, cascade.photons),
       emitted: Math.min(23, cascade.emitted),
     });
@@ -142,7 +136,7 @@
       if (demoState.photonVersion > 0) {
         const baseProgress = Math.min(1, elapsed / (gain.hasInversion ? 1.55 : 1.1));
         const primaryX = physics.lerp(0, chamberRight + 28, baseProgress);
-        const fade = gain.hasInversion ? 1 : Math.max(0.12, 1 - baseProgress * 0.9);
+        const fade = gain.regime === "absorbs" ? Math.max(0.12, 1 - baseProgress * 0.9) : 1;
         context.strokeStyle = rgba(colors.photon, fade * 0.5);
         context.fillStyle = rgba(colors.photon, fade);
         context.lineWidth = 1.4;
@@ -175,20 +169,21 @@
       const populationWidth = width * 0.62;
       context.fillStyle = rgba(colors.paper, 0.1);
       context.fillRect(populationLeft, populationY, populationWidth, 3);
-      context.fillStyle = gain.hasInversion ? colors.photon : colors.matter;
-      context.fillRect(populationLeft, populationY, populationWidth * demoState.pump, 3);
+      context.fillStyle = gain.regime === "amplifies" ? colors.photon : colors.matter;
+      context.fillRect(populationLeft, populationY, populationWidth * gain.representedFraction, 3);
       context.font = monoFont(8, 700);
       context.textAlign = "left";
-      context.fillStyle = gain.hasInversion ? colors.photon : rgba(colors.paper, 0.5);
-      context.fillText(
-        gain.hasInversion ? "MORE ATOMS EXCITED · LIGHT GROWS" : "TOO FEW ATOMS EXCITED · LIGHT FADES",
-        populationLeft,
-        populationY - 9,
-      );
+      context.fillStyle = gain.regime === "amplifies" ? colors.photon : rgba(colors.paper, 0.5);
+      const regimeText = {
+        absorbs: "MORE LOWER-STATE ATOMS · NET ABSORPTION",
+        transparent: "EQUAL POPULATIONS · TRANSPARENT",
+        amplifies: "MORE EXCITED ATOMS · MATERIAL GAIN",
+      }[gain.regime];
+      context.fillText(regimeText, populationLeft, populationY - 9);
 
       context.textAlign = "right";
       context.fillStyle = rgba(colors.paper, 0.44);
-      context.fillText("PHOTON CARRIES THE ENERGY GAP", width - 13, height - 12);
+      context.fillText("RESONANT PHOTON · SAME OPTICAL MODE", width - 13, height - 12);
       context.restore();
 
       const signature = `${gain.excited}:${gain.photons}:${demoState.photonVersion}:${Math.round(cascadeProgress * 10)}`;

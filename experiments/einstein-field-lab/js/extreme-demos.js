@@ -348,7 +348,7 @@
         context.shadowBlur = 9;
         context.beginPath();
         for (let index = 0; index <= 64; index += 1) {
-          const pathPoint = physics.kruskalCausalPath(effectiveDirection, index / 64);
+          const pathPoint = physics.compactKruskalCausalPath(effectiveDirection, index / 64);
           const point = kruskalCanvasPoint(geometry, pathPoint.space, pathPoint.time);
           if (index === 0) context.moveTo(point.x, point.y);
           else context.lineTo(point.x, point.y);
@@ -357,15 +357,15 @@
         context.shadowBlur = 0;
 
         for (const amount of [0.3, 0.58, 0.84]) {
-          const startPath = physics.kruskalCausalPath(effectiveDirection, amount - 0.035);
-          const endPath = physics.kruskalCausalPath(effectiveDirection, amount);
+          const startPath = physics.compactKruskalCausalPath(effectiveDirection, amount - 0.035);
+          const endPath = physics.compactKruskalCausalPath(effectiveDirection, amount);
           const startPoint = kruskalCanvasPoint(geometry, startPath.space, startPath.time);
           const endPoint = kruskalCanvasPoint(geometry, endPath.space, endPath.time);
           stageTools.drawArrow(context, startPoint.x, startPoint.y, endPoint.x, endPoint.y, 5);
         }
 
         const motionProgress = reducedMotion || paused ? 0.68 : physics.mod(time * 0.16, 1);
-        const particlePath = physics.kruskalCausalPath(effectiveDirection, motionProgress);
+        const particlePath = physics.compactKruskalCausalPath(effectiveDirection, motionProgress);
         const particle = kruskalCanvasPoint(geometry, particlePath.space, particlePath.time);
         context.shadowColor = pathColor;
         context.shadowBlur = 16;
@@ -400,10 +400,10 @@
       context.font = monoFont(geometry.compact ? 7 : 9, 700);
       context.fillStyle = effectiveDirection < 0 ? colors.paperBright : effectiveDirection > 0 ? colors.horizon : rgba(colors.paper, 0.5);
       const heading = effectiveDirection < 0
-        ? "WHITE-HOLE VIEW · PAST SINGULARITY → FUTURE NULL INFINITY"
+        ? "WHITE-HOLE ORIENTATION · PAST SINGULARITY → FUTURE NULL INFINITY"
         : effectiveDirection > 0
-          ? "BLACK-HOLE VIEW · PAST NULL INFINITY → FUTURE SINGULARITY"
-          : "T = 0 · CAUSAL ARROWS PAUSED";
+          ? "BLACK-HOLE ORIENTATION · PAST NULL INFINITY → FUTURE SINGULARITY"
+          : "TIME-REFLECTION MIDPOINT · PATHS DE-EMPHASIZED";
       context.fillText(heading, width * 0.5, 23);
       context.fillStyle = rgba(colors.paper, 0.42);
       context.font = monoFont(geometry.compact ? 6.5 : 8);

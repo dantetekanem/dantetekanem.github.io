@@ -1293,6 +1293,33 @@ input[type="range"] {
   white-space: nowrap;
 }
 
+.laser-model-equations {
+  margin: 22px 0 26px;
+  border: 1px solid var(--paper-12);
+  background: rgba(8, 11, 19, 0.42);
+}
+
+.laser-model-equations .math-map-formula {
+  display: grid;
+  gap: 8px;
+  padding: 18px 20px;
+  border-bottom: 0;
+  color: var(--photon) !important;
+  background: transparent;
+  font-size: clamp(19px, 2.3vw, 30px) !important;
+  text-align: left;
+  white-space: normal;
+}
+
+.laser-model-equations > p:last-child {
+  margin: 0;
+  padding: 16px 20px 18px;
+  border-top: 1px solid var(--paper-12);
+  color: var(--paper-58);
+  font-size: 12px;
+  line-height: 1.65;
+}
+
 .math-map-canvas {
   display: block;
   width: 100%;
@@ -1820,6 +1847,126 @@ input[type="range"] {
   margin: 0 auto 38px;
 }
 
+.formula-notes {
+  width: min(1120px, 100%);
+  margin: 48px auto 44px;
+  text-align: left;
+}
+
+.formula-notes-heading {
+  max-width: 760px;
+  margin: 0 auto 24px;
+  text-align: center;
+}
+
+.formula-notes-heading h3 {
+  margin: 0 auto 12px;
+  font: 520 clamp(28px, 3.4vw, 46px)/1.08 var(--display);
+  letter-spacing: -0.025em;
+}
+
+.formula-notes-heading > p:last-child {
+  max-width: 64ch;
+  margin: 0 auto;
+  color: var(--paper-48);
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.formula-notes-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  margin: 0;
+  padding: 1px;
+  background: var(--paper-12);
+  list-style: none;
+}
+
+.formula-notes-grid li {
+  display: grid;
+  grid-template-rows: auto auto auto 1fr auto;
+  min-width: 0;
+  padding: 22px;
+  background:
+    linear-gradient(135deg, rgba(104, 216, 207, 0.035), transparent 46%),
+    var(--ink-raised);
+}
+
+.formula-note-year {
+  margin-bottom: 10px;
+  color: var(--geometry);
+  font: 720 8px/1.3 var(--mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.formula-notes-grid h4 {
+  margin: 0 0 14px;
+  color: var(--paper-bright);
+  font-size: 18px;
+  font-weight: 570;
+  line-height: 1.25;
+}
+
+.formula-notes-grid code {
+  display: block;
+  max-width: 100%;
+  margin-bottom: 12px;
+  padding: 11px 12px;
+  overflow-x: auto;
+  border: 1px solid var(--paper-12);
+  color: var(--paper-bright);
+  background: rgba(5, 7, 12, 0.44);
+  font: 600 12px/1.45 var(--mono);
+  white-space: nowrap;
+  scrollbar-width: thin;
+}
+
+.formula-notes-grid li > p {
+  margin: 0 0 18px;
+  color: var(--paper-48);
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+.formula-note-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  align-self: end;
+}
+
+.formula-note-links a {
+  min-width: 0;
+  padding: 7px 9px;
+  border: 1px solid var(--paper-12);
+  color: var(--paper-58);
+  background: rgba(5, 7, 12, 0.28);
+  font: 650 8px/1.35 var(--mono);
+  letter-spacing: 0.015em;
+  text-decoration: none;
+  transition-property: color, border-color, background-color;
+  transition-duration: 160ms;
+  transition-timing-function: var(--ease-soft);
+}
+
+.formula-note-links a[data-citation-kind="authority"] {
+  border-color: rgba(104, 216, 207, 0.22);
+  color: var(--geometry);
+}
+
+.formula-note-links a[data-citation-kind="implementation"] {
+  border-color: rgba(185, 162, 255, 0.2);
+  color: var(--wormhole);
+}
+
+.formula-note-links a:hover {
+  border-color: currentColor;
+  color: var(--paper-bright);
+  background: var(--ink-soft);
+}
+
 .sources {
   width: min(980px, 100%);
   margin: 0 auto;
@@ -2040,6 +2187,10 @@ input[type="range"] {
 
   h1 {
     font-size: clamp(50px, 12vw, 88px);
+  }
+
+  .formula-notes-grid {
+    grid-template-columns: 1fr;
   }
 
   .split-chapter,
@@ -2335,6 +2486,14 @@ input[type="range"] {
 
   .branch-break i {
     grid-row: 2;
+  }
+
+  .formula-notes-grid li {
+    padding: 18px 14px;
+  }
+
+  .formula-note-links a {
+    flex: 1 1 180px;
   }
 
   .sources-grid {

@@ -290,8 +290,8 @@
       ]);
       const geometry = plotGeometry(width, height, ranges);
       drawAxes(context, geometry, {
-        xLabel: "SOURCE COMPONENT  κTμν  (NORMALIZED)",
-        yLabel: "CURVATURE COMPONENT  Gμν  (NORMALIZED)",
+        xLabel: "SPATIAL STRESS COMPONENT  κT₁₁  (NORMALIZED)",
+        yLabel: "CURVATURE COMPONENT  G₁₁  (NORMALIZED)",
         xTicks: [0, 0.25, 0.5, 0.75, 1].map((value) => ({ value, label: value.toFixed(value === 0 || value === 1 ? 0 : 2) })),
         yTicks: [-0.2, 0, 0.25, 0.5, 0.75, 1].map((value) => ({ value, label: value > 0 ? `+${value.toFixed(value === 1 ? 0 : 2)}` : value.toFixed(value === 0 ? 0 : 1) })),
       });
@@ -346,11 +346,11 @@
         geometry.x(state.density),
         geometry.y(balance.curvature),
         colors.matter,
-        `SOURCE ${Math.round(state.density * 100)}% → G ${Math.round(balance.curvature * 100)}%`,
+        `STRESS ${Math.round(state.density * 100)}% → G ${Math.round(balance.curvature * 100)}%`,
         state.density > 0.7 ? "right" : "left",
       );
-      drawPlotNote(context, "NO BACKGROUND: G = κT", geometry.x(0.58), geometry.y(0.58) - 11, "rgba(238, 232, 216, 0.5)");
-      drawPlotNote(context, "WITH Λg: G = κT − Λg", geometry.x(0.58), geometry.y(0.58 - state.background) + 12, colors.geometry);
+      drawPlotNote(context, "NO BACKGROUND: G₁₁ = κT₁₁", geometry.x(0.58), geometry.y(0.58) - 11, "rgba(238, 232, 216, 0.5)");
+      drawPlotNote(context, "WITH Λg: G₁₁ = κT₁₁ − Λg₁₁", geometry.x(0.58), geometry.y(0.58 - state.background) + 12, colors.geometry);
       drawPlotNote(context, `Λg OFFSET ${Math.round(state.background * 100)}%`, geometry.x(0.07), geometry.y(-state.background) - 10, colors.wormhole);
 
       if (state.onUpdate) state.onUpdate(balance);
@@ -387,7 +387,7 @@
       const geometry = plotGeometry(width, height, ranges);
       drawAxes(context, geometry, {
         xLabel: "DISTANCE FROM CENTRE  r  (REFERENCE UNITS)",
-        yLabel: "INWARD ACCELERATION  |aᵣ|",
+        yLabel: "INWARD ACCELERATION  |aᵣ|  (REFERENCE UNITS)",
         xTicks: [0.75, 1, 2, 3, 4].map((value) => ({ value, label: String(value) })),
         yTicks: [0, 1, 2, 3, 4].map((value) => ({ value, label: String(value) })),
       });
@@ -461,7 +461,7 @@
       const horizonRadiusKm = point.horizonRadiusKm;
       drawAxes(context, geometry, {
         xLabel: "PHYSICAL DISTANCE FROM CENTRE  r  (KM · LOG SCALE)",
-        yLabel: "RADIAL COORDINATE RATE  (dr/dt) / c",
+        yLabel: "RADIAL COORDINATE RATE  (dr/dt_GP) / c",
         xTicks: [1, 3, 10, 30, 100, 300, 1000].map((value) => ({ value, label: String(value) })),
         yTicks: [-3, -2, -1, 0, 1].map((value) => ({ value, label: String(value) })),
       });
@@ -585,8 +585,8 @@
 
       drawPanel(0, 0, energyGeometry, "A · PHOTON ENERGY", {
         axes: {
-          xLabel: "RELATIVE FREQUENCY  ν",
-          yLabel: "RELATIVE ENERGY GAP  ΔE",
+          xLabel: "FREQUENCY RATIO  ν / ν₀",
+          yLabel: "GAP RATIO  ΔE / (hν₀)",
           xTicks: [0, 0.5, 1].map((value) => ({ value, label: value.toFixed(value === 0 || value === 1 ? 0 : 1) })),
           yTicks: [0, 0.5, 1].map((value) => ({ value, label: value.toFixed(value === 0 || value === 1 ? 0 : 1) })),
         },
@@ -603,10 +603,10 @@
         },
       });
 
-      drawPanel(secondX, secondY, gainGeometry, "B · POPULATION INVERSION", {
+      drawPanel(secondX, secondY, gainGeometry, "B · MATERIAL GAIN", {
         axes: {
-          xLabel: "EXCITED FRACTION  N₂ / (N₁ + N₂)",
-          yLabel: "SIMPLIFIED NET GAIN",
+          xLabel: "EXCITED FRACTION  f₂ = N₂ / (N₁ + N₂)",
+          yLabel: "NORMALIZED GAIN  G_rel",
           xTicks: [0, 0.5, 1].map((value) => ({ value, label: `${Math.round(value * 100)}%` })),
           yTicks: [-1, 0, 1].map((value) => ({ value, label: value > 0 ? `+${value}` : String(value) })),
         },
@@ -621,13 +621,20 @@
           panelContext.restore();
           drawSeries(panelContext, geometry, 0, 1, 2, physics.laserNetGainRelative, colors.wormhole, 2.4);
           const gain = physics.laserNetGainRelative(state.pump);
-          drawMarker(panelContext, geometry.x(state.pump), geometry.y(gain), colors.wormhole, gain >= 0 ? "AMPLIFIES" : "ABSORBS", state.pump > 0.7 ? "right" : "left");
-          drawPlotNote(panelContext, "THRESHOLD", geometry.x(0.5) + 7, geometry.y(0) - 10, "rgba(238, 232, 216, 0.48)");
+          const regime = physics.laserGainRegime(state.pump);
+          const regimeLabel = {
+            absorbs: "ABSORBS",
+            transparent: "TRANSPARENT",
+            amplifies: "AMPLIFIES",
+          }[regime];
+          drawMarker(panelContext, geometry.x(state.pump), geometry.y(gain), colors.wormhole, regimeLabel, state.pump > 0.7 ? "right" : "left");
+          drawPlotNote(panelContext, "TRANSPARENCY", geometry.x(0.5) + 7, geometry.y(0) - 10, "rgba(238, 232, 216, 0.48)");
         },
       });
       if (state.onUpdate) state.onUpdate({
         pump: state.pump,
         gain: physics.laserNetGainRelative(state.pump),
+        regime: physics.laserGainRegime(state.pump),
       });
     });
 

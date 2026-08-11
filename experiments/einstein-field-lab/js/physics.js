@@ -37,7 +37,8 @@
     const from = finiteNumber(current, 0);
     const to = finiteNumber(target, from);
     if (Math.abs(to - from) < 1e-4) return to;
-    return damp(from, to, 11, deltaSeconds);
+    const next = damp(from, to, 11, deltaSeconds);
+    return Math.abs(to - next) < 1e-4 ? to : next;
   }
 
   function mod(value, divisor) {
@@ -127,15 +128,12 @@
     return spaceCoordinate >= 0 ? "right-exterior" : "left-exterior";
   }
 
-  function kruskalCausalPath(direction, progress) {
+  function cubicKruskalPath(direction, progress, points) {
     const timeDirection = finiteNumber(direction, 1) < 0 ? -1 : 1;
     const amount = clamp(progress, 0, 1);
     const pathAmount = timeDirection < 0 ? 1 - amount : amount;
     const inverse = 1 - pathAmount;
-    const start = { space: 0.86, time: -0.12 };
-    const controlA = { space: 0.72, time: 0.02 };
-    const controlB = { space: 0.26, time: 0.34 };
-    const end = { space: 0, time: 0.78 };
+    const [start, controlA, controlB, end] = points;
     const spaceCoordinate =
       inverse ** 3 * start.space +
       3 * inverse * inverse * pathAmount * controlA.space +
@@ -150,6 +148,24 @@
       time: timeDirection < 0 ? -timeCoordinate : timeCoordinate,
       space: spaceCoordinate,
     });
+  }
+
+  function kruskalCausalPath(direction, progress) {
+    return cubicKruskalPath(direction, progress, [
+      { space: 0.86, time: -0.12 },
+      { space: 0.72, time: 8 / 75 },
+      { space: 0.26, time: 49 / 75 },
+      { space: 0, time: 1 },
+    ]);
+  }
+
+  function compactKruskalCausalPath(direction, progress) {
+    return cubicKruskalPath(direction, progress, [
+      { space: 0.62, time: -0.48 },
+      { space: 0.54, time: -0.28 },
+      { space: 0.2, time: 0.38 },
+      { space: 0, time: 0.72 },
+    ]);
   }
 
   function compareWormholePaths(ordinaryDistance, throatDistance) {
@@ -210,6 +226,28 @@
 
   function laserNetGainRelative(excitedFraction) {
     return 2 * clamp(excitedFraction, 0, 1) - 1;
+  }
+
+  function laserGainRegime(excitedFraction) {
+    const gain = laserNetGainRelative(excitedFraction);
+    if (Math.abs(gain) <= 1e-12) return "transparent";
+    return gain > 0 ? "amplifies" : "absorbs";
+  }
+
+  function laserPopulationState(excitedFraction, atomCount) {
+    const total = Math.max(2, Math.floor(finiteNumber(atomCount, 20)));
+    const excited = Math.round(clamp(excitedFraction, 0, 1) * total);
+    const ground = total - excited;
+    const representedFraction = excited / total;
+    const regime = laserGainRegime(representedFraction);
+    return Object.freeze({
+      total,
+      excited,
+      ground,
+      representedFraction,
+      regime,
+      inversion: Math.max(0, excited - ground),
+    });
   }
 
   function schwarzschildEmbeddingHeight(radius, schwarzschildRadius) {
@@ -351,6 +389,7 @@
     compactKruskalPoint,
     kruskalRegion,
     kruskalCausalPath,
+    compactKruskalCausalPath,
     compareWormholePaths,
     photonEnergyElectronVolts,
     stimulatedCascade,
@@ -359,6 +398,8 @@
     fieldEquationComponentBalance,
     radialAccelerationRelative,
     laserNetGainRelative,
+    laserGainRegime,
+    laserPopulationState,
     schwarzschildEmbeddingHeight,
     kruskalRadialInvariant,
     gridWarp,

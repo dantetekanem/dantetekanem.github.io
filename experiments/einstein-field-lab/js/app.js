@@ -99,7 +99,7 @@
       const source = balance.source.toFixed(2);
       const background = balance.background.toFixed(2);
       const curvature = balance.curvature.toFixed(2);
-      elements.fieldMapReadout.textContent = `Source ${(balance.source * 100).toFixed(1)}% · background ${(balance.background * 100).toFixed(1)}% · curvature ${(balance.curvature * 100).toFixed(1)}%`;
+      elements.fieldMapReadout.textContent = `Spatial stress ${(balance.source * 100).toFixed(1)}% · background ${(balance.background * 100).toFixed(1)}% · curvature ${(balance.curvature * 100).toFixed(1)}%`;
       elements.fieldBalanceCurvature.textContent = curvature;
       elements.fieldBalanceBackground.textContent = background;
       elements.fieldBalanceSource.textContent = source;
@@ -129,7 +129,10 @@
   const laserMap = mathMaps.createLaserMap(element("laser-math-map"), {
     pump: Number(elements.laserPump.value) / 100,
     onUpdate(plotted) {
-      elements.laserMapReadout.textContent = `${(plotted.pump * 100).toFixed(1)}% excited · net gain ${plotted.gain >= 0 ? "+" : "−"}${Math.abs(plotted.gain).toFixed(2)}`;
+      const gainValue = Math.abs(plotted.gain) <= 1e-12
+        ? "0.00"
+        : `${plotted.gain > 0 ? "+" : "−"}${Math.abs(plotted.gain).toFixed(2)}`;
+      elements.laserMapReadout.textContent = `${(plotted.pump * 100).toFixed(1)}% excited · Grel ${gainValue} · ${plotted.regime}`;
     },
   });
   const bridgeMap = mathMaps.createBridgeMap(element("wormhole-math-map"), {
@@ -192,7 +195,7 @@
     element("wormhole-canvas"),
     { fold: Number(elements.wormholeFold.value) / 100, signalVersion: 0, signalStart: null },
     (distances) => {
-      elements.wormholeOutput.textContent = `Shortcut · ${distances.shortcutFactor.toFixed(1)}×`;
+      elements.wormholeOutput.textContent = `Illustration ratio · ${distances.shortcutFactor.toFixed(1)}×`;
     },
   );
   const laserDemo = laserDemos.createLaserDemo(
@@ -201,9 +204,16 @@
     (laserState) => {
       const gain = laserState.gain;
       if (!laserState.fired) {
-        elements.laserOutput.textContent = `${gain.excited} excited · ${gain.hasInversion ? "ready" : "not enough yet"}`;
-      } else if (!gain.hasInversion) {
-        elements.laserOutput.textContent = "Light fades · excite more atoms";
+        const readyText = {
+          absorbs: "net absorption",
+          transparent: "transparent",
+          amplifies: "material gain ready",
+        }[gain.regime];
+        elements.laserOutput.textContent = `${gain.excited} excited · ${readyText}`;
+      } else if (gain.regime === "absorbs") {
+        elements.laserOutput.textContent = "Light fades · net absorption";
+      } else if (gain.regime === "transparent") {
+        elements.laserOutput.textContent = "One photon passes · transparent";
       } else {
         elements.laserOutput.textContent = `${laserState.visiblePhotons} photons shown · ${laserState.completed ? "animation capped" : "beam growing"}`;
       }
@@ -565,17 +575,17 @@
     let label;
     let accessible;
     if (direction < -0.08) {
-      label = "White-hole past";
-      accessible = `${Math.abs(direction).toFixed(2)} reversed time, path from the past singularity to future null infinity`;
+      label = "White-hole orientation";
+      accessible = `${Math.abs(direction).toFixed(2)} presentation weight toward reflected T and the white-hole path`;
     } else if (direction > 0.08) {
-      label = "Black-hole future";
-      accessible = `${direction.toFixed(2)} forward time, path from past null infinity to the future singularity`;
+      label = "Black-hole orientation";
+      accessible = `${direction.toFixed(2)} presentation weight toward the original T coordinate and black-hole path`;
     } else {
-      label = "Time reversal paused";
-      accessible = "Paused at the midpoint between the two idealized causal views";
+      label = "Both time-reflected views";
+      accessible = "Presentation midpoint showing both time-reflected causal orientations";
     }
     elements.timeDirectionOutput.textContent = label;
-    elements.timeDirectionControlOutput.textContent = direction < -0.08 ? "T reversed" : direction > 0.08 ? "T forward" : "Paused";
+    elements.timeDirectionControlOutput.textContent = direction < -0.08 ? "Reflected T" : direction > 0.08 ? "Original T" : "Both";
     elements.timeDirection.setAttribute("aria-valuetext", accessible);
     elements.directionGlyph.style.setProperty("--direction-rotation", direction < 0 ? "180deg" : "0deg");
   }
@@ -585,16 +595,16 @@
     wormholeDemo.setFold(value / 100);
     const distances = wormholeDemo.distances();
     elements.wormholeFoldOutput.textContent = `${value}%`;
-    elements.wormholeOutput.textContent = `Shortcut · ${distances.shortcutFactor.toFixed(1)}×`;
+    elements.wormholeOutput.textContent = `Illustration ratio · ${distances.shortcutFactor.toFixed(1)}×`;
     elements.wormholeFold.setAttribute(
       "aria-valuetext",
-      `${value} percent together, illustrated shortcut ${distances.shortcutFactor.toFixed(1)} times shorter`,
+      `${value} percent together, prescribed drawing path ratio ${distances.shortcutFactor.toFixed(1)}`,
     );
   }
 
   function sendWormholeSignal() {
     wormholeDemo.send();
-    elements.announcement.textContent = `${elements.wormholeOutput.textContent}. Both beams sent.`;
+    elements.announcement.textContent = `${elements.wormholeOutput.textContent}. Both diagram markers sent along their assigned animation paths.`;
   }
 
   elements.horizonMass.addEventListener("input", updateHorizonMass);
@@ -634,21 +644,28 @@
     const gain = laserDemo.gain();
     elements.laserPumpOutput.textContent = `${value}%`;
     elements.laserMapPumpOutput.textContent = `${value}%`;
-    elements.laserOutput.textContent = `${gain.excited} excited · ${gain.hasInversion ? "ready" : "not enough yet"}`;
-    elements.laserPump.setAttribute(
-      "aria-valuetext",
-      gain.hasInversion
-        ? `${value} percent excited, more atoms excited than settled so light can grow`
-        : `${value} percent excited, too few excited atoms for light to grow`,
-    );
+    const readyText = {
+      absorbs: "net absorption",
+      transparent: "transparent",
+      amplifies: "material gain ready",
+    }[gain.regime];
+    elements.laserOutput.textContent = `${gain.excited} excited · ${readyText}`;
+    const valueText = {
+      absorbs: `${value} percent excited, net absorption in the teaching model`,
+      transparent: `${value} percent excited, the teaching model is transparent`,
+      amplifies: `${value} percent excited, positive material gain in the teaching model`,
+    }[gain.regime];
+    elements.laserPump.setAttribute("aria-valuetext", valueText);
   }
 
   function firePhoton() {
     const gain = laserDemo.gain();
     laserDemo.fire();
-    elements.announcement.textContent = gain.hasInversion
-      ? `${gain.excited} atoms are excited. One photon enters; stimulated emission begins to amplify the beam.`
-      : "One photon enters. Too few atoms are excited, so the light fades.";
+    elements.announcement.textContent = gain.regime === "amplifies"
+      ? `${gain.excited} atoms are excited. One resonant photon enters; the idealized cascade adds photons to the same optical mode.`
+      : gain.regime === "transparent"
+        ? "One resonant photon enters at the transparency point; this teaching model has neither net gain nor net absorption."
+        : "One resonant photon enters. The teaching model has net absorption, so the light fades.";
   }
 
   elements.laserPump.addEventListener("input", updateLaserPump);

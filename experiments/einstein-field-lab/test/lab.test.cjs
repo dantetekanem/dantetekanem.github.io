@@ -232,6 +232,90 @@ test("the laser lesson keeps photon energy and population inversion as separate 
   assert.doesNotMatch(equation, /<span aria-hidden="true">·<\/span>/, "the energy relation must not multiply the inversion condition");
 });
 
+test("the laser maps distinguish resonance, transparency, gain, and device threshold", () => {
+  const html = read(paths.html);
+  const mathMaps = read(paths.mathMaps);
+  read(paths.physics);
+  delete require.cache[require.resolve(paths.physics)];
+  const physics = require(paths.physics);
+
+  assert.equal(physics.laserGainRegime(0.49), "absorbs");
+  assert.equal(physics.laserGainRegime(0.5), "transparent");
+  assert.equal(physics.laserGainRegime(0.51), "amplifies");
+
+  const transparentPopulation = physics.laserPopulationState(0.5, 20);
+  assert.deepEqual(
+    { excited: transparentPopulation.excited, ground: transparentPopulation.ground, regime: transparentPopulation.regime },
+    { excited: 10, ground: 10, regime: "transparent" },
+  );
+  const firstAllowedGain = physics.laserPopulationState(0.55, 20);
+  assert.deepEqual(
+    { excited: firstAllowedGain.excited, ground: firstAllowedGain.ground, regime: firstAllowedGain.regime },
+    { excited: 11, ground: 9, regime: "amplifies" },
+  );
+  for (let percent = 0; percent <= 100; percent += 5) {
+    const population = physics.laserPopulationState(percent / 100, 20);
+    approximately(population.representedFraction, percent / 100, 1e-12, `${percent}% aligns with the 20-atom illustration`);
+  }
+
+  const start = html.indexOf('id="laser"');
+  const end = html.indexOf("</section>", start);
+  const laserSection = html.slice(start, end);
+  assert.match(laserSection, /G<sub>rel<\/sub>\s*≡[\s\S]*2f<sub>2<\/sub>\s*−\s*1/);
+  assert.match(laserSection, /normalized, lossless[\s\S]*equal degeneracy[\s\S]*equal (?:transition )?cross-sections/i);
+  assert.match(laserSection, /σ<sub>e<\/sub>\(ν\)N<sub>2<\/sub>\s*&gt;\s*σ<sub>a<\/sub>\(ν\)N<sub>1<\/sub>/);
+  assert.match(laserSection, /cavity[^.]*gain[^.]*loss/i);
+  assert.match(laserSection, /assumes (?:a )?resonant/i);
+  assert.match(laserSection, /finite linewidth/i);
+  assert.doesNotMatch(laserSection, /gain threshold/i);
+  for (const id of ["laser-map-pump", "laser-pump"]) {
+    assert.match(laserSection, new RegExp(`id=["']${id}["'][^>]*step=["']5["']`));
+  }
+
+  assert.match(mathMaps, /xLabel:\s*"FREQUENCY RATIO\s+ν \/ ν₀"/);
+  assert.match(mathMaps, /yLabel:\s*"GAP RATIO\s+ΔE \/ \(hν₀\)"/);
+  assert.match(mathMaps, /laserGainRegime\(state\.pump\)/);
+  assert.doesNotMatch(mathMaps, /gain\s*>=\s*0\s*\?\s*"AMPLIFIES"/);
+});
+
+test("footer formula notes cite authoritative sources and corresponding GitHub implementations", () => {
+  const html = read(paths.html);
+  const start = html.indexOf('id="formula-notes"');
+  assert.ok(start >= 0, "missing formula notes footer");
+  const end = html.indexOf("</section>", start);
+  const notes = html.slice(start, end);
+  const noteIds = ["equivalence", "field", "orbit", "horizon", "laser", "bridge", "kruskal"];
+
+  for (const noteId of noteIds) {
+    const noteStart = notes.indexOf(`id="formula-note-${noteId}"`);
+    assert.ok(noteStart >= 0, `missing ${noteId} formula note`);
+    const noteEnd = notes.indexOf("</li>", noteStart);
+    const note = notes.slice(noteStart, noteEnd);
+    assert.match(note, /data-citation-kind="authority"/, `${noteId} needs an authoritative formula source`);
+    assert.ok(
+      matchAll(note, /data-citation-kind="implementation"/g).length >= 2,
+      `${noteId} needs model and graph or animation implementation links`,
+    );
+    assert.match(
+      note,
+      /https:\/\/github\.com\/dantetekanem\/dantetekanem\.github\.io\/blob\/main\/experiments\/einstein-field-lab\/js\/[^"#]+\.js#L\d+/,
+      `${noteId} needs a function-specific GitHub source anchor`,
+    );
+  }
+
+  for (const authority of [
+    "https://einsteinpapers.press.princeton.edu/vol3-trans/393",
+    "https://doi.org/10.1002/andp.19163540702",
+    "https://arxiv.org/abs/gr-qc/0411060",
+    "https://physics.nist.gov/cgi-bin/cuu/Value?h",
+    "https://doi.org/10.1103/PhysRev.48.73",
+    "https://doi.org/10.1119/1.15620",
+    "https://doi.org/10.1103/PhysRev.119.1743",
+  ]) {
+    assert.match(notes, new RegExp(authority.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")), `missing ${authority}`);
+  }
+});
+
 test("BFCache pagehide preserves live stages and later exits still clean them up", () => {
   const app = read(paths.app);
   const handler = app.match(
@@ -279,6 +363,112 @@ test("the Kruskal map preserves causal regions and exact time reversal", () => {
   approximately(whiteStart.space, blackEnd.space, 1e-12, "time-reversed path keeps its spatial endpoint");
   approximately(whiteEnd.time, -blackStart.time, 1e-12, "white-hole path ends at the time-reversed black-hole start");
   approximately(whiteEnd.space, blackStart.space, 1e-12, "time-reversed path keeps its exterior side");
+});
+
+test("the uncompactified and compact Kruskal paths are causal, reflected, and renderer-specific", () => {
+  const mathMaps = read(paths.mathMaps);
+  const extreme = read(paths.extreme);
+  read(paths.physics);
+  delete require.cache[require.resolve(paths.physics)];
+  const physics = require(paths.physics);
+
+  function assertCausal(pathFor, maximumSpacePerTime, label) {
+    let previous = pathFor(0);
+    for (let index = 1; index <= 1000; index += 1) {
+      const current = pathFor(index / 1000);
+      const deltaTime = current.time - previous.time;
+      const deltaSpace = current.space - previous.space;
+      assert.ok(deltaTime > 0, `${label} must remain future-directed at sample ${index}`);
+      assert.ok(
+        Math.abs(deltaSpace) <= maximumSpacePerTime * deltaTime + 1e-10,
+        `${label} must remain inside its local null slope at sample ${index}`,
+      );
+      previous = current;
+    }
+  }
+
+  assertCausal((amount) => physics.kruskalCausalPath(1, amount), 1, "uncompactified black-hole path");
+  assertCausal((amount) => physics.kruskalCausalPath(-1, amount), 1, "uncompactified white-hole path");
+  const physicalEnd = physics.kruskalCausalPath(1, 1);
+  approximately(physicalEnd.space ** 2 - physicalEnd.time ** 2, -1, 1e-12, "the physical path ends on r = 0");
+
+  const compactNullSlope = 0.46 / 0.72;
+  assertCausal((amount) => physics.compactKruskalCausalPath(1, amount), compactNullSlope, "compact black-hole path");
+  assertCausal((amount) => physics.compactKruskalCausalPath(-1, amount), compactNullSlope, "compact white-hole path");
+  const compactEnd = physics.compactKruskalCausalPath(1, 1);
+  approximately(compactEnd.space, 0, 1e-12, "the compact path reaches the middle of the drawn singularity");
+  approximately(compactEnd.time, 0.72, 1e-12, "the compact path ends on its own T = 0.72 boundary");
+
+  for (const amount of [0, 0.13, 0.5, 0.87, 1]) {
+    const physicalBlack = physics.kruskalCausalPath(1, 1 - amount);
+    const physicalWhite = physics.kruskalCausalPath(-1, amount);
+    approximately(physicalWhite.time, -physicalBlack.time, 1e-12, "physical path time reflection");
+    approximately(physicalWhite.space, physicalBlack.space, 1e-12, "physical path spatial reflection");
+    const compactBlack = physics.compactKruskalCausalPath(1, 1 - amount);
+    const compactWhite = physics.compactKruskalCausalPath(-1, amount);
+    approximately(compactWhite.time, -compactBlack.time, 1e-12, "compact path time reflection");
+    approximately(compactWhite.space, compactBlack.space, 1e-12, "compact path spatial reflection");
+  }
+
+  assert.match(mathMaps, /physics\.kruskalCausalPath\(/);
+  assert.doesNotMatch(mathMaps, /physics\.compactKruskalCausalPath\(/);
+  assert.match(extreme, /physics\.compactKruskalCausalPath\(/);
+  assert.doesNotMatch(extreme, /physics\.kruskalCausalPath\(/);
+});
+
+test("the bridge and Kruskal copy state the plotted domains and physical limits", () => {
+  const html = read(paths.html);
+  const wormholeStart = html.indexOf('id="wormhole"');
+  const wormhole = html.slice(wormholeStart, html.indexOf("</section>", wormholeStart));
+  assert.match(wormhole, /prescribed illustration path lengths/i);
+  assert.match(wormhole, /not (?:measured|computed)[^.]*Bézier[^.]*(?:proper|geodesic) distance/i);
+  assert.match(wormhole, /time-symmetric equatorial spatial slice/i);
+  assert.match(wormhole, /two (?:copies of the )?Schwarzschild exterior/i);
+  assert.match(wormhole, /r\s*(?:&gt;=|≥)\s*r<sub>s<\/sub>/i);
+  assert.match(wormhole, /no future-directed causal curve[^.]*one exterior[^.]*other/i);
+  assert.match(wormhole, /null energy condition/i);
+  assert.match(wormhole, /T<sub>μν<\/sub>k<sup>μ<\/sup>k<sup>ν<\/sup>\s*&lt;\s*0/);
+
+  const kruskalStart = html.indexOf('id="white-hole"');
+  const kruskal = html.slice(kruskalStart, html.indexOf("</section>", kruskalStart));
+  assert.match(kruskal, /time-reflection isometry/i);
+  assert.match(kruskal, /conventional (?:overall )?normalization/i);
+  assert.match(kruskal, /presentation control/i);
+  assert.match(kruskal, /not physical (?:time )?evolution/i);
+  assert.match(kruskal, /maximally extended eternal/i);
+  assert.match(kruskal, /realistic collapse[^.]*no past white-hole region/i);
+});
+
+test("the early relativity maps declare the frames and normalizations they use", () => {
+  const html = read(paths.html);
+  const mathMaps = read(paths.mathMaps);
+
+  const liftStart = html.indexOf('data-equation-for="elevator-canvas"');
+  const liftBlock = html.slice(liftStart, html.indexOf("</figure>", liftStart));
+  assert.match(liftBlock, /\|<abbr[^>]*>Δy<\/abbr>\|\s*[≃≈]/, "the positive lift plot must display a drop magnitude and approximation");
+  assert.match(liftBlock, /aL\/c²\s*≪\s*1/, "the lift approximation needs its small-acceleration domain");
+  assert.match(liftBlock, /uniformly upward-accelerating cabin/i);
+
+  const fieldStart = html.indexOf('class="field-balance-equation"');
+  const fieldEnd = html.indexOf("</figure>", fieldStart);
+  const fieldBlock = html.slice(fieldStart, fieldEnd);
+  assert.match(fieldBlock, /local orthonormal frame/i);
+  assert.match(fieldBlock, /signature\s*\(−\+\+\+\)/i);
+  assert.match(fieldBlock, /spatial (?:stress|pressure)/i);
+  assert.match(fieldBlock, /independent teaching values/i);
+  assert.match(mathMaps, /SPATIAL STRESS COMPONENT\s+κT/i);
+
+  const curvatureStart = html.indexOf('data-equation-for="curvature-canvas"');
+  const curvatureEnd = html.indexOf("</section>", curvatureStart);
+  assert.match(html.slice(curvatureStart, curvatureEnd), /G\s*=\s*1[^.]*reference time unit/i);
+
+  const horizonStart = html.indexOf('id="black-hole"');
+  const horizonEnd = html.indexOf("</section>", horizonStart);
+  const horizonBlock = html.slice(horizonStart, horizonEnd);
+  assert.match(horizonBlock, /dr\/dt<sub>GP<\/sub>/);
+  assert.match(horizonBlock, /uncharged/i);
+  assert.match(horizonBlock, /areal radius/i);
+  assert.match(mathMaps, /\(dr\/dt_GP\) \/ c/);
 });
 
 test("the pre-animation coordinate maps preserve the equations they graph", () => {
@@ -331,6 +521,7 @@ test("coordinate-map values animate toward a changed number without overshooting
   const reverse = physics.mapTransitionValue(1, -1, 1 / 60);
   assert.ok(reverse < 1 && reverse > -1, `reverse animated step must stay between endpoints, received ${reverse}`);
   assert.equal(physics.mapTransitionValue(0.99999, 1, 1 / 60), 1, "a settled value snaps exactly to its target");
+  assert.equal(physics.mapTransitionValue(0.99989, 1, 1 / 60), 1, "the settling step itself lands exactly on its target");
 });
 
 test("the later coordinate maps preserve gain, bridge, and Kruskal relationships", () => {
@@ -339,7 +530,7 @@ test("the later coordinate maps preserve gain, bridge, and Kruskal relationships
   const physics = require(paths.physics);
 
   approximately(physics.laserNetGainRelative(0.6), 0.2, 1e-12, "60 percent excitation clears the inversion threshold");
-  approximately(physics.laserNetGainRelative(0.5), 0, 1e-12, "50 percent excitation is the simplified gain threshold");
+  approximately(physics.laserNetGainRelative(0.5), 0, 1e-12, "50 percent excitation is the simplified transparency point");
   approximately(physics.schwarzschildEmbeddingHeight(2, 1), 2, 1e-12, "the spatial embedding at twice the horizon radius");
   approximately(physics.schwarzschildEmbeddingHeight(1, 1), 0, 1e-12, "the two embedding sheets meet at the throat");
   approximately(physics.kruskalRadialInvariant(2), Math.E ** 2, 1e-12, "constant radius is a Kruskal hyperbola");
