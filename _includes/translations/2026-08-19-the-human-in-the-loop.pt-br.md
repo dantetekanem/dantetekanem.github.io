@@ -150,11 +150,11 @@ As pessoas frequentemente descrevem o humano no loop como um gargalo. Acho que e
 
 O humano não está ali para digitar uma versão mais lenta do que o agente consegue produzir. O humano está ali para exercer julgamento: entender o sistema, questionar o que não faz sentido, rejeitar a resposta conveniente e errada, e decidir o que está bom o suficiente para ir para produção.
 
-O `pi-coder` não remove esse loop. Ele o comprime até que revisar, questionar, corrigir e continuar virem um único fluxo.
+O `pi-coder` não remove esse loop. Ele o comprime até que revisar, questionar, corrigir e finalizar virem um único fluxo. Ele também oferece algo que as pessoas frequentemente deixam de lado: uma compreensão detalhada da mudança.
 
-A engenharia de software não morreu. Ela está mudando. Não estamos sendo removidos; estamos nos adaptando. Agentes conseguem gerar mais código, em mais tarefas, mais rápido do que nunca. Isso torna o julgamento de engenharia mais valioso, não menos.
+A engenharia de software não morreu. Ela está mudando. Não estamos sendo removidos; estamos nos adaptando. Agentes conseguem gerar mais código, em mais tarefas, mais rápido do que nunca. Isso torna o julgamento de engenharia muito mais valioso.
 
-O agente pode escrever o código. O engenheiro **ainda é dono** do que vai para produção.
+O agente pode escrever o código. Você **ainda é dono** do que vai para produção.
 
 ## É Isso por Enquanto
 

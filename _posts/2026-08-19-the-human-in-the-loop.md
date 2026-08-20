@@ -181,11 +181,11 @@ People often describe the human in the loop as a bottleneck. I think that is the
 
 The human is not there to type a slower version of what the agent can produce. The human is there to provide judgment: to understand the system, question what does not make sense, reject the convenient wrong answer, and decide what is good enough to ship.
 
-`pi-coder` does not remove that loop. It compresses it until reviewing, questioning, correcting, and continuing become one flow.
+`pi-coder` does not remove that loop. It compresses it until reviewing, questioning, correcting, and finishing become one flow. It also gives you something people often overlook: a detailed understanding of the change.
 
-Software engineering is not dead. It is changing. We are not being removed; we are adapting. Agents can generate more code, across more tasks, faster than ever. That makes engineering judgment more valuable, not less.
+Software engineering is not dead. It is changing. We are not being removed; we are adapting. Agents can generate more code, across more tasks, faster than ever. That makes engineering judgment much more valuable.
 
-The agent can write the code. The engineer **still owns** what ships.
+The agent can write the code. You **still own** what ships.
 
 ## That's All for Now
 
