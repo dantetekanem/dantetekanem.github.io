@@ -1,4 +1,173 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-06-14T22:04:28-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Leo’s Blog - leonardopereira.com</title><subtitle>Personal blog where I share my thoughts about programming,  technology, and other interesting topics.</subtitle><entry><title type="html">Be better (much better): Agentic Tools and Pi</title><link href="http://localhost:4000/2026/06/14/be-better-much-better-agentic-tools-and-pi/" rel="alternate" type="text/html" title="Be better (much better): Agentic Tools and Pi" /><published>2026-06-14T13:04:00-04:00</published><updated>2026-06-14T13:04:00-04:00</updated><id>http://localhost:4000/2026/06/14/be-better-much-better-agentic-tools-and-pi</id><content type="html" xml:base="http://localhost:4000/2026/06/14/be-better-much-better-agentic-tools-and-pi/"><![CDATA[<p><img src="/assets/images/leo-pi.png" alt="Leo Pi" /></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-08-19T21:28:31-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Leo’s Blog - leonardopereira.com</title><subtitle>Personal blog where I share my thoughts about programming,  technology, and other interesting topics.</subtitle><entry><title type="html">The Human in the Loop</title><link href="http://localhost:4000/2026/08/19/the-human-in-the-loop/" rel="alternate" type="text/html" title="The Human in the Loop" /><published>2026-08-19T19:37:00-04:00</published><updated>2026-08-19T19:37:00-04:00</updated><id>http://localhost:4000/2026/08/19/the-human-in-the-loop</id><content type="html" xml:base="http://localhost:4000/2026/08/19/the-human-in-the-loop/"><![CDATA[<p><img src="/assets/images/human-in-the-loop.png" alt="Leo in the Loop" /></p>
+
+<p>Agentic tooling is everywhere. Across several companies, one engineer can now spawn more than 100 agents in a normal day. Research, coding, automation, scheduled tasks, reviews, and more.</p>
+
+<p>Agents can do a lot, but they cannot do everything (yet). Definitely not everything.</p>
+
+<p>How many agents you run depends on the task. One investigation? A frontier model can probably handle it alone if it has the context it needs. Does the task require more information? It can spawn agents to collect it from different sources. A complex implementation might use several writer agents updating independent parts at the same time. A larger orchestration can have one frontier agent delegating an entire graph of work.</p>
+
+<p>The scope can grow quickly. Keeping context under control is always important.</p>
+
+<p>That is the agent’s internal loop, which I will explore in another post. This one is about the part we cannot delegate away: the human in the loop.</p>
+
+<h2 id="the-loop">The Loop</h2>
+
+<p>When you use advanced coding agents with permission checks bypassed, such as <a href="https://pi.dev/">Pi</a>, <a href="https://code.claude.com/docs/en/overview">Claude Code</a>, or <a href="https://developers.openai.com/codex/">Codex</a>, the workflow often looks simple: provide one prompt and wait for the result.</p>
+
+<p>Sometimes it really is that simple. So let’s imagine a real enterprise task.</p>
+
+<p>You have a monolith whose main product is URL shortening. It has been around for decades and handles serious traffic. An engineer receives an apparently small task: track one additional telemetry signal for repeated requests from the same address. This is the first step toward introducing strict request budgets and returning proper <a href="https://www.rfc-editor.org/rfc/rfc6585.html#section-4"><code class="language-plaintext highlighter-rouge">429 Too Many Requests</code></a> responses.</p>
+
+<p>Simple, right?</p>
+
+<p>The issue is well written. It explains the problem, proposes a solution, and includes acceptance criteria. The telemetry system already exists. You point a mid-tier agent at the ticket and ask it to implement the change. Ten minutes later, it is done. Tests written. Expected quality delivered. All green, according to the agent.</p>
+
+<p>Your local environment takes a while to run (it is a monolith, after all), and your code repository infrastructure could use a little more pressure - I will not name and shame - so you trust the summary and push the branch for review.</p>
+
+<p>CI starts. Twenty minutes later, you get the notification: everything passed. Now it is time for code review. You do not want to throw AI slop over the wall at your teammates, so you inspect the work first.</p>
+
+<p>Then you find it.</p>
+
+<p>The agent added useless comments that simply repeat the issue. Worse, it reimplemented the telemetry machinery even though the codebase already has a library for exactly that job.</p>
+
+<p>Terrible. Terrible.</p>
+
+<p>You go back to the coding agent, provide your feedback, and wait for another round:</p>
+
+<p><img src="/assets/images/human-loop.png" alt="The coding-agent review loop" style="width: 50%;" /></p>
+
+<p>Reviewing code is the heavy part of this loop, and it is necessary. Agents are very good at writing code, but even a good prompt cannot eliminate judgment. The result still depends on what context the agent captured, which path it chose, and what it optimized for.</p>
+
+<p>An agent can take the shortest route to a green test instead of the best route for the codebase. It can solve the ticket literally while missing the architecture around it. It can duplicate an abstraction, optimize its own loop, or confidently produce something that looks correct until somebody who knows the system actually reads it.</p>
+
+<p>Models can review the work too. They should. Spawn a different model, use a different prompt, and let it search for what the writer missed. We do this at work all the time, and those reviewers often find real problems.</p>
+
+<p>But the human is still there.</p>
+
+<p>Today, I do not trust a fully autonomous chain to guarantee merge-ready code with no human review. Not yet. The human brings historical context, product judgment, taste, and - most importantly - responsibility for what ships.</p>
+
+<p>The problem is not having a human in the loop. The problem is how expensive and disconnected that loop can feel.</p>
+
+<p>That is why I created <a href="https://github.com/dantetekanem/pi-coder">pi-coder</a>.</p>
+
+<h2 id="speeding-up-the-loop">Speeding Up the Loop</h2>
+
+<p>You are probably a software engineer. This post, and most of this blog, has a very specific audience: programmers.</p>
+
+<p>And I am my favorite customer. I like building tools that make me better, especially tools that reduce the friction of keeping myself in the loop.</p>
+
+<p><strong>pi-coder</strong> provides two commands: <code class="language-plaintext highlighter-rouge">/diff</code> and <code class="language-plaintext highlighter-rouge">/code</code>. Let’s start with the biggest use case: reviewing a diff.</p>
+
+<p>Run <code class="language-plaintext highlighter-rouge">/diff</code>, and you will see this:</p>
+
+<p><img src="https://github.com/dantetekanem/pi-coder/raw/main/docs/assets/code.gif" alt="pi-coder /diff example" /></p>
+
+<p>In a few seconds, all the changes are right in front of you. You can see what happened, navigate the files, and focus on what needs your attention.</p>
+
+<p>Press <code class="language-plaintext highlighter-rouge">v</code> to switch between side-by-side and line-by-line views. Use the arrow keys to move between files and around the diff. Simple. Then read what the agent actually did - not what it claimed it did ten minutes ago.</p>
+
+<p>That distinction matters.</p>
+
+<p><code class="language-plaintext highlighter-rouge">pi-coder</code> has five panes, toggled directly from the keyboard:</p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">1</code> - files</li>
+  <li><code class="language-plaintext highlighter-rouge">2</code> - code</li>
+  <li><code class="language-plaintext highlighter-rouge">3</code> - comments</li>
+  <li><code class="language-plaintext highlighter-rouge">4</code> - pull request context (remote reviews only)</li>
+  <li><code class="language-plaintext highlighter-rouge">5</code> - pull request replies (remote reviews only)</li>
+</ol>
+
+<p>Rendering a diff is not the interesting part. The interesting part is what happens when the review and the conversation with the agent live in the same workflow.</p>
+
+<h3 id="discuss">Discuss</h3>
+
+<p>See a line you do not understand? Press <code class="language-plaintext highlighter-rouge">d</code>, type your question, and ask the agent why that change exists:</p>
+
+<p><img src="/assets/images/pi-coder-print-1.png" alt="Discussing a line in pi-coder" style="width: 70%;" /></p>
+
+<p>A discussion is not a request to modify the code. It asks the agent to explain the change in prose while keeping the file untouched. You stay in review mode instead of turning every question into an edit.</p>
+
+<h3 id="comment">Comment</h3>
+
+<p>Now suppose you do want a change. Press <code class="language-plaintext highlighter-rouge">c</code> and describe the correction:</p>
+
+<p><img src="/assets/images/pi-coder-print-2.png" alt="Commenting on a line in pi-coder" style="width: 70%;" /></p>
+
+<p>A comment is actionable review feedback. It tells the agent that something should change and keeps that instruction attached to the relevant file and line.</p>
+
+<h3 id="the-prompt">The Prompt</h3>
+
+<p>Discussions and comments accumulate throughout the review. When you are ready, press <code class="language-plaintext highlighter-rouge">s</code> to submit them and open the prompt input. <code class="language-plaintext highlighter-rouge">pi-coder</code> turns everything you collected into a structured prompt that you can send back to the agent:</p>
+
+<p><img src="/assets/images/pi-coder-print-3.png" alt="The structured prompt generated by pi-coder" style="width: 70%;" /></p>
+
+<p>No manually copying filenames, line numbers, questions, and corrections into another prompt. The agent also has tools such as <code class="language-plaintext highlighter-rouge">open_code</code> and <code class="language-plaintext highlighter-rouge">open_code_diff</code>, so it can bring you back to the exact code or review when needed.</p>
+
+<p>This does not remove the review. It removes the ceremony around it.</p>
+
+<p>For me, that makes the loop feel 100 times faster.</p>
+
+<h2 id="reviewing-code-in-the-wild">Reviewing Code in the Wild</h2>
+
+<p><code class="language-plaintext highlighter-rouge">pi-coder</code> also supports remote reviews. The API is deliberately simple:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/diff remote &lt;url&gt;
+</code></pre></div></div>
+
+<p>The workflow stays mostly the same, with a few additions:</p>
+
+<ul>
+  <li>Comments can be posted to GitHub and other configured providers. GitHub is the default and requires the <a href="https://cli.github.com/manual/gh">GitHub CLI (<code class="language-plaintext highlighter-rouge">gh</code>)</a> locally.</li>
+  <li>You can keep the agent in the loop when you need context or a second opinion.</li>
+  <li>You can approve the pull request or request changes from the review.</li>
+</ul>
+
+<p><img src="/assets/images/pi-coder-print-4.png" alt="Reviewing a remote pull request in pi-coder" style="width: 85%;" /></p>
+
+<p>The changes to the workflow are small. The impact is not.</p>
+
+<p>You already review code written by other people. What happens when you find a change you do not understand? Instead of leaving the review, copying a snippet, rebuilding the context in a separate chat, and eventually finding your way back, ask your local agent from the review itself.</p>
+
+<p>That agent already has your skills, extensions, customized harness, and project context. The question stays scoped. The answer comes back where you need it. You stay in control.</p>
+
+<h2 id="minimum-viable-code-editor-mvce">Minimum Viable Code Editor (MVCE)</h2>
+
+<p>Another small need I kept finding in my day-to-day work was being able to see the whole codebase and navigate through it.</p>
+
+<p>I am not well versed in every <a href="https://neovim.io/">Neovim</a> shortcut, so opening a <a href="https://github.com/tmux/tmux/wiki">tmux</a> pane with <code class="language-plaintext highlighter-rouge">nvim &lt;folder&gt;/</code> was not really working for me. Years of <a href="https://code.visualstudio.com/">Visual Studio Code</a> made my muscle memory work in a different way. But VS Code is not acceptable for this either. It is just too heavy.</p>
+
+<p>I need something fast and light, with navigation that feels familiar. And I need the agent to open the exact code it wants me to see.</p>
+
+<p>So <code class="language-plaintext highlighter-rouge">pi-coder</code> also includes <code class="language-plaintext highlighter-rouge">/code</code>:</p>
+
+<p><img src="https://github.com/dantetekanem/pi-coder/raw/main/docs/assets/diff.gif" alt="Navigating code with pi-coder" /></p>
+
+<p>Type <code class="language-plaintext highlighter-rouge">/code</code> and you will have it. From there, you can navigate the code, press <code class="language-plaintext highlighter-rouge">d</code> to discuss a file, ask questions, and make changes without breaking the loop. The agent can open it for you too, taking you directly to the code it wants to show you.</p>
+
+<p><code class="language-plaintext highlighter-rouge">/code</code> is not trying to replace a full editor. It was designed to cover a very small need - probably 1% of what an editor does - but it covers the right 1% for this workflow.</p>
+
+<h2 id="turning-the-loop-into-flow">Turning the Loop Into Flow</h2>
+
+<p><img src="/assets/images/human-loop-approved.png" alt="The human loop becoming an approved result" style="width: 60%;" /></p>
+
+<p>People often describe the human in the loop as a bottleneck. I think that is the wrong framing.</p>
+
+<p>The human is not there to type a slower version of what the agent can produce. The human is there to provide judgment: to understand the system, question what does not make sense, reject the convenient wrong answer, and decide what is good enough to ship.</p>
+
+<p><code class="language-plaintext highlighter-rouge">pi-coder</code> does not remove that loop. It compresses it until reviewing, questioning, correcting, and continuing become one flow.</p>
+
+<p>Software engineering is not dead. It is changing. We are not being removed; we are adapting. Agents can generate more code, across more tasks, faster than ever. That makes engineering judgment more valuable, not less.</p>
+
+<p>The agent can write the code. The engineer <strong>still owns</strong> what ships.</p>
+
+<h2 id="thats-all-for-now">That’s All for Now</h2>
+
+<p>Pull requests, comments, and feedback are more than welcome on <a href="https://github.com/dantetekanem/pi-coder"><code class="language-plaintext highlighter-rouge">pi-coder</code></a>. Let me know what you think about this flow and what you do differently in your own workflow.</p>
+
+<p>As I said earlier, I will share more about how I use Pi day to day and how these agent loops work behind the scenes. You can reach me at <a href="mailto:me@leonardopereira.com">me@leonardopereira.com</a>.</p>
+
+<p>Happy coding!</p>]]></content><author><name></name></author><category term="ai" /><category term="agentic development" /><category term="engineering culture" /><category term="pi" /><category term="pi-coder" /><category term="code review" /><category term="ai agents" /><category term="agentic coding" /><category term="developer productivity" /><category term="human in the loop" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Be better (much better): Agentic Tools and Pi</title><link href="http://localhost:4000/2026/06/14/be-better-much-better-agentic-tools-and-pi/" rel="alternate" type="text/html" title="Be better (much better): Agentic Tools and Pi" /><published>2026-06-14T13:04:00-04:00</published><updated>2026-06-14T13:04:00-04:00</updated><id>http://localhost:4000/2026/06/14/be-better-much-better-agentic-tools-and-pi</id><content type="html" xml:base="http://localhost:4000/2026/06/14/be-better-much-better-agentic-tools-and-pi/"><![CDATA[<p><img src="/assets/images/leo-pi.png" alt="Leo Pi" /></p>
 
 <p>I have not written a single line of code this year. Not one. And I have shipped more than in any other year of my career — hundreds of thousands of lines changed. If that sounds reckless, good. Stay with me, because it is the opposite.</p>
 
@@ -239,6 +408,7 @@ Do not edit files. Give me a short map of the important files and the first risk
   <li><a href="https://github.com/leop-shopify/pi-code-diff"><strong>pi-code-diff</strong></a> — cleaner diffs for reviewing exactly what the agent changed.</li>
   <li><a href="https://github.com/leop-shopify/pi-persona"><strong>pi-persona</strong></a> — give the agent a custom persona.</li>
   <li><a href="https://github.com/leop-shopify/ada"><strong>ada</strong></a> — an artifact-driven agent.</li>
+  <li><a href="https://github.com/dantetekanem/pi-thinking-messaging"><strong>pi-thinking-messaging</strong></a> — adds elapsed time and token count to Pi’s working/thinking loader.</li>
 </ul>
 
 <p>And third-party ones I keep switched on:</p>

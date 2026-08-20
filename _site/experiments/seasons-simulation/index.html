@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#07111f">
+    <meta
+      name="description"
+      content="The Seasonal Meridian is an offline Earth–Sun instrument showing how a fixed 23.44° axial tilt changes daylight and seasons around the world."
+    >
+    <title>The Seasonal Meridian</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#controls">Skip to observatory controls</a>
+
+    <main class="experience" id="experience">
+      <canvas
+        class="space-canvas"
+        id="space-canvas"
+        tabindex="0"
+        aria-label="Interactive Earth and Sun observatory. Drag to orbit the current view, pinch or scroll to zoom, or use arrow and plus or minus keys while focused."
+        aria-describedby="interaction-help"
+      ></canvas>
+
+      <section class="webgl-fallback" id="webgl-fallback" aria-labelledby="fallback-title" hidden>
+        <canvas
+          id="fallback-canvas"
+          class="fallback-canvas"
+          role="img"
+          aria-label="Static diagram of Earth on its calibrated orbit, lit by the Sun with a fixed tilted axis."
+        ></canvas>
+        <div class="fallback-note">
+          <p class="eyebrow">Static observatory</p>
+          <h2 id="fallback-title">The seasonal relationship remains available.</h2>
+          <p>WebGL is unavailable, so this local Canvas 2D diagram replaces the interactive globe. Country, date, season, and daylight controls still work.</p>
+          <dl>
+            <div><dt>Place</dt><dd id="fallback-country">Canada</dd></div>
+            <div><dt>Date</dt><dd id="fallback-date">Jan 01</dd></div>
+            <div><dt>Season</dt><dd id="fallback-season">Northern winter</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <header class="orientation-strip" aria-label="Observatory orientation">
+        <div class="orientation-title">
+          <p class="eyebrow">Solstice Observatory <span aria-hidden="true">/</span> 01</p>
+          <h1>The Seasonal Meridian</h1>
+        </div>
+        <p class="mechanism-statement">A fixed 23.44° axial tilt changes solar declination and daylight as Earth travels around the Sun.</p>
+        <div class="season-key" aria-label="Northern astronomical season sequence">
+          <span>Winter</span><i aria-hidden="true"></i><span>Spring</span><i aria-hidden="true"></i><span>Summer</span><i aria-hidden="true"></i><span>Autumn</span>
+        </div>
+      </header>
+
+      <section class="country-annotation" id="country-annotation" aria-label="Selected country on Earth">
+        <svg class="annotation-lines" id="annotation-lines" aria-hidden="true">
+          <path class="leader-ghost" id="leader-ghost"></path>
+          <path class="leader-line" id="leader-line"></path>
+          <circle class="surface-pulse" id="surface-pulse" r="8"></circle>
+          <circle class="surface-point" id="surface-point" r="5"></circle>
+          <line class="axis-extension" id="axis-extension"></line>
+          <circle class="axis-cap" id="axis-cap" r="2.5"></circle>
+        </svg>
+
+        <div class="country-tag" id="country-tag">
+          <p class="tag-index" id="tag-index">Selected country / CAN</p>
+          <h2 id="tag-country">Canada</h2>
+          <p class="tag-coordinates" id="tag-coordinates">60.3°N · 101.9°W</p>
+          <p class="tag-horizon" id="tag-horizon">OCCLUDED</p>
+        </div>
+
+        <p class="axis-label" id="axis-label">N&nbsp;&nbsp;23.44°</p>
+      </section>
+
+      <p class="interaction-hint" id="interaction-help">
+        <span>Drag: orbit current view</span>
+        <span aria-hidden="true">/</span>
+        <span>Scroll: zoom</span>
+      </p>
+
+      <aside class="control-panel" id="controls" aria-label="Country, date, and simulation controls">
+        <div
+          class="panel-handle"
+          id="panel-handle"
+          role="button"
+          tabindex="0"
+          aria-label="Move observatory controls. Use arrow keys, Shift plus arrow for larger steps, Home or End for corners, Enter to toggle its resting position, and Escape to cancel a drag."
+          aria-describedby="panel-move-help"
+        >
+          <span class="grip" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span>Observatory controls</span>
+          <span class="running-state" id="running-state"><i aria-hidden="true"></i> Running</span>
+        </div>
+        <p class="sr-only" id="panel-move-help">On a phone, move the bottom sheet vertically. On larger screens, move it within the viewport.</p>
+
+        <div class="panel-content">
+          <section class="country-control" aria-labelledby="country-label">
+            <div class="section-heading">
+              <label class="eyebrow" id="country-label" for="country-search">Country / sovereignty</label>
+              <span class="record-count" id="record-count">201 mapped</span>
+            </div>
+
+            <div class="country-combobox" id="country-combobox">
+              <svg class="search-icon" viewBox="0 0 20 20" aria-hidden="true">
+                <circle cx="8.6" cy="8.6" r="5.2"></circle>
+                <path d="m12.5 12.5 4 4"></path>
+              </svg>
+              <input
+                id="country-search"
+                type="search"
+                value="Canada"
+                autocomplete="off"
+                spellcheck="false"
+                role="combobox"
+                aria-autocomplete="list"
+                aria-expanded="false"
+                aria-controls="country-options"
+                aria-activedescendant=""
+              >
+              <span class="country-code" id="country-code">CAN</span>
+              <div class="country-options" id="country-options" role="listbox" hidden></div>
+            </div>
+          </section>
+
+          <section class="date-readout" aria-label="Current simulated date and season">
+            <div class="date-line">
+              <time id="current-date" datetime="2025-01-01">
+                <span class="date-month" id="date-month">JAN</span>
+                <span class="date-divider" aria-hidden="true"></span>
+                <span class="date-number" id="date-number">01</span>
+              </time>
+              <div class="day-index">
+                <span>Day</span>
+                <strong id="day-number">001</strong>
+              </div>
+            </div>
+
+            <div class="season-line">
+              <span class="season-symbol" id="season-symbol" aria-hidden="true"></span>
+              <div>
+                <span class="eyebrow">At selected latitude</span>
+                <strong id="season-name">Northern winter</strong>
+              </div>
+            </div>
+
+            <dl class="solar-facts">
+              <div><dt>Daylight</dt><dd id="daylight-value">5h 38m</dd></div>
+              <div><dt>Declination</dt><dd id="declination-value">−22.9°</dd></div>
+              <div><dt>Solar noon</dt><dd id="solar-noon-value">6.8°</dd></div>
+            </dl>
+          </section>
+
+          <section class="timeline-control" aria-labelledby="timeline-label">
+            <div class="section-heading">
+              <label class="eyebrow" id="timeline-label" for="timeline">Orbit through the year</label>
+              <output id="timeline-output" for="timeline">Jan 1</output>
+            </div>
+            <div class="timeline-track-wrap">
+              <div class="season-track" aria-hidden="true">
+                <i class="track-winter"></i>
+                <i class="track-spring"></i>
+                <i class="track-summer"></i>
+                <i class="track-autumn"></i>
+                <span class="orbit-cursor" id="orbit-cursor"></span>
+              </div>
+              <input
+                class="timeline-range"
+                id="timeline"
+                type="range"
+                min="0"
+                max="365.24"
+                step="0.01"
+                value="0"
+                aria-valuetext="January 1, day 1, Northern winter"
+              >
+            </div>
+            <div class="orbit-marks" aria-hidden="true">
+              <span>Jan</span><span>Mar</span><span>Jun</span><span>Sep</span><span>Dec</span>
+            </div>
+          </section>
+
+          <section class="playback-control" aria-labelledby="speed-label">
+            <div class="speed-topline">
+              <button class="play-button" id="play-toggle" type="button" aria-label="Pause simulation" aria-pressed="true">
+                <span class="icon-stack" aria-hidden="true">
+                  <svg class="pause-icon" viewBox="0 0 20 20"><path d="M6.3 4.5v11M13.7 4.5v11"></path></svg>
+                  <svg class="play-icon" viewBox="0 0 20 20"><path d="m7 4.7 7.7 5.3L7 15.3V4.7Z"></path></svg>
+                </span>
+              </button>
+
+              <div class="speed-field">
+                <label class="eyebrow" id="speed-label" for="speed">Simulation speed</label>
+                <output id="speed-output" for="speed"><strong>1.0</strong><span>day / sec</span></output>
+              </div>
+
+              <div class="view-switch" aria-label="Camera view">
+                <button id="earth-view" type="button" aria-pressed="false">Earth</button>
+                <button class="is-active" id="overview-view" type="button" aria-pressed="true">Overview</button>
+              </div>
+            </div>
+
+            <input
+              class="speed-range"
+              id="speed"
+              type="range"
+              min="0"
+              max="5"
+              step="1"
+              value="2"
+              aria-valuetext="1.0 simulated day per second"
+            >
+
+            <div class="speed-presets" aria-label="Speed stops">
+              <button type="button" data-speed="0.1">0.1</button>
+              <button type="button" data-speed="0.5">0.5</button>
+              <button class="is-active" type="button" data-speed="1">1</button>
+              <button type="button" data-speed="5">5</button>
+              <button type="button" data-speed="10">10</button>
+              <button type="button" data-speed="30">30</button>
+            </div>
+          </section>
+
+          <footer class="panel-footer">
+            <span>23.44° fixed axis · 365.2422 d orbit</span>
+            <span>Visual spin ≤ 12 h/s · scale compressed</span>
+          </footer>
+        </div>
+      </aside>
+
+      <footer class="map-credit">
+        <span>Natural Earth 1:50m / public domain</span>
+        <span>de facto boundaries</span>
+      </footer>
+
+      <p class="sr-only" id="country-announcement" aria-live="polite"></p>
+      <p class="sr-only" id="panel-announcement" aria-live="polite"></p>
+    </main>
+
+    <noscript>
+      <p class="noscript-message">This local observatory needs JavaScript to calculate Earth’s seasons.</p>
+    </noscript>
+
+    <script src="data/countries.js" defer></script>
+    <script src="js/math.js" defer></script>
+    <script src="js/engine.js" defer></script>
+    <script src="js/app.js" defer></script>
+  </body>
+</html>
