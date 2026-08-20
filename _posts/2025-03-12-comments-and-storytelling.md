@@ -2,6 +2,7 @@
 layout: post
 title: Comments and Storytelling
 date: 2025-03-12 15:38 -0400
+description: Good comments do not narrate code. They preserve the history, constraints, and business decisions the code cannot explain, so the next refactor does not erase something important.
 categories: [programming, software design]
 tags: [clean code, a philosophy of software design, comments, programming]
 i18n:

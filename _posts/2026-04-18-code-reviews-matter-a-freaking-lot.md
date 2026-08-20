@@ -2,6 +2,7 @@
 layout: post
 title: Code Reviews Matter a Freaking Lot
 date: 2026-04-18 14:04 -0400
+description: After 1,100 comments across 320 pull requests and more than a million lines of code, these are the principles I use to turn code review into shared ownership instead of gatekeeping.
 categories: [programming, software design, engineering culture]
 tags: [code review, pull requests, clean code, SOLID, testing, mentorship, ruby, rails]
 i18n:

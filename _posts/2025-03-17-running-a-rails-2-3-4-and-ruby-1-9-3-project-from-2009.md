@@ -2,6 +2,7 @@
 layout: post
 title: Running a Rails 2.3.4 and Ruby 1.9.3 Project from 2009!
 date: 2025-03-17 23:07 -0400
+description: With Docker and AI, a Rails 2.3.4 application from 2009 ran again after fifteen years, bringing back old tests, plugins, encoding problems, and a lot of memories.
 categories: [programming, ai, back to the past]
 i18n:
   pt_br:

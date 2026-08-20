@@ -2,6 +2,7 @@
 layout: post
 title: 'Be better (much better): Agentic Tools and Pi'
 date: 2026-06-14 13:04 -0400
+description: I stopped typing code and started running loops of agents. This is the practical guide to the tools, setup, orchestration, review habits, and responsibility that made it work.
 categories: [ai, agentic development, engineering culture]
 tags: [pi, claude code, codex, ai agents, agentic coding, llm, developer productivity, prompt engineering, extensions, shopify]
 i18n:

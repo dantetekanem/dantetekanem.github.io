@@ -2,6 +2,7 @@
 layout: post
 title: "Welcome to My Blog!"
 date: 2025-03-12 15:18:17 -0400
+description: This blog is where I share what I am learning about Ruby, Rails, software, and the interesting things I find while doing the work.
 categories: [general, introduction]
 tags: [welcome, jekyll, blog]
 i18n:

@@ -2,6 +2,7 @@
 layout: post
 title: AI, Cursor and speeding up development
 date: 2025-03-12 17:38 -0400
+description: Building this blog from zero to production took one hour. The real lesson was not speed, but how scope, review, and responsibility turn AI output into production-ready work.
 categories: [programming, ai, software development]
 tags: [ai, cursor, 10x engineer]
 i18n:
