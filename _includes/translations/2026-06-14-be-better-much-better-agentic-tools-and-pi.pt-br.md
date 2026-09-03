@@ -222,7 +222,6 @@ Alguns que eu mesmo construí e rodo todos os dias:
 - [**pi-agentic-search**](https://github.com/dantetekanem/pi-agentic-search) — faz o agente buscar com intenção, não apenas vagar por aí.
 - [**pi-render-images-tmux**](https://github.com/dantetekanem/pi-render-images-tmux) — renderiza imagens direto no tmux (sim, aquele avatar ali em cima).
 - [**pi-feedback**](https://github.com/dantetekanem/pi-feedback) — um feedback loop mais apertado com o agente.
-- [**friday**](https://github.com/dantetekanem/friday) — um companheiro de comunicação que melhora a forma como o agente fala de volta.
 - [**pi-code-diff**](https://github.com/leop-shopify/pi-code-diff) — diffs mais limpos para revisar exatamente o que o agente mudou.
 - [**pi-persona**](https://github.com/leop-shopify/pi-persona) — dá ao agente uma persona customizada.
 - [**ada**](https://github.com/leop-shopify/ada) — um agente orientado por artefatos.
@@ -311,7 +310,7 @@ Mesmo que você tenha digitado zero linhas, você aprovou o formato da mudança.
 
 Antes de AI, uma review protegia você do ponto cego de outra pessoa. Agora ela também protege você de um output que pode parecer completo antes de ser realmente entendido. O código perigoso nem sempre é feio. Às vezes ele tem testes verdes, nomes limpos e uma idempotency key faltando que ninguém percebeu.
 
-É por isso que eu me importo tanto com o loop de review. [pi-code-diff](https://github.com/leop-shopify/pi-code-diff) me mostra exatamente o que o agente tocou. [pi-feedback](https://github.com/dantetekanem/pi-feedback) me permite devolver correção sem transformar a sessão inteira em ruído. [friday](https://github.com/dantetekanem/friday) mantém a conversa apertada. Eu não preciso de mais narração do agente. Eu preciso de um diff claro, um caminho preciso de correção e um loop que me deixe entrar quando julgamento importa.
+É por isso que eu me importo tanto com o loop de review. [pi-code-diff](https://github.com/leop-shopify/pi-code-diff) me mostra exatamente o que o agente tocou. [pi-feedback](https://github.com/dantetekanem/pi-feedback) me permite devolver correção sem transformar a sessão inteira em ruído. Eu não preciso de mais narração do agente. Eu preciso de um diff claro, um caminho preciso de correção e um loop que me deixe entrar quando julgamento importa.
 
 Para mim, Pi não é permissão para se importar menos. É uma forma de mover o cuidado para um lugar melhor. Menos caçar arquivos. Mais perguntar se isso pertence ao sistema. Menos "por favor escreva este método." Mais "prove que este é o design certo, com dados, docs, testes e o menor diff seguro."
 

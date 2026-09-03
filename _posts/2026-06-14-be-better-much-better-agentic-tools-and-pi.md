@@ -254,7 +254,6 @@ A few I built myself and run daily:
 - [**pi-agentic-search**](https://github.com/dantetekanem/pi-agentic-search) — make the agent search with intent, not just wander around.
 - [**pi-render-images-tmux**](https://github.com/dantetekanem/pi-render-images-tmux) — render images right inside tmux (yes, that avatar up there).
 - [**pi-feedback**](https://github.com/dantetekanem/pi-feedback) — a tighter feedback loop with the agent.
-- [**friday**](https://github.com/dantetekanem/friday) — a communications companion that sharpens how the agent talks back.
 - [**pi-coder**](https://github.com/dantetekanem/pi-coder) — a code workbench and cleaner diffs for reviewing exactly what the agent changed.
 - [**pi-persona**](https://github.com/leop-shopify/pi-persona) — give the agent a custom persona.
 - [**ada**](https://github.com/leop-shopify/ada) — an artifact-driven agent.
@@ -343,7 +342,7 @@ Even if you typed zero lines, you approved the shape of the change. If it breaks
 
 Before AI, a review protected you from another person's blind spot. Now it also protects you from output that can look complete before it is truly understood. The dangerous code is not always ugly. Sometimes it has green tests, clean names, and one missing idempotency key nobody noticed.
 
-That is why I care so much about the review loop. [pi-coder](https://github.com/dantetekanem/pi-coder) shows me exactly what the agent touched. [pi-feedback](https://github.com/dantetekanem/pi-feedback) lets me hand correction back without turning the whole session into noise. [friday](https://github.com/dantetekanem/friday) keeps the conversation tight. I do not need more narration from the agent. I need a clear diff, a precise correction path, and a loop that lets me step in when judgment matters.
+That is why I care so much about the review loop. [pi-coder](https://github.com/dantetekanem/pi-coder) shows me exactly what the agent touched. [pi-feedback](https://github.com/dantetekanem/pi-feedback) lets me hand correction back without turning the whole session into noise. I do not need more narration from the agent. I need a clear diff, a precise correction path, and a loop that lets me step in when judgment matters.
 
 For me, Pi is not permission to care less. It is a way to move the care to a better place. Less hunting for files. More asking whether this belongs in the system. Less "please write this method." More "prove this is the right design, with data, docs, tests, and the smallest safe diff."
 
