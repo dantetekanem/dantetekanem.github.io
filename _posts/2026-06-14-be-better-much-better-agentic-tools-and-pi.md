@@ -181,7 +181,7 @@ Install a memory system so the agent can learn as it goes and carry that knowled
 
 ## Multiply your agents, and learn to orchestrate
 
-Like I said, Claude Code had agent teams in experimental for a while. It's a very expensive feature — it lets you spawn new agents running in parallel. So instead of 1 expensive agent, you have 5 or 10. Pi does not have this by default either, but you can easily install a package to do it. I personally use [pi-teams](https://www.npmjs.com/package/pi-teams) for this. You will also need [tmux](https://github.com/tmux/tmux) for it.
+Like I said, Claude Code had agent teams in experimental for a while. It's a very expensive feature — it lets you spawn new agents running in parallel. So instead of 1 expensive agent, you have 5 or 10. Pi does not have this by default either, but you can easily install a package to do it. I personally use [pi-extended-teams](https://www.npmjs.com/package/pi-extended-teams) for this. You will also need [tmux](https://github.com/tmux/tmux) for it.
 
 When I say **spawn agents**, I mean creating separate agent sessions, usually in separate tmux panes, each with its own context window and one narrow job. One agent reads docs. One traces the code. One writes tests. One reviews the final diff. They report back to a lead agent, or directly to you.
 
@@ -255,7 +255,7 @@ A few I built myself and run daily:
 - [**pi-render-images-tmux**](https://github.com/dantetekanem/pi-render-images-tmux) — render images right inside tmux (yes, that avatar up there).
 - [**pi-feedback**](https://github.com/dantetekanem/pi-feedback) — a tighter feedback loop with the agent.
 - [**friday**](https://github.com/dantetekanem/friday) — a communications companion that sharpens how the agent talks back.
-- [**pi-code-diff**](https://github.com/leop-shopify/pi-code-diff) — cleaner diffs for reviewing exactly what the agent changed.
+- [**pi-coder**](https://github.com/dantetekanem/pi-coder) — a code workbench and cleaner diffs for reviewing exactly what the agent changed.
 - [**pi-persona**](https://github.com/leop-shopify/pi-persona) — give the agent a custom persona.
 - [**ada**](https://github.com/leop-shopify/ada) — an artifact-driven agent.
 - [**pi-thinking-messaging**](https://github.com/dantetekanem/pi-thinking-messaging) — adds elapsed time and token count to Pi's working/thinking loader.
@@ -343,7 +343,7 @@ Even if you typed zero lines, you approved the shape of the change. If it breaks
 
 Before AI, a review protected you from another person's blind spot. Now it also protects you from output that can look complete before it is truly understood. The dangerous code is not always ugly. Sometimes it has green tests, clean names, and one missing idempotency key nobody noticed.
 
-That is why I care so much about the review loop. [pi-code-diff](https://github.com/leop-shopify/pi-code-diff) shows me exactly what the agent touched. [pi-feedback](https://github.com/dantetekanem/pi-feedback) lets me hand correction back without turning the whole session into noise. [friday](https://github.com/dantetekanem/friday) keeps the conversation tight. I do not need more narration from the agent. I need a clear diff, a precise correction path, and a loop that lets me step in when judgment matters.
+That is why I care so much about the review loop. [pi-coder](https://github.com/dantetekanem/pi-coder) shows me exactly what the agent touched. [pi-feedback](https://github.com/dantetekanem/pi-feedback) lets me hand correction back without turning the whole session into noise. [friday](https://github.com/dantetekanem/friday) keeps the conversation tight. I do not need more narration from the agent. I need a clear diff, a precise correction path, and a loop that lets me step in when judgment matters.
 
 For me, Pi is not permission to care less. It is a way to move the care to a better place. Less hunting for files. More asking whether this belongs in the system. Less "please write this method." More "prove this is the right design, with data, docs, tests, and the smallest safe diff."
 
