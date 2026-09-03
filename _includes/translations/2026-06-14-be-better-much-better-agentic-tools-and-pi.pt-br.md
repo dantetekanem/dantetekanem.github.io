@@ -149,7 +149,7 @@ Instale um sistema de memória para que o agente aprenda enquanto trabalha e lev
 
 ## Multiplique seus agentes e aprenda a orquestrar
 
-Como eu disse, Claude Code teve agent teams em experimental por um tempo. É uma feature muito cara — ela permite spawnar novos agentes rodando em paralelo. Então, em vez de 1 agente caro, você tem 5 ou 10. Pi também não tem isso por padrão, mas você pode instalar facilmente um pacote para fazer isso. Eu pessoalmente uso [pi-teams](https://www.npmjs.com/package/pi-teams) para isso. Você também vai precisar de [tmux](https://github.com/tmux/tmux).
+Como eu disse, Claude Code teve agent teams em experimental por um tempo. É uma feature muito cara — ela permite spawnar novos agentes rodando em paralelo. Então, em vez de 1 agente caro, você tem 5 ou 10. Pi também não tem isso por padrão, mas você pode instalar facilmente um pacote para fazer isso. Eu pessoalmente uso [pi-extended-teams](https://www.npmjs.com/package/pi-extended-teams) para isso. Você também vai precisar de [tmux](https://github.com/tmux/tmux).
 
 Quando eu digo **spawnar agentes**, quero dizer criar sessões de agentes separadas, geralmente em panes separados do tmux, cada uma com sua própria janela de contexto e um trabalho estreito. Um agente lê docs. Um rastreia o código. Um escreve testes. Um revisa o diff final. Eles reportam de volta para um agente líder, ou diretamente para você.
 
@@ -222,7 +222,7 @@ Alguns que eu mesmo construí e rodo todos os dias:
 - [**pi-agentic-search**](https://github.com/dantetekanem/pi-agentic-search) — faz o agente buscar com intenção, não apenas vagar por aí.
 - [**pi-render-images-tmux**](https://github.com/dantetekanem/pi-render-images-tmux) — renderiza imagens direto no tmux (sim, aquele avatar ali em cima).
 - [**pi-feedback**](https://github.com/dantetekanem/pi-feedback) — um feedback loop mais apertado com o agente.
-- [**pi-code-diff**](https://github.com/leop-shopify/pi-code-diff) — diffs mais limpos para revisar exatamente o que o agente mudou.
+- [**pi-coder**](https://github.com/dantetekanem/pi-coder) — uma bancada de código e diffs mais limpos para revisar exatamente o que o agente mudou.
 - [**pi-persona**](https://github.com/leop-shopify/pi-persona) — dá ao agente uma persona customizada.
 - [**ada**](https://github.com/leop-shopify/ada) — um agente orientado por artefatos.
 - [**pi-thinking-messaging**](https://github.com/dantetekanem/pi-thinking-messaging) — adiciona tempo decorrido e contagem de tokens ao loader de working/thinking do Pi.
@@ -310,7 +310,7 @@ Mesmo que você tenha digitado zero linhas, você aprovou o formato da mudança.
 
 Antes de AI, uma review protegia você do ponto cego de outra pessoa. Agora ela também protege você de um output que pode parecer completo antes de ser realmente entendido. O código perigoso nem sempre é feio. Às vezes ele tem testes verdes, nomes limpos e uma idempotency key faltando que ninguém percebeu.
 
-É por isso que eu me importo tanto com o loop de review. [pi-code-diff](https://github.com/leop-shopify/pi-code-diff) me mostra exatamente o que o agente tocou. [pi-feedback](https://github.com/dantetekanem/pi-feedback) me permite devolver correção sem transformar a sessão inteira em ruído. Eu não preciso de mais narração do agente. Eu preciso de um diff claro, um caminho preciso de correção e um loop que me deixe entrar quando julgamento importa.
+É por isso que eu me importo tanto com o loop de review. [pi-coder](https://github.com/dantetekanem/pi-coder) me mostra exatamente o que o agente tocou. [pi-feedback](https://github.com/dantetekanem/pi-feedback) me permite devolver correção sem transformar a sessão inteira em ruído. Eu não preciso de mais narração do agente. Eu preciso de um diff claro, um caminho preciso de correção e um loop que me deixe entrar quando julgamento importa.
 
 Para mim, Pi não é permissão para se importar menos. É uma forma de mover o cuidado para um lugar melhor. Menos caçar arquivos. Mais perguntar se isso pertence ao sistema. Menos "por favor escreva este método." Mais "prove que este é o design certo, com dados, docs, testes e o menor diff seguro."
 
