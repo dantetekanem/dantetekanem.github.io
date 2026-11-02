@@ -1,0 +1,30 @@
+name: JavaScript checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  javascript:
+    name: Einstein Field Lab behavior
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Set up Node.js
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '26'
+          package-manager-cache: false
+      - name: Run behavioral tests
+        run: >-
+          node --test
+          --test-name-pattern='the laser maps distinguish|BFCache pagehide|the Kruskal map preserves|the uncompactified|the pre-animation coordinate|coordinate-map values|the later coordinate|the pure model'
+          experiments/einstein-field-lab/test/lab.test.cjs
