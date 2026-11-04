@@ -19,6 +19,12 @@ layout: default
           <a href="{{ '/categories/' | relative_url }}#{{ category | slugify }}"
             >{{ category }}</a
           >{% unless forloop.last %}, {% endunless %} {% endfor %} {% endif %}
+          {% if post.i18n.pt_br.content_include %}
+          • <a href="{{ post.url | relative_url }}#pt-br" lang="pt-BR" hreflang="pt-BR"
+            aria-label="Ler em português: {{ post.i18n.pt_br.title | escape }}"
+            >Ler em português</a
+          >
+          {% endif %}
         </span>
       </div>
       {% endfor %}
