@@ -464,13 +464,13 @@ ready(function initLanguageToggle() {
       setUrlForLanguage(nextLang);
     }
 
-    if (nextLang === currentLang) {
-      updateDocumentLanguage(nextLang);
-      await updateToggleState(nextLang, { animate: false, disabled: isSwitching });
+    if (isSwitching) {
       return;
     }
 
-    if (isSwitching) {
+    if (nextLang === currentLang) {
+      updateDocumentLanguage(nextLang);
+      await updateToggleState(nextLang, { animate: false, disabled: false });
       return;
     }
 
@@ -512,6 +512,12 @@ ready(function initLanguageToggle() {
     isSwitching = false;
     post.removeAttribute('data-i18n-switching');
     await updateToggleState(nextLang, { animate: false, disabled: false });
+
+    // Hash navigation may have changed the requested language during the switch.
+    const requestedLang = languageFromHash();
+    if (requestedLang !== currentLang) {
+      await setLanguage(requestedLang);
+    }
   }
 
   document.addEventListener('click', (event) => {

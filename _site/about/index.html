@@ -8,96 +8,77 @@
 <meta name="description" content="Personal blog where I share my thoughts about programming, technology, and other interesting topics.">
 
 <!-- Stylesheets -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&display=swap">
 <link rel="stylesheet" href="/assets/vendor/slot-text/style.css">
 <link rel="stylesheet" href="/assets/css/main.css">
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet">
 
 <!-- Feed and SEO tag -->
 <link type="application/atom+xml" rel="alternate" href="https://blog.leonardopereira.com/feed.xml" title="Leo&apos;s Blog - leonardopereira.com" />
-<!-- Begin Jekyll SEO tag v2.8.0 -->
+<!-- Begin Jekyll SEO tag v2.9.1 -->
 <title>About | Leo’s Blog - leonardopereira.com</title>
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="About" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Personal blog where I share my thoughts about programming, technology, and other interesting topics." />
-<meta property="og:description" content="Personal blog where I share my thoughts about programming, technology, and other interesting topics." />
+<meta name="twitter:description" property="og:description" content="Personal blog where I share my thoughts about programming, technology, and other interesting topics." />
 <link rel="canonical" href="https://blog.leonardopereira.com/about/" />
 <meta property="og:url" content="https://blog.leonardopereira.com/about/" />
 <meta property="og:site_name" content="Leo’s Blog - leonardopereira.com" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="About" />
+<meta name="twitter:title" content="About" />
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebSite","description":"Personal blog where I share my thoughts about programming, technology, and other interesting topics.","headline":"About","name":"Leo’s Blog - leonardopereira.com","url":"https://blog.leonardopereira.com/about/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-<link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico"> 
+<link rel="icon" type="image/svg+xml" href="/assets/logo.svg?v=1793850435">
+<link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico" sizes="32x32">
+
 </head>
 <body>
-  <div class="container-fluid base">
-    <div class="top-40px">
-      <div class="header-row">
-        <div class="header-left">
-          <div class="dots-container">
-            <span class="dot bg-violet"></span>
-            <span class="dot bg-capri"></span>
-            <span class="dot bg-white"></span>
-          </div>
-          <h1 class="site-title"><a href="/" class="site-title-link">Leo's Blog</a></h1>
-        </div>
-        <div class="header-right">
-          
-          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
-            <svg class="theme-icon sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-            <svg class="theme-icon moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-          </button>
-          <div class="return-button">
-            
-              <a href="/" class="btn btn-profile">Back to Blog</a>
-            
-          </div>
-        </div>
+  <div class="hud-frame" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="header-row">
+      <a href="/" class="site-brand">
+        <svg class="site-logo" viewBox="0 8 48 32" aria-hidden="true" focusable="false"><use href="/assets/logo.svg?v=1793850435#logo"/></svg>
+        <span class="site-title">Leo's Blog</span>
+      </a>
+      <div class="header-right">
+        <a href="/about/" class="nav-link" aria-current="page">About</a>
+        <a href="/experiments/" class="nav-link">Experiments</a>
+        
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle light/dark mode">
+          <svg class="theme-icon sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="theme-icon moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        
+          <a href="/" class="btn-profile">Back to Blog</a>
+        
       </div>
-      
-      <div class="header-content-separator">
-        <div class="custom-hr"></div>
-      </div>
-      
-      <main class="page-content">
-        <h1 id="about-me">About Me</h1>
-
-<p>Hi, I’m Leo! I’m a developer who loves to build things with Ruby and JavaScript.</p>
-
-<h2 id="my-background">My Background</h2>
-
-<p>I have a passion for web development and creating clean, efficient code. I enjoy working with frameworks like Ruby on Rails and modern JavaScript technologies.</p>
-
-<h2 id="my-interests">My Interests</h2>
-
-<p>When I’m not coding, I enjoy:</p>
-
-<ul>
-  <li>Reading technical books</li>
-  <li>Contributing to open source projects</li>
-  <li>Learning new programming languages and frameworks</li>
-  <li>Sharing knowledge through blog posts</li>
-</ul>
-
-<h2 id="contact">Contact</h2>
-
-<p>Feel free to reach out to me through:</p>
-
-<ul>
-  <li>Email: me@www.leonardopereira.com</li>
-  <li>GitHub: <a href="https://github.com/dantetekanem">dantetekanem</a></li>
-  <li>Twitter: <a href="https://twitter.com/dantetekanem">@dantetekanem</a></li>
-</ul>
-
-      </main>
     </div>
-  </div>
+  </header>
+
+  <main class="page-content">
+    <h1 id="about-me">About Me</h1>
+
+<p>Hey there! My name is Leonardo, but call me Leo. I’m a software engineer, deeply passionate about creating things and about making the world a more amazing place. I believe coding is magic: we turn thin air (okay, not exactly thin air, more like electrons and bytes) into real, impactful change in the world. Information moves fast, and I love the hard challenges that come with it.</p>
+
+<p>I started coding early, at 13 (so, more than 20 years of coding now), and I was extremely lucky to find what I love to do so young. My hobby is coding. My work is coding.</p>
+
+<p>Speaking of work, I’m currently at Shopify, on the Convert Explore team, where we dive into the depths of creation to find more amazing ways to bring new merchants onto our platform. Some of my recent work includes speeding up signup to 3.5 seconds, <a href="https://www.shopify.com/ca/gmv-promotion/terms-and-conditions" target="_blank" rel="noopener noreferrer">GMV Rewards</a>, and the <a href="https://www.shopify.com/agentic-plan" target="_blank" rel="noopener noreferrer">Agentic Plan</a>. And we’re cooking much, much more.</p>
+
+<p>This blog is where I share my thoughts and, hopefully, teach you a thing or two along the way.</p>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-line" aria-hidden="true"></div>
+    <p>Built with Jekyll · Set in Inter · Hosted on GitHub Pages</p>
+    <p class="footer-meta">© 2026 Leonardo Pereira · <a href="https://www.leonardopereira.com">leonardopereira.com</a> · <a href="/feed.xml">RSS</a></p>
+  </footer>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PB8KG1169H"></script>
@@ -108,9 +89,9 @@
 
     gtag('config', 'G-PB8KG1169H');
   </script>
-  
+
   <!-- Custom scripts -->
   <script src="/assets/js/main.js"></script>
   <script type="module" src="/assets/js/language-toggle.js"></script>
 </body>
-</html> 
+</html>
