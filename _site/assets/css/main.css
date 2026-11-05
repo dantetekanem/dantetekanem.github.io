@@ -563,23 +563,43 @@ hr,
 }
 
 /* About and other plain Markdown pages render straight into .page-content. */
-.page-content > h1 {
+:is(.page-content, .about-text) > h1 {
   margin: 0 0 24px;
   font-size: 32px;
   font-weight: 650;
   letter-spacing: -0.02em;
 }
 
-.page-content > :is(h2, h3) {
+:is(.page-content, .about-text) > :is(h2, h3) {
   margin: 40px 0 12px;
   font-size: 24px;
 }
 
-.page-content > :is(p, ul, ol, blockquote) {
+:is(.page-content, .about-text) > :is(p, ul, ol, blockquote) {
   margin-bottom: 22px;
   color: var(--prose);
   font-size: 18px;
   line-height: 1.7;
+}
+
+/* About: portrait on the left, text on the right. */
+.about {
+  display: flex;
+  align-items: flex-start;
+  gap: 52px;
+}
+
+.about-photo {
+  flex: none;
+  width: 200px;
+  height: auto;
+  margin-left: 52px;
+}
+
+.about-text {
+  flex: 1;
+  min-width: 0;
+  margin-right: 26px;
 }
 
 /* ---------- Post lists ---------- */
@@ -1263,7 +1283,7 @@ div.highlight pre {
   }
 
   .post .post-header .post-title,
-  .page-content > h1 {
+  :is(.page-content, .about-text) > h1 {
     font-size: 28px;
   }
 
@@ -1346,6 +1366,34 @@ div.highlight pre {
   .sticky-header .nav-link,
   .sticky-header .header-row::before {
     display: none;
+  }
+
+  /*
+   * Too narrow for side by side, so the top becomes a title card: the portrait
+   * centered and fading out into the page, the heading rising into the fade.
+   */
+  .about {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  .about-photo {
+    width: 180px;
+    margin-left: 0;
+    -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent);
+    mask-image: linear-gradient(to bottom, #000 55%, transparent);
+  }
+
+  .about-text {
+    align-self: stretch;
+    margin-right: 0;
+  }
+
+  .about-text > h1 {
+    position: relative;
+    margin-top: -56px;
+    text-align: center;
   }
 }
 
