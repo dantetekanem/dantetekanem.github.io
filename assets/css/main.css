@@ -1307,8 +1307,8 @@ div.highlight pre {
 
 /*
  * Phones: row one is the brand with the language and theme toggles,
- * row two the page links. The "Back to" button moves out (the logo goes home,
- * and the footer links to leonardopereira.com).
+ * row two the page links with the "Back to" button at the right end.
+ * The compact sticky bar keeps only row one.
  */
 @media (max-width: 640px) {
   .header-row {
@@ -1362,7 +1362,13 @@ div.highlight pre {
     margin-right: auto;
   }
 
-  .btn-profile,
+  .btn-profile {
+    order: 3;
+    height: 36px;
+    padding: 0 12px;
+  }
+
+  .sticky-header .btn-profile,
   .sticky-header .nav-link,
   .sticky-header .header-row::before {
     display: none;
