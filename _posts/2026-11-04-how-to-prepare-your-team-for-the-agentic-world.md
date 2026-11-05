@@ -5,7 +5,11 @@ date: 2026-11-04 22:30:00 -0500
 description: "More agents mean more pull requests. Here's how I'd prepare a team with enough compute, controlled releases, shared context, and engineers who own what ships."
 categories: [ai, agentic development, engineering culture]
 tags: [ai agents, agentic coding, developer productivity, code review, feature flags, observability, pi, shopify]
-image: /assets/images/prepare-your-team-for-the-agentic-world.png
+image:
+  path: /assets/images/og/prepare-your-team-for-the-agentic-world.jpg
+  width: 1200
+  height: 600
+  alt: "An engineer coordinating AI agents across coding, reviews, testing, and operations"
 i18n:
   pt_br:
     title: "Como preparar seu time para o mundo agêntico?"

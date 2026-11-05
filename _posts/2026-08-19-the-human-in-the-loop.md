@@ -5,6 +5,11 @@ date: 2026-08-19 19:37 -0400
 description: When you can run more than 100 different agents in a day, getting code written is no longer the hard part. Someone still has to read the diff, catch what does not belong, and decide what should ship.
 categories: [ai, agentic development, engineering culture]
 tags: [pi, pi-coder, code review, ai agents, agentic coding, developer productivity, human in the loop]
+image:
+  path: /assets/images/og/human-in-the-loop.jpg
+  width: 1200
+  height: 600
+  alt: "Leo in the Loop"
 i18n:
   pt_br:
     title: 'O Humano no Loop'
