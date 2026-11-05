@@ -50,9 +50,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const scrollThreshold = 150; // Show sticky header after scrolling this far
 
   window.addEventListener('scroll', function() {
-    // Only activate on post pages
-    if (!isPostPage) return;
-    
     const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
     
     // Show sticky header when scrolling down past threshold

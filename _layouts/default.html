@@ -1,49 +1,48 @@
+{%- assign logo_file = site.static_files | where: "path", "/assets/logo.svg" | first -%}
+{%- capture logo_url %}{{ "/assets/logo.svg" | relative_url }}?v={{ logo_file.modified_time | date: "%s" }}{% endcapture -%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   {% include head.html %}
 </head>
 <body>
-  <div class="container-fluid base">
-    <div class="top-40px">
-      <div class="header-row">
-        <div class="header-left">
-          <div class="dots-container">
-            <span class="dot bg-violet"></span>
-            <span class="dot bg-capri"></span>
-            <span class="dot bg-white"></span>
-          </div>
-          <h1 class="site-title"><a href="{{ '/' | relative_url }}" class="site-title-link">Leo's Blog</a></h1>
-        </div>
-        <div class="header-right">
-          {% if page.i18n.pt_br %}
-          <button class="language-toggle" type="button" data-i18n-toggle aria-label="Switch language to Portuguese (Brazil)" aria-pressed="false">
-            <span class="language-toggle-label" data-i18n-toggle-label>PT-BR</span>
-          </button>
-          {% endif %}
-          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
-            <svg class="theme-icon sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-            <svg class="theme-icon moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-          </button>
-          <div class="return-button">
-            {% if page.layout == 'home' or page.url == '/' %}
-              <a href="https://www.leonardopereira.com" class="btn btn-profile">Back to leonardopereira.com</a>
-            {% else %}
-              <a href="{{ '/' | relative_url }}" class="btn btn-profile">Back to Blog</a>
-            {% endif %}
-          </div>
-        </div>
+  <div class="hud-frame" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="header-row">
+      <a href="{{ '/' | relative_url }}" class="site-brand">
+        <svg class="site-logo" viewBox="0 8 48 32" aria-hidden="true" focusable="false"><use href="{{ logo_url }}#logo"/></svg>
+        <span class="site-title">Leo's Blog</span>
+      </a>
+      <div class="header-right">
+        <a href="{{ '/about/' | relative_url }}" class="nav-link"{% if page.url == '/about/' %} aria-current="page"{% endif %}>About</a>
+        <a href="{{ '/experiments/' | relative_url }}" class="nav-link"{% if page.url == '/experiments/' %} aria-current="page"{% endif %}>Experiments</a>
+        {% if page.i18n.pt_br %}
+        <button class="language-toggle" type="button" data-i18n-toggle aria-label="Switch language to Portuguese (Brazil)" aria-pressed="false">
+          <span class="language-toggle-label" data-i18n-toggle-label>PT-BR</span>
+        </button>
+        {% endif %}
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle light/dark mode">
+          <svg class="theme-icon sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="theme-icon moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        {% if page.layout == 'home' or page.url == '/' %}
+          <a href="https://www.leonardopereira.com" class="btn-profile">Back to leonardopereira.com</a>
+        {% else %}
+          <a href="{{ '/' | relative_url }}" class="btn-profile">Back to Blog</a>
+        {% endif %}
       </div>
-      
-      <div class="header-content-separator">
-        <div class="custom-hr"></div>
-      </div>
-      
-      <main class="page-content">
-        {{ content }}
-      </main>
     </div>
-  </div>
+  </header>
+
+  <main class="page-content">
+    {{ content }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-line" aria-hidden="true"></div>
+    <p>Built with Jekyll · Set in Inter · Hosted on GitHub Pages</p>
+    <p class="footer-meta">© {{ 'now' | date: '%Y' }} Leonardo Pereira · <a href="https://www.leonardopereira.com">leonardopereira.com</a> · <a href="{{ '/feed.xml' | relative_url }}">RSS</a></p>
+  </footer>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PB8KG1169H"></script>
@@ -54,9 +53,9 @@
 
     gtag('config', 'G-PB8KG1169H');
   </script>
-  
+
   <!-- Custom scripts -->
   <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
   <script type="module" src="{{ '/assets/js/language-toggle.js' | relative_url }}"></script>
 </body>
-</html> 
+</html>

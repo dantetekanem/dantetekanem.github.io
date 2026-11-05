@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <!-- Two cells set corner to corner inside [ ] brackets. Colors fall back to the dark
+       theme; pages that reference #logo recolor it through the logo-mark and logo-light
+       CSS custom properties. -->
+  <g id="logo" fill="none" stroke-width="1.5" stroke-linecap="square">
+    <path d="M9 13H4V35H9M39 13H44V35H39" style="stroke: var(--logo-mark, #37b9f1)"/>
+    <rect x="17" y="24" width="7" height="7" style="stroke: var(--logo-mark, #37b9f1)"/>
+    <rect x="24" y="17" width="7" height="7" style="stroke: var(--logo-light, #7fdbff)"/>
+  </g>
+</svg>

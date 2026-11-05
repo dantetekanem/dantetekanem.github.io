@@ -3,196 +3,47 @@ layout: default
 ---
 
 <div class="home">
-  <div class="posts-section">
-    <h2 class="section-title">Blog Posts</h2>
+  <section class="posts-section">
+    {% capture entries %}{{ site.posts.size }} entries{% endcapture %}
+    {% include section-head.html tag="h1" code="LOG.01" label="Blog Posts" end=entries %}
 
-    <div class="post-list">
+    <ul class="post-list">
       {% for post in paginator.posts %}
-      <div class="post-line">
-        <span class="post-bullet"></span>
-        <a href="{{ post.url | relative_url }}" class="post-title"
-          >{{ post.title | escape }}</a
-        >
+      <li class="post-line">
+        <a href="{{ post.url | relative_url }}" class="post-title">{{ post.title | escape }}</a>
         <span class="post-meta">
-          - {{ post.date | date: site.date_format }} {% if post.categories.size
-          > 0 %} in {% for category in post.categories %}
-          <a href="{{ '/categories/' | relative_url }}#{{ category | slugify }}"
-            >{{ category }}</a
-          >{% unless forloop.last %}, {% endunless %} {% endfor %} {% endif %}
-          {% if post.i18n.pt_br.content_include %}
-          • <a href="{{ post.url | relative_url }}#pt-br" lang="pt-BR" hreflang="pt-BR"
-            aria-label="Ler em português: {{ post.i18n.pt_br.title | escape }}"
-            >Ler em português</a
-          >
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: site.date_format }}</time>
+          {% if post.categories.size > 0 %}
+          <span class="post-meta-separator" aria-hidden="true">·</span>
+          {% for category in post.categories %}<a href="{{ '/categories/' | relative_url }}#{{ category | slugify }}">{{ category }}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}
           {% endif %}
         </span>
-      </div>
+      </li>
       {% endfor %}
-    </div>
+    </ul>
 
     {% if paginator.total_pages > 1 %}
-    <div class="pagination">
+    <nav class="pagination" aria-label="Blog pages">
       {% if paginator.previous_page %}
-      <a
-        href="{{ paginator.previous_page_path | relative_url }}"
-        class="previous"
-        >&laquo; Previous</a
-      >
+      <a href="{{ paginator.previous_page_path | relative_url }}" class="previous">&laquo; Previous</a>
       {% else %}
       <span class="previous">&laquo; Previous</span>
-      {% endif %} {% for page in (1..paginator.total_pages) %} {% if page ==
-      paginator.page %}
-      <span class="page-number current">{{ page }}</span>
-      {% elsif page == 1 %}
+      {% endif %}
+      {% for page in (1..paginator.total_pages) %}
+        {% if page == paginator.page %}
+      <span class="page-number current" aria-current="page">{{ page }}</span>
+        {% elsif page == 1 %}
       <a href="{{ '/' | relative_url }}" class="page-number">{{ page }}</a>
-      {% else %}
-      <a
-        href="{{ site.paginate_path | relative_url | replace: ':num', page }}"
-        class="page-number"
-        >{{ page }}</a
-      >
-      {% endif %} {% endfor %} {% if paginator.next_page %}
-      <a href="{{ paginator.next_page_path | relative_url }}" class="next"
-        >Next &raquo;</a
-      >
+        {% else %}
+      <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}" class="page-number">{{ page }}</a>
+        {% endif %}
+      {% endfor %}
+      {% if paginator.next_page %}
+      <a href="{{ paginator.next_page_path | relative_url }}" class="next">Next &raquo;</a>
       {% else %}
       <span class="next">Next &raquo;</span>
       {% endif %}
-    </div>
+    </nav>
     {% endif %}
-  </div>
-
-  <div class="experiments-section">
-    <h2 class="section-title">Experiments</h2>
-    <p class="section-description">
-      Interactive implementations of algorithms and visualizations
-    </p>
-
-    <div class="experiments-grid">
-      <a
-        href="{{ '/experiments/astar/' | relative_url }}"
-        class="experiment-card"
-        target="_blank"
-      >
-        <h3 class="experiment-title">A* Pathfinding Algorithm</h3>
-        <p class="experiment-description">
-          Interactive implementation of A* search algorithm with configurable
-          heuristics. Click to place start/end points and obstacles, then
-          observe the pathfinding process.
-        </p>
-      </a>
-
-      <a
-        href="{{ '/experiments/levelup/' | relative_url }}"
-        class="experiment-card"
-        target="_blank"
-      >
-        <h3 class="experiment-title">Level Up Growth Visualization</h3>
-        <p class="experiment-description">
-          Compare flat, quadratic, and exponential growth functions. Adjust
-          parameters to see how experience requirements scale across different
-          systems.
-        </p>
-      </a>
-
-      <a
-        href="{{ '/experiments/softmax/' | relative_url }}"
-        class="experiment-card"
-        target="_blank"
-      >
-        <h3 class="experiment-title">Softmax Visualization</h3>
-        <p class="experiment-description">
-          Interactive softmax function demonstration. Adjust input values and
-          temperature parameter to observe how raw scores convert to probability
-          distributions.
-        </p>
-      </a>
-
-      <a
-        href="{{ '/experiments/solarsystem/' | relative_url }}"
-        class="experiment-card"
-        target="_blank"
-      >
-        <h3 class="experiment-title">Solar System Gravity Simulation</h3>
-        <p class="experiment-description">
-          Real-time gravitational physics simulation with accurate force
-          calculations. Adjust solar mass, add celestial bodies, and observe
-          orbital mechanics.
-        </p>
-      </a>
-
-      <a
-        href="{{ '/experiments/snake/' | relative_url }}"
-        class="experiment-card"
-        target="_blank"
-      >
-        <h3 class="experiment-title">3D Snake Game</h3>
-        <p class="experiment-description">
-          Snake game with switchable 2D/3D perspectives. Features dynamic object
-          spawning, collision detection, and first-person camera controls.
-        </p>
-      </a>
-
-      <a
-        href="{{ '/experiments/bezier-2d/' | relative_url }}"
-        class="experiment-card"
-        target="_blank"
-      >
-        <h3 class="experiment-title">Quadratic Curve Targeting – 2D</h3>
-        <p class="experiment-description">
-          Animated quadratic Bezier curve targeting inspired by FF12. Drag
-          control points to reshape the curve, with glowing projectile trail
-          and impact effects.
-        </p>
-      </a>
-
-      <a
-        href="{{ '/experiments/bezier-3d/' | relative_url }}"
-        class="experiment-card"
-        target="_blank"
-      >
-        <h3 class="experiment-title">Quadratic Curve Targeting – 3D</h3>
-        <p class="experiment-description">
-          Three.js 3D version of the Bezier targeting animation. Orbit camera,
-          drag spheres in 3D space, fat glowing trail with particle impact
-          effects.
-        </p>
-      </a>
-
-      <a
-        href="{{ '/experiments/seasons-simulation/' | relative_url }}"
-        class="experiment-card"
-        target="_blank"
-      >
-        <h3 class="experiment-title">The Seasonal Meridian</h3>
-        <p class="experiment-description">
-          Interactive Earth–Sun observatory showing how a fixed 23.44° axial
-          tilt changes seasons, solar declination, and daylight around the world.
-        </p>
-      </a>
-    </div>
-  </div>
-
-  <div class="experiments-section studies-section">
-    <h2 class="section-title">Studies and Curiosities</h2>
-    <p class="section-description">
-      Long-form interactive studies built from equations, coordinate maps,
-      explanations, and physical animations.
-    </p>
-
-    <div class="experiments-grid">
-      <a
-        href="{{ '/experiments/einstein-field-lab/' | relative_url }}"
-        class="experiment-card"
-        target="_blank"
-      >
-        <h3 class="experiment-title">Einstein Field Lab</h3>
-        <p class="experiment-description">
-          Start with a falling lift, follow the mathematics through curved
-          spacetime and black-hole coordinates, and see how Einstein’s
-          separate work on light helped make lasers possible.
-        </p>
-      </a>
-    </div>
-  </div>
+  </section>
 </div>

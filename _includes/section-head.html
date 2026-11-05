@@ -1,0 +1,12 @@
+{%- assign head_tag = include.tag | default: "h2" -%}
+<{{ head_tag }} class="section-head"{% if include.anchor %} id="{{ include.anchor }}"{% endif %}>
+  <span class="head-led" aria-hidden="true"></span>
+  {%- if include.code %}
+  <span class="head-code" aria-hidden="true">{{ include.code }}</span>
+  {%- endif %}
+  <span class="head-label">{{ include.label }}</span>
+  <span class="head-fill" aria-hidden="true"></span>
+  {%- if include.end %}
+  <span class="head-end" aria-hidden="true">{{ include.end }}</span>
+  {%- endif %}
+</{{ head_tag }}>

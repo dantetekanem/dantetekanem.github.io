@@ -5,7 +5,8 @@ permalink: /archive/
 ---
 
 <div class="archive">
-  <h1 class="page-heading">Archive</h1>
+  {% capture entries %}{{ site.posts.size }} entries{% endcapture %}
+  {% include section-head.html tag="h1" code="ARC.01" label="Archive" end=entries %}
   
   <div class="year-list">
     {% assign postsByYear = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
@@ -21,23 +22,20 @@ permalink: /archive/
   {% for year in postsByYear %}
     <div class="year-section">
       <h2 id="{{ year.name }}">{{ year.name }}</h2>
-      <div class="post-list">
+      <ul class="post-list">
         {% for post in year.items %}
-        <div class="post-line">
-          <span class="post-bullet"></span>
+        <li class="post-line">
           <a href="{{ post.url | relative_url }}" class="post-title">{{ post.title | escape }}</a>
           <span class="post-meta">
-            - {{ post.date | date: site.date_format }}
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: site.date_format }}</time>
             {% if post.categories.size > 0 %}
-            in 
-            {% for category in post.categories %}
-            <a href="{{ '/categories/' | relative_url }}#{{ category | slugify }}">{{ category }}</a>{% unless forloop.last %}, {% endunless %}
-            {% endfor %}
+            <span class="post-meta-separator" aria-hidden="true">·</span>
+            {% for category in post.categories %}<a href="{{ '/categories/' | relative_url }}#{{ category | slugify }}">{{ category }}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}
             {% endif %}
           </span>
-        </div>
+        </li>
         {% endfor %}
-      </div>
+      </ul>
       {% unless forloop.last %}
       <div class="section-separator">
         <a href="#" class="back-to-top">Back to top</a>

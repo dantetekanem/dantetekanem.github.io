@@ -28,12 +28,12 @@ layout: default
       </time>
       {% if page.last_modified_at %}
       <span class="post-updated">
-        • Updated: <time datetime="{{ page.last_modified_at | date_to_xmlschema }}">{{ page.last_modified_at | date: site.date_format }}</time>
+        · Updated: <time datetime="{{ page.last_modified_at | date_to_xmlschema }}">{{ page.last_modified_at | date: site.date_format }}</time>
       </span>
       {% endif %}
       {% if page.categories.size > 0 %}
       <span class="post-categories">
-        • {% if has_pt_br_translation %}<span data-i18n-text data-i18n-en="Categories:" data-i18n-pt-br="{{ page.i18n.pt_br.labels.categories | default: 'Categorias:' | escape }}">Categories:</span>{% else %}Categories:{% endif %}
+        · {% if has_pt_br_translation %}<span data-i18n-text data-i18n-en="Categories:" data-i18n-pt-br="{{ page.i18n.pt_br.labels.categories | default: 'Categorias:' | escape }}">Categories:</span>{% else %}Categories:{% endif %}
         {% for category in page.categories %}
         {% assign translated_category = category %}
         {% if has_pt_br_translation and page.i18n.pt_br.categories %}

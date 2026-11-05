@@ -1,11 +1,141 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url=/">
-    <title>Redirecting...</title>
-</head>
-<body>
-    <p>Redirecting to <a href="/">homepage</a>...</p>
-</body>
-</html>
+---
+layout: default
+title: Experiments
+permalink: /experiments/
+---
+
+<div class="experiments-page">
+  <section class="experiments-section">
+    {% include section-head.html tag="h1" code="LAB.01" label="Experiments" end="EXP.RUN" %}
+    <p class="section-description">
+      Interactive implementations of algorithms and visualizations
+    </p>
+
+    <div class="experiments-grid">
+      <a
+        href="{{ '/experiments/astar/' | relative_url }}"
+        class="experiment-card"
+        target="_blank"
+      >
+        <h3 class="experiment-title">A* Pathfinding Algorithm</h3>
+        <p class="experiment-description">
+          Interactive implementation of A* search algorithm with configurable
+          heuristics. Click to place start/end points and obstacles, then
+          observe the pathfinding process.
+        </p>
+      </a>
+
+      <a
+        href="{{ '/experiments/levelup/' | relative_url }}"
+        class="experiment-card"
+        target="_blank"
+      >
+        <h3 class="experiment-title">Level Up Growth Visualization</h3>
+        <p class="experiment-description">
+          Compare flat, quadratic, and exponential growth functions. Adjust
+          parameters to see how experience requirements scale across different
+          systems.
+        </p>
+      </a>
+
+      <a
+        href="{{ '/experiments/softmax/' | relative_url }}"
+        class="experiment-card"
+        target="_blank"
+      >
+        <h3 class="experiment-title">Softmax Visualization</h3>
+        <p class="experiment-description">
+          Interactive softmax function demonstration. Adjust input values and
+          temperature parameter to observe how raw scores convert to probability
+          distributions.
+        </p>
+      </a>
+
+      <a
+        href="{{ '/experiments/solarsystem/' | relative_url }}"
+        class="experiment-card"
+        target="_blank"
+      >
+        <h3 class="experiment-title">Solar System Gravity Simulation</h3>
+        <p class="experiment-description">
+          Real-time gravitational physics simulation with accurate force
+          calculations. Adjust solar mass, add celestial bodies, and observe
+          orbital mechanics.
+        </p>
+      </a>
+
+      <a
+        href="{{ '/experiments/snake/' | relative_url }}"
+        class="experiment-card"
+        target="_blank"
+      >
+        <h3 class="experiment-title">3D Snake Game</h3>
+        <p class="experiment-description">
+          Snake game with switchable 2D/3D perspectives. Features dynamic object
+          spawning, collision detection, and first-person camera controls.
+        </p>
+      </a>
+
+      <a
+        href="{{ '/experiments/bezier-2d/' | relative_url }}"
+        class="experiment-card"
+        target="_blank"
+      >
+        <h3 class="experiment-title">Quadratic Curve Targeting – 2D</h3>
+        <p class="experiment-description">
+          Animated quadratic Bezier curve targeting inspired by FF12. Drag
+          control points to reshape the curve, with glowing projectile trail
+          and impact effects.
+        </p>
+      </a>
+
+      <a
+        href="{{ '/experiments/bezier-3d/' | relative_url }}"
+        class="experiment-card"
+        target="_blank"
+      >
+        <h3 class="experiment-title">Quadratic Curve Targeting – 3D</h3>
+        <p class="experiment-description">
+          Three.js 3D version of the Bezier targeting animation. Orbit camera,
+          drag spheres in 3D space, fat glowing trail with particle impact
+          effects.
+        </p>
+      </a>
+
+      <a
+        href="{{ '/experiments/seasons-simulation/' | relative_url }}"
+        class="experiment-card"
+        target="_blank"
+      >
+        <h3 class="experiment-title">The Seasonal Meridian</h3>
+        <p class="experiment-description">
+          Interactive Earth–Sun observatory showing how a fixed 23.44° axial
+          tilt changes seasons, solar declination, and daylight around the world.
+        </p>
+      </a>
+    </div>
+  </section>
+
+  <section class="experiments-section studies-section">
+    {% include section-head.html code="LAB.02" label="Studies and Curiosities" end="LONG.FORM" %}
+    <p class="section-description">
+      Long-form interactive studies built from equations, coordinate maps,
+      explanations, and physical animations.
+    </p>
+
+    <div class="experiments-grid">
+      <a
+        href="{{ '/experiments/einstein-field-lab/' | relative_url }}"
+        class="experiment-card"
+        target="_blank"
+      >
+        <h3 class="experiment-title">Einstein Field Lab</h3>
+        <p class="experiment-description">
+          Start with a falling lift, follow the mathematics through curved
+          spacetime and black-hole coordinates, and see how Einstein’s
+          separate work on light helped make lasers possible.
+        </p>
+      </a>
+    </div>
+  </section>
+</div>
